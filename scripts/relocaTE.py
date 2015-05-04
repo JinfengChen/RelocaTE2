@@ -22,7 +22,7 @@ python relocaTE.py --fq_dirMSU7.Chr4.ALL.rep1_reads_5X_100_500 --genome_fasta MS
 
 
 --cpu: cpu numbers to run multiprocess jobs, default=1
---run: run all steps while excute this script (1) or only generate scripts for all steps (0), default=0
+--run: run all steps while excute this script or only generate scripts for all steps.
 
     '''
     print message
@@ -496,8 +496,9 @@ def main():
     createdir('%s/shellscripts/step_7' %(args.outdir))
     step7_cmd = []
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.gff > %s/repeat/results/ALL.all_nonref_insert.gff' %(args.outdir, args.outdir))
-    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
+    #step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.txt | grep "^TE" -v > %s/repeat/results/ALL.all_nonref_insert.txt' %(args.outdir, args.outdir))
+    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.txt > %s/repeat/results/ALL.all_ref_insert.txt' %(args.outdir, args.outdir))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.gff > %s/repeat/results/ALL.all_ref_insert.gff' %(args.outdir, args.outdir))
     step7_cmd.append('perl %s/characterizer.pl -s %s/repeat/results/ALL.all_nonref_insert.txt -b %s -g %s --samtools %s' %(RelocaTE_bin, args.outdir, bam, reference, samtools))

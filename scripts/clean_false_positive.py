@@ -24,7 +24,7 @@ def fasta_id(fastafile):
 #Retro1  ACGTC   not.give        Chr4    14199..14203    -       T:7     R:4     L:3     ST:21   SR:9    SL:12
 def txt2gff(infile, outfile, ins_type):
     #print infile, outfile
-    ofile = open(outfile, 'a')
+    ofile = open(outfile, 'w')
     count = 0
     r_pos = re.compile(r'(\d+)\.\.(\d+)')
     with open (infile, 'r') as filehd:
@@ -37,6 +37,7 @@ def txt2gff(infile, outfile, ins_type):
                 chro, start, end = ['', 0, 0]
                 chro = unit[3]
                 strand = unit[5]
+                te_name= unit[0]
                 m = r_pos.search(unit[4])
                 if m:
                     start = m.groups(0)[0]
@@ -46,7 +47,7 @@ def txt2gff(infile, outfile, ins_type):
                 r_supp  = re.sub(r'\D+', '', unit[10])
                 l_supp  = re.sub(r'\D+', '', unit[11])
                 r_id    = 'repeat_%s_%s_%s' %(chro, start, end)
-                print >> ofile, '%s\t%s\t%s\t%s\t%s\t.\t%s\t.\tID=%s;TSD=%s;Note=%s;Right_junction_reads:%s;Left_junction_reads:%s;Right_support_reads:%s;Left_support_reads:%s;' %(chro, unit[2], 'RelocaTE_i',start, end, strand, r_id, unit[1], ins_type, r_count, l_count, r_supp, l_supp)
+                print >> ofile, '%s\t%s\t%s\t%s\t%s\t.\t%s\t.\tID=%s;Name=%s;TSD=%s;Note=%s;Right_junction_reads:%s;Left_junction_reads:%s;Right_support_reads:%s;Left_support_reads:%s;' %(chro, unit[2], 'RelocaTE_i',start, end, strand, r_id, te_name, unit[1], ins_type, r_count, l_count, r_supp, l_supp)
     ofile.close()
 
 #Chr3	not.give	RelocaTE_i	283493	283504	.	-	.	ID=repeat_Chr3_283493_283504;TSD=ATGCCATCAAGG;Note=Non-reference,
@@ -59,7 +60,7 @@ def Overlap_TE_boundary(prefix, refte):
     clean_gff   = '%s.clean.gff' %(prefix)
     infile = '%s.overlap' %(prefix)
     outfile= '%s.remove.gff' %(prefix)
-    os.system('bedtools window -w 10 -a %s -b %s > %s' %(final_gff, refte, infile))
+    os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools window -w 10 -a %s -b %s > %s' %(final_gff, refte, infile))
     if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
         return 1 
     ofile  = open(outfile, 'w') 
@@ -90,7 +91,7 @@ def Overlap_TE_boundary(prefix, refte):
     ofile.close()
     if not os.path.isfile(outfile) or not os.path.getsize(outfile) > 0:
         return 1
-    os.system('bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
+    os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
     os.system('mv %s %s' %(final_gff, raw_gff))
     os.system('grep -v \"singleton\|insufficient_data\" %s > %s' %(clean_gff, final_gff))
     os.system('rm %s.overlap %s.remove.gff %s.clean.gff' %(prefix, prefix, prefix))
@@ -108,8 +109,8 @@ def main():
         usage()
         sys.exit(2)
 
-    if not os.path.isfile(args.input) or not os.path.getsize(args.input) > 0:
-        txt2gff('%s.txt' %(os.path.splitext(args.input)[0]), args.input, 'non_reference')
+    #if not os.path.isfile(args.input) or not os.path.getsize(args.input) > 0:
+    txt2gff('%s.txt' %(os.path.splitext(args.input)[0]), args.input, 'non_reference')
     #os.system('bedtools window -w 10 -a %s -b %s > %s.overlap' %(args.input, args.refte, os.path.splitext(args.input)[0]))
     Overlap_TE_boundary(os.path.splitext(args.input)[0], args.refte)
     
