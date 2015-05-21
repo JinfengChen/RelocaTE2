@@ -94,13 +94,13 @@ def Overlap_TE_boundary(prefix, refte, distance):
         #nothing to remove
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(raw_gff, all_gff))
-        os.system('grep -v \"singleton\|insufficient_data\" %s > %s' %(raw_gff, final_gff))
+        os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(raw_gff, final_gff))
         os.system('rm %s.overlap %s.remove.gff' %(prefix, prefix))
     else:
         os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(clean_gff, all_gff))
-        os.system('grep -v \"singleton\|insufficient_data\" %s > %s' %(clean_gff, final_gff))
+        os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(clean_gff, final_gff))
         os.system('rm %s.overlap %s.remove.gff %s.clean.gff' %(prefix, prefix, prefix))
 
 def main():
@@ -119,7 +119,7 @@ def main():
     
 
     #if not os.path.isfile(args.input) or not os.path.getsize(args.input) > 0:
-    txt2gff('%s.txt' %(os.path.splitext(args.input)[0]), args.input, 'non_reference')
+    #txt2gff('%s.txt' %(os.path.splitext(args.input)[0]), args.input, 'non_reference')
     #os.system('bedtools window -w 10 -a %s -b %s > %s.overlap' %(args.input, args.refte, os.path.splitext(args.input)[0]))
     Overlap_TE_boundary(os.path.splitext(args.input)[0], args.refte, args.distance)
     

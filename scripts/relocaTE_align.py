@@ -7,6 +7,7 @@ import os
 import argparse
 import glob
 import subprocess
+import multiprocessing as mp
 
 def usage():
     test="name"
@@ -166,7 +167,7 @@ def bwa_run(path, genome_file, fastq, fq_name, target, readclass, bwa, samtools)
     cmd = []
     cmd.append('%s aln %s %s > %s/bwa_aln/%s.%s.bwa.%s.sai' %(bwa, genome_file, fastq, path, target, fq_name, readclass))
     cmd.append('%s samse %s %s/bwa_aln/%s.%s.bwa.%s.sai %s | %s view -bhS - > %s/bwa_aln/%s.%s.bwa.%s.bam' %(bwa, genome_file, path, target, fq_name, readclass, fastq, samtools, path, target, fq_name, readclass))
-    cmd.append('rm %s/bwa_aln/*.bwa.*.sai' %(path))
+    cmd.append('rm %s/bwa_aln/%s.%s.bwa.%s.sai' %(path, target, fq_name, readclass))
     os.system('\n'.join(cmd))
     #print '\n'.join(cmd)
 
@@ -176,14 +177,85 @@ def bwa_run_paired(path, genome_file, fastq1, fastq2, fq_name, target, bwa, samt
     cmd.append('%s aln %s %s > %s/bwa_aln/%s.%s.bwa.mates.sai' %(bwa, genome_file, fastq1, path, target, os.path.split(os.path.splitext(fastq1)[0])[1]))
     cmd.append('%s aln %s %s > %s/bwa_aln/%s.%s.bwa.mates.sai' %(bwa, genome_file, fastq2, path, target, os.path.split(os.path.splitext(fastq2)[0])[1]))
     cmd.append('%s sampe %s %s/bwa_aln/%s.%s.bwa.mates.sai %s/bwa_aln/%s.%s.bwa.mates.sai %s %s | %s view -bhS - > %s/bwa_aln/%s.%s.bwa.mates.bam' %(bwa, genome_file, path, target, os.path.splitext(os.path.split(fastq1)[1])[0], path, target, os.path.splitext(os.path.split(fastq2)[1])[0], fastq1, fastq2, samtools, path, target, fq_name))
-    cmd.append('rm %s/bwa_aln/*.bwa.mates.sai' %(path))
+    cmd.append('rm %s/bwa_aln/%s.%s.bwa.mates.sai' %(path, target, os.path.split(os.path.splitext(fastq1)[0])[1]))
+    cmd.append('rm %s/bwa_aln/%s.%s.bwa.mates.sai' %(path, target, os.path.split(os.path.splitext(fastq2)[0])[1]))
     os.system('\n'.join(cmd))
     #print '\n'.join(cmd)
 
-def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk):
+def map_reads_bwa_mp_helper(args):
+    return map_reads_bwa_mp_runner(*args)
+
+#def map_reads_bwa_mp_runner(flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre):
+#def map_reads_bwa_mp_runner(seqtk, file_pre):
+#    print 'CK: %s\t%s' %(seqtk, file_pre)
+
+def map_reads_bwa_mp_runner(flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre):
+    out_files   = []
+    out_files_f = []
+    if len(flanking_fq_list) == 2:
+        fastq1  = flanking_fq_list[0]
+        fastq2  = flanking_fq_list[1]
+        print '%s\n%s' %(fastq1, fastq2)
+        fq_name = os.path.splitext(os.path.split(fastq1)[1])[0]
+        if int(os.path.getsize(fastq1)) > 0 and int(os.path.getsize(fastq2)) > 0:
+            #prepare paired file fastq1.matched, fastq2.matched and *.unPaired.fq
+            #need to rewrite this part, get all pairs that not matched to TE, which will be used as suporting reads
+            #cmd = '%s/clean_pairs_memory.pl -1 %s -2 %s 1> %s/flanking_seq/%s.unPaired.fq 2>> %s/%s.stderr' 
+            #%(scripts, fastq1, fastq2, path, fq_name, path, target)
+            cmd = '%s/clean_pairs_memory.py --fq1 %s --fq2 %s --repeat %s/te_containing_fq --fq_dir %s --seqtk %s' %(scripts, fastq1, fastq2, path, fastq_dir, seqtk)
+            print cmd
+            os.system(cmd)
+        match1 = '%s.matched' %(fastq1)
+        match2 = '%s.matched' %(fastq2)
+        unpaired = '%s/flanking_seq/%s.unPaired.fq' %(path, fq_name)
+        if int(os.path.getsize(match1)) > 0 and int(os.path.getsize(match2)) > 0:
+            #map paired-reads
+            bwa_run_paired(path, genome_file, match1, match2, fq_name, target, bwa, samtools)
+            out_files.append('%s/bwa_aln/%s.%s.bwa.mates.bam' %(path, target, fq_name))
+        if int(os.path.getsize(unpaired) > 0):
+            #map unpaired-reads
+            bwa_run(path, genome_file, unpaired, fq_name, target, 'unPaired', bwa, samtools)
+            out_files.append('%s/bwa_aln/%s.%s.bwa.unPaired.bam' %(path, target, fq_name))
+        #get full reads of junction reads and their pairs
+        #map these reads to genome and use perfect mapped reads as control for false junctions
+        fullread1_id = '%s.fullreads.id' %(match1)
+        fullread2_id = '%s.fullreads.id' %(match2)
+        fullread1_fq = '%s.fullreads.fq' %(match1)
+        fullread2_fq = '%s.fullreads.fq' %(match2)
+        fullreadu_id = '%s.fullreads.id' %(unpaired)
+        fastq2id(match1, fullread1_id)
+        fastq2id(match2, fullread2_id)
+        fastq2id(unpaired, fullreadu_id)
+        paired_id(fullread1_id, fullread2_id, fullreadu_id)
+        paired_fq(fullread1_id, fullread2_id, fastq1, fastq2, fullread1_fq, fullread2_fq, fastq_dir, seqtk)
+        bwa_run_paired(path, genome_file, fullread1_fq, fullread2_fq, '%s.matched.fullreads' %(fq_name), target, bwa, samtools)
+        out_files_f.append('%s/bwa_aln/%s.%s.bwa.mates.bam' %(path, target, '%s.matched.fullreads' %(fq_name))) 
+    else:
+        #paired not provided or not found, map reads as unpaired
+        fastq   = flanking_fq_list[0]
+        fq_name = os.path.splitext(os.path.split(fastq)[1])[0]
+        bwa_run(path, genome_file, fastq, fq_name, target, 'single', bwa, samtools)
+        out_files.append('%s/bwa_aln/%s.%s.bwa.single.bam' %(path, target, fq_name))
+    
+    return [out_files, out_files_f]
+
+
+##run function with parameters using multiprocess of #cpu
+def multiprocess_pool(parameters, cpu):
+    pool = mp.Pool(int(cpu))
+    imap_it = pool.map(map_reads_bwa_mp_helper, tuple(parameters))
+    collect_list = []
+    for x in imap_it:
+        print 'status: %s' %(x)
+        collect_list.append(x)
+    return collect_list
+    #return 1
+
+def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu):
     bwa_out_files = []
     bwa_out_files_f = []
     ##map reads with bowtie
+    parameters = []
     for file_pre in sorted(flanking_fq.keys()):
         #map reads as unpaired, treat all reads as single
         #for file_type in sorted(flanking_fq[file_pre].keys()):
@@ -193,59 +265,22 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
         #    bwa_out_files.append('%s/bwa_aln/%s.%s.bwa.single.sam' %(path, target, fq_name))
         #map reads as paired, find paired and unpaired and map seperately
         print 'pre: %s' %(file_pre)
+        flanking_fq_list = []
         if flanking_fq[file_pre].has_key(1) and flanking_fq[file_pre].has_key(2):
-            fastq1  = flanking_fq[file_pre][1]
-            fastq2  = flanking_fq[file_pre][2]
-            print '%s\n%s' %(fastq1, fastq2)
-            fq_name = os.path.splitext(os.path.split(fastq1)[1])[0]
-            if int(os.path.getsize(fastq1)) > 0 and int(os.path.getsize(fastq2)) > 0:
-                #prepare paired file fastq1.matched, fastq2.matched and *.unPaired.fq
-                #need to rewrite this part, get all pairs that not matched to TE, which will be used as suporting reads
-                #cmd = '%s/clean_pairs_memory.pl -1 %s -2 %s 1> %s/flanking_seq/%s.unPaired.fq 2>> %s/%s.stderr' 
-                #%(scripts, fastq1, fastq2, path, fq_name, path, target)
-                cmd = '%s/clean_pairs_memory.py --fq1 %s --fq2 %s --repeat %s/te_containing_fq --fq_dir %s --seqtk %s' %(scripts, fastq1, fastq2, path, fastq_dir, seqtk)
-                print cmd
-                os.system(cmd)
-            match1 = '%s.matched' %(fastq1)
-            match2 = '%s.matched' %(fastq2)
-            unpaired = '%s/flanking_seq/%s.unPaired.fq' %(path, fq_name)
-            if int(os.path.getsize(match1)) > 0 and int(os.path.getsize(match2)) > 0:
-                #map paired-reads
-                bwa_run_paired(path, genome_file, match1, match2, fq_name, target, bwa, samtools)
-                bwa_out_files.append('%s/bwa_aln/%s.%s.bwa.mates.bam' %(path, target, fq_name))
-            if int(os.path.getsize(unpaired) > 0):
-                #map unpaired-reads
-                bwa_run(path, genome_file, unpaired, fq_name, target, 'unPaired', bwa, samtools)
-                bwa_out_files.append('%s/bwa_aln/%s.%s.bwa.unPaired.bam' %(path, target, fq_name))
-            #get full reads of junction reads and their pairs
-            #map these reads to genome and use perfect mapped reads as control for false junctions
-            fullread1_id = '%s.fullreads.id' %(match1)
-            fullread2_id = '%s.fullreads.id' %(match2)
-            fullread1_fq = '%s.fullreads.fq' %(match1)
-            fullread2_fq = '%s.fullreads.fq' %(match2)
-            fullreadu_id = '%s.fullreads.id' %(unpaired)
-            fastq2id(match1, fullread1_id)
-            fastq2id(match2, fullread2_id)
-            fastq2id(unpaired, fullreadu_id)
-            paired_id(fullread1_id, fullread2_id, fullreadu_id)
-            paired_fq(fullread1_id, fullread2_id, fastq1, fastq2, fullread1_fq, fullread2_fq, fastq_dir, seqtk)
-            bwa_run_paired(path, genome_file, fullread1_fq, fullread2_fq, '%s.matched.fullreads' %(fq_name), target, bwa, samtools)
-            bwa_out_files_f.append('%s/bwa_aln/%s.%s.bwa.mates.bam' %(path, target, '%s.matched.fullreads' %(fq_name))) 
+            flanking_fq_list = [flanking_fq[file_pre][1], flanking_fq[file_pre][2]]
         else:
-        #paired not provided or not found, map reads as unpaired
-            fastq   = flanking_fq[file_pre][file_type]
-            fq_name = os.path.splitext(os.path.split(fastq)[1])[0]
-            bwa_run(path, genome_file, fastq, fq_name, target, 'single', bwa, samtools)
-            bwa_out_files.append('%s/bwa_aln/%s.%s.bwa.single.bam' %(path, target, fq_name))
-   
-    ##prepare merged files of bwa output
-    #bam2merge = []
-    #for i in range(len(bwa_out_files)):
-    #    sam = bwa_out_files[i]
-    #    bam = re.sub(r'sam', 'bam', sam)
-    #    cmd = '%s view -h -bS %s > %s' %(samtools, sam, bam)
-    #    os.system(cmd)
-    #    bam2merge.append(bam)
+            flanking_fq_list = [flanking_fq[file_pre]['unpaired']]
+        parameters.append([flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre])
+        #parameters.append([seqtk, file_pre])
+
+    for pm in parameters:
+        print 'flanking_fq_list:', pm[0]
+
+    ##mp runner
+    collect_files = multiprocess_pool(parameters, cpu)
+    for run_files_list in collect_files:
+        bwa_out_files.extend(run_files_list[0]) 
+        bwa_out_files_f.extend(run_files_list[1])
 
     ##merge all bwa results into one file
     bam2merge  = bwa_out_files
@@ -372,7 +407,7 @@ def map_reads_bowtie(scripts, flanking_fq, path, genome_file, fastq_dir, target,
         os.system(cmd)
 
 def main():
-    if not len(sys.argv) == 9:
+    if not len(sys.argv) == 10:
         usage()
         sys.exit(2)
 
@@ -384,12 +419,13 @@ def main():
     TE         = sys.argv[6] #TE name, we use repeat for combined analysis
     exper      = sys.argv[7] #prefix for output
     bowtie2    = sys.argv[8] #use bowtie2 or not
+    cpu        = sys.argv[9] 
     relax_align= 0  
     bowtie_sam = 1
     
     samtools = ''
     bwa      = ''
-    seqtk    = ''    
+    seqtk    = ''
 
     try:
         subprocess.check_output('which samtools', shell=True)
@@ -404,7 +440,9 @@ def main():
         bwa = re.sub(r'\n', '', bwa)
     except:
         bwa = '/opt/tyler/bin/bwa'
-    
+   
+    #bwa = '/opt/bwa/0.7.9/bin/bwa'
+    bwa = '/opt/tyler/bin/bwa'
     
     try:
         subprocess.check_output('which seqtk', shell=True)
@@ -436,7 +474,7 @@ def main():
     if 1:
         if not os.path.exists('%s/bwa_aln' %(path)):
             createdir('%s/bwa_aln' %(path))
-        map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk)
+        map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu)
     else:
         if not os.path.exists('%s/bowtie_aln' %(path)):
             createdir('%s/bowtie_aln' %(path))

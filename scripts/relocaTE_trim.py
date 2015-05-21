@@ -61,9 +61,31 @@ def parse_align_blat(infile, tandem):
             tStart   = int(unit[15])
             #get all values into 1st base = 0 postion notation
             tEnd     = int(unit[16]) - 1 
-            boundary = 1 if int(qStart) == 0 or int(qEnd) + 1 == int(qLen) else 0
+
+            #filter bad alignment with two many or large gaps
+            #int(unit[17]) >= 3, fewer than 3 matching blocks
+            if int(unit[4]) > 1 or int(unit[5]) > 3 or int(unit[6]) > 1 or int(unit[7]) > 3 or int(unit[17]) >= 3:
+                continue
+                
+            #boundary = 1 if int(qStart) == 0 or int(qEnd) + 1 == int(qLen) else 0
             addRecord = 0
-            #print qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+            boundary_qry_left = 0
+            boundary_tar_left = 0
+            boundary_qry_right = 0
+            boundary_tar_right = 0
+            if int(qStart) == 0 or int(qStart) <= 2:
+                boundary_qry_left  = 1
+            if int(qEnd) + 1 == int(qLen) or int(qEnd) >= int(qLen) - 3:
+                boundary_qry_right = 1 
+            if int(tStart) == 0 or int(tStart) <= 2:
+                boundary_tar_left  = 1
+            if int(tEnd) + 1 == int(tLen) or int(tEnd) >= int(tLen) - 3:
+                boundary_tar_right = 1
+            #max boundary should be 2: 1. match one read end and one repeat end; 2. match two read end and internal of repeat
+            #we expect more boundary and compare match length when having equal number of boundary
+            boundary = boundary_qry_left + boundary_tar_left + boundary_qry_right + boundary_tar_right
+            
+            #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
             if coord.has_key(qName):
                 ##keep the best match to TE
                 if int(boundary) > int(coord[qName]['boundary']):
@@ -78,9 +100,9 @@ def parse_align_blat(infile, tandem):
             else:
                 addRecord = 1 
             #filter bad alignment with two many or large gaps
-            if int(unit[4]) > 1 or int(unit[5]) > 3 or int(unit[6]) > 1 or int(unit[7]) > 3:
-                addRecord = 0
-            #print qName, qStart, qEnd, match, addRecord
+            #if int(unit[4]) > 1 or int(unit[5]) > 3 or int(unit[6]) > 1 or int(unit[7]) > 3:
+            #    addRecord = 0
+            #print >> sys.stderr, qName, qStart, qEnd, match, addRecord
             if addRecord == 1:
                 coord[qName]['match']    = match
                 coord[qName]['len']      = qLen
@@ -93,7 +115,7 @@ def parse_align_blat(infile, tandem):
                 coord[qName]['tStart']   = tStart
                 coord[qName]['tEnd']     = tEnd
                 coord[qName]['boundary'] = boundary
-                print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+                #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
     ofile.close()
     return coord
 
@@ -197,7 +219,7 @@ def parse_align_bwa(infile, tandem):
                 coord[qName]['tStart']   = tStart
                 coord[qName]['tEnd']     = tEnd
                 coord[qName]['boundary'] = boundary
-                print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+                #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
     ofile.close()
     return coord
 
@@ -316,7 +338,7 @@ def main():
                     #want to cut and keep anything not matching to database TE
                     trimmed_seq  = ''
                     trimmed_qual = ''
-                    print >> sys.stderr, 'Check:', header, start, end, length, tName, tStart, tEnd, tLen, mismatch, match, strand
+                    #print >> sys.stderr, 'Check:', header, start, end, length, tName, tStart, tEnd, tLen, mismatch, match, strand
                     #print 'check2: %s\t%s\t%s'  %(str(tStart), str((length - (match + mismatch))), str((mismatch/(match + mismatch))))
                     ##query read overlaps 5' end of database TE & trimmed seq > cutoff
                     #int(start) <= 2 or int(end) >= int(length) - 3, we need the reads mapped boundary to align with te
@@ -346,7 +368,7 @@ def main():
                             seq_desc = ''
                             seq_id   = '%s:end:5' %(seq_id)
                             header = '%s%s' %(seq_id, seq_desc)
-                        print >> sys.stderr, '1: trimmed: %s %s' %(trimmed_seq, str(end))
+                        #print >> sys.stderr, '1: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                         if len(trimmed_seq) >= len_cutoff_l:
                             print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand)
                             print >> ofile_te5, '>%s %s..%s matches %s:%s..%s mismatches:%s\n%s' %(header, qS, qE, TE, tS, tE, mismatch, te_subseq)
@@ -374,7 +396,7 @@ def main():
                             seq_desc = ''
                             seq_id   = '%s:start:3' %(seq_id)
                             header = '%s%s' %(seq_id, seq_desc)
-                        print >> sys.stderr, '2: trimmed: %s %s' %(trimmed_seq, str(end))
+                        #print >> sys.stderr, '2: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                         if len(trimmed_seq) >= len_cutoff_l:
                             print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand)
                             print >> ofile_te3, '>%s %s..%s matches %s:%s..%s mismatches:%s\n%s' %(header, qS, qE, TE, tS, tE, mismatch, te_subseq)
@@ -391,7 +413,7 @@ def main():
                         seq_id   = '%s:middle' %(seq_id)
                         header = '%s%s' %(seq_id, seq_desc)
                         print >> ofile_rr, 'M%s\t%s\t%s' %(rl_name, tName, strand) 
-                        print >> sys.stderr, '3: trimmed: %s %s' %(trimmed_seq, str(end))
+                        #print >> sys.stderr, '3: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                     ##trimmed reads
                     if len(trimmed_seq) >= len_cutoff_l:
                         print '@%s\n%s\n%s\n%s' %(header, trimmed_seq, qualh, trimmed_qual)
