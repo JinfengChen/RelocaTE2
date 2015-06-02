@@ -146,7 +146,7 @@ def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_r
     #READS      = open ('%s/%s.%s.all_ref_reads.list' %(result, usr_target, TE), 'w')
     r = re.compile(r'(\w+):(\d+)-(\d+):(.*)')
     for te_id in sorted(existingTE_found.keys()):
-        print 'Found: %s' %(te_id)
+        #print 'Found: %s' %(te_id)
         ##junction reads
         strand, chro, start, end = ['', '', '', '']
         if r.search(te_id):
@@ -154,7 +154,7 @@ def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_r
             chro   = r.search(te_id).groups(0)[0]
             start  = r.search(te_id).groups(0)[1]
             end    = r.search(te_id).groups(0)[2]
-        print '%s\t%s\t%s\t%s' %(strand, chro, start, end)
+        #print '%s\t%s\t%s\t%s' %(strand, chro, start, end)
         l_count, r_count = [0, 0]
         if strand == '+':
             l_count = len(existingTE_found[te_id]['start'].keys())
@@ -162,7 +162,7 @@ def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_r
         else:
             l_count = len(existingTE_found[te_id]['end'].keys())
             r_count = len(existingTE_found[te_id]['start'].keys())
-        print '%s\t%s' %(l_count, r_count)
+        #print '%s\t%s' %(l_count, r_count)
         ##reads and events
         total_supporting_l, left_supporting_l, right_supporting_l, left_reads_l, right_reads_l = [0, 0, 0, '', '']
         total_supporting_r, left_supporting_r, right_supporting_r, left_reads_r, right_reads_r = [0, 0, 0, '', '']
@@ -525,7 +525,7 @@ def align_process(bin_ins, read_repeat, record, r, r_tsd, count, seq, chro, star
 #existing_TE_bed_reader
 #Chr4    1072    1479    Simple_repeat:1072-1479 1       +
 #Chr4    1573    1779    Simple_repeat:1573-1779 0       +
-def existing_TE_bed_reader(infile, existingTE_intact):
+def existing_TE_bed_reader(infile, existingTE_intact, chro):
     #print 'Reading existing TE bed'
     with open(infile, 'r') as filehd:
         for line in filehd:
@@ -534,7 +534,7 @@ def existing_TE_bed_reader(infile, existingTE_intact):
                 unit = re.split(r'\t', line)
                 ##intact repeat
                 #print line
-                if int(unit[4]) == 1:
+                if int(unit[4]) == 1 and unit[0] == chro:
                     te_id = '%s:%s-%s:%s' %(unit[0], unit[1], unit[2], unit[5])
                     existingTE_intact[unit[0]]['start'][int(unit[1])] = te_id
                     existingTE_intact[unit[0]]['end'][int(unit[2])] = te_id
@@ -894,12 +894,16 @@ def main():
     #read existing TE from file
     #existing_TE_intact = defaultdict(lambda : defaultdict(lambda : int()))
     existingTE_intact = defaultdict(lambda : defaultdict(lambda : defaultdict(lambda : str)))
-    existingTE_bed = '%s/existingTE.bed' %('/'.join(top_dir))
+    existingTE_bed     = '%s/existingTE.bed' %('/'.join(top_dir))
+    existingTE_bed_chr = '%s/existingTE.%s.bed' %('/'.join(top_dir), usr_target)
     #print existingTE_bed
-    if os.path.isfile(existingTE_bed) and os.path.getsize(existingTE_bed) > 0:
-        existing_TE_bed_reader(existingTE_bed, existingTE_intact)
+    if os.path.isfile(existingTE_bed_chr) and os.path.getsize(existingTE_bed_chr) > 0:
+        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target)
     else:
-        print 'Existing TE file does not exists or zero size'
+        os.system('grep -P \"%s\\t\" %s > %s' %(usr_target, existingTE_bed, existingTE_bed_chr))
+        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target)
+        os.system('rm %s' %(existingTE_bed_chr))
+        #print 'Existing TE file does not exists or zero size'
 
     bedtools = ''
     try:
@@ -922,7 +926,12 @@ def main():
     ##read -> repeat relation
     #top_dir = re.split(r'/', os.path.dirname(os.path.abspath(align_file)))[:-1]
     result  = '%s/results' %('/'.join(top_dir))
-    read_repeat_files = glob.glob('%s/te_containing_fq/*.read_repeat_name.txt' %('/'.join(top_dir)))
+    read_repeat_files = []
+    if usr_target == 'ALL':
+        read_repeat_files = glob.glob('%s/te_containing_fq/*.read_repeat_name.split.txt' %('/'.join(top_dir)))
+    else:
+        read_repeat_files = glob.glob('%s/te_containing_fq/%s.read_repeat_name.split.txt' %('/'.join(top_dir), usr_target))
+    #read_repeat_files = glob.glob('%s/te_containing_fq/*.read_repeat_name.txt' %('/'.join(top_dir)))
     read_repeat = read_repeat_name(read_repeat_files)
 
     ##cluster reads around insertions

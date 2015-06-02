@@ -76,7 +76,7 @@ def parse_fastq_flanking(fq_file):
             qualh  = filehd.next().rstrip()
             qual   = filehd.next().rstrip()
             record = '@%s\n%s\n%s\n%s' %(header, seq, qualh, qual)
-            fq_dict[header_to_store] = [pos, record]
+            fq_dict[header_to_store] = [pos, record, header]
             #print fq_dict[header_to_store][0], fq_dict[header_to_store][1]
     return fq_dict
 
@@ -105,12 +105,13 @@ def parse_fastq_default(fq_file):
     return fq_dict
 
 
-def match_trimmed(fq1, fq2, fq1_match, fq2_match, fq_unPaired):
+def match_trimmed(fq1, fq2, fq1_match, fq2_match, fq_unPaired, fq_unPaired_info):
     fq1_dict = parse_fastq_flanking(fq1)
     fq2_dict = parse_fastq_flanking(fq2)
     ofile1 = open(fq1_match, 'w')
     ofile2 = open(fq2_match, 'w')
     ofile3 = open(fq_unPaired, 'w')
+    ofile4 = open(fq_unPaired_info, 'w')
     #only deal with :end/start here, keep unpaired middle in dictionary
     for hd in sorted(fq2_dict.keys()):
         #print hd
@@ -129,6 +130,7 @@ def match_trimmed(fq1, fq2, fq1_match, fq2_match, fq_unPaired):
             #paired but mate in fq1 is middle, write fq2 to unpaired and delete both
                 #print '2'
                 print >> ofile3, fq2_dict[hd][1]
+                print >> ofile4, '%s\t%s' %(fq2_dict[hd][2], 2)
                 del fq1_dict[hd]
                 del fq2_dict[hd]
             else:
@@ -141,6 +143,7 @@ def match_trimmed(fq1, fq2, fq1_match, fq2_match, fq_unPaired):
             #paired but mate in fq2 is middle, write fq1 to unpaired and delete both
             #these informations should be recorded and used as supporting reads
                 print >> ofile3, fq1_dict[hd][1]
+                print >> ofile4, '%s\t%s' %(fq1_dict[hd][2], 1)
                 del fq1_dict[hd]
                 del fq2_dict[hd]
             elif fq1_dict.has_key(hd) and fq1_dict[hd][0] == 'middle':
@@ -154,14 +157,16 @@ def match_trimmed(fq1, fq2, fq1_match, fq2_match, fq_unPaired):
     ofile1.close()
     ofile2.close()
     ofile3.close()
+    ofile4.close()
     #return dictionary which includes unpaired middles and unpaired end/start
     return (fq1_dict, fq2_dict)
 
-def match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq1_id_temp, fq2_0_temp, seqtk):
+def match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq_unPaired_info, read_flag, fq1_id_temp, fq2_0_temp, seqtk):
     ofile1 = open(fq1_match, 'a')
     ofile2 = open(fq2_match, 'a')
     ofile3 = open(fq_unPaired, 'a')
-    
+    ofile5 = open(fq_unPaired_info, 'a')    
+
     #deal with mates in te_containing fastq 
     fq2_te_dict = parse_fastq(fq2_te)
     for hd in sorted(fq1_dict.keys()):
@@ -175,6 +180,7 @@ def match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq
             #reads have their mate matched to repeat but not at start/end or middle
             #reads matched to start/end, write to unPaired and delete from fq1
                 print >> ofile3, fq1_dict[hd][1]
+                print >> ofile5, '%s\t%s' %(fq1_dict[hd][2], read_flag)
                 del fq1_dict[hd]
     
     #deal with mates in original fastq
@@ -217,6 +223,7 @@ def match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq
     ofile1.close()
     ofile2.close()
     ofile3.close()
+    ofile5.close()
  
 def main():
     parser = argparse.ArgumentParser()
@@ -246,24 +253,25 @@ def main():
     fq1_match = '%s.matched' %(args.fq1)
     fq2_match = '%s.matched' %(args.fq2)
     fq_unPaired = '%s.unPaired.fq' %(os.path.splitext(args.fq1)[0])
+    fq_unPaired_info = '%s.unPaired.info' %(os.path.splitext(args.fq1)[0])
     #print '%s\n%s\n%s\n%s' %(args.fq2, fq2_te, fq2_0, fq_unPaired)
     
     
     #write pairs that exists in trimmed files (*.flankingReads.fq) to *.matched
     #write pairs that have their mates in trimmed files, but are middles, to *.unPaired.fq
     #Return the id of left reads to get their mates from original fastq
-    fq1_dict, fq2_dict = match_trimmed(args.fq1, args.fq2, fq1_match, fq2_match, fq_unPaired)
+    fq1_dict, fq2_dict = match_trimmed(args.fq1, args.fq2, fq1_match, fq2_match, fq_unPaired, fq_unPaired_info)
     
     #write pairs that have their mates in te_containing fastq in unPaired
     #write pairs get from trimmed and original fastq to *.matched
     fq1_id_temp = '%s.fq1_id_temp.list' %(os.path.splitext(args.fq1)[0])
     fq2_0_temp  = '%s.fq2_0_temp.fq' %(os.path.splitext(args.fq2)[0])
     #print '%s\n%s' %(fq1_id_temp, fq2_0_temp)
-    match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq1_id_temp, fq2_0_temp, args.seqtk)
+    match_support(fq1_dict, fq2_0, fq2_te, fq1_match, fq2_match, fq_unPaired, fq_unPaired_info, 1, fq1_id_temp, fq2_0_temp, args.seqtk)
     fq2_id_temp = '%s.fq2_id_temp.list' %(os.path.splitext(args.fq2)[0])
     fq1_0_temp  = '%s.fq1_0_temp.fq' %(os.path.splitext(args.fq1)[0])
     #print '%s\n%s' %(fq2_id_temp, fq1_0_temp)
-    match_support(fq2_dict, fq1_0, fq1_te, fq2_match, fq1_match, fq_unPaired, fq2_id_temp, fq1_0_temp, args.seqtk)
+    match_support(fq2_dict, fq1_0, fq1_te, fq2_match, fq1_match, fq_unPaired, fq_unPaired_info, 2, fq2_id_temp, fq1_0_temp, args.seqtk)
 
  
 if __name__ == '__main__':

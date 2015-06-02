@@ -412,7 +412,7 @@ def main():
                         seq_desc = ''
                         seq_id   = '%s:middle' %(seq_id)
                         header = '%s%s' %(seq_id, seq_desc)
-                        print >> ofile_rr, 'M%s\t%s\t%s' %(rl_name, tName, strand) 
+                        print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand) 
                         #print >> sys.stderr, '3: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                     ##trimmed reads
                     if len(trimmed_seq) >= len_cutoff_l:

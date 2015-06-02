@@ -52,16 +52,19 @@ def split_fq(fastq, outdir, fa_flag):
     seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
     fastq_split = 'perl /rhome/cjinfeng/software/bin/fastq_split.pl'
     #do not split if file already exist
-    test_fq = '%s/p00.%s' %(outdir, fastq) 
-    if os.path.isfile(test_fq):
-        subfqs = glob.glob('%s/*.f*q' %(outdir))
-        for subfq in subfqs:
-            subfa = '%s.fa' %(os.path.splitext(subfq)[0])
-            if int(fa_flag) == 1:
-                fastq_files[subfq] = subfa
-            else:
-                fastq_files[subfq] = '1'
-        return sorted(fastq_files.keys())
+    #test_fq = '%s/p00.%s' %(outdir, os.path.split(fastq)[1])
+    #print 'testing if fastq exists: %s' %(test_fq)
+    #if os.path.isfile(test_fq):
+    #    print 'fastq exists, return list of subfq and subfa'
+    #    subfqs = glob.glob('%s/*.f*q' %(outdir))
+    #    for subfq in subfqs:
+    #        subfa = '%s.fa' %(os.path.splitext(subfq)[0])
+    #        if int(fa_flag) == 1:
+    #            fastq_files[subfq] = subfa
+    #        else:
+    #            fastq_files[subfq] = '1'
+    #    return sorted(fastq_files.keys())
+    #print 'fastq does not exists, preceed to split fastq and return subfq and subfa'
     #split
     os.system('%s -s 200000 -o %s %s' %(fastq_split, outdir, fastq))
     if int(fa_flag) == 1:
@@ -226,7 +229,7 @@ def main():
     parser.add_argument('--step', default='1234567', type=str)
     parser.add_argument('--run', help='run while this script excute', action='store_true')
     parser.add_argument('--split', help='split fastq into 1 M chunks to run blat/bwa jobs', action='store_true')
-    parser.add_argument('-v', dest='verbose', action='store_true')
+    parser.add_argument('-v', '--verbose', dest='verbose', default='1', type=int, help='verbose grade to print out information in all scripts: range from 0..4')
     args = parser.parse_args()
     
     try:
@@ -258,8 +261,8 @@ def main():
             usage()
             exit(2)
 
-    print fastq_dir
-    print mode
+    if args.verbose > 0: print fastq_dir
+    if args.verbose > 0: print mode
 
     #Prepare directory and script
     if args.outdir is None:
@@ -374,7 +377,7 @@ def main():
     #step2 fastq to fasta
     shells_step2 = []
     fastq_dict = defaultdict(lambda : str)
-    if mode == 'fastq' and args.split:
+    if mode == 'fastq' and args.split and ('2' in list(args.step) or '3' in list(args.step)):
         fastqs = glob.glob('%s/*.f*q*' %(fastq_dir))
         step2_flag   = 0
         step2_count  = 0
@@ -382,25 +385,40 @@ def main():
         createdir(split_outdir)
         parameters   = []
         fa_convert   = 0 if args.aligner == 'bwa' else 1
-        for fq in fastqs:
-            parameters.append([fq, split_outdir, fa_convert])
-        ##split fastq to use multiprocess run jobs
-        #collect_list_dict = mp_pool_function(split_fq_helper, parameters, args.cpu)
-        collect_list_list = mp_pool_function(split_fq_helper, parameters, args.cpu)
-        ##collection and update fastq->fasta/1 dictionary
-        #for fq_dict in collect_list_dict:
-        #    fastq_dict.update(fq_dict)
-        for fq_list in collect_list_list:
-            for fq_subfile in fq_list:
-                if fa_convert == 1:
-                    fa_subfile = '%s.fa' %(os.path.splitext(fq_subfile)[0])
-                    fastq_dict[fq_subfile] = fa_subfile
+        ##split fastq
+        test_fq = '%s/p00.%s' %(split_outdir, os.path.split(fastqs[0])[1])
+        if os.path.splitext(fastqs[0])[1] == '.gz': 
+            test_fq = '%s/p00.%s' %(split_outdir, os.path.splitext(os.path.split(fastqs[0])[1])[0])
+        print 'testing if sub fastq exist: %s' %(test_fq)
+        if os.path.isfile(test_fq):
+            print 'sub fastq file exists: fill fastq_dict'
+            subfqs = glob.glob('%s/*.f*q' %(split_outdir))
+            for subfq in subfqs:
+                subfa = '%s.fa' %(os.path.splitext(subfq)[0])
+                if int(fa_convert) == 1:
+                    fastq_dict[subfq] = subfa
                 else:
-                    fastq_dict[fq_subfile] = '1'
+                    fastq_dict[subfq] = '1'
+        else:
+            print 'sub fastq does not exist: preceed with split and fill fastq_dict'
+            for fq in fastqs:
+                parameters.append([fq, split_outdir, fa_convert])
+            ##split fastq to use multiprocess run jobs
+            collect_list_list = mp_pool_function(split_fq_helper, parameters, args.cpu)
+            ##collection and update fastq->fasta/1 dictionary
+            for fq_list in collect_list_list:
+                for fq_subfile in fq_list:
+                    if fa_convert == 1:
+                        fa_subfile = '%s.fa' %(os.path.splitext(fq_subfile)[0])
+                        fastq_dict[fq_subfile] = fa_subfile
+                    else:
+                        fastq_dict[fq_subfile] = '1'
         ##convert fastq to fasta use multiprocess run jobs
         if fa_convert == 1:
             test_fa = fastq_dict.values()[0]
+            print 'testing if sub fasta exist: %s' %(test_fa)
             if not os.path.isfile(test_fa) and '2' in list(args.step):
+                print 'sub fasta file does not exist: convert'
                 createdir('%s/shellscripts/step_2' %(args.outdir))
                 for subfq in sorted(fastq_dict.keys()):
                     subfa = fastq_dict[subfq] 
@@ -411,8 +429,11 @@ def main():
                     shells_step2.append('sh %s' %(step2_file))
                     writefile(step2_file, fq2fa)
             elif os.path.isfile(test_fa) and '2' in list(args.step):
+                print 'sub fasta file exists'
                 step2_file = '%s/shellscripts/step_2_not_needed_fq_already_converted_2_fa' %(args.outdir)
                 writefile(step2_file, '')
+            else:
+                print 'skip step2 converting fastq to fasta'
             #run job in this script
             if args.run and len(shells_step2) > 0 and '2' in list(args.step):
                 if int(args.cpu) == 1:
@@ -420,7 +441,7 @@ def main():
                 else:
                     mp_pool(shells_step2, int(args.cpu))
 
-    elif mode == 'fastq':
+    elif mode == 'fastq' and ('2' in list(args.step) or '3' in list(args.step)):
         fastqs = glob.glob('%s/*.f*q*' %(fastq_dir))
         step2_flag = 0
         step2_count= 0
@@ -464,7 +485,7 @@ def main():
             else:
                 mp_pool(shells_step2, int(args.cpu))
  
-    elif mode == 'bam':
+    elif mode == 'bam' and ('2' in list(args.step) or '3' in list(args.step)):
         #print 'Add module of obtaining reads from bam then prepare as fa files'
         cmd_step2 = []
         fastq_dir = '%s/repeat/fastq' %(args.outdir)
@@ -581,9 +602,9 @@ def main():
         shells_step4.append('sh %s' %(step4_file))
         if args.split:
             #fq_dir set to '%s/repeat/fastq_split' %(args.outdir)
-            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s/repeat/fastq_split %s/regex.txt repeat not.given 0 %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, args.outdir, args.outdir, args.cpu)
+            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s/repeat/fastq_split %s/regex.txt repeat not.given 0 %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, args.outdir, args.outdir, args.cpu, args.verbose)
         else:
-            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s %s/regex.txt repeat not.given 0 %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, fastq_dir, args.outdir, args.cpu)
+            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s %s/regex.txt repeat not.given 0 %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, fastq_dir, args.outdir, args.cpu, args.verbose)
         writefile(step4_file, step4_cmd)
     
     #run job in this script
@@ -596,18 +617,22 @@ def main():
     #read existing TE from file
     r_te = re.compile(r'repeatmasker|rm|\.out', re.IGNORECASE)
     if os.path.isfile(reference_ins_flag) and os.path.getsize(reference_ins_flag) > 0:
-        if r_te.search(reference_ins_flag):
+        test_bed = '%s/existingTE.bed' %(top_dir)
+        if r_te.search(reference_ins_flag) and not os.path.isfile(test_bed):
             existingTE_RM_ALL(top_dir, reference_ins_flag)
     else:
         print 'Existing TE file does not exists or zero size'
  
     #step5 find insertions
+    print 'Step5: Find non-reference insertions'
     shells_step5 = []
     ids = fasta_id(reference)
     createdir('%s/shellscripts/step_5' %(args.outdir))
     step5_count = 0
+    #ids = ['chr13']
     for chrs in ids:
-        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt not.give 100 %s %s 0 %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, reference_ins_flag, args.mismatch_junction, args.size)
+        print 'find insertions on %s' %(chrs)
+        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt not.give 100 %s %s 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, reference_ins_flag, args.mismatch_junction, args.size, args.verbose)
         step5_file= '%s/shellscripts/step_5/%s.repeat.findSites.sh' %(args.outdir, step5_count)
         if '5' in list(args.step):
             shells.append('sh %s' %(step5_file))
@@ -624,6 +649,7 @@ def main():
 
 
     #step6 find transposons on reference: reference only or shared
+    print 'Step6: Find reference insertions'
     shells_step6 = []
     createdir('%s/shellscripts/step_6' %(args.outdir))
     step6_count = 0

@@ -47,7 +47,7 @@ def txt2gff(infile, outfile, ins_type):
                 r_supp  = re.sub(r'\D+', '', unit[10])
                 l_supp  = re.sub(r'\D+', '', unit[11])
                 r_id    = 'repeat_%s_%s_%s' %(chro, start, end)
-                print >> ofile, '%s\t%s\t%s\t%s\t%s\t.\t%s\t.\tID=%s;Name=%s;TSD=%s;Note=%s;Right_junction_reads:%s;Left_junction_reads:%s;Right_support_reads:%s;Left_support_reads:%s;' %(chro, unit[2], 'RelocaTE_i',start, end, strand, r_id, te_name, unit[1], ins_type, r_count, l_count, r_supp, l_supp)
+                print >> ofile, '%s\t%s\t%s\t%s\t%s\t.\t%s\t.\tID=%s;Name=%s;TSD=%s;Note=%s;Right_junction_reads=%s;Left_junction_reads=%s;Right_support_reads=%s;Left_support_reads=%s;' %(chro, unit[2], 'RelocaTE2',start, end, strand, r_id, te_name, unit[1], ins_type, r_count, l_count, r_supp, l_supp)
     ofile.close()
 
 #Chr3	not.give	RelocaTE_i	283493	283504	.	-	.	ID=repeat_Chr3_283493_283504;TSD=ATGCCATCAAGG;Note=Non-reference,
@@ -58,12 +58,14 @@ def Overlap_TE_boundary(prefix, refte, distance):
     final_gff   = '%s.gff' %(prefix)
     raw_gff     = '%s.raw.gff' %(prefix)
     all_gff     = '%s.all.gff' %(prefix)
+    high_gff    = '%s.high_conf.gff' %(prefix)
     clean_gff   = '%s.clean.gff' %(prefix)
     infile = '%s.overlap' %(prefix)
     outfile= '%s.remove.gff' %(prefix)
     os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools window -w %s -a %s -b %s > %s' %(int(distance) + 10, final_gff, refte, infile))
     if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
-        return 1 
+        return 1
+    print 'filter existing TE: %s bp' %(distance) 
     ofile  = open(outfile, 'w') 
     with open (infile, 'r') as filehd:
         for line in filehd:
@@ -72,6 +74,7 @@ def Overlap_TE_boundary(prefix, refte, distance):
                 unit = re.split(r'\t',line)
                 temp = defaultdict(str)
                 attrs = re.split(r';', unit[8])
+                print line
                 for attr in attrs:
                     if not attr == '':
                         attr = re.sub(r':', '=', attr)
@@ -92,22 +95,26 @@ def Overlap_TE_boundary(prefix, refte, distance):
     ofile.close()
     if not os.path.isfile(outfile) or not os.path.getsize(outfile) > 0:
         #nothing to remove
+        print 'nothing to remove'
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(raw_gff, all_gff))
         os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(raw_gff, final_gff))
+        os.system('grep -v -e \"Right_junction_reads=1;Left_junction_reads=0\" -e \"Right_junction_reads=0;Left_junction_reads=1\" %s > %s' %(final_gff, high_gff)) 
         os.system('rm %s.overlap %s.remove.gff' %(prefix, prefix))
     else:
+        print 'remove by bedtool'
         os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(clean_gff, all_gff))
         os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(clean_gff, final_gff))
+        os.system('grep -v -e \"Right_junction_reads=1;Left_junction_reads=0\" -e \"Right_junction_reads=0;Left_junction_reads=1\" %s > %s' %(final_gff, high_gff))
         os.system('rm %s.overlap %s.remove.gff %s.clean.gff' %(prefix, prefix, prefix))
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input')
     parser.add_argument('-r', '--refte')
-    parser.add_argument('-d', '--distance', default='10', type=int)
+    parser.add_argument('-d', '--distance', default='3', type=int)
     parser.add_argument('-o', '--output')
     parser.add_argument('-v', dest='verbose', action='store_true')
     args = parser.parse_args()
