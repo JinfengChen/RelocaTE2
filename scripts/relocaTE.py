@@ -326,6 +326,7 @@ def main():
     #overwrite tools
     blat = '/usr/local/bin/blat'
     bwa = '/opt/bwa/0.7.9/bin/bwa'
+    bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
     bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
     samtools = '/opt/samtools-0.1.16/samtools'
     seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
@@ -550,15 +551,25 @@ def main():
                     step3_cmds = '%s' %(trim)
                     writefile(step3_file, step3_cmds)
                     step3_count += 1
-        elif args.aligner == 'bwa':
+        elif args.aligner == 'bwa' or args.aligner == 'bowtie2':
             #/opt/bwa/0.7.9/bin/bwa mem -t 4 -k 15 -T 10 $genome $read1 | /usr/local/bin/samtools view -Shb -F 4 - > $prefix1.te_repeat.bam
             bwaout  = '%s/repeat/blat_output/%s.te_repeat.bam' %(args.outdir, fq_prefix)
             bwastd  = '%s/repeat/blat_output/bwa.out' %(args.outdir)
             bwacmd  = ''
             if args.split:
-                bwacmd  = '%s mem -t %s -k 15 -T 10 %s %s | %s view -Shb -F 4 - > %s 2> %s' %(bwa, 1, te_fasta, fq, samtools, bwaout, bwastd)
+                if args.aligner == 'bowtie2':
+                    #local sensitive: -D 15 -R 2 -N 0 -L 20 -i S,1,0.75
+                    #bwacmd  = '%s -p %s -D 15 -R 2 -N 0 -L 15 -i S,1,0.75 --local -a -x %s -U %s | %s view -Shb -F 4 - > %s 2> %s' %(bowtie2, 1, te_fasta, fq, samtools, bwaout, bwastd)
+                    #local very sensitive: -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+                    bwacmd  = '%s -p %s -D 20 -R 3 -N 0 -L 15 -i S,1,0.50 --local -a -x %s -U %s | %s view -Shb -F 4 - > %s 2> %s' %(bowtie2, 1, te_fasta, fq, samtools, bwaout, bwastd)
+                else:
+                    bwacmd  = '%s mem -t %s -O2,2 -a -Y -k 15 -T 10 %s %s | %s view -Shb -F 4 - > %s 2> %s' %(bwa, 1, te_fasta, fq, samtools, bwaout, bwastd)
             else:
-                bwacmd  = '%s mem -t %s -k 15 -T 10 %s %s | %s view -Shb -F 4 - > %s 2> %s' %(bwa, args.cpu, te_fasta, fq, samtools, bwaout, bwastd)
+                if args.aligner == 'bowtie2':
+                    #bwacmd  = '%s -p %s -D 15 -R 2 -N 0 -L 15 -i S,1,0.75 --local -a -x %s -U %s | %s view -Shb -F 4 - > %s 2> %s' %(bowtie2, args.cpu, te_fasta, fq, samtools, bwaout, bwastd)
+                    bwacmd  = '%s -p %s -D 20 -R 3 -N 0 -L 15 -i S,1,0.50 --local -a -x %s -U %s | %s view -Shb -F 4 - > %s 2> %s' %(bowtie2, args.cpu, te_fasta, fq, samtools, bwaout, bwastd)
+                else:
+                    bwacmd  = '%s mem -t %s -O2,2 -a -Y -k 15 -T 10 %s %s | %s view -Shb -F 4 - > %s 2> %s' %(bwa, args.cpu, te_fasta, fq, samtools, bwaout, bwastd)
             flank   = '%s/repeat/flanking_seq/%s.te_repeat.flankingReads.fq' %(args.outdir, fq_prefix)
             trim    = 'python %s/relocaTE_trim.py %s %s %s %s %s > %s' %(RelocaTE_bin, bwaout, fq, args.len_cut_match, args.len_cut_trim, args.mismatch, flank)
             step3_file = '%s/shellscripts/step_3/%s.te_repeat.bwa.sh' %(args.outdir, step3_count)
@@ -584,12 +595,12 @@ def main():
                 single_run(shells_step3)
             else:
                 mp_pool(shells_step3, int(args.cpu)) 
-        elif args.aligner == 'bwa' and args.split:
+        elif (args.aligner == 'bwa' or args.aligner == 'bowtie2') and args.split:
             if int(args.cpu) == 1:
                 single_run(shells_step3)
             else:
                 mp_pool(shells_step3, int(args.cpu))
-        elif args.aligner == 'bwa':
+        elif args.aligner == 'bwa' or args.aligner == 'bowtie2':
             single_run(shells_step3)
 
     #step4 align TE trimed reads to genome

@@ -39,7 +39,7 @@ def reverse_complement(seq):
     return complement(seq[::-1])
 
 
-def parse_align_blat(infile, tandem):
+def parse_align_blat(infile, tandem, verbose):
     coord = defaultdict(lambda : defaultdict(lambda : str))
     ##align_file
     ofile = open(tandem, 'w')
@@ -85,7 +85,7 @@ def parse_align_blat(infile, tandem):
             #we expect more boundary and compare match length when having equal number of boundary
             boundary = boundary_qry_left + boundary_tar_left + boundary_qry_right + boundary_tar_right
             
-            #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+            if verbose >= 3: print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
             if coord.has_key(qName):
                 ##keep the best match to TE
                 if int(boundary) > int(coord[qName]['boundary']):
@@ -115,7 +115,7 @@ def parse_align_blat(infile, tandem):
                 coord[qName]['tStart']   = tStart
                 coord[qName]['tEnd']     = tEnd
                 coord[qName]['boundary'] = boundary
-                #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+                if verbose >= 3: print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
     ofile.close()
     return coord
 
@@ -150,20 +150,32 @@ def update_coord(header1, header, coord):
     del coord[header1]['strand']
     del coord[header1]['boundary']
 
-def parse_align_bwa(infile, tandem):
+def parse_align_bwa(infile, tandem, verbose):
     coord = defaultdict(lambda : defaultdict(lambda : str))
     ##align_file
     ofile = open(tandem, 'w')
     fsam = pysam.AlignmentFile(infile, 'rb')
     rnames = fsam.references
     rlens  = fsam.lengths
+    qlen_c = 0
     for record in fsam.fetch(reference=None, until_eof = True):
         if not record.is_unmapped:
+            #print >> sys.stderr, record.query_length, record.query_alignment_start, record.query_alignment_end
+            #print >> sys.stderr, record.reference_start, record.reference_end
             #query inf
             qName    = record.query_name
             qLen     = int(record.query_length)
             qStart   = int(record.query_alignment_start)
-            qEnd     = int(record.query_alignment_end) - 1
+            qEnd     = 0
+            try:
+                qEnd     = int(record.query_alignment_end) - 1
+            except:
+                continue
+            if qLen == 0:
+                qLen = qlen_c
+                qEnd = qLen + qEnd
+            else:
+                qlen_c = qLen
             #target inf
             tName    = rnames[record.reference_id]
             tLen     = int(rlens[record.reference_id])
@@ -172,13 +184,20 @@ def parse_align_bwa(infile, tandem):
             #match and mismatch
             tag      = record.tags if record.tags else []
             tags     = convert_tag(tag)
-            mismatch = int(tags['NM'])
+            #mismatch = int(tags['NM'])
             #match    = int(record.query_alignment_length) - mismatch
             match    = 0
+            ins0     = 0
+            del0     = 0
             for (key, length) in record.cigartuples:
                 #print key, length
                 if int(key) == 0:
                     match += length
+                elif int(key) == 1:
+                    ins0 += length
+                elif int(key) == 2:
+                    del0 += length
+            mismatch= int(tags['NM']) - int(ins0) - int(del0)
             match   = match - mismatch
             #strand, flag is 0 is read if read is unpaired and mapped to plus strand
             strand   = ''
@@ -188,9 +207,25 @@ def parse_align_bwa(infile, tandem):
             else:
                 strand = '-' if record.is_reverse else '+'
             #update data
-            boundary = 1 if int(qStart) == 0 or int(qEnd) + 1 == int(qLen) else 0 
+            #boundary = 1 if int(qStart) == 0 or int(qEnd) + 1 == int(qLen) else 0 
             addRecord = 0
-            #print qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+            boundary  = 0
+            boundary_qry_left = 0
+            boundary_tar_left = 0
+            boundary_qry_right = 0
+            boundary_tar_right = 0
+            if int(qStart) == 0 or int(qStart) <= 2:
+                boundary_qry_left  = 1
+            if int(qEnd) + 1 == int(qLen) or int(qEnd) >= int(qLen) - 3:
+                boundary_qry_right = 1 
+            if int(tStart) == 0 or int(tStart) <= 2:
+                boundary_tar_left  = 1
+            if int(tEnd) + 1 == int(tLen) or int(tEnd) >= int(tLen) - 3:
+                boundary_tar_right = 1
+            #max boundary should be 2: 1. match one read end and one repeat end; 2. match two read end and internal of repeat
+            #we expect more boundary and compare match length when having equal number of boundary
+            boundary = boundary_qry_left + boundary_tar_left + boundary_qry_right + boundary_tar_right
+            if verbose >= 3: print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
             if coord.has_key(qName):
                 ##keep the best match to TE
                 if int(boundary) > int(coord[qName]['boundary']):
@@ -206,7 +241,7 @@ def parse_align_bwa(infile, tandem):
                 addRecord = 1
              
             #final data
-            #print qName, qStart, qEnd, match, addRecord
+            #print >> sys.stderr, qName, qStart, qEnd, match, addRecord
             if addRecord == 1:
                 coord[qName]['match']    = match
                 coord[qName]['len']      = qLen
@@ -219,7 +254,7 @@ def parse_align_bwa(infile, tandem):
                 coord[qName]['tStart']   = tStart
                 coord[qName]['tEnd']     = tEnd
                 coord[qName]['boundary'] = boundary
-                #print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
+                if verbose >= 3: print >> sys.stderr, qName, qLen, qStart, qEnd, tName, tLen, tStart, tEnd, match, mismatch, boundary
     ofile.close()
     return coord
 
@@ -234,6 +269,7 @@ def main():
     len_cutoff_m = int(sys.argv[3])
     len_cutoff_l = int(sys.argv[4])
     mismatch_allowance = int(sys.argv[5])
+    verbose  = 0
     align_type = 'bam' if os.path.splitext(align_file)[1].replace(r'.', '') == 'bam' else 'blat'
   
     #set output directories and files
@@ -250,14 +286,14 @@ def main():
     FA = 'unspecified'
     coord = defaultdict(lambda : defaultdict(lambda : str))
     if align_type == 'blat':
-        coord = parse_align_blat(align_file, tandem_file)
+        coord = parse_align_blat(align_file, tandem_file, verbose)
         s = re.compile(r'(\S+)\.te_(\S+)\.blat*')
         m = s.search(file_name)
         if m:
             FA = m.groups(0)[0]
             TE = m.groups(0)[1]
     elif align_type == 'bam':
-        coord = parse_align_bwa(align_file, tandem_file)   
+        coord = parse_align_bwa(align_file, tandem_file, verbose)   
         s = re.compile(r'(\S+)\.te_(\S+)\.bam')
         m = s.search(file_name)
         if m:
@@ -338,7 +374,7 @@ def main():
                     #want to cut and keep anything not matching to database TE
                     trimmed_seq  = ''
                     trimmed_qual = ''
-                    #print >> sys.stderr, 'Check:', header, start, end, length, tName, tStart, tEnd, tLen, mismatch, match, strand
+                    if verbose >= 3: print >> sys.stderr, 'Check:', header, start, end, length, tName, tStart, tEnd, tLen, mismatch, match, strand
                     #print 'check2: %s\t%s\t%s'  %(str(tStart), str((length - (match + mismatch))), str((mismatch/(match + mismatch))))
                     ##query read overlaps 5' end of database TE & trimmed seq > cutoff
                     #int(start) <= 2 or int(end) >= int(length) - 3, we need the reads mapped boundary to align with te
@@ -368,7 +404,7 @@ def main():
                             seq_desc = ''
                             seq_id   = '%s:end:5' %(seq_id)
                             header = '%s%s' %(seq_id, seq_desc)
-                        #print >> sys.stderr, '1: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
+                        if verbose >= 3: print >> sys.stderr, '1: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                         if len(trimmed_seq) >= len_cutoff_l:
                             print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand)
                             print >> ofile_te5, '>%s %s..%s matches %s:%s..%s mismatches:%s\n%s' %(header, qS, qE, TE, tS, tE, mismatch, te_subseq)
@@ -396,7 +432,7 @@ def main():
                             seq_desc = ''
                             seq_id   = '%s:start:3' %(seq_id)
                             header = '%s%s' %(seq_id, seq_desc)
-                        #print >> sys.stderr, '2: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
+                        if verbose >= 3: print >> sys.stderr, '2: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                         if len(trimmed_seq) >= len_cutoff_l:
                             print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand)
                             print >> ofile_te3, '>%s %s..%s matches %s:%s..%s mismatches:%s\n%s' %(header, qS, qE, TE, tS, tE, mismatch, te_subseq)
@@ -413,7 +449,7 @@ def main():
                         seq_id   = '%s:middle' %(seq_id)
                         header = '%s%s' %(seq_id, seq_desc)
                         print >> ofile_rr, '%s\t%s\t%s' %(rl_name, tName, strand) 
-                        #print >> sys.stderr, '3: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
+                        if verbose >= 3: print >> sys.stderr, '3: trimmed: %s %s %s' %(rl_name, trimmed_seq, str(end))
                     ##trimmed reads
                     if len(trimmed_seq) >= len_cutoff_l:
                         print '@%s\n%s\n%s\n%s' %(header, trimmed_seq, qualh, trimmed_qual)
