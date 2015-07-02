@@ -617,7 +617,8 @@ def main():
    
     #bwa = '/opt/bwa/0.7.9/bin/bwa'
     bwa = '/opt/tyler/bin/bwa'
-    
+    samtools = '/opt/tyler/bin/samtools'   
+ 
     try:
         subprocess.check_output('which seqtk', shell=True)
         seqtk = subprocess.check_output('which seqtk', shell=True)

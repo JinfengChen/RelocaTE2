@@ -221,6 +221,7 @@ def main():
     parser.add_argument('-o', '--outdir')
     parser.add_argument('-s', '--size', default='500', type=int)
     parser.add_argument('-c', '--cpu', default='1', type=int)
+    parser.add_argument('--sample', default='not_given', type=str)
     parser.add_argument('--aligner', default='blat', type=str)
     parser.add_argument('--len_cut_match', default='10', type=int)
     parser.add_argument('--len_cut_trim', default='10', type=int)
@@ -245,21 +246,13 @@ def main():
     RelocaTE_bin = os.path.split(os.path.abspath(__file__))[0]
     reference    = os.path.abspath(args.genome_fasta)
     te_fasta     = os.path.abspath(args.te_fasta)
-    mode         = 'bam'
+    mode         = 'fastq'
     bam          = ''
-    fastq_dir    = ''
+    fastq_dir    = os.path.abspath(args.fq_dir)
     
-    try: 
-        os.path.isfile(args.bam)
-        bam  = os.path.abspath(args.bam)
-    except:
-        try:
-            if os.path.abspath(args.fq_dir):
-                fastq_dir = os.path.abspath(args.fq_dir)
-                mode      = 'fastq'
-        except:
-            usage()
-            exit(2)
+    if args.bam:
+        if os.path.isfile(args.bam):
+            bam  = os.path.abspath(args.bam)
 
     if args.verbose > 0: print fastq_dir
     if args.verbose > 0: print mode
@@ -324,11 +317,11 @@ def main():
         seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
 
     #overwrite tools
-    blat = '/usr/local/bin/blat'
+    blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
     bwa = '/opt/bwa/0.7.9/bin/bwa'
     bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
     bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
-    samtools = '/opt/samtools-0.1.16/samtools'
+    samtools = '/opt/tyler/bin/samtools'
     seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
 
     #MSU_r7.fa.bwt
@@ -643,7 +636,7 @@ def main():
     #ids = ['chr13']
     for chrs in ids:
         print 'find insertions on %s' %(chrs)
-        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt not.give 100 %s %s 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, reference_ins_flag, args.mismatch_junction, args.size, args.verbose)
+        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s %s 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.mismatch_junction, args.size, args.verbose)
         step5_file= '%s/shellscripts/step_5/%s.repeat.findSites.sh' %(args.outdir, step5_count)
         if '5' in list(args.step):
             shells.append('sh %s' %(step5_file))
@@ -666,7 +659,7 @@ def main():
     step6_count = 0
     if mode == 'fastq':
         for chrs in ids:
-            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt not.give 100 %s 0 0 %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, reference_ins_flag, args.size)
+            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s 0 0 %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.size)
             step6_file= '%s/shellscripts/step_6/%s.repeat.absence.sh' %(args.outdir, step6_count)
             if '6' in list(args.step):
                 shells.append('sh %s' %(step6_file))
@@ -705,6 +698,22 @@ def main():
     if args.run and len(shells_step7) > 0 and '7' in list(args.step):
         single_run(shells_step7)
     
+    #clean temp files
+    shells_clean = []
+    clean_cmd = []
+    clean_cmd.append('rm -R %s/repeat/blat_output' %(args.outdir))
+    clean_cmd.append('rm -R %s/repeat/flanking_seq' %(args.outdir))
+    clean_cmd.append('rm -R %s/repeat/te_containing_fq' %(args.outdir))
+    clean_cmd.append('rm -R %s/repeat/te_only_read_portions_fa' %(args.outdir))
+    clean_cmd.append('rm -R %s/repeat/fastq_split' %(args.outdir))
+    clean_cmd.append('rm %s/repeat/bwa_aln/*.mates.bam* %s/repeat/bwa_aln/*.unPaired.bam* %s/repeat/bwa_aln/*.bwa.bam*' %(args.outdir, args.outdir, args.outdir))
+    clean_file = '%s/clean_intermediate_files.sh' %(args.outdir)
+    writefile(clean_file, '\n'.join(clean_cmd))
+    if int(args.verbose) <= 2:
+        shells.append('sh %s' %(clean_file))
+        shells_clean.append('sh %s' %(clean_file))
+        if args.run and len(shells_clean) > 0:
+            single_run(shells_clean)
 
     #write script, always write cmd to file
     writefile('%s/run_these_jobs.sh' %(args.outdir), '\n'.join(shells))
