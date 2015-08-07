@@ -579,7 +579,7 @@ def map_reads_bowtie(scripts, flanking_fq, path, genome_file, fastq_dir, target,
         os.system(cmd)
 
 def main():
-    if not len(sys.argv) == 11:
+    if not len(sys.argv) == 14:
         usage()
         sys.exit(2)
 
@@ -597,36 +597,9 @@ def main():
     relax_align= 0  
     bowtie_sam = 1
     
-    samtools = ''
-    bwa      = ''
-    seqtk    = ''
-
-    try:
-        subprocess.check_output('which samtools', shell=True)
-        samtools = subprocess.check_output('which samtools', shell=True)
-        samtools = re.sub(r'\n', '', samtools)
-    except:
-        samtools = '/opt/samtools-0.1.16/samtools'
-
-    try:
-        subprocess.check_output('which bwa', shell=True)
-        bwa = subprocess.check_output('which bwa', shell=True)
-        bwa = re.sub(r'\n', '', bwa)
-    except:
-        bwa = '/opt/tyler/bin/bwa'
-   
-    #bwa = '/opt/bwa/0.7.9/bin/bwa'
-    bwa = '/opt/tyler/bin/bwa'
-    samtools = '/opt/tyler/bin/samtools'   
- 
-    try:
-        subprocess.check_output('which seqtk', shell=True)
-        seqtk = subprocess.check_output('which seqtk', shell=True)
-        seqtk = re.sub(r'\n', '', seqtk)
-    except:
-        seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
-
- 
+    samtools = sys.argv[11]
+    bwa      = sys.argv[12]
+    seqtk    = sys.argv[13]
    
     #get the regelar expression patterns for mates and for the TE
     #when passed on the command line as an argument, even in single

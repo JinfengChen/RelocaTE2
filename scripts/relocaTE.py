@@ -47,10 +47,10 @@ def writefile(outfile, lines):
 #split large fastq file into 1M reads chunks
 #convert to fa when fa_flag == 1
 #return dictory with fq->fa or fq->1 directionary
-def split_fq(fastq, outdir, fa_flag):
+def split_fq(fastq, outdir, fa_flag, seqtk, fastq_split):
     fastq_files = defaultdict(lambda : str())
-    seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
-    fastq_split = 'perl /rhome/cjinfeng/software/bin/fastq_split.pl'
+    #seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
+    #fastq_split = 'perl /rhome/cjinfeng/software/bin/fastq_split.pl'
     #do not split if file already exist
     #test_fq = '%s/p00.%s' %(outdir, os.path.split(fastq)[1])
     #print 'testing if fastq exists: %s' %(test_fq)
@@ -321,8 +321,9 @@ def main():
     bwa = '/opt/bwa/0.7.9/bin/bwa'
     bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
     bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
-    samtools = '/opt/tyler/bin/samtools'
-    seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
+    samtools = '/opt/samtools/0.1.19/bin/samtools'
+    seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
+    fastq_split = '%s/fastq_split.pl' %(RelocaTE_bin)
 
     #MSU_r7.fa.bwt
     if not os.path.isfile('%s.bwt' %(reference)):
@@ -396,7 +397,7 @@ def main():
         else:
             print 'sub fastq does not exist: preceed with split and fill fastq_dict'
             for fq in fastqs:
-                parameters.append([fq, split_outdir, fa_convert])
+                parameters.append([fq, split_outdir, fa_convert, seqtk, fastq_split])
             ##split fastq to use multiprocess run jobs
             collect_list_list = mp_pool_function(split_fq_helper, parameters, args.cpu)
             ##collection and update fastq->fasta/1 dictionary
@@ -606,9 +607,9 @@ def main():
         shells_step4.append('sh %s' %(step4_file))
         if args.split:
             #fq_dir set to '%s/repeat/fastq_split' %(args.outdir)
-            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s/repeat/fastq_split %s/regex.txt repeat not.given 0 %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, args.outdir, args.outdir, args.cpu, args.verbose)
+            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s/repeat/fastq_split %s/regex.txt repeat not.given 0 %s %s %s %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, args.outdir, args.outdir, args.cpu, args.verbose, samtools, bwa, seqtk)
         else:
-            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s %s/regex.txt repeat not.given 0 %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, fastq_dir, args.outdir, args.cpu, args.verbose)
+            step4_cmd = 'python %s/relocaTE_align.py %s %s/repeat %s %s %s/regex.txt repeat not.given 0 %s %s %s %s %s' %(RelocaTE_bin, RelocaTE_bin, args.outdir, reference, fastq_dir, args.outdir, args.cpu, args.verbose, samtools, bwa, seqtk)
         writefile(step4_file, step4_cmd)
     
     #run job in this script
