@@ -26,6 +26,15 @@ python relocaTE.py --fq_dirMSU7.Chr4.ALL.rep1_reads_5X_100_500 --genome_fasta MS
 --mismatch: allowed mismatches in blat alignment of reads to repeats. default=2, range from 1 to 3
 --mismatch_junction: allowed mismatches in bwa alignment of trimed reads to genome. default=2, range from 1 to 3
 
+Scenario 1: Run single transposon in one genome. Do not split fastq and use multicpu to run pblat to achieve maximum sensitity.
+python $relocate --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner blat --verbose 3 --len_cut_match 20 --len_cut_trim 20
+
+Scenario 2: Run thousands of transposons in one genome. Split fastq and use multicpu to run bowtie2 to achieve maximum speed (will lose ~30% sensitity denpend on proporties of TE sequence).
+python $relocate --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner bowtie2 --verbose 3 --len_cut_match 20 --len_cut_trim 20 --split
+
+Scenario 3: Run single or thousands of transposons in thousands of genomes. Split fastq when you have hundreds or thousands of transposon. Lower the cpu number to smaller number (~10) and use computer farm to run each RelocaTE2 job.
+
+
     '''
     print message
 
@@ -247,12 +256,18 @@ def main():
     reference    = os.path.abspath(args.genome_fasta)
     te_fasta     = os.path.abspath(args.te_fasta)
     mode         = 'fastq'
-    bam          = ''
-    fastq_dir    = os.path.abspath(args.fq_dir)
+    bam          = os.path.abspath(args.bam) if args.bam else ''
+    fastq_dir    = os.path.abspath(args.fq_dir) if args.fq_dir else ''
     
     if args.bam:
         if os.path.isfile(args.bam):
             bam  = os.path.abspath(args.bam)
+            mode = 'bam'
+
+    if args.fq_dir:
+        if os.path.exists(args.fq_dir):
+            fastq_dir = os.path.abspath(args.fq_dir)
+
 
     if args.verbose > 0: print fastq_dir
     if args.verbose > 0: print mode
@@ -379,7 +394,7 @@ def main():
         split_outdir = '%s/repeat/fastq_split' %(args.outdir)
         createdir(split_outdir)
         parameters   = []
-        fa_convert   = 0 if args.aligner == 'bwa' else 1
+        fa_convert   = 0 if args.aligner == 'bwa' or args.aligner == 'bowtie2' else 1
         ##split fastq
         test_fq = '%s/p00.%s' %(split_outdir, os.path.split(fastqs[0])[1])
         if os.path.splitext(fastqs[0])[1] == '.gz': 
@@ -485,7 +500,7 @@ def main():
         cmd_step2 = []
         fastq_dir = '%s/repeat/fastq' %(args.outdir)
         createdir(fastq_dir)
-        subbam = '%s/%s.subset.bam' %(fastq_dir, os.path.splitext(os.path.split(bam)[1])[0])
+        subbam = '%s/%s.sortbyname.bam' %(fastq_dir, os.path.splitext(os.path.split(bam)[1])[0])
         fq1 = '%s/%s_1.fq' %(fastq_dir, os.path.splitext(os.path.split(bam)[1])[0])
         fq2 = '%s/%s_2.fq' %(fastq_dir, os.path.splitext(os.path.split(bam)[1])[0])
         fa1 = '%s.fa' %(os.path.splitext(fq1)[0])
@@ -493,7 +508,8 @@ def main():
         fastq_dict[fq1] = fa1
         fastq_dict[fq2] = fa2
         if not os.path.isfile(subbam):
-            cmd_step2.append('%s view -h %s | awk \'$5<60\' | samtools view -Shb - | samtools sort -m 500000000 -n - %s 2> %s' %(samtools, bam, os.path.splitext(subbam)[0], run_std))
+        #    cmd_step2.append('%s view -h %s | awk \'$5<60\' | samtools view -Shb - | samtools sort -m 500000000 -n - %s 2> %s' %(samtools, bam, os.path.splitext(subbam)[0], run_std))
+            cmd_step2.append('%s sort -m 1000000000 -n %s %s 2> %s' %(samtools, bam, os.path.splitext(subbam)[0], run_std))
         if not os.path.isfile(fq1) and not os.path.isfile(fq2):
             cmd_step2.append('%s bamtofastq -i %s -fq %s -fq2 %s 2> %s' %(bedtools, subbam, fq1, fq2, run_std))
         cmd_step2.append('%s seq -A %s > %s' %(seqtk, fq1, fa1))
@@ -702,6 +718,7 @@ def main():
     #clean temp files
     shells_clean = []
     clean_cmd = []
+    clean_cmd.append('rm %s/*.fa' %(fastq_dir))
     clean_cmd.append('rm -R %s/repeat/blat_output' %(args.outdir))
     clean_cmd.append('rm -R %s/repeat/flanking_seq' %(args.outdir))
     clean_cmd.append('rm -R %s/repeat/te_containing_fq' %(args.outdir))
