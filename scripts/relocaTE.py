@@ -230,6 +230,9 @@ def main():
     parser.add_argument('-o', '--outdir')
     parser.add_argument('-s', '--size', default='500', type=int)
     parser.add_argument('-c', '--cpu', default='1', type=int)
+    parser.add_argument('-1', '--mate_1_id', default='_1')
+    parser.add_argument('-2', '--mate_2_id', default='_2')
+    parser.add_argument('-u', '--unpaired_id', default='.unParied')
     parser.add_argument('--sample', default='not_given', type=str)
     parser.add_argument('--aligner', default='blat', type=str)
     parser.add_argument('--len_cut_match', default='10', type=int)
@@ -333,7 +336,8 @@ def main():
 
     #overwrite tools
     blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
-    bwa = '/opt/bwa/0.7.9/bin/bwa'
+    #bwa = '/opt/bwa/0.7.9/bin/bwa'
+    bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
     bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
     bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
     samtools = '/opt/samtools/0.1.19/bin/samtools'
@@ -347,7 +351,8 @@ def main():
  
     run_std = '%s/run.std' %(args.outdir)
 
-    writefile('%s/regex.txt' %(args.outdir), '_1\t_2\t.unPaired\tUNK')
+    #writefile('%s/regex.txt' %(args.outdir), '_1\t_2\t.unPaired\tUNK')
+    writefile('%s/regex.txt' %(args.outdir), '%s\t%s\t%s\tUNK' %(args.mate_1_id, args.mate_2_id, args.unpaired_id))
     createdir('%s/shellscripts' %(args.outdir))
     createdir('%s/repeat' %(args.outdir))
     createdir('%s/repeat/blat_output' %(args.outdir))
