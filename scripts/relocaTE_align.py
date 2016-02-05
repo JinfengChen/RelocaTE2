@@ -293,7 +293,7 @@ def map_reads_bwa_mp_helper(args):
 #def map_reads_bwa_mp_runner(seqtk, file_pre):
 #    print 'CK: %s\t%s' %(seqtk, file_pre)
 
-def map_reads_bwa_mp_runner(flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre):
+def map_reads_bwa_mp_runner(flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre, mate_file):
     out_files   = []
     out_files_f = []
     if len(flanking_fq_list) == 2:
@@ -316,10 +316,10 @@ def map_reads_bwa_mp_runner(flanking_fq_list, scripts, path, genome_file, fastq_
         unpaired_info     = '%s/flanking_seq/%s.unPaired.info' %(path, fq_name)
         unpaired_info_chr = '%s/flanking_seq/%s.unPaired.info.chr' %(path, fq_name)
         mate_bam          = '%s/bwa_aln/%s.%s.bwa.mates.bam' %(path, target, fq_name)
-        repeat_name_1     = '%s/te_containing_fq/%s_1.te_repeat.read_repeat_name.txt' %(path, os.path.split(file_pre)[1])
-        repeat_name_chr_1 = '%s/te_containing_fq/%s_1.te_repeat.read_repeat_name.chr.txt' %(path, os.path.split(file_pre)[1])
-        repeat_name_2     = '%s/te_containing_fq/%s_2.te_repeat.read_repeat_name.txt' %(path, os.path.split(file_pre)[1])
-        repeat_name_chr_2 = '%s/te_containing_fq/%s_2.te_repeat.read_repeat_name.chr.txt' %(path, os.path.split(file_pre)[1])
+        repeat_name_1     = '%s/te_containing_fq/%s%s.te_repeat.read_repeat_name.txt' %(path, os.path.split(file_pre)[1], mate_file[0])
+        repeat_name_chr_1 = '%s/te_containing_fq/%s%s.te_repeat.read_repeat_name.chr.txt' %(path, os.path.split(file_pre)[1], mate_file[0])
+        repeat_name_2     = '%s/te_containing_fq/%s%s.te_repeat.read_repeat_name.txt' %(path, os.path.split(file_pre)[1], mate_file[1])
+        repeat_name_chr_2 = '%s/te_containing_fq/%s%s.te_repeat.read_repeat_name.chr.txt' %(path, os.path.split(file_pre)[1], mate_file[1])
         read_chr_info     = defaultdict(lambda : defaultdict(lambda : str()))
         if int(os.path.getsize(match1)) > 0 and int(os.path.getsize(match2)) > 0:
             #map paired-reads
@@ -370,13 +370,13 @@ def multiprocess_pool(parameters, cpu):
     return collect_list
     #return 1
 
-def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu):
+def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu, mate_file):
     bwa_out_files = []
     bwa_out_files_f = []
     ##map reads with bwa
     #hg18.p00.chr1_22_reads_10X_100_500_1.te_repeat.flankingReads.bwa.mates.bam
     parameters = []
-    test_bam = '%s/bwa_aln/%s.%s_1.te_repeat.flankingReads.bwa.mates.bam' %(path, target, os.path.split(flanking_fq.keys()[0])[1])
+    test_bam = '%s/bwa_aln/%s.%s%s.te_repeat.flankingReads.bwa.mates.bam' %(path, target, os.path.split(flanking_fq.keys()[0])[1], mate_file[0])
     if verbose > 0: print 'testing if bam exists: %s' %(test_bam)
         
     for file_pre in sorted(flanking_fq.keys()):
@@ -622,7 +622,7 @@ def main():
     if 1:
         if not os.path.exists('%s/bwa_aln' %(path)):
             createdir('%s/bwa_aln' %(path))
-        map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu)
+        map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, cpu, mate_file)
     else:
         if not os.path.exists('%s/bowtie_aln' %(path)):
             createdir('%s/bowtie_aln' %(path))
