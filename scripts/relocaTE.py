@@ -724,19 +724,20 @@ def main():
     shells_clean = []
     clean_cmd = []
     clean_cmd.append('rm %s/*.fa' %(fastq_dir))
-    clean_cmd.append('rm -R %s/repeat/blat_output' %(args.outdir))
-    clean_cmd.append('rm -R %s/repeat/flanking_seq' %(args.outdir))
-    clean_cmd.append('rm -R %s/repeat/te_containing_fq' %(args.outdir))
-    clean_cmd.append('rm -R %s/repeat/te_only_read_portions_fa' %(args.outdir))
     clean_cmd.append('rm -R %s/repeat/fastq_split' %(args.outdir))
-    clean_cmd.append('rm %s/repeat/bwa_aln/*.mates.bam* %s/repeat/bwa_aln/*.unPaired.bam* %s/repeat/bwa_aln/*.bwa.bam*' %(args.outdir, args.outdir, args.outdir))
+    if int(args.verbose) <= 2:
+        clean_cmd.append('rm -R %s/repeat/blat_output' %(args.outdir))
+        clean_cmd.append('rm -R %s/repeat/flanking_seq' %(args.outdir))
+        clean_cmd.append('rm -R %s/repeat/te_containing_fq' %(args.outdir))
+        clean_cmd.append('rm -R %s/repeat/te_only_read_portions_fa' %(args.outdir))
+        clean_cmd.append('rm %s/repeat/bwa_aln/*.mates.bam* %s/repeat/bwa_aln/*.unPaired.bam* %s/repeat/bwa_aln/*.bwa.bam*' %(args.outdir, args.outdir, args.outdir))
     clean_file = '%s/clean_intermediate_files.sh' %(args.outdir)
     writefile(clean_file, '\n'.join(clean_cmd))
-    if int(args.verbose) <= 2:
-        shells.append('sh %s' %(clean_file))
-        shells_clean.append('sh %s' %(clean_file))
-        if args.run and len(shells_clean) > 0:
-            single_run(shells_clean)
+    #if int(args.verbose) <= 2:
+    shells.append('sh %s' %(clean_file))
+    shells_clean.append('sh %s' %(clean_file))
+    if args.run and len(shells_clean) > 0:
+        single_run(shells_clean)
 
     #write script, always write cmd to file
     writefile('%s/run_these_jobs.sh' %(args.outdir), '\n'.join(shells))

@@ -393,7 +393,7 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
             flanking_fq_list = [flanking_fq[file_pre][1], flanking_fq[file_pre][2]]
         else:
             flanking_fq_list = [flanking_fq[file_pre]['unpaired']]
-        parameters.append([flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre])
+        parameters.append([flanking_fq_list, scripts, path, genome_file, fastq_dir, target, bwa, samtools, seqtk, file_pre, mate_file])
         #parameters.append([seqtk, file_pre])
 
     #for pm in parameters:
