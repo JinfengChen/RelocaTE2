@@ -615,15 +615,32 @@ def TSD_from_read_depth(r, read_repeat, teReadClusters, teReadClusters_count, te
                         min_dist = abs(int(start2) - int(start1))
                         min_pair = start2
                     elif min_dist > abs(int(start2) - int(start1)):
+                        #20160212 modifed to deal with both close insertions and false mapping reads
                         if min_dist <= 100 and int(start2) < int(start1):
-                            ##likely start1 and start2 overlap (find TSD), we choose one with more sequence depth
-                            if len(right_reads[start2]) > len(right_reads[min_pair]):
+                            #already have one pair of TSD
+                            if len(right_reads[start2]) >= 2 and len(right_reads[min_pair]) >= 2:
+                                #both right_reads have more than 2 reads support, likely true. we pick the one with short distance
                                 min_dist = abs(int(start2) - int(start1))
                                 min_pair = start2
+                            else:
+                                #not all have more than 2 reads support, likely one is false. we pick the one with higher depth
+                                if len(right_reads[start2]) > len(right_reads[min_pair]):
+                                    min_dist = abs(int(start2) - int(start1))
+                                    min_pair = start2
                         else:
-                            ##may not TSD
                             min_dist = abs(int(start2) - int(start1))
                             min_pair = start2
+                        #20160212
+                    #elif min_dist > abs(int(start2) - int(start1)):
+                    #    if min_dist <= 100 and int(start2) < int(start1):
+                    #        ##likely start1 and start2 overlap (find TSD), we choose one with more sequence depth
+                    #        if len(right_reads[start2]) > len(right_reads[min_pair]):
+                    #            min_dist = abs(int(start2) - int(start1))
+                    #            min_pair = start2
+                    #    else:
+                    #        ##may not TSD
+                    #        min_dist = abs(int(start2) - int(start1))
+                    #        min_pair = start2
                 if min_dist <= 100:
                     ##find pairs
                     print 'find pairs'
