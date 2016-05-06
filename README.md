@@ -101,5 +101,18 @@ cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
 + Bam file of read mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided.
 
 ## RelocaTE2 output
++ Structrue of output directory
+
++ TE insertions
+  - TE insertions shared between resequenced strain and reference genome: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all\_ref\_insert.gff
+  - TE insertions only present in resequenced strain: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.gff
+  - TE insertions that characterized for heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.characTErized.gff.
++ GFF format used in RelocaTE2
+```shell
+Chr2L   RelocaTE2       FLY603  65072   65076   .       -       .       ID=repeat_Chr2L_65072_65076;Name=pogo;TSD=AGAAC;Note=Non-reference, not found in reference;Right_junction_reads=3;Left_junction_reads=1;Right_support_reads=4;Left_support_reads=2;
+Chr2L   RelocaTE2       FLY603  198322  198326  .       -       .       ID=repeat_Chr2L_198322_198326;Name=pogo;TSD=ATCCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=2;Right_support_reads=2;Left_support_reads=5;
+Chr2L   RelocaTE2       FLY603  246039  246043  .       -       .       ID=repeat_Chr2L_246039_246043;Name=pogo;TSD=AAAGG;Note=Non-reference, not found in reference;Right_junction_reads=2;Left_junction_reads=3;Right_support_reads=2;Left_support_reads=5;
+Chr2L   RelocaTE2       FLY603  423544  423548  .       +       .       ID=repeat_Chr2L_423544_423548;Name=pogo;TSD=GTGCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=1;Right_support_reads=3;Left_support_reads=2;
+```
 
 ## 
