@@ -56,7 +56,7 @@ python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --out
 ## RelocaTE2 Command Line Options
 
 ## RelocaTE2 input
-+Reference genome sequence (ref): multiple sequence of reference genome in fasta format
++ Reference genome sequence (ref): multiple sequence of reference genome in fasta format
 ```shell
 cat test_data/FLY603.Chr2L.fa | head -n 4 
 >Chr2L type=golden_path_region; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,REFSEQ:NT_033779; MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.03; species=Dmel;
@@ -64,7 +64,7 @@ CGACAATGCACGACAGAGGAAGCAGAACAGATATTTAGATTGCCTCTCATTTTCTCTCCCATATTATAGGGAGAAATATG
 ATCGCGTATGCGAGAGTAGTGCCAACATATTGTGCTCTTTGATTTTTTGGCAACCCAAAATGGTGGCGGATGAACGAGAT
 GATAATATATTCAAGTTGCCGCTAATCAGAAATAAATTCATTGCAACGTTAAATACAGCACAATATATGATCGCGTATGC
 ```
-+Repeat sequence (repeat): Consensus sequence of repeat family in fasta format 
++ Repeat sequence (repeat): Consensus sequence of repeat family in fasta format 
 ```shell
 cat test_data/pogo.fa | head -n 4
 >pogo
@@ -72,7 +72,7 @@ CAGTATAATTCGCTTAGCTGCATCGATAGTTAGCTGCATCGGCAAGATAT
 CTGCATTATTTTTCCATTTTTTTGTGTGAATAGAAAATTTGTACGAAAAT
 TCATACGTTTGCTGCATCGCAGATAACAGCCTTTTTAACTTAAGTGCATC
 ```
-+Resequencing data (fq_dir): Illumina sequence of one strain in fastq format (fastq or fastq.gz). Sequence need to be put in one directory. Paired-end reads need to end with \_1.fastq and \_2.fastq.
++ Resequencing data (fq_dir): Illumina sequence of one strain in fastq format (fastq or fastq.gz). Sequence need to be put in one directory. Paired-end reads need to end with \_1.fastq and \_2.fastq.
 ```shell
 ls test_data/FLY603.Chr2L.pogo.rep1_reads/*.fq
 test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_1.fq
@@ -89,7 +89,7 @@ GTCAACATCCTCGAACGATCGAGACAAAGCGTCCGCAACCACATTTTCTGTTCCATTGCGATGCTCGATTTCGAAGGTAT
 +
 FFHHHHHHHHHGGGHHHHHHHEHFFEHFHHGHHHDHHHGHFFGEHHFHHHFGDC@=@GFGB4DEHHHECE>>8/@ABHHH?DGHBEFEDAEDHFBDBCC>
 ```
-+RepeatMasker results of TE annotation on reference genome (ref_te): default TE annotation of reference genome used to call TE insertion in reference genome and remove possible false positive non-reference TE insertions.  
++ RepeatMasker results of TE annotation on reference genome (ref_te): default TE annotation of reference genome used to call TE insertion in reference genome and remove possible false positive non-reference TE insertions.  
 ```shell
 cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
 43675 0.48 0.02 0.02                Chr2L     47514     52519 (23461193) +               jockey         Unknown       2    5007    (13)    
@@ -97,7 +97,7 @@ cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
    227 26.05 1.56 7.03                Chr2L    239481    239608 (23274104) C                  roo         Unknown  (7911)    1181    1061    
  67696 0.16 0.01 0.46                Chr2L    347941    355383 (23158329) C                blood         Unknown     (0)    7410       1    
 ```
-+Bam file of read mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided. 
++ Bam file of read mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided. 
 ## RelocaTE2 output
 
 ## 
