@@ -80,7 +80,7 @@ optional arguments:
                         Name of output directory where to put temperary and
                         final results
   -s SIZE, --size SIZE  Insert size of sequence library, default = 500
-  -c CPU, --cpu CPU     Number of CPUs to use for multiplex, default = 1
+  -c CPU, --cpu CPU     Number of CPUs to use \for multiplex, default = 1
   -1 MATE_1_ID, --mate_1_id MATE_1_ID
                         string define paired-end read1, default = "_1"
   -2 MATE_2_ID, --mate_2_id MATE_2_ID
@@ -107,9 +107,9 @@ optional arguments:
   --step STEP           Number to control steps of pipeline, default =
                         "1234567"
   --run                 run \while this script excute
-  --split               split fastq into 1 M chunks to run blat/bwa jobs
+  --split               split fastq into 1 M chunks to run blat/bwa \jobs
   -v VERBOSE, --verbose VERBOSE
-                        verbose grade to print out information in all scripts:
+                        verbose grade to print out information \in all scripts:
                         range from 0 to 4, default = 2
 ```
 
