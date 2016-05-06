@@ -9,8 +9,8 @@
   - Python (v2.7.5) and pysam pakcage ()
   - Perl (v5.20.2)
   - seqtk (v1.0)
-+ Install
 
++ Install
 ```shell
 git clone https://github.com/JinfengChen/RelocaTE2.git
 cd RelocaTE2
