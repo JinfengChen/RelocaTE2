@@ -135,4 +135,5 @@ Left\_support\_reads: number of reads that not covering the junction of TE inser
 
 ## Publications
 1. Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.
+
 ## 
