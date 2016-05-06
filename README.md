@@ -108,23 +108,6 @@ cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
   - TE insertions only present in resequenced strain: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.gff
   - TE insertions that characterized for heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.characTErized.gff.
 + GFF format used in RelocaTE2
-Attributes in feild eight of GFF:
-
-ID: unique id of TE insertions, repeat\_"chromosome"\_"start"\_"end"
-
-Name: name of TE family name of this insertion
-
-TSD: target site duplicate predicted from read alignments
-
-Note: defination of TE insertions, including Non-reference, Reference-Only and Shared.
-
-Right\_junction\_reads: number of reads that covering the junction of TE insertion on right side/downstream.
-
-Left\_junction\_reads: number of reads that covering the junction of TE insertion on left side/upstream.
-
-Right\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on right side/downstream.
-
-Left\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
 ```shell
 Chr2L   RelocaTE2       FLY603  65072   65076   .       -       .       ID=repeat_Chr2L_65072_65076;Name=pogo;TSD=AGAAC;Note=Non-reference, not found in reference;Right_junction_reads=3;Left_junction_reads=1;Right_support_reads=4;Left_support_reads=2;
@@ -150,4 +133,6 @@ Right\_support\_reads: number of reads that not covering the junction of TE inse
 
 Left\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
+## Publications
+1. Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.
 ## 
