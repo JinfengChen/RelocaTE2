@@ -5,10 +5,12 @@
 ## Installation
 
 ### Testing run
-    //Testing installation
+    '''shell
+    Testing installation
     uz test_data.tar.gz
     cd test_data
     bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
+    '''
 
 ## Quick Start Quide
 
