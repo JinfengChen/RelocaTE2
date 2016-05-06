@@ -5,16 +5,21 @@
 ## Installation
 + System requirements
   - Linux/Unix platform
-  - Short read aligner: BLAT, bowtie, bwa (v0.6.2)
+  - Short read aligner: BLAT (v35), bowtie (v2.2.6), bwa (v0.6.2)
   - Python (v2.7.5) and pysam pakcage ()
-  - seqtk
-+ Testing run
+  - Perl (v5.20.2)
+  - seqtk (v1.0)
++ Install
+  git clone https://github.com/JinfengChen/RelocaTE2.git
+  cd RelocaTE2
+  #edit fullpath of tools in CONFIG and run testing script
 ```shell
 #Run testing command lines in terminal
 uz test_data.tar.gz
 cd test_data
 bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
 ```
+
 ## Quick Start Quide
 
 
