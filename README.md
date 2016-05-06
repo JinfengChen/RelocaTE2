@@ -21,7 +21,7 @@ cd test_data
 bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
 ```
 + Troublethrough
-  - pysam
+  - install and setup pysam in local directory
 ```shell
 git clone https://github.com/pysam-developers/pysam.git
 cd pysam
