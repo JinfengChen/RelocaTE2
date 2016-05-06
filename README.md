@@ -10,11 +10,12 @@
   - Perl (v5.20.2)
   - seqtk (v1.0)
 + Install
-  git clone https://github.com/JinfengChen/RelocaTE2.git
-  cd RelocaTE2
-  #edit fullpath of tools in CONFIG and run testing script
+
 ```shell
-#Run testing command lines in terminal
+git clone https://github.com/JinfengChen/RelocaTE2.git
+cd RelocaTE2
+#edit fullpath of tools in CONFIG and run testing script
+vi CONFIG
 uz test_data.tar.gz
 cd test_data
 bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
