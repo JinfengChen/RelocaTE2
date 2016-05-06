@@ -54,6 +54,43 @@ python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --out
 ```
 
 ## RelocaTE2 Command Line Options
+```shell
+python relocaTE2.py
+usage: relocaTE2.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
+                   [-r REFERENCE_INS] [-o OUTDIR] [-s SIZE] [-c CPU]
+                   [-1 MATE_1_ID] [-2 MATE_2_ID] [-u UNPAIRED_ID]
+                   [--sample SAMPLE] [--aligner ALIGNER]
+                   [--len_cut_match LEN_CUT_MATCH]
+                   [--len_cut_trim LEN_CUT_TRIM] [--mismatch MISMATCH]
+                   [--mismatch_junction MISMATCH_JUNCTION] [--step STEP]
+                   [--run] [--split] [-v VERBOSE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b BAM, --bam BAM
+  -t TE_FASTA, --te_fasta TE_FASTA
+  -d FQ_DIR, --fq_dir FQ_DIR
+  -g GENOME_FASTA, --genome_fasta GENOME_FASTA
+  -r REFERENCE_INS, --reference_ins REFERENCE_INS
+  -o OUTDIR, --outdir OUTDIR
+  -s SIZE, --size SIZE
+  -c CPU, --cpu CPU
+  -1 MATE_1_ID, --mate_1_id MATE_1_ID
+  -2 MATE_2_ID, --mate_2_id MATE_2_ID
+  -u UNPAIRED_ID, --unpaired_id UNPAIRED_ID
+  --sample SAMPLE
+  --aligner ALIGNER
+  --len_cut_match LEN_CUT_MATCH
+  --len_cut_trim LEN_CUT_TRIM
+  --mismatch MISMATCH
+  --mismatch_junction MISMATCH_JUNCTION
+  --step STEP
+  --run                 run while this script excute
+  --split               split fastq into 1 M chunks to run blat/bwa jobs
+  -v VERBOSE, --verbose VERBOSE
+                        verbose grade to print out information in all scripts:
+                        range from 0..4
+```
 
 ## RelocaTE2 input
 + Reference genome sequence (ref): multiple sequences of reference genome in fasta format
