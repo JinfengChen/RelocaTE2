@@ -133,13 +133,21 @@ Chr2L   RelocaTE2       FLY603  246039  246043  .       -       .       ID=repea
 Chr2L   RelocaTE2       FLY603  423544  423548  .       +       .       ID=repeat_Chr2L_423544_423548;Name=pogo;TSD=GTGCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=1;Right_support_reads=3;Left_support_reads=2;
 ```
 Attributes in feild eight of GFF:
+
 ID: unique id of TE insertions, repeat\_"chromosome"\_"start"\_"end" 
+
 Name: name of TE family name of this insertion 
+
 TSD: target site duplicate predicted from read alignments 
+
 Note: defination of TE insertions, including Non-reference, Reference-Only and Shared.
+
 Right\_junction\_reads: number of reads that covering the junction of TE insertion on right side/downstream.
+
 Left\_junction\_reads: number of reads that covering the junction of TE insertion on left side/upstream.
+
 Right\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on right side/downstream.
+
 Left\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
 ## 
