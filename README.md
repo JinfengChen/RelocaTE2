@@ -3,15 +3,18 @@
 ## Introduction
 
 ## Installation
-
-### Testing run
++ System requirements
+- Linux/Unix platform
+- Short read aligner: BLAT, bowtie, bwa (v0.6.2)
+- Python (v2.7.5) and pysam pakcage ()
+- seqtk
++ Testing run
 ```shell
 Testing installation
 uz test_data.tar.gz
 cd test_data
 bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
 ```
-
 ## Quick Start Quide
 
 
