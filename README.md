@@ -5,10 +5,10 @@
 ## Installation
 + System requirements
   - Linux/Unix platform
-  - Short read aligner: BLAT (v35), bowtie (v2.2.6), bwa (v0.6.2)
-  - Python (v2.7.5) and pysam pakcage ()
-  - Perl (v5.20.2)
-  - seqtk (v1.0)
+  - Short read aligner: BLAT (v35+), bowtie (v2.2.6+), bwa (v0.6.2)
+  - Python (v2.7.5+) and pysam pakcage (v0.8.5+)
+  - Perl (v5.20.2+)
+  - seqtk (v1.0+)
 
 + Install
 ```shell
