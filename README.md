@@ -66,8 +66,8 @@ usage: relocaTE.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
                    [--run] [--split] [-v VERBOSE]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -b BAM, --bam BAM     Name of BAM file of read mapped reference genome
+  -h, --help            show this \help message and \exit
+  -b BAM, --bam BAM     Name of BAM file of \read mapped reference genome
   -t TE_FASTA, --te_fasta TE_FASTA
                         Name of fasta sequence of repeat element
   -d FQ_DIR, --fq_dir FQ_DIR
@@ -92,21 +92,21 @@ optional arguments:
   --aligner ALIGNER     aligner used to map reads to repeat elements,
                         default=blat
   --len_cut_match LEN_CUT_MATCH
-                        length cutoff threshold for match between reads and
+                        length cutoff threshold \for match between reads and
                         repeat elements. Large value will lead to less
                         sensitive but more accuracy, default = 10
   --len_cut_trim LEN_CUT_TRIM
-                        length cutoff threshold for trimed reads after
+                        length cutoff threshold \for trimed reads after
                         trimming repeat sequence from reads. Large value will
                         lead to less sensitive but more accuracy, default = 10
-  --mismatch MISMATCH   Number of mismatches allowed for matches between reads
+  --mismatch MISMATCH   Number of mismatches allowed \for matches between reads
                         and repeat elements, default = 2
   --mismatch_junction MISMATCH_JUNCTION
-                        Number of mismatches allowed for matches between
+                        Number of mismatches allowed \for matches between
                         junction reads and repeat elements, default = 2
   --step STEP           Number to control steps of pipeline, default =
                         "1234567"
-  --run                 run while this script excute
+  --run                 run \while this script excute
   --split               split fastq into 1 M chunks to run blat/bwa jobs
   -v VERBOSE, --verbose VERBOSE
                         verbose grade to print out information in all scripts:
