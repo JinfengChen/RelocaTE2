@@ -99,6 +99,7 @@ cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
  67696 0.16 0.01 0.46                Chr2L    347941    355383 (23158329) C                blood         Unknown     (0)    7410       1    
 ```
 + Bam file of read mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided.
+
 ## RelocaTE2 output
 
 ## 
