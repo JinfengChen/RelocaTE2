@@ -1,4 +1,4 @@
-#!/opt/Python/2.7.3/bin/python
+#!/usr/bin/python
 import sys
 from collections import defaultdict
 import numpy as np
