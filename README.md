@@ -43,13 +43,13 @@ bowtie2-build $repeat $repeat
 ```
   - run RelocaTE2 to find transposable element insertions.
 ```shell
-#repeatmasker results of TE annotation
+#repeatmasker results of TE annotation on reference genome
 ref_te=test_data/FLY603.Chr2L.fa.RepeatMasker.out
-#directory where to put fastq format reads
+#directory where to put input fastq format reads
 fq_dir=test_data/FLY603.Chr2L.pogo.rep1_reads/
 #output directory where RelocaTE2 write temperary and final output
 outdir=test_data/FLY603.Chr2L.pogo.rep1_RelocaTE2_outdir
-python relocaTE.py --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins $ref_te 
+python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te 
 ```
 
 ## RelocaTE2 Command Line Options
