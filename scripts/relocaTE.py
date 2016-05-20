@@ -1,4 +1,4 @@
-#!/opt/Python/2.7.3/bin/python
+#!/usr/bin/python
 import sys
 from collections import defaultdict
 import numpy as np
@@ -222,27 +222,27 @@ def Overlap_TE_boundary(prefix, refte):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--bam')
-    parser.add_argument('-t', '--te_fasta')
-    parser.add_argument('-d', '--fq_dir')
-    parser.add_argument('-g', '--genome_fasta')
-    parser.add_argument('-r', '--reference_ins')
-    parser.add_argument('-o', '--outdir')
-    parser.add_argument('-s', '--size', default='500', type=int)
-    parser.add_argument('-c', '--cpu', default='1', type=int)
-    parser.add_argument('-1', '--mate_1_id', default='_1')
-    parser.add_argument('-2', '--mate_2_id', default='_2')
-    parser.add_argument('-u', '--unpaired_id', default='.unParied')
-    parser.add_argument('--sample', default='not_given', type=str)
-    parser.add_argument('--aligner', default='blat', type=str)
-    parser.add_argument('--len_cut_match', default='10', type=int)
-    parser.add_argument('--len_cut_trim', default='10', type=int)
-    parser.add_argument('--mismatch', default='2', type=int)
-    parser.add_argument('--mismatch_junction', default='2', type=int)
-    parser.add_argument('--step', default='1234567', type=str)
+    parser.add_argument('-b', '--bam', help="Name of BAM file of read mapped reference genome")
+    parser.add_argument('-t', '--te_fasta', help="Name of fasta sequence of repeat element")
+    parser.add_argument('-d', '--fq_dir', help="Name of directory of input fastq sequence data")
+    parser.add_argument('-g', '--genome_fasta', help='Name of fasta file of reference genome sequence')
+    parser.add_argument('-r', '--reference_ins', help='Name of RepeatMasker TE annotation of reference genome')
+    parser.add_argument('-o', '--outdir', help='Name of output directory where to put temperary and final results')
+    parser.add_argument('-s', '--size', default='500', type=int, help='Insert size of sequence library, default = 500')
+    parser.add_argument('-c', '--cpu', default='1', type=int, help='Number of CPUs to use for multiplex, default = 1')
+    parser.add_argument('-1', '--mate_1_id', default='_1', help='string define paired-end read1, default = "_1"')
+    parser.add_argument('-2', '--mate_2_id', default='_2', help='string define paired-end read2, default = "_2"')
+    parser.add_argument('-u', '--unpaired_id', default='.unParied', help='string define single-end reads, default = ".unPaired"')
+    parser.add_argument('--sample', default='not_given', type=str, help='string define sample name which will present in output GFF, default = "not_given"')
+    parser.add_argument('--aligner', default='blat', type=str, help='aligner used to map reads to repeat elements, default=blat')
+    parser.add_argument('--len_cut_match', default='10', type=int, help='length cutoff threshold for match between reads and repeat elements. Large value will lead to less sensitive but more accuracy, default = 10')
+    parser.add_argument('--len_cut_trim', default='10', type=int, help='length cutoff threshold for trimed reads after trimming repeat sequence from reads. Large value will lead to less sensitive but more accuracy, default = 10')
+    parser.add_argument('--mismatch', default='2', type=int, help='Number of mismatches allowed for matches between reads and repeat elements, default = 2')
+    parser.add_argument('--mismatch_junction', default='2', type=int, help='Number of mismatches allowed for matches between junction reads and repeat elements, default = 2')
+    parser.add_argument('--step', default='1234567', type=str, help='Number to control steps of pipeline, default = "1234567"')
     parser.add_argument('--run', help='run while this script excute', action='store_true')
     parser.add_argument('--split', help='split fastq into 1 M chunks to run blat/bwa jobs', action='store_true')
-    parser.add_argument('-v', '--verbose', dest='verbose', default='1', type=int, help='verbose grade to print out information in all scripts: range from 0..4')
+    parser.add_argument('-v', '--verbose', dest='verbose', default=2, type=int, help='verbose grade to print out information in all scripts: range from 0 to 4, default = 2')
     args = parser.parse_args()
     
     try:
@@ -339,8 +339,8 @@ def main():
     #bwa = '/opt/bwa/0.7.9/bin/bwa'
     bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
     bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
-    bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
-    samtools = '/opt/samtools/0.1.19/bin/samtools'
+    bedtools = '/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
+    samtools = '/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
     seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
     fastq_split = '%s/fastq_split.pl' %(RelocaTE_bin)
 
