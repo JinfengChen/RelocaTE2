@@ -38,6 +38,17 @@ Scenario 3: Run single or thousands of transposons in thousands of genomes. Spli
     '''
     print message
 
+def parse_config(infile):
+    data = defaultdict(lambda : str())
+    with open (infile, 'r') as filehd:
+        for line in filehd:
+            line = line.rstrip()
+            if not line.startswith(r'#') and '=' in line:
+                unit = re.split(r'\=',line)
+                if not data.has_key(unit[0]):
+                    data[unit[0]] = unit[1]
+    return data
+
 def fasta_id(fastafile):
     fastaid = defaultdict(str)
     for record in SeqIO.parse(fastafile,"fasta"):
@@ -296,6 +307,7 @@ def main():
     samtools = ''
     bedtools = ''
     bwa      = ''
+    bowtie2  = ''
     blat     = ''
     seqtk    = ''    
 
@@ -321,6 +333,14 @@ def main():
         bwa = '/opt/bwa/0.7.9/bin/bwa'
 
     try:
+        subprocess.check_output('which bowtie2', shell=True)
+        bowtie2 = subprocess.check_output('which bowtie2', shell=True)
+        bowtie2 = re.sub(r'\n', '', bowtie2)
+    except:
+        bowtie2 = '/opt/bowtie2/2.2.3/bowtie2'
+
+
+    try:
         subprocess.check_output('which blat', shell=True)
         blat = subprocess.check_output('which blat', shell=True)
         blat = re.sub(r'\n', '', blat)
@@ -332,22 +352,29 @@ def main():
         seqtk = subprocess.check_output('which seqtk', shell=True)
         seqtk = re.sub(r'\n', '', seqtk)
     except:
-        seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
+        seqtk = ' /rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
 
     #overwrite tools
-    blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
-    #bwa = '/opt/bwa/0.7.9/bin/bwa'
-    bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
-    bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
-    bedtools = '/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
-    samtools = '/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
-    seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
+    #blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
+    #bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
+    #bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
+    #bedtools = '/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
+    #samtools = '/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
+    #seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
+    tools = parse_config('%s/../CONFIG' %(os.path.dirname(sys.argv[0])))
+    blat      = tools['blat'] if tools.has_key('blat') else blat
+    bwa       = tools['bwa'] if tools.has_key('bwa') else bwa
+    bowtie2   = tools['bowtie2'] if tools.has_key('bowtie2') else bowtie2
+    bedtools  = tools['bedtools'] if tools.has_key('bedtools') else bedtools
+    samtools  = tools['samtools'] if tools.has_key('samtools') else samtools
+    seqtk     = tools['seqtk'] if tools.has_key('seqtk') else seqtk
     fastq_split = '%s/fastq_split.pl' %(RelocaTE_bin)
 
     #MSU_r7.fa.bwt
     if not os.path.isfile('%s.bwt' %(reference)):
         print 'Reference need to be indexed by bwa: %s' %(reference)
-        exit()
+        os.system('%s index %s' %(bwa, reference))
+        #exit()
  
     run_std = '%s/run.std' %(args.outdir)
 
@@ -658,7 +685,7 @@ def main():
     #ids = ['chr13']
     for chrs in ids:
         print 'find insertions on %s' %(chrs)
-        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s %s 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.mismatch_junction, args.size, args.verbose)
+        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s %s 0 %s %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.mismatch_junction, args.size, args.verbose, bedtools)
         step5_file= '%s/shellscripts/step_5/%s.repeat.findSites.sh' %(args.outdir, step5_count)
         if '5' in list(args.step):
             shells.append('sh %s' %(step5_file))
@@ -681,7 +708,7 @@ def main():
     step6_count = 0
     if mode == 'fastq':
         for chrs in ids:
-            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s 0 0 %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.size)
+            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s 0 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.size, bedtools)
             step6_file= '%s/shellscripts/step_6/%s.repeat.absence.sh' %(args.outdir, step6_count)
             if '6' in list(args.step):
                 shells.append('sh %s' %(step6_file))
@@ -706,7 +733,7 @@ def main():
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.gff > %s/repeat/results/ALL.all_nonref_insert.gff' %(args.outdir, args.outdir))
     #step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.txt | grep "^TE" -v > %s/repeat/results/ALL.all_nonref_insert.txt' %(args.outdir, args.outdir))
-    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
+    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed --bedtools %s' %(RelocaTE_bin, args.outdir, top_dir, bedtools))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.txt > %s/repeat/results/ALL.all_ref_insert.txt' %(args.outdir, args.outdir))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.gff > %s/repeat/results/ALL.all_ref_insert.gff' %(args.outdir, args.outdir))
     step7_cmd.append('perl %s/characterizer.pl -s %s/repeat/results/ALL.all_nonref_insert.txt -b %s -g %s --samtools %s' %(RelocaTE_bin, args.outdir, bam, reference, samtools))

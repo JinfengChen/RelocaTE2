@@ -1,2 +1,7 @@
 #tools
-blat=
+blat='/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
+bwa='/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
+bowtie2='/opt/bowtie2/2.2.3/bowtie2'
+bedtools='/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
+samtools='/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
+seqtk='/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
