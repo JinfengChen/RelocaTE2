@@ -26,7 +26,7 @@ bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
 ```shell
 git clone https://github.com/pysam-developers/pysam.git
 cd pysam
-python setup.py install --prefix ~/software/tools/pythonlib
+python setup.py install --prefix ~/BigData/software/tools/pythonlib
 export PYTHONPATH=$PYTHONPATH:~/BigData/software/pythonlib/lib/python2.7/site-packages
 ```
 ## Quick Start Quide

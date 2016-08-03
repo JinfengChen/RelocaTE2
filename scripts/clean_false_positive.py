@@ -52,7 +52,7 @@ def txt2gff(infile, outfile, ins_type):
 #Chr3	not.give	RelocaTE_i	283493	283504	.	-	.	ID=repeat_Chr3_283493_283504;TSD=ATGCCATCAAGG;Note=Non-reference,
 #not found in reference;Right_junction_reads:4;Left_junction_reads:1;Right_support_reads:4;Left_support_reads:5;
 #Chr3	281479	284272	TE110112	+
-def Overlap_TE_boundary(prefix, refte, distance):
+def Overlap_TE_boundary(prefix, refte, distance, bedtools):
     data = defaultdict(str)
     final_gff   = '%s.gff' %(prefix)
     raw_gff     = '%s.raw.gff' %(prefix)
@@ -61,7 +61,7 @@ def Overlap_TE_boundary(prefix, refte, distance):
     clean_gff   = '%s.clean.gff' %(prefix)
     infile = '%s.overlap' %(prefix)
     outfile= '%s.remove.gff' %(prefix)
-    os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools window -w %s -a %s -b %s > %s' %(int(distance) + 10, final_gff, refte, infile))
+    os.system('%s window -w %s -a %s -b %s > %s' %(bedtools, int(distance) + 10, final_gff, refte, infile))
     if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
         return 1
     print 'filter existing TE: %s bp' %(distance) 
@@ -102,7 +102,7 @@ def Overlap_TE_boundary(prefix, refte, distance):
         os.system('rm %s.overlap %s.remove.gff' %(prefix, prefix))
     else:
         print 'remove by bedtool'
-        os.system('/opt/bedtools/2.17.0-25-g7b42b3b/bin/bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
+        os.system('%s intersect -v -a %s -b %s > %s' %(bedtools, final_gff, outfile, clean_gff))
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(clean_gff, all_gff))
         os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(clean_gff, final_gff))
@@ -114,6 +114,7 @@ def main():
     parser.add_argument('-i', '--input')
     parser.add_argument('-r', '--refte')
     parser.add_argument('-d', '--distance', default='3', type=int)
+    parser.add_argument('-b', '--bedtools')
     parser.add_argument('-o', '--output')
     parser.add_argument('-v', dest='verbose', action='store_true')
     args = parser.parse_args()
@@ -127,7 +128,7 @@ def main():
     #if not os.path.isfile(args.input) or not os.path.getsize(args.input) > 0:
     #txt2gff('%s.txt' %(os.path.splitext(args.input)[0]), args.input, 'non_reference')
     #os.system('bedtools window -w 10 -a %s -b %s > %s.overlap' %(args.input, args.refte, os.path.splitext(args.input)[0]))
-    Overlap_TE_boundary(os.path.splitext(args.input)[0], args.refte, args.distance)
+    Overlap_TE_boundary(os.path.splitext(args.input)[0], args.refte, args.distance, args.bedtools)
     
 
 if __name__ == '__main__':
