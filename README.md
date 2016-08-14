@@ -1,13 +1,13 @@
 # RelocaTE2: a high resolution mapping tool for transposable elements polymorphisms in large population data
 
 ## Introduction
-RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitivity and accuracy for mapping transposoable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 use the reads that associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects target site duplication (TSD) of TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 search all TEs in one cycle, which enable us find polymorphisms of thousands of TEs in individual genome or large populations in reasonable timeframe without losing sensitivity and specificity.
+RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitive and accurate in mapping transposable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 uses the reads associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects the target site duplication (TSD) of a TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 searches all TEs in one cycle, which enable us find polymorphisms of thousands of TEs in an individual genome or large populations in reasonable timeframe without losing sensitivity and specificity.
 
 ## Installation
 + System requirements
   - Linux/Unix platform
   - Short read aligner: BLAT (v35+), bowtie (v2.2.6+), bwa (v0.6.2)
-  - Python (v2.7.5+) and pysam pakcage (v0.8.5+)
+  - Python (v2.7.5+) and pysam package (v0.8.5+)
   - Perl (v5.20.2+)
   - seqtk (v1.0+)
 
@@ -21,7 +21,8 @@ uz test_data.tar.gz
 cd test_data
 bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
 ```
-+ Troublethrough
+
++ Troubleshooting
   - install and setup pysam in local directory
 ```shell
 git clone https://github.com/pysam-developers/pysam.git
@@ -29,20 +30,21 @@ cd pysam
 python setup.py install --prefix ~/BigData/software/tools/pythonlib
 export PYTHONPATH=$PYTHONPATH:~/BigData/software/pythonlib/lib/python2.7/site-packages
 ```
+
 ## Quick Start Quide
-  - index referene genome
+  - index reference genome
 ```shell
 #reference genome
 ref=test_data/FLY603.Chr2L.fa
 bwa index $ref
 ```
-  - index repeat sequence if use bowtie2 as search engine (default is to use BLAT as search engine)
+  - index repeat sequence if using bowtie2 as search engine (default is to use BLAT as search engine)
 ```shell
 #repeat elements
 repeat=test_data/pogo.fa
 bowtie2-build $repeat $repeat
 ```
-  - run RelocaTE2 to find transposable element insertions.
+  - run RelocaTE2 to find transposable element insertions
 ```shell
 #repeatmasker results of TE annotation on reference genome
 ref_te=test_data/FLY603.Chr2L.fa.RepeatMasker.out
@@ -50,10 +52,11 @@ ref_te=test_data/FLY603.Chr2L.fa.RepeatMasker.out
 fq_dir=test_data/FLY603.Chr2L.pogo.rep1_reads/
 #output directory where RelocaTE2 write temperary and final output
 outdir=test_data/FLY603.Chr2L.pogo.rep1_RelocaTE2_outdir
-python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te 
+python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
 ```
 
 ## RelocaTE2 Command Line Options
+
 ```shell
 python relocaTE2.py
 usage: relocaTE.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
@@ -67,7 +70,7 @@ usage: relocaTE.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -b BAM, --bam BAM     Name of BAM file of read mapped reference genome
+  -b BAM, --bam BAM     Name of BAM file of reads mapped reference genome
   -t TE_FASTA, --te_fasta TE_FASTA
                         Name of fasta sequence of repeat element
   -d FQ_DIR, --fq_dir FQ_DIR
@@ -86,8 +89,8 @@ optional arguments:
   -2 MATE_2_ID, --mate_2_id MATE_2_ID
                         string define paired-end read2, default = "_2"
   -u UNPAIRED_ID, --unpaired_id UNPAIRED_ID
-                        string define single-end reads, default = ".unPaired"
-  --sample SAMPLE       string define sample name which will present in output
+                        string defining single-end reads, default = ".unPaired"
+  --sample SAMPLE       string defining sample name which will present in output
                         GFF, default = "not_given"
   --aligner ALIGNER     aligner used to map reads to repeat elements,
                         default=blat
@@ -116,13 +119,13 @@ optional arguments:
 ## RelocaTE2 input
 + Reference genome sequence (ref): multiple sequences of reference genome in fasta format
 ```shell
-cat test_data/FLY603.Chr2L.fa | head -n 4 
+cat test_data/FLY603.Chr2L.fa | head -n 4
 >Chr2L type=golden_path_region; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,REFSEQ:NT_033779; MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.03; species=Dmel;
 CGACAATGCACGACAGAGGAAGCAGAACAGATATTTAGATTGCCTCTCATTTTCTCTCCCATATTATAGGGAGAAATATG
 ATCGCGTATGCGAGAGTAGTGCCAACATATTGTGCTCTTTGATTTTTTGGCAACCCAAAATGGTGGCGGATGAACGAGAT
 GATAATATATTCAAGTTGCCGCTAATCAGAAATAAATTCATTGCAACGTTAAATACAGCACAATATATGATCGCGTATGC
 ```
-+ Repeat sequence (repeat): Consensus sequences of repeat families in fasta format 
++ Repeat sequence (repeat): Consensus sequences of repeat families in fasta format
 ```shell
 cat test_data/pogo.fa | head -n 4
 >pogo
@@ -130,7 +133,7 @@ CAGTATAATTCGCTTAGCTGCATCGATAGTTAGCTGCATCGGCAAGATAT
 CTGCATTATTTTTCCATTTTTTTGTGTGAATAGAAAATTTGTACGAAAAT
 TCATACGTTTGCTGCATCGCAGATAACAGCCTTTTTAACTTAAGTGCATC
 ```
-+ Resequencing data (fq_dir): Illumina reads of one strain in fastq format (fastq or fastq.gz). Sequence need to be put in one directory. Paired-end reads need to end with \_1.fastq and \_2.fastq.
++ Resequencing data (fq_dir): Illumina reads from one strain in fastq format (fastq or fastq.gz). Sequences need to be put in one directory. Paired-end reads need to end with \_1.fastq and \_2.fastq.
 ```shell
 ls test_data/FLY603.Chr2L.pogo.rep1_reads/*.fq
 test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_1.fq
@@ -148,7 +151,7 @@ GTCAACATCCTCGAACGATCGAGACAAAGCGTCCGCAACCACATTTTCTGTTCCATTGCGATGCTCGATTTCGAAGGTAT
 +
 FFHHHHHHHHHGGGHHHHHHHEHFFEHFHHGHHHDHHHGHFFGEHHFHHHFGDC@=@GFGB4DEHHHECE>>8/@ABHHH?DGHBEFEDAEDHFBDBCC>
 ```
-+ RepeatMasker results of TE annotation on reference genome (ref_te): default TE annotation of reference genome used to call TE insertions in reference genome and remove possible false positive non-reference TE insertions. 
++ RepeatMasker results of TE annotation on reference genome (ref_te): default TE annotation of reference genome used to call TE insertions in reference genome and remove possible false positive non-reference TE insertions.
 ```shell
 cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
 43675 0.48 0.02 0.02                Chr2L     47514     52519 (23461193) +               jockey         Unknown       2    5007    (13)    
@@ -156,15 +159,15 @@ cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
    227 26.05 1.56 7.03                Chr2L    239481    239608 (23274104) C                  roo         Unknown  (7911)    1181    1061    
  67696 0.16 0.01 0.46                Chr2L    347941    355383 (23158329) C                blood         Unknown     (0)    7410       1    
 ```
-+ Bam file of read mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided.
++ Bam file of reads mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided.
 
 ## RelocaTE2 output
-+ Structrue of output directory
++ Structure of output directory
 
 + TE insertions
   - TE insertions shared between resequenced strain and reference genome: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all\_ref\_insert.gff
   - TE insertions only present in resequenced strain: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.gff
-  - TE insertions that characterized for heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.characTErized.gff.
+  - TE insertions characterized as heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.characTErized.gff.
 + GFF format used in RelocaTE2
 
 ```shell
@@ -173,25 +176,23 @@ Chr2L   RelocaTE2       FLY603  198322  198326  .       -       .       ID=repea
 Chr2L   RelocaTE2       FLY603  246039  246043  .       -       .       ID=repeat_Chr2L_246039_246043;Name=pogo;TSD=AAAGG;Note=Non-reference, not found in reference;Right_junction_reads=2;Left_junction_reads=3;Right_support_reads=2;Left_support_reads=5;
 Chr2L   RelocaTE2       FLY603  423544  423548  .       +       .       ID=repeat_Chr2L_423544_423548;Name=pogo;TSD=GTGCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=1;Right_support_reads=3;Left_support_reads=2;
 ```
-Attributes in feild eight of GFF:
+Attributes in field 8 of GFF:
 
-ID: unique id of TE insertions, repeat\_"chromosome"\_"start"\_"end" 
+ID: unique id of TE insertions, repeat\_"chromosome"\_"start"\_"end"
 
-Name: name of TE family name of this insertion 
+Name: TE family name of this insertion
 
-TSD: target site duplicate predicted from read alignments 
+TSD: target site duplicate predicted from read alignments
 
-Note: defination of TE insertions, including Non-reference, Reference-Only and Shared.
+Note: definition of TE insertions, including Non-reference, Reference-Only and Shared.
 
-Right\_junction\_reads: number of reads that covering the junction of TE insertion on right side/downstream.
+Right\_junction\_reads: number of reads covering the junction of TE insertion on right side/downstream.
 
-Left\_junction\_reads: number of reads that covering the junction of TE insertion on left side/upstream.
+Left\_junction\_reads: number of reads covering the junction of TE insertion on left side/upstream.
 
-Right\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on right side/downstream.
+Right\_support\_reads: number of reads not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on right side/downstream.
 
-Left\_support\_reads: number of reads that not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
+Left\_support\_reads: number of reads not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
 ## Publications
 1. Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.
-
-## 
