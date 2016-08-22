@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 from collections import defaultdict
-import numpy as np
 import re
 import os
 import argparse
@@ -417,7 +416,7 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
     print 'mergeing bam file: %s/%s files' %(len(bam2merge), len(bwa_out_files))
     if len(bam2merge) > 1:
         cmd1  = '%s merge -f %s %s' %(samtools, merged_bwa, ' '.join(bam2merge))
-        cmd2  = '%s sort %s %s.sorted' %(samtools, merged_bwa, os.path.splitext(merged_bwa)[0])
+        cmd2  = '%s sort %s -o %s.sorted.bam' %(samtools, merged_bwa, os.path.splitext(merged_bwa)[0])
         cmd3  = '%s index %s.sorted.bam' %(samtools, os.path.splitext(merged_bwa)[0])
         #print '%s\n%s\n%s' %(cmd1, cmd2, cmd3)
         cmd_sh = '%s.sh' %(merged_bwa)
@@ -428,7 +427,7 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
         #os.system(cmd3)
     elif len(bam2merge) == 1:
         os.system('cp %s %s' %(bam2merge[0], merged_bwa))
-        os.system('%s sort %s %s.sorted' %(samtools, merged_bwa, os.path.splitext(merged_bwa)[0]))
+        os.system('%s sort %s -o %s.sorted.bam' %(samtools, merged_bwa, os.path.splitext(merged_bwa)[0]))
         os.system('%s index %s.sorted.bam' %(samtools, os.path.splitext(merged_bwa)[0]))
 
     ##merge all bwa results of fullreads into one file
@@ -437,7 +436,7 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
     print 'mergeing fullread bam file: %s/%s files' %(len(bam2merge_f), len(bwa_out_files_f))
     if len(bam2merge_f) > 1:
         cmd4  = '%s merge -f %s %s' %(samtools, merged_bwa_f, ' '.join(bam2merge_f))
-        cmd5  = '%s sort %s %s.sorted' %(samtools, merged_bwa_f, os.path.splitext(merged_bwa_f)[0])
+        cmd5  = '%s sort %s -o %s.sorted.bam' %(samtools, merged_bwa_f, os.path.splitext(merged_bwa_f)[0])
         cmd6  = '%s index %s.sorted.bam' %(samtools, os.path.splitext(merged_bwa_f)[0])
         #print '%s\n%s\n%s' %(cmd4, cmd5, cmd6)
         cmd_sh = '%s.sh' %(merged_bwa_f)
@@ -448,7 +447,7 @@ def map_reads_bwa(scripts, flanking_fq, path, genome_file, fastq_dir, target, bw
         #os.system(cmd6)
     elif len(bam2merge_f) == 1:
         os.system('cp %s %s' %(bam2merge_f[0], merged_bwa_f))
-        os.system('%s sort %s %s.sorted' %(samtools, merged_bwa_f, os.path.splitext(merged_bwa_f)[0]))
+        os.system('%s sort %s -o %s.sorted.bam' %(samtools, merged_bwa_f, os.path.splitext(merged_bwa_f)[0]))
         os.system('%s index %s.sorted.bam' %(samtools, os.path.splitext(merged_bwa_f)[0]))
 
     ##merge info_chr file and split into chr based files
