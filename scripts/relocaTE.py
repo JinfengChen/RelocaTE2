@@ -133,7 +133,7 @@ def mp_pool(cmds, cpu):
     count= 0
     for x in imap_it:
         print 'job: %s' %(cmds[count])
-        print 'status: %s' %(x)
+        #print 'status: %s' %(x)
         count += 1
 
 ##run job by sequence
@@ -141,7 +141,7 @@ def single_run(cmds):
     for cmd in cmds:
         status = shell_runner(cmd)
         print 'job: %s' %(cmd)
-        print 'status: %s' %(status)
+        #print 'status: %s' %(status)
 
 def existingTE_RM_ALL(top_dir, infile):
     ofile_RM = open('%s/existingTE.bed' %(top_dir), 'w')
@@ -187,52 +187,6 @@ def existingTE_RM_ALL(top_dir, infile):
                             intact = 1
                     print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[11],unit[6],unit[7], intact, '-')
     ofile_RM.close()
-
-#Chr3	not.give	RelocaTE_i	283493	283504	.	-	.	ID=repeat_Chr3_283493_283504;TSD=ATGCCATCAAGG;Note=Non-reference,
-#not found in reference;Right_junction_reads:4;Left_junction_reads:1;Right_support_reads:4;Left_support_reads:5;
-#Chr3	281479	284272	TE110112	+
-def Overlap_TE_boundary(prefix, refte):
-    data = defaultdict(str)
-    final_gff   = '%s.gff' %(prefix)
-    raw_gff     = '%s.raw.gff' %(prefix)
-    clean_gff   = '%s.clean.gff' %(prefix)
-    infile = '%s.overlap' %(prefix)
-    outfile= '%s.remove.gff' %(prefix)
-    os.system('bedtools window -w 10 -a %s -b %s > %s' %(final_gff, refte, infile))
-    if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
-        return 1 
-    ofile  = open(outfile, 'w') 
-    with open (infile, 'r') as filehd:
-        for line in filehd:
-            line = line.rstrip()
-            if len(line) > 2: 
-                unit = re.split(r'\t',line)
-                temp = defaultdict(str)
-                attrs = re.split(r';', unit[8])
-                for attr in attrs:
-                    if not attr == '':
-                        attr = re.sub(r':', '=', attr)
-                        idx, value = re.split(r'\=', attr)
-                        temp[idx] = value
-                if int(temp['Right_junction_reads']) == 0 or int(temp['Left_junction_reads']) == 0:
-                    #support by one junction
-                    #within 10 bp interval of intact TE boundary
-                    #print >> ofile, '\t'.join(unit[:9])
-                    if int(unit[3]) >= int(unit[10]) - 10 and int(unit[3]) <= int(unit[10]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[3]) >= int(unit[11]) - 10 and int(unit[3]) <= int(unit[11]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[4]) >= int(unit[10]) - 10 and int(unit[4]) <= int(unit[10]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[4]) >= int(unit[11]) - 10 and int(unit[4]) <= int(unit[11]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-    ofile.close()
-    if not os.path.isfile(outfile) or not os.path.getsize(outfile) > 0:
-        return 1
-    os.system('bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
-    os.system('mv %s %s' %(final_gff, raw_gff))
-    os.system('grep -v \"singleton\|insufficient_data\" %s > %s' %(clean_gff, final_gff))
-    os.system('rm %s.overlap %s.remove.gff %s.clean.gff' %(prefix, prefix, prefix))
 
 
 def main():

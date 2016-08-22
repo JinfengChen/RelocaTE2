@@ -6,7 +6,7 @@ RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3j
 ## Installation
 + System requirements
   - Linux/Unix platform
-  - Short read aligner: BLAT (v35+), bowtie (v2.2.6+), bwa (v0.6.2)
+  - Short read aligner: BLAT (v35+), bowtie2 (v2.2.6+), bwa (v0.6.2)
   - Python (v2.7.5+) and pysam package (v0.8.5+)
   - Perl (v5.20.2+)
   - seqtk (v1.0+)
@@ -15,21 +15,14 @@ RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3j
 ```shell
 git clone https://github.com/JinfengChen/RelocaTE2.git
 cd RelocaTE2
-#edit fullpath of tools in CONFIG and run testing script
-vi CONFIG
+bash install.sh
 uz test_data.tar.gz
 cd test_data
-bash RelocaTE2_run.sh > RelocaTE2_run.log 2>&1 &
+bash run_test.sh > run_test.sh.log 2>&1 &
 ```
 
 + Troubleshooting
-  - install and setup pysam in local directory
-```shell
-git clone https://github.com/pysam-developers/pysam.git
-cd pysam
-python setup.py install --prefix ~/BigData/software/tools/pythonlib
-export PYTHONPATH=$PYTHONPATH:~/BigData/software/pythonlib/lib/python2.7/site-packages
-```
+  - installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script install and link the executables of all tools to RelocaTE2/bin directory and record their path in RelocaTE2/CONFIG. The main script of RelocaTE2 search executables in $PATH, however, overwrite the values in $PATH using executable from RelocaTE2/CONFIG. Python module "pysam" will be installed to RelocaTE2/pythonlib. By setting PYTHONPATH=RelocaTE2/pythonlib/lib64/python2.7/site-packages will overwrite whatever version of pysam in system and use the new version for RelocaTE2. 
 
 ## Quick Start Quide
   - index reference genome
