@@ -1,11 +1,9 @@
 #!/usr/bin/python
 import sys
 from collections import defaultdict
-import numpy as np
 import re
 import os
 import argparse
-from Bio import SeqIO
 import glob
 import multiprocessing as mp
 
@@ -50,9 +48,15 @@ def parse_config(infile):
     return data
 
 def fasta_id(fastafile):
-    fastaid = defaultdict(str)
-    for record in SeqIO.parse(fastafile,"fasta"):
-        fastaid[record.id] = 1
+    fastaid = defaultdict(lambda : str())
+    with open (fastafile, 'r') as filehd:
+        for line in filehd:
+            line = line.rstrip()
+            if line.startswith(">"):
+                unit = re.split(r' ',line)
+                name = unit[0]
+                name = re.sub(r'>', r'', name)
+                fastaid[name] = 1
     return fastaid
 
 def createdir(dirname):
