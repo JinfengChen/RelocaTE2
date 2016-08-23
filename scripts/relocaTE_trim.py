@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 from collections import defaultdict
-import numpy as np
 import re
 import os
 import argparse

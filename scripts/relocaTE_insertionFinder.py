@@ -11,7 +11,7 @@ import glob
 def usage():
     test="name"
     message='''
-python CircosConf.py --input circos.config --output pipe.conf
+RelocaTE2: improved version of RelocaTE for calling transposable element insertions
 
     '''
     print message

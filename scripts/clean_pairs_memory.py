@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 from collections import defaultdict
-import numpy as np
 import re
 import os
 import argparse
@@ -254,6 +253,7 @@ def main():
     fq2_match = '%s.matched' %(args.fq2)
     fq_unPaired = '%s.unPaired.fq' %(os.path.splitext(args.fq1)[0])
     fq_unPaired_info = '%s.unPaired.info' %(os.path.splitext(args.fq1)[0])
+    #print '%s\n%s\n%s\n%s' %(args.fq1, fq1_te, fq1_0, fq_unPaired)
     #print '%s\n%s\n%s\n%s' %(args.fq2, fq2_te, fq2_0, fq_unPaired)
     
     
