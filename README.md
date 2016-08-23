@@ -22,8 +22,8 @@ bash run_test.sh > run_test.sh.log 2>&1 &
 ```
 
 + Troubleshooting
-  - installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script install and link the executables of all tools to RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE.py, search executables in $PATH, however, overwrite the values in $PATH using executables from RelocaTE2/CONFIG. Users can modify RelocaTE2/CONFIG with tools installed in their system to avoid any problem. 
-  - Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=RelocaTE2/pythonlib/lib64/python2.7/site-packages, any old versions installed in the system is overwritten temporary and use the new version for RelocaTE2.
+  - installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script install and link the executables of all tools to RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, search executables in $PATH, however, overwrite the values in $PATH using executables from RelocaTE2/CONFIG. Users can modify RelocaTE2/CONFIG with tools installed in their system to avoid any problem. 
+  - Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/pythonlib/lib64/python2.7/site-packages, any old versions of pysam installed in the system is overwritten temporary and use the new version of pysam for RelocaTE2.
 
 ## Quick Start Quide
   - index reference genome
