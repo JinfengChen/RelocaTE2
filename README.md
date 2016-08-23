@@ -51,9 +51,9 @@ ref_te=test_data/MSU7.Chr3.fa.RepeatMasker.out
 fq_dir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/
 #output directory where RelocaTE2 write temperary and final output
 outdir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir
-python relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
+python script/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
 ```
-  - check results of TE insertions and compare with standard control
+  - check results of TE insertions and compare with simulated TE insertions
 ```shell
 wc -l test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
 167

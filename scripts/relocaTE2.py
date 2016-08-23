@@ -269,6 +269,7 @@ def main():
     bedtools = ''
     bwa      = ''
     bowtie2  = ''
+    bowtie2_build  = ''
     blat     = ''
     seqtk    = ''    
 
@@ -297,9 +298,10 @@ def main():
         subprocess.check_output('which bowtie2', shell=True)
         bowtie2 = subprocess.check_output('which bowtie2', shell=True)
         bowtie2 = re.sub(r'\n', '', bowtie2)
+        bowtie2_build = '%s-build' %(bowtie2)
     except:
         bowtie2 = '/opt/bowtie2/2.2.3/bowtie2'
-
+        bowtie2_build = '/opt/bowtie2/2.2.3/bowtie2-build'
 
     try:
         subprocess.check_output('which blat', shell=True)
@@ -326,6 +328,7 @@ def main():
     blat      = tools['blat'] if tools.has_key('blat') else blat
     bwa       = tools['bwa'] if tools.has_key('bwa') else bwa
     bowtie2   = tools['bowtie2'] if tools.has_key('bowtie2') else bowtie2
+    bowtie2_build = tools['bowtie2_build'] if tools.has_key('bowtie2_build') else bowtie2_build
     bedtools  = tools['bedtools'] if tools.has_key('bedtools') else bedtools
     samtools  = tools['samtools'] if tools.has_key('samtools') else samtools
     seqtk     = tools['seqtk'] if tools.has_key('seqtk') else seqtk
@@ -562,6 +565,7 @@ def main():
             bwaout  = '%s/repeat/blat_output/%s.te_repeat.bam' %(args.outdir, fq_prefix)
             bwastd  = '%s/repeat/blat_output/bwa.out' %(args.outdir)
             bwacmd  = ''
+            os.system('%s %s %s' %(bowtie2_build, te_fasta, te_fasta))
             if args.split:
                 if args.aligner == 'bowtie2':
                     #local sensitive: -D 15 -R 2 -N 0 -L 20 -i S,1,0.75

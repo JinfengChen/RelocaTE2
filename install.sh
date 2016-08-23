@@ -154,9 +154,15 @@ echo "Testing installation and making CONFIG file"
 test_exe `pwd`/External_tools/bwa-0.6.2/bwa $bin/bwa bwa $config
 test_exe `pwd`/External_tools/seqtk/seqtk $bin/seqtk seqtk $config
 test_exe `pwd`/External_tools/bowtie2-2.2.9/bowtie2 $bin/bowtie2 bowtie2 $config
+test_exe `pwd`/External_tools/bowtie2-2.2.9/bowtie2-build $bin/bowtie2-build bowtie2_build $config
 test_exe `pwd`/External_tools/blat/blat $bin/blat blat $config
 test_exe `pwd`/External_tools/bedtools2/bin/bedtools $bin/bedtools bedtools $config
 test_exe `pwd`/External_tools/samtools-1.3.1/samtools $bin/samtools samtools $config
+
+echo " "
+echo "New CONFIG file is:"
+cat $config
+echo " "
 
 echo "Done"
 
