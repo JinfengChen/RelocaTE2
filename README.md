@@ -46,14 +46,14 @@ ref_te=test_data/FLY603.Chr2L.fa.RepeatMasker.out
 fq_dir=test_data/FLY603.Chr2L.pogo.rep1_reads/
 #output directory where RelocaTE2 write temperary and final output
 outdir=test_data/FLY603.Chr2L.pogo.rep1_RelocaTE2_outdir
-python relocaTE.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
+python relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
 ```
 
 ## RelocaTE2 Command Line Options
 
 ```shell
 python relocaTE2.py
-usage: relocaTE.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
+usage: relocaTE2.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
                    [-r REFERENCE_INS] [-o OUTDIR] [-s SIZE] [-c CPU]
                    [-1 MATE_1_ID] [-2 MATE_2_ID] [-u UNPAIRED_ID]
                    [--sample SAMPLE] [--aligner ALIGNER]
