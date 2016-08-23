@@ -1,5 +1,5 @@
 # RelocaTE2: a high resolution mapping tool for transposable elements polymorphisms in large population data
-
+testing
 ## Introduction
 RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitive and accurate in mapping transposable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 uses the reads associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects the target site duplication (TSD) of a TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 searches all TEs in one cycle, which enable us find polymorphisms of thousands of TEs in an individual genome or large populations in reasonable timeframe without losing sensitivity and specificity.
 
