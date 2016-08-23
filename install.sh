@@ -89,17 +89,12 @@ if [ ! -d $pythonlib/lib64/python2.7/site-packages/pysam-0.9.1.4-py2.7-linux-x86
     echo "installing pysam"
     git clone https://github.com/pysam-developers/pysam.git >> $log 2>&1
     cd pysam
-    export PYTHONPATH=$PYTHONPATH:$pythonlib/lib64/python2.7/site-packages
+    export PYTHONPATH=$pythonlib/lib64/python2.7/site-packages:$PYTHONPATH
     mkdir -p $pythonlib/lib64/python2.7/site-packages
     python setup.py install --prefix $pythonlib >> $log 2>&1
-    export PYTHONPATH=$pythonlib/lib64/python2.7/site-packages
-    cd ..
-    (python -c "import pysam;print pysam.__version__" && echo "pysam installed" ) || echo "pysam installation failed. Try to install manually."
-    #if [ -d $pythonlib/lib64/python2.7/site-packages/pysam-0.9.1.4-py2.7-linux-x86_64.egg ]; then
-    #    echo "pysam installed"
-    #else
-    #    echo "pysam installation failed. Try to install manually."
-    #fi
+    cd ../..
+    (PYTHONPATH=$pythonlib/lib64/python2.7/site-packages python -c "import pysam;print pysam.__version__" && echo "pysam installed" ) || echo "pysam installation failed. Try to install manually."
+    cd External_tools
 fi
 
 #echo "installing bedtools"
