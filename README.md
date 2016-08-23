@@ -26,27 +26,39 @@ bash run_test.sh > run_test.sh.log 2>&1 &
   - Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/pythonlib/lib64/python2.7/site-packages, any old versions of pysam installed in the system is overwritten temporary and use the new version of pysam for RelocaTE2.
 
 ## Quick Start Quide
+  - set environment variables
+```shell
+export PYTHONPATH=`pwd`/pythonlib/lib64/python2.7/site-packages:$PYTHONPATH
+export PATH=`pwd`/bin:$PATH 
+```
   - index reference genome
 ```shell
 #reference genome
-ref=test_data/FLY603.Chr2L.fa
+ref=test_data/MSU7.Chr3.fa
 bwa index $ref
 ```
   - index repeat sequence if using bowtie2 as search engine (default is to use BLAT as search engine)
 ```shell
 #repeat elements
-repeat=test_data/pogo.fa
+repeat=test_data/RiceTE.fa
 bowtie2-build $repeat $repeat
 ```
   - run RelocaTE2 to find transposable element insertions
 ```shell
 #repeatmasker results of TE annotation on reference genome
-ref_te=test_data/FLY603.Chr2L.fa.RepeatMasker.out
+ref_te=test_data/MSU7.Chr3.fa.RepeatMasker.out
 #directory where the input fastq format reads are located
-fq_dir=test_data/FLY603.Chr2L.pogo.rep1_reads/
+fq_dir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/
 #output directory where RelocaTE2 write temperary and final output
-outdir=test_data/FLY603.Chr2L.pogo.rep1_RelocaTE2_outdir
+outdir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir
 python relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
+```
+  - check results of TE insertions and compare with standard control
+```shell
+wc -l test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
+167
+bedtools window -w 10 -a test_data/MSU7.Chr3.ALL.rep1.gff -b test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
+167
 ```
 
 ## RelocaTE2 Command Line Options
