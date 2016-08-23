@@ -209,7 +209,8 @@ def main():
     parser.add_argument('--mismatch', default='2', type=int, help='Number of mismatches allowed for matches between reads and repeat elements, default = 2')
     parser.add_argument('--mismatch_junction', default='2', type=int, help='Number of mismatches allowed for matches between junction reads and repeat elements, default = 2')
     parser.add_argument('--step', default='1234567', type=str, help='Number to control steps of pipeline, default = "1234567"')
-    parser.add_argument('--run', help='run while this script excute', action='store_true')
+    parser.add_argument('--dry_run', help='write shell only while this script excute', action='store_true')
+    parser.add_argument('--run', help='run shell while this script excute', action='store_true')
     parser.add_argument('--split', help='split fastq into 1 M chunks to run blat/bwa jobs', action='store_true')
     parser.add_argument('-v', '--verbose', dest='verbose', default=2, type=int, help='verbose grade to print out information in all scripts: range from 0 to 4, default = 2')
     args = parser.parse_args()
@@ -243,6 +244,10 @@ def main():
 
     if args.verbose > 0: print fastq_dir
     if args.verbose > 0: print mode
+
+    #
+    if args.dry_run is False:
+        args.run = True
 
     #Prepare directory and script
     if args.outdir is None:
@@ -529,6 +534,9 @@ def main():
         #fa      = fastq_dict[fq]
         #fq      = '%s.fq' %(os.path.splitext(fa)[0]) if os.path.isfile('%s.fq' %(os.path.splitext(fa)[0])) else '%s.fastq' %(os.path.splitext(fa)[0])
         fq_prefix = os.path.split(os.path.splitext(fq)[0])[1]
+        if os.path.splitext(fq)[-1] == '.gz':
+            fq_prefix = os.path.split(os.path.splitext(os.path.splitext(fq)[0])[0])[1]
+            
         if args.aligner == 'blat':
             fa      = fastq_dict[fq]
             blatout = '%s/repeat/blat_output/%s.te_repeat.blatout' %(args.outdir, fq_prefix)
