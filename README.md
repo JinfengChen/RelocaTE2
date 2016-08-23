@@ -126,62 +126,70 @@ optional arguments:
 ## RelocaTE2 input
 + Reference genome sequence (ref): multiple sequences of reference genome in fasta format
 ```shell
-cat test_data/FLY603.Chr2L.fa | head -n 4
->Chr2L type=golden_path_region; loc=2L:1..23513712; ID=2L; dbxref=GB:AE014134,GB:AE014134,REFSEQ:NT_033779; MD5=b6a98b7c676bdaa11ec9521ed15aff2b; length=23513712; release=r6.03; species=Dmel;
-CGACAATGCACGACAGAGGAAGCAGAACAGATATTTAGATTGCCTCTCATTTTCTCTCCCATATTATAGGGAGAAATATG
-ATCGCGTATGCGAGAGTAGTGCCAACATATTGTGCTCTTTGATTTTTTGGCAACCCAAAATGGTGGCGGATGAACGAGAT
-GATAATATATTCAAGTTGCCGCTAATCAGAAATAAATTCATTGCAACGTTAAATACAGCACAATATATGATCGCGTATGC
+cat test_data/MSU7.Chr3.fa | head -n 25
+>Chr3
+#########Skip lines of NNNNNN in sequence#########
+CCTAAACCCTAAACCCTAAACCCTAAACCCTAAACCCTAAACCCTAAACC
+CTAAACCCTAAACCCTAAACCCTAAACCCTAAACCCTAAACCCTAAACCC
+TAAACCCTAAACCCTAAACCCTAAACCCTCAATCCTAACCCCTCAATCCT
+AAGCCGTCTGCAGTGGCCATCGCAGGGTGAGGTGGGTGGAGGGTGAGTGA
 ```
 + Repeat sequence (repeat): Consensus sequences of repeat families in fasta format
 ```shell
-cat test_data/pogo.fa | head -n 4
->pogo
-CAGTATAATTCGCTTAGCTGCATCGATAGTTAGCTGCATCGGCAAGATAT
-CTGCATTATTTTTCCATTTTTTTGTGTGAATAGAAAATTTGTACGAAAAT
-TCATACGTTTGCTGCATCGCAGATAACAGCCTTTTTAACTTAAGTGCATC
+cat test_data/RiceTE.fa | head -n 4
+>mPing
+GGCCAGTCACAATGGGGGTTTCACTGGTGTGTCATGCACATTTAATAGGGGTAAGACTGAATAAAAAATG
+ATTATTTGCATGAAATGGGGATGAGAGAGAAGGAAAGAGTTTCATCCTGGTGAAACTCGTCAGCGTCGTT
+TCCAAGTCCTCGGTAACAGAGTGAAACCCCCGTTGAGGCCGATTCGTTTCATTCACCGGATCTCTTGCGT
 ```
 + Resequencing data (fq_dir): Illumina reads from one strain in fastq format (fastq or fastq.gz). Sequences need to be put in one directory. Paired-end reads need to end with \_1.fastq and \_2.fastq.
 ```shell
-ls test_data/FLY603.Chr2L.pogo.rep1_reads/*.fq
-test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_1.fq
-test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_2.fq
+ls test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/*.fq
+test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/MSU7.Chr3.ALL.rep1_reads_2X_100_500_1.fq
+test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/MSU7.Chr3.ALL.rep1_reads_2X_100_500_2.fq
 
-cat test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_1.fq | head -n 4
+cat test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/MSU7.Chr3.ALL.rep1_reads_2X_100_500_1.fq | head -n 4
 @read_500_1/1
-TAATTTTCAATCTTACAGAACTGTTGCGTGGCAAATCCTTCAGCTGGAACGATCATGCTCAAGAAGCTTTTGACAATATCAAAGACAAGTTATGCTCTGC
+TGTAAGAGTGCTATTGATGTTCGTTAATATTGTGCTCATATTTATAACATAATGATTTCTTTCATCTATACGAACAAATAGTACAAAATCCAAATACGAC
 +
 GGGGGGFCCFGHEEE:?<8;C:;@<6=@BFGHEEHHHGGEBEEEEFFH?F;<<@HHFECFFHHHGFFFHHHFBE<BCDCDFHFHHHHHGBHHEED3;DHH
 
-cat test_data/FLY603.Chr2L.pogo.rep1_reads/FLY603.Chr2L.pogo.rep1_reads_2X_100_500_2.fq | head -n 4
+cat test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/MSU7.Chr3.ALL.rep1_reads_2X_100_500_2.fq | head -n 4
 @read_500_1/2
-GTCAACATCCTCGAACGATCGAGACAAAGCGTCCGCAACCACATTTTCTGTTCCATTGCGATGCTCGATTTCGAAGGTATAACCCTGAAGTTTGATAGCC
+ATTAATAATTTAAAATCTATATTAACTAATGTACACTTACACTAGAACCGGTGGACCCATTATTTAAATCATCTGATATATTATTTGCTAATAAATAAAG
 +
-FFHHHHHHHHHGGGHHHHHHHEHFFEHFHHGHHHDHHHGHFFGEHHFHHHFGDC@=@GFGB4DEHHHECE>>8/@ABHHH?DGHBEFEDAEDHFBDBCC>
+GGGFHHHHHHHGGGHHHHHHHEHFFEHFHHGHHHDHHHGHFFGEHHFHHHFGDC@=@GFGB4DEHHHECE>>8/@ABHHH?DGHBEFEDAEDHFBDBCC>
 ```
 + RepeatMasker results of TE annotation on reference genome (ref_te): default TE annotation of reference genome used to call TE insertions in reference genome and remove possible false positive non-reference TE insertions.
 ```shell
-cat test_data/FLY603.Chr2L.fa.RepeatMasker.out | head -n 4
-43675 0.48 0.02 0.02                Chr2L     47514     52519 (23461193) +               jockey         Unknown       2    5007    (13)    
-   239 19.30 0.00 0.00                Chr2L    215151    215207 (23298505) C                  roo         Unknown  (7976)    1116    1060    
-   227 26.05 1.56 7.03                Chr2L    239481    239608 (23274104) C                  roo         Unknown  (7911)    1181    1061    
- 67696 0.16 0.01 0.46                Chr2L    347941    355383 (23158329) C                blood         Unknown     (0)    7410       1    
+cat test_data/MSU7.Chr3.fa.RepeatMasker.out | head -n 4
+  249   23.8  0.0  4.8  Chr3          1283     1366 (36412453) + CACTA-K             DNA/En-Spm             663    742   (389)     1  
+ 2250   19.7  0.7  0.9  Chr3          1973     2424 (36411395) + SZ-7_LTR            LTR/Gypsy                1    451   (131)     2  
+ 4798   12.5  5.6  1.0  Chr3          2425     3618 (36410201) + SZ_LTR              LTR/Gypsy                1   1249     (0)     3  
+  820   15.4  0.0  0.0  Chr3          3619     3754 (36410065) + SZ-33_LTR           LTR/Gypsy              440    575     (0)     4
 ```
 + Bam file of reads mapping results on reference genome (bam): characterize heterozygous and homozygous TE insertions when BAM file is provided.
 
 ## RelocaTE2 output
 + Structure of output directory
+  - blat\_output: BLAT results of reads to repeat sequence
+  - bwa\_aln: bwa results of trimmed-reads to reference genome
+  - flanking\_seq: trimmed-reads and their pairs
+  - results: final results of TE insertions
+  - te\_containing\_fq: temporary results of reads that matched to repeat sequence
+  - te\_only\_read\_portions\_fa: temporary results of proportion of reads that matched to repeat sequence
 
 + TE insertions
-  - TE insertions shared between resequenced strain and reference genome: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all\_ref\_insert.gff
-  - TE insertions only present in resequenced strain: test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.gff
-  - TE insertions characterized as heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/FLY603.Chr2L.pogo.rep1\_RelocaTE2\_outdir/repeat/results/ALL.all_nonref_insert.characTErized.gff.
+  - TE insertions shared between resequenced strain and reference genome: test\_data/MSU7.Chr3.ALL.rep1\_reads\_2X\_100\_500\_RelocaTE2\_outdir/repeat/results/ALL.all\_ref\_insert.gff
+  - TE insertions only present in resequenced strain: test\_data/MSU7.Chr3.ALL.rep1\_reads\_2X\_100\_500\_RelocaTE2\_outdir/repeat/results/ALL.all\_nonref\_insert.gff
+  - TE insertions characterized as heterozygous and homozygous as described in [Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long): test\_data/MSU7.Chr3.ALL.rep1\_reads\_2X\_100\_500\_RelocaTE2\_outdir/repeat/results/ALL.all\_nonref\_insert.characTErized.gff.
 + GFF format used in RelocaTE2
-
 ```shell
-Chr2L   RelocaTE2       FLY603  65072   65076   .       -       .       ID=repeat_Chr2L_65072_65076;Name=pogo;TSD=AGAAC;Note=Non-reference, not found in reference;Right_junction_reads=3;Left_junction_reads=1;Right_support_reads=4;Left_support_reads=2;
-Chr2L   RelocaTE2       FLY603  198322  198326  .       -       .       ID=repeat_Chr2L_198322_198326;Name=pogo;TSD=ATCCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=2;Right_support_reads=2;Left_support_reads=5;
-Chr2L   RelocaTE2       FLY603  246039  246043  .       -       .       ID=repeat_Chr2L_246039_246043;Name=pogo;TSD=AAAGG;Note=Non-reference, not found in reference;Right_junction_reads=2;Left_junction_reads=3;Right_support_reads=2;Left_support_reads=5;
-Chr2L   RelocaTE2       FLY603  423544  423548  .       +       .       ID=repeat_Chr2L_423544_423548;Name=pogo;TSD=GTGCA;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=1;Right_support_reads=3;Left_support_reads=2;
+cat test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | head -n 4
+Chr3	RelocaTE2	rice	85173	85180	.	-	.	ID=repeat_Chr3_85173_85180;Name=nDaiz;TSD=GTGCTTGT;Note=Non-reference, not found in reference;Right_junction_reads=1;Left_junction_reads=2;Right_support_reads=3;Left_support_reads=4;
+Chr3	RelocaTE2	rice	239462	239464	.	+	.	ID=repeat_Chr3_239462_239464;Name=Truncator;TSD=supporting_junction;Note=Non-reference, not found in reference;Right_junction_reads=2;Left_junction_reads=0;Right_support_reads=4;Left_support_reads=2;
+Chr3	RelocaTE2	rice	429710	429717	.	+	.	ID=repeat_Chr3_429710_429717;Name=nDaiz;TSD=CAAAATTT;Note=Non-reference, not found in reference;Right_junction_reads=2;Left_junction_reads=2;Right_support_reads=2;Left_support_reads=6;
+Chr3	RelocaTE2	rice	522905	522907	.	+	.	ID=repeat_Chr3_522905_522907;Name=Dasheng;TSD=supporting_junction;Note=Non-reference, not found in reference;Right_junction_reads=0;Left_junction_reads=3;Right_support_reads=2;Left_support_reads=0;
 ```
 Attributes in field 8 of GFF:
 
@@ -202,4 +210,4 @@ Right\_support\_reads: number of reads not covering the junction of TE insertion
 Left\_support\_reads: number of reads not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
 ## Publications
-1. Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.
+1. [Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.](http://www.g3journal.org/content/3/6/949.long)
