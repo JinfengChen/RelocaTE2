@@ -164,5 +164,11 @@ echo "New CONFIG file is:"
 cat $config
 echo " "
 
+#echo "Download testing dataset from iPlant: test_data.tar.gz"
+if [ ! -e 'test_data.tar.gz' ]; then
+    echo "Download testing dataset from iPlant: test_data.tar.gz"
+    wget http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz >> $log 2>&1
+fi
+
 echo "Done"
 
