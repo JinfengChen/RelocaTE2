@@ -6,6 +6,15 @@ config=`pwd`/CONFIG
 echo "" > install.log
 log=`pwd`/install.log
 pythonlib=`pwd`/pythonlib
+bin=`pwd`/bin
+
+if [ ! -d './pythonlib' ]; then
+   mkdir pythonlib
+fi
+
+if [ ! -d './bin' ]; then
+   mkdir bin
+fi
 
 echo "installing external tools into External_tools"
 if [ ! -d './External_tools' ]; then
@@ -128,22 +137,23 @@ test_exe ()
     #echo $1
     #echo $2
     if test -e $1; then
-        echo "$2 installed"
-        echo "$2=$1" >> $3
+        echo "$3 installed"
+        ln -s $1 $2
+        echo "$3=$2" >> $4
     else
-        echo "$2 installation failed. Try to install manually."
+        echo "$3 installation failed. Try to install manually."
     fi
 }
 
 echo ""
 echo "Testing installation and making CONFIG file"
 
-test_exe `pwd`/External_tools/bwa-0.6.2/bwa bwa $config
-test_exe `pwd`/External_tools/seqtk/seqtk seqtk $config
-test_exe `pwd`/External_tools/bowtie2-2.2.9/bowtie2 bowtie2 $config
-test_exe `pwd`/External_tools/blat/blat blat $config
-test_exe `pwd`/External_tools/bedtools2/bin/bedtools bedtools $config
-test_exe `pwd`/External_tools/samtools-1.3.1/samtools samtools $config
+test_exe `pwd`/External_tools/bwa-0.6.2/bwa $bin/bwa bwa $config
+test_exe `pwd`/External_tools/seqtk/seqtk $bin/seqtk seqtk $config
+test_exe `pwd`/External_tools/bowtie2-2.2.9/bowtie2 $bin/bowtie2 bowtie2 $config
+test_exe `pwd`/External_tools/blat/blat $bin/blat blat $config
+test_exe `pwd`/External_tools/bedtools2/bin/bedtools $bin/bedtools bedtools $config
+test_exe `pwd`/External_tools/samtools-1.3.1/samtools $bin/samtools samtools $config
 
 echo "Done"
 
