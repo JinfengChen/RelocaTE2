@@ -64,7 +64,7 @@ bedtools window -w 10 -a test_data/MSU7.Chr3.ALL.rep1.gff -b test_data/MSU7.Chr3
 ## RelocaTE2 Command Line Options
 
 ```shell
-python relocaTE2.py
+python scripts/relocaTE2.py --help
 usage: relocaTE2.py [-h] [-b BAM] [-t TE_FASTA] [-d FQ_DIR] [-g GENOME_FASTA]
                    [-r REFERENCE_INS] [-o OUTDIR] [-s SIZE] [-c CPU]
                    [-1 MATE_1_ID] [-2 MATE_2_ID] [-u UNPAIRED_ID]
