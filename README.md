@@ -103,6 +103,7 @@ optional arguments:
                         junction reads and repeat elements, default = 2
   --step STEP           Number to control steps of pipeline, default =
                         "1234567"
+  --dry_run             write shell scripts only while this script excute
   --run                 run while this script excute
   --split               split fastq into 1 million reads chunks to run blat/bwa jobs
   -v VERBOSE, --verbose VERBOSE
