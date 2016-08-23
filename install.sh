@@ -1,6 +1,6 @@
 echo "backup CONFIG file"
 backup_time=`date | sed 's/ \|:/_/g'`
-cp CONFIG CONFIG\.$backup_time
+mv CONFIG CONFIG\.$backup_time
 echo "#tools" > CONFIG
 config=`pwd`/CONFIG
 echo "" > install.log
@@ -31,7 +31,7 @@ if [ ! -f './bwa-0.6.2/bwa' ]; then
     make >> $log 2>&1
     if test -e bwa; then
         echo "bwa installed"
-        echo "bwa=`pwd`/bwa" >> $config
+        #echo "bwa=`pwd`/bwa" >> $config
     else
         echo "bwa installation failed. Try to install manually."
     fi
@@ -46,7 +46,7 @@ if [ ! -f './seqtk/seqtk' ]; then
     make >> $log 2>&1
     if test -e seqtk; then
         echo "seqtk installed"
-        echo "seqtk=`pwd`/seqtk" >> $config
+        #echo "seqtk=`pwd`/seqtk" >> $config
     else
         echo "seqtk installation failed. Try to install manually."
     fi
@@ -61,7 +61,7 @@ if [ ! -f './bowtie2-2.2.9/bowtie2' ]; then
     cd bowtie2-2.2.9
     if test -e bowtie2; then
         echo "bowtie2 installed"
-        echo "bowtie2=`pwd`/bowtie2" >> $config
+        #echo "bowtie2=`pwd`/bowtie2" >> $config
     else
         echo "bowtie2 installation failed. Try to install manually."
     fi
@@ -77,7 +77,7 @@ if [ ! -f './blat/blat' ]; then
     chmod 755 blat
     if test -e blat; then
         echo "blat installed"
-        echo "blat=`pwd`/blat" >> $config
+        #echo "blat=`pwd`/blat" >> $config
     else
         echo "blat installation failed. Try to install manually."
     fi
@@ -92,8 +92,14 @@ if [ ! -d $pythonlib/lib64/python2.7/site-packages/pysam-0.9.1.4-py2.7-linux-x86
     export PYTHONPATH=$PYTHONPATH:$pythonlib/lib64/python2.7/site-packages
     mkdir -p $pythonlib/lib64/python2.7/site-packages
     python setup.py install --prefix $pythonlib >> $log 2>&1
-    (python -c "import pysam;print pysam.__version__" && echo "pysam installed" ) || echo "pysam installation failed. Try to install manually."
+    export PYTHONPATH=$pythonlib/lib64/python2.7/site-packages
     cd ..
+    (python -c "import pysam;print pysam.__version__" && echo "pysam installed" ) || echo "pysam installation failed. Try to install manually."
+    #if [ -d $pythonlib/lib64/python2.7/site-packages/pysam-0.9.1.4-py2.7-linux-x86_64.egg ]; then
+    #    echo "pysam installed"
+    #else
+    #    echo "pysam installation failed. Try to install manually."
+    #fi
 fi
 
 #echo "installing bedtools"
@@ -105,7 +111,7 @@ if [ ! -f './bedtools2/bin/bedtools' ]; then
     make >> $log 2>&1
     if test -e ./bin/bedtools; then
         echo "bedtools installed"
-        echo "bedtools=`pwd`/bin/bedtools" >> $config
+        #echo "bedtools=`pwd`/bin/bedtools" >> $config
     else
         echo "bedtools installation failed. Try to install manually."
     fi
@@ -123,7 +129,7 @@ if [ ! -f './samtools-1.3.1/samtools' ]; then
     make install install-htslib >> $log 2>&1
     if test -e samtools; then
         echo "samtools installed"
-        echo "samtools=`pwd`/samtools" >> $config
+        #echo "samtools=`pwd`/samtools" >> $config
     else
         echo "samtools installation failed. Try to install manually."
     fi
@@ -138,7 +144,9 @@ test_exe ()
     #echo $2
     if test -e $1; then
         echo "$3 installed"
-        ln -s $1 $2
+        if [ ! -e $2 ]; then
+            ln -s $1 $2
+        fi
         echo "$3=$2" >> $4
     else
         echo "$3 installation failed. Try to install manually."
