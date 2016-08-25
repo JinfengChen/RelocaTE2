@@ -27,10 +27,9 @@ bash run_test.sh > run_test.sh.log 2>&1 &
   - In RelocaTE2, we align trimmed reads to reference genome by bwa v0.6.2, which allows paired-end reads have different names in fastq files. We recommend using install.sh provided in RelocaTE2 to install these dependent tools including bwa v0.6.2.
 
 ## Quick Start Quide
+  - Download [test_data.tar.gz](http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz) if the file is not in RelocaTE2
 
-  - set environment variables
-  
-Download [test_data.tar.gz](http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz) if the file is not in RelocaTE2
+  - set environment variables  
 ```shell
 cd test_data
 export PYTHONPATH=`pwd`/pythonlib/lib64/python2.7/site-packages:$PYTHONPATH
