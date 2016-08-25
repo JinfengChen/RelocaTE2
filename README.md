@@ -1,7 +1,7 @@
-# RelocaTE2: a high resolution mapping tool for transposable elements polymorphisms in large population data
+# RelocaTE2: a high resolution mapping tool for transposable element polymorphisms in large population data
 
 ## Introduction
-RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitive and accurate in mapping transposable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 uses the reads associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects the target site duplication (TSD) of a TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 searches all TEs in one cycle, which enable us find polymorphisms of thousands of TEs in an individual genome or large populations in reasonable timeframe without losing sensitivity and specificity.
+RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitive and accurate in mapping transposable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 uses the reads associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects the target site duplication (TSD) of a TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 searches all TEs in one cycle, which enables us find polymorphisms of thousands of TEs in an individual genome or large population in a reasonable timeframe without losing sensitivity and specificity.
 
 ## Installation
 + System requirements
@@ -22,8 +22,8 @@ bash run_test.sh > run_test.sh.log 2>&1 &
 ```
 
 + Troubleshooting
-  - installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script install and link the executables of all tools to RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, search executables in $PATH, however, overwrite the values in $PATH using executables from RelocaTE2/CONFIG. Users can modify RelocaTE2/CONFIG with tools installed in their system to avoid any problem. 
-  - Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/pythonlib/lib64/python2.7/site-packages, any old versions of pysam installed in the system is overwritten temporary and use the new version of pysam for RelocaTE2.
+  - Installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script will install and link the executables of all tools to the RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, searches for executables in $PATH; however, the executables from RelocaTE2/CONFIG will supercede $PATH. Users can modify RelocaTE2/CONFIG with paths to tools installed on their specific system to avoid problems. 
+  - The Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/pythonlib/lib64/python2.7/site-packages, any other locally-installed versions of pysam are temporarily ignored and the supported version of pysam for RelocaTE2 is used instead.
 
 ## Quick Start Quide
   - set environment variables
@@ -177,7 +177,7 @@ cat test_data/MSU7.Chr3.fa.RepeatMasker.out | head -n 4
   - flanking\_seq: trimmed-reads and their pairs
   - results: final results of TE insertions
   - te\_containing\_fq: temporary results of reads that matched to repeat sequence
-  - te\_only\_read\_portions\_fa: temporary results of proportion of reads that matched to repeat sequence
+  - te\_only\_read\_portions\_fa: temporary results of the proportion of reads that matched to repeat sequence
 
 + TE insertions
   - TE insertions shared between resequenced strain and reference genome: test\_data/MSU7.Chr3.ALL.rep1\_reads\_2X\_100\_500\_RelocaTE2\_outdir/repeat/results/ALL.all\_ref\_insert.gff
