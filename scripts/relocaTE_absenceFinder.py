@@ -11,7 +11,7 @@ import glob
 def usage():
     test="name"
     message='''
-python CircosConf.py --input circos.config --output pipe.conf
+RelocaTE2: improved version of RelocaTE for calling transposable element insertions
 
     '''
     print message
@@ -877,6 +877,7 @@ def main():
     mm_allow             = sys.argv[9] ## mismatches allowed: 0, 1, 2, 3
     bowtie2              = sys.argv[10] ## use bowtie2 or not: 1 or 0
     lib_size             = sys.argv[11] ## insert size of library
+    bedtools             = sys.argv[12]
     #relax_reference      = sys.argv[11]## relax mode for existing TE: 1 or 0
     #relax_align          = sys.argv[12]## relax mode for insertion: 1 or 0
     bowtie_sam           = 1           ## change to shift or remove in V2
@@ -905,13 +906,13 @@ def main():
         os.system('rm %s' %(existingTE_bed_chr))
         #print 'Existing TE file does not exists or zero size'
 
-    bedtools = ''
-    try:
-        subprocess.check_output('which bedtools', shell=True)
-        bedtools = subprocess.check_output('which bedtools', shell=True)
-        bedtools = re.sub(r'\n', '', bedtools)
-    except:
-        bedtools = '/opt/bedtools/2.17.0-25-g7b42b3b/bin//bedtools'
+    #bedtools = ''
+    #try:
+    #    subprocess.check_output('which bedtools', shell=True)
+    #    bedtools = subprocess.check_output('which bedtools', shell=True)
+    #    bedtools = re.sub(r'\n', '', bedtools)
+    #except:
+    #    bedtools = '~/BigData/software/bedtools2-2.19.0/bin/bedtools'
 
 
     ##get the regelar expression patterns for mates and for the TE

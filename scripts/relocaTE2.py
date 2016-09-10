@@ -1,24 +1,22 @@
 #!/usr/bin/python
 import sys
 from collections import defaultdict
-import numpy as np
 import re
 import os
 import argparse
-from Bio import SeqIO
 import glob
 import multiprocessing as mp
 
 def usage():
     test="name"
     message='''
-RelocaTEi: improved version of RelocaTE for calling transposable element insertions
+RelocaTE2: improved version of RelocaTE for calling transposable element insertions
 
 bam mode:
-python relocaTE.py --bam MSU7.Chr4.ALL.rep1_reads_2X_100_500.bam --genome_fasta MSU7.Chr4.fa --te_fasta mping.fa --reference_ins MSU_r7.fa.RepeatMasker.Chr4.out --outdir RelocaTE_output_multiTE_bam
+python relocaTE2.py --bam MSU7.Chr4.ALL.rep1_reads_2X_100_500.bam --genome_fasta MSU7.Chr4.fa --te_fasta mping.fa --reference_ins MSU_r7.fa.RepeatMasker.Chr4.out --outdir RelocaTE_output_multiTE_bam
 
 fastq mode:
-python relocaTE.py --fq_dirMSU7.Chr4.ALL.rep1_reads_5X_100_500 --genome_fasta MSU7.Chr4.fa --te_fasta mping.fa --reference_ins MSU7.Chr4.fa.RepeatMasker.out --outdir RelocaTE_output_mPing_gz
+python relocaTE2.py --fq_dirMSU7.Chr4.ALL.rep1_reads_5X_100_500 --genome_fasta MSU7.Chr4.fa --te_fasta mping.fa --reference_ins MSU7.Chr4.fa.RepeatMasker.out --outdir RelocaTE_output_mPing_gz
 
 
 --cpu: cpu numbers to run multiprocess jobs, default=1
@@ -27,21 +25,36 @@ python relocaTE.py --fq_dirMSU7.Chr4.ALL.rep1_reads_5X_100_500 --genome_fasta MS
 --mismatch_junction: allowed mismatches in bwa alignment of trimed reads to genome. default=2, range from 1 to 3
 
 Scenario 1: Run single transposon in one genome. Do not split fastq and use multicpu to run pblat to achieve maximum sensitity.
-python $relocate --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner blat --verbose 3 --len_cut_match 20 --len_cut_trim 20
+python relocaTE2.py --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner blat --verbose 3 --len_cut_match 20 --len_cut_trim 20
 
 Scenario 2: Run thousands of transposons in one genome. Split fastq and use multicpu to run bowtie2 to achieve maximum speed (will lose ~30% sensitity denpend on proporties of TE sequence).
-python $relocate --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner bowtie2 --verbose 3 --len_cut_match 20 --len_cut_trim 20 --split
-
-Scenario 3: Run single or thousands of transposons in thousands of genomes. Split fastq when you have hundreds or thousands of transposon. Lower the cpu number to smaller number (~10) and use computer farm to run each RelocaTE2 job.
+python relocaTE2.py --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --outdir $outdir --reference_ins MSU7.RepeatMasker.out --sample HEG4 --size 500 --step 1234567 --mismatch 0 --run --cpu 24 --aligner bowtie2 --verbose 3 --len_cut_match 20 --len_cut_trim 20 --split
 
 
     '''
     print message
 
+def parse_config(infile):
+    data = defaultdict(lambda : str())
+    with open (infile, 'r') as filehd:
+        for line in filehd:
+            line = line.rstrip()
+            if not line.startswith(r'#') and '=' in line:
+                unit = re.split(r'\=',line)
+                if not data.has_key(unit[0]):
+                    data[unit[0]] = unit[1]
+    return data
+
 def fasta_id(fastafile):
-    fastaid = defaultdict(str)
-    for record in SeqIO.parse(fastafile,"fasta"):
-        fastaid[record.id] = 1
+    fastaid = defaultdict(lambda : str())
+    with open (fastafile, 'r') as filehd:
+        for line in filehd:
+            line = line.rstrip()
+            if line.startswith(">"):
+                unit = re.split(r' ',line)
+                name = unit[0]
+                name = re.sub(r'>', r'', name)
+                fastaid[name] = 1
     return fastaid
 
 def createdir(dirname):
@@ -118,7 +131,7 @@ def mp_pool(cmds, cpu):
     count= 0
     for x in imap_it:
         print 'job: %s' %(cmds[count])
-        print 'status: %s' %(x)
+        #print 'status: %s' %(x)
         count += 1
 
 ##run job by sequence
@@ -126,7 +139,7 @@ def single_run(cmds):
     for cmd in cmds:
         status = shell_runner(cmd)
         print 'job: %s' %(cmd)
-        print 'status: %s' %(status)
+        #print 'status: %s' %(status)
 
 def existingTE_RM_ALL(top_dir, infile):
     ofile_RM = open('%s/existingTE.bed' %(top_dir), 'w')
@@ -173,52 +186,6 @@ def existingTE_RM_ALL(top_dir, infile):
                     print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[11],unit[6],unit[7], intact, '-')
     ofile_RM.close()
 
-#Chr3	not.give	RelocaTE_i	283493	283504	.	-	.	ID=repeat_Chr3_283493_283504;TSD=ATGCCATCAAGG;Note=Non-reference,
-#not found in reference;Right_junction_reads:4;Left_junction_reads:1;Right_support_reads:4;Left_support_reads:5;
-#Chr3	281479	284272	TE110112	+
-def Overlap_TE_boundary(prefix, refte):
-    data = defaultdict(str)
-    final_gff   = '%s.gff' %(prefix)
-    raw_gff     = '%s.raw.gff' %(prefix)
-    clean_gff   = '%s.clean.gff' %(prefix)
-    infile = '%s.overlap' %(prefix)
-    outfile= '%s.remove.gff' %(prefix)
-    os.system('bedtools window -w 10 -a %s -b %s > %s' %(final_gff, refte, infile))
-    if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
-        return 1 
-    ofile  = open(outfile, 'w') 
-    with open (infile, 'r') as filehd:
-        for line in filehd:
-            line = line.rstrip()
-            if len(line) > 2: 
-                unit = re.split(r'\t',line)
-                temp = defaultdict(str)
-                attrs = re.split(r';', unit[8])
-                for attr in attrs:
-                    if not attr == '':
-                        attr = re.sub(r':', '=', attr)
-                        idx, value = re.split(r'\=', attr)
-                        temp[idx] = value
-                if int(temp['Right_junction_reads']) == 0 or int(temp['Left_junction_reads']) == 0:
-                    #support by one junction
-                    #within 10 bp interval of intact TE boundary
-                    #print >> ofile, '\t'.join(unit[:9])
-                    if int(unit[3]) >= int(unit[10]) - 10 and int(unit[3]) <= int(unit[10]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[3]) >= int(unit[11]) - 10 and int(unit[3]) <= int(unit[11]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[4]) >= int(unit[10]) - 10 and int(unit[4]) <= int(unit[10]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-                    elif int(unit[4]) >= int(unit[11]) - 10 and int(unit[4]) <= int(unit[11]) + 10:
-                        print >> ofile, '\t'.join(unit[:9])
-    ofile.close()
-    if not os.path.isfile(outfile) or not os.path.getsize(outfile) > 0:
-        return 1
-    os.system('bedtools intersect -v -a %s -b %s > %s' %(final_gff, outfile, clean_gff))
-    os.system('mv %s %s' %(final_gff, raw_gff))
-    os.system('grep -v \"singleton\|insufficient_data\" %s > %s' %(clean_gff, final_gff))
-    os.system('rm %s.overlap %s.remove.gff %s.clean.gff' %(prefix, prefix, prefix))
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -240,6 +207,7 @@ def main():
     parser.add_argument('--mismatch', default='2', type=int, help='Number of mismatches allowed for matches between reads and repeat elements, default = 2')
     parser.add_argument('--mismatch_junction', default='2', type=int, help='Number of mismatches allowed for matches between junction reads and repeat elements, default = 2')
     parser.add_argument('--step', default='1234567', type=str, help='Number to control steps of pipeline, default = "1234567"')
+    parser.add_argument('--dry_run', help='write shell scripts only while this script excute', action='store_true')
     parser.add_argument('--run', help='run while this script excute', action='store_true')
     parser.add_argument('--split', help='split fastq into 1 M chunks to run blat/bwa jobs', action='store_true')
     parser.add_argument('-v', '--verbose', dest='verbose', default=2, type=int, help='verbose grade to print out information in all scripts: range from 0 to 4, default = 2')
@@ -275,6 +243,10 @@ def main():
     if args.verbose > 0: print fastq_dir
     if args.verbose > 0: print mode
 
+    #
+    if args.dry_run is False:
+        args.run = True
+
     #Prepare directory and script
     if args.outdir is None:
         args.outdir = '%s/RelocaTE_output' %(os.getcwd())
@@ -296,6 +268,8 @@ def main():
     samtools = ''
     bedtools = ''
     bwa      = ''
+    bowtie2  = ''
+    bowtie2_build  = ''
     blat     = ''
     seqtk    = ''    
 
@@ -321,6 +295,15 @@ def main():
         bwa = '/opt/bwa/0.7.9/bin/bwa'
 
     try:
+        subprocess.check_output('which bowtie2', shell=True)
+        bowtie2 = subprocess.check_output('which bowtie2', shell=True)
+        bowtie2 = re.sub(r'\n', '', bowtie2)
+        bowtie2_build = '%s-build' %(bowtie2)
+    except:
+        bowtie2 = '/opt/bowtie2/2.2.3/bowtie2'
+        bowtie2_build = '/opt/bowtie2/2.2.3/bowtie2-build'
+
+    try:
         subprocess.check_output('which blat', shell=True)
         blat = subprocess.check_output('which blat', shell=True)
         blat = re.sub(r'\n', '', blat)
@@ -332,22 +315,30 @@ def main():
         seqtk = subprocess.check_output('which seqtk', shell=True)
         seqtk = re.sub(r'\n', '', seqtk)
     except:
-        seqtk = '/rhome/cjinfeng/software/tools/seqtk-master//seqtk'
+        seqtk = ' /rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
 
     #overwrite tools
-    blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
-    #bwa = '/opt/bwa/0.7.9/bin/bwa'
-    bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
-    bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
-    bedtools = '/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
-    samtools = '/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
-    seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
+    #blat = '/opt/linux/centos/7.x/x86_64/pkgs/blat/35/bin/blat'
+    #bwa  = '/rhome/cjinfeng/BigData/00.RD/RelocaTE2/tools/bwa-0.6.2/bwa'
+    #bowtie2  = '/opt/bowtie2/2.2.3/bowtie2'
+    #bedtools = '/opt/linux/centos/7.x/x86_64/pkgs/bedtools/2.25.0/bin/bedtools'
+    #samtools = '/opt/linux/centos/7.x/x86_64/pkgs/samtools/0.1.19/bin/samtools'
+    #seqtk = '/rhome/cjinfeng/BigData/software/seqtk-master/seqtk'
+    tools = parse_config('%s/../CONFIG' %(os.path.dirname(sys.argv[0])))
+    blat      = tools['blat'] if tools.has_key('blat') else blat
+    bwa       = tools['bwa'] if tools.has_key('bwa') else bwa
+    bowtie2   = tools['bowtie2'] if tools.has_key('bowtie2') else bowtie2
+    bowtie2_build = tools['bowtie2_build'] if tools.has_key('bowtie2_build') else bowtie2_build
+    bedtools  = tools['bedtools'] if tools.has_key('bedtools') else bedtools
+    samtools  = tools['samtools'] if tools.has_key('samtools') else samtools
+    seqtk     = tools['seqtk'] if tools.has_key('seqtk') else seqtk
     fastq_split = '%s/fastq_split.pl' %(RelocaTE_bin)
 
     #MSU_r7.fa.bwt
     if not os.path.isfile('%s.bwt' %(reference)):
         print 'Reference need to be indexed by bwa: %s' %(reference)
-        exit()
+        os.system('%s index %s' %(bwa, reference))
+        #exit()
  
     run_std = '%s/run.std' %(args.outdir)
 
@@ -544,6 +535,9 @@ def main():
         #fa      = fastq_dict[fq]
         #fq      = '%s.fq' %(os.path.splitext(fa)[0]) if os.path.isfile('%s.fq' %(os.path.splitext(fa)[0])) else '%s.fastq' %(os.path.splitext(fa)[0])
         fq_prefix = os.path.split(os.path.splitext(fq)[0])[1]
+        if os.path.splitext(fq)[-1] == '.gz':
+            fq_prefix = os.path.split(os.path.splitext(os.path.splitext(fq)[0])[0])[1]
+            
         if args.aligner == 'blat':
             fa      = fastq_dict[fq]
             blatout = '%s/repeat/blat_output/%s.te_repeat.blatout' %(args.outdir, fq_prefix)
@@ -571,6 +565,7 @@ def main():
             bwaout  = '%s/repeat/blat_output/%s.te_repeat.bam' %(args.outdir, fq_prefix)
             bwastd  = '%s/repeat/blat_output/bwa.out' %(args.outdir)
             bwacmd  = ''
+            os.system('%s %s %s' %(bowtie2_build, te_fasta, te_fasta))
             if args.split:
                 if args.aligner == 'bowtie2':
                     #local sensitive: -D 15 -R 2 -N 0 -L 20 -i S,1,0.75
@@ -658,7 +653,7 @@ def main():
     #ids = ['chr13']
     for chrs in ids:
         print 'find insertions on %s' %(chrs)
-        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s %s 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.mismatch_junction, args.size, args.verbose)
+        step5_cmd = 'python %s/relocaTE_insertionFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s %s 0 %s %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.mismatch_junction, args.size, args.verbose, bedtools)
         step5_file= '%s/shellscripts/step_5/%s.repeat.findSites.sh' %(args.outdir, step5_count)
         if '5' in list(args.step):
             shells.append('sh %s' %(step5_file))
@@ -681,7 +676,7 @@ def main():
     step6_count = 0
     if mode == 'fastq':
         for chrs in ids:
-            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s 0 0 %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.size)
+            step6_cmd = 'python %s/relocaTE_absenceFinder.py %s/repeat/bwa_aln/%s.repeat.bwa.sorted.bam %s %s repeat %s/regex.txt %s 100 %s 0 0 %s %s' %(RelocaTE_bin, args.outdir, ref, chrs, reference, args.outdir, args.sample, reference_ins_flag, args.size, bedtools)
             step6_file= '%s/shellscripts/step_6/%s.repeat.absence.sh' %(args.outdir, step6_count)
             if '6' in list(args.step):
                 shells.append('sh %s' %(step6_file))
@@ -706,7 +701,7 @@ def main():
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.gff > %s/repeat/results/ALL.all_nonref_insert.gff' %(args.outdir, args.outdir))
     #step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
     step7_cmd.append('cat %s/repeat/results/*.all_nonref_insert.txt | grep "^TE" -v > %s/repeat/results/ALL.all_nonref_insert.txt' %(args.outdir, args.outdir))
-    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed' %(RelocaTE_bin, args.outdir, top_dir))
+    step7_cmd.append('python %s/clean_false_positive.py --input %s/repeat/results/ALL.all_nonref_insert.gff --refte %s/existingTE.bed --bedtools %s' %(RelocaTE_bin, args.outdir, top_dir, bedtools))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.txt > %s/repeat/results/ALL.all_ref_insert.txt' %(args.outdir, args.outdir))
     step7_cmd.append('cat %s/repeat/results/*.all_ref_insert.gff > %s/repeat/results/ALL.all_ref_insert.gff' %(args.outdir, args.outdir))
     step7_cmd.append('perl %s/characterizer.pl -s %s/repeat/results/ALL.all_nonref_insert.txt -b %s -g %s --samtools %s' %(RelocaTE_bin, args.outdir, bam, reference, samtools))

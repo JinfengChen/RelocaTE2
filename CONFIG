@@ -1,2 +1,7 @@
 #tools
-blat=
+bwa=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/bwa
+seqtk=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/seqtk
+bowtie2=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/bowtie2
+blat=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/blat
+bedtools=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/bedtools
+samtools=/rhome/cjinfeng/BigData/00.RD/RelocaTE2/bin/samtools
