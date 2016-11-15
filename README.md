@@ -47,7 +47,7 @@ bash run_test.sh > run_test.sh.log 2>&1 &
 ## Quick Start Quide
   - Download [test_data.tar.gz](http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz) if the file is not in RelocaTE2
 
-  - set environment variables  
+  - set environment variables if failed to find executable PATH or pysam libary 
 ```shell
 cd test_data
 export PYTHONPATH=`pwd`/lib/lib64/python2.7/site-packages:$PYTHONPATH
@@ -56,20 +56,24 @@ export PATH=`pwd`/bin:$PATH
 ```
   - run RelocaTE2 to find transposable element insertions
 ```shell
+#repeat element
+repeat=test_data/RiceTE.fa
+#reference genome
+ref=test_data/MSU7.Chr3_2M.fa
 #repeatmasker results of TE annotation on reference genome
-ref_te=test_data/MSU7.Chr3.fa.RepeatMasker.out
+ref_te=test_data/MSU7.Chr3_2M.fa.RepeatMasker.out
 #directory where the input fastq format reads are located
-fq_dir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/
+fq_dir=test_data/MSU7.Chr3_2M.ALL_reads/
 #output directory where RelocaTE2 write temperary and final output
-outdir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir
+outdir=test_data/MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir
 python bin/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te --run
 ```
   - check results of TE insertions and compare with simulated TE insertions
 ```shell
-wc -l test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
-167
-bedtools window -w 10 -a test_data/MSU7.Chr3.ALL.rep1.gff -b test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
-167
+wc -l test_data/MSU7.Chr3.ALL.rep1_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
+196
+bedtools window -w 10 -a test_data/MSU7.Chr3_2M.ALL.gff -b test_data/MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
+196
 ```
 
 ## RelocaTE2 Command Line Options
