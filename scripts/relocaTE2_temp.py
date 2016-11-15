@@ -88,7 +88,7 @@ def split_fq(fastq, outdir, fa_flag, seqtk, fastq_split):
     #    return sorted(fastq_files.keys())
     #print 'fastq does not exists, preceed to split fastq and return subfq and subfa'
     #split
-    os.system('%s -s 200000 -o %s %s' %(fastq_split, outdir, fastq))
+    os.system('%s -s 20000 -o %s %s' %(fastq_split, outdir, fastq))
     if int(fa_flag) == 1:
         subfqs = glob.glob('%s/*.f*q' %(outdir))
         for subfq in subfqs:
@@ -168,7 +168,7 @@ def existingTE_RM_ALL(top_dir, infile):
                         unit[14] =re.sub(r'\(|\)', '', unit[14])
                         if int(unit[14]) == 0:
                             intact = 1
-                    print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[10],unit[6],unit[7], intact, '+')
+                    print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[11],unit[6],unit[7], intact, '+')
                 elif unit[9] == 'C':
                     #for i in range(int(unit[6])-2, int(unit[6])+3):
                     #    existingTE_inf[unit[5]]['start'][int(i)] = 1
@@ -183,7 +183,7 @@ def existingTE_RM_ALL(top_dir, infile):
                         unit[12] =re.sub(r'\(|\)', '', unit[12])
                         if int(unit[12]) == 0:
                             intact = 1
-                    print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[10],unit[6],unit[7], intact, '-')
+                    print >> ofile_RM, '%s\t%s\t%s\t%s:%s-%s\t%s\t%s' %(unit[5], str(int(unit[6])), str(int(unit[7])), unit[11],unit[6],unit[7], intact, '-')
     ofile_RM.close()
 
 
