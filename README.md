@@ -41,38 +41,35 @@ bash run_test.sh > run_test.sh.log 2>&1 &
 
 + Troubleshooting
   - Installation of RelocaTE2 using install.sh or conda will install all the tools and packages required to run RelocaTE2. The executables of all tools are RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, searches for executables in $PATH; however, the executables from RelocaTE2/CONFIG will supercede $PATH. Users can modify RelocaTE2/CONFIG with paths to tools installed on their specific system to avoid problems. 
-  - The Python module "pysam" is installed to RelocaTE2/lib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/lib/lib64/python2.7/site-packages, any other locally-installed versions of pysam are temporarily ignored and the supported version of pysam for RelocaTE2 is used instead.
+  - The Python module "pysam" is installed to RelocaTE2/lib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/lib/python2.7/site-packages, any other locally-installed versions of pysam are temporarily ignored and the supported version of pysam for RelocaTE2 is used instead.
   - In RelocaTE2, we align trimmed reads to reference genome by bwa v0.6.2, which allows paired-end reads have different names in fastq files. We recommend using install.sh or conda provided in RelocaTE2 to install these dependent tools including bwa v0.6.2.
 
 ## Quick Start Quide
-  - Download [test_data.tar.gz](http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz) if the file is not in RelocaTE2
-
   - set environment variables if failed to find executable PATH or pysam libary 
 ```shell
-cd test_data
-export PYTHONPATH=`pwd`/lib/lib64/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=`pwd`/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=`pwd`/bin:$PATH 
-```
 ```
   - run RelocaTE2 to find transposable element insertions
 ```shell
+cd test_data
 #repeat element
-repeat=test_data/RiceTE.fa
+repeat=RiceTE.fa
 #reference genome
-ref=test_data/MSU7.Chr3_2M.fa
+ref=MSU7.Chr3_2M.fa
 #repeatmasker results of TE annotation on reference genome
-ref_te=test_data/MSU7.Chr3_2M.fa.RepeatMasker.out
+ref_te=MSU7.Chr3_2M.fa.RepeatMasker.out
 #directory where the input fastq format reads are located
-fq_dir=test_data/MSU7.Chr3_2M.ALL_reads/
+fq_dir=MSU7.Chr3_2M.ALL_reads/
 #output directory where RelocaTE2 write temperary and final output
-outdir=test_data/MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir
-python bin/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te --run
+outdir=MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir
+python scripts/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te --run
 ```
   - check results of TE insertions and compare with simulated TE insertions
 ```shell
-wc -l test_data/MSU7.Chr3.ALL.rep1_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
+wc -l MSU7.Chr3.ALL.rep1_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
 196
-bedtools window -w 10 -a test_data/MSU7.Chr3_2M.ALL.gff -b test_data/MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
+bedtools window -w 10 -a MSU7.Chr3_2M.ALL.gff -b MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
 196
 ```
 
