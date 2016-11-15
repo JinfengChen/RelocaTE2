@@ -9,7 +9,7 @@ pythonlib=`pwd`/pythonlib
 bin=`pwd`/bin
 
 if [ ! -d './lib' ]; then
-   mkdir pythonlib
+   mkdir lib
 fi
 
 if [ ! -d './bin' ]; then
