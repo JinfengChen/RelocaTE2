@@ -1,0 +1,1255 @@
+   SW   perc perc perc  query     position in query           matching          repeat                 position in repeat
+score   div. del. ins.  sequence  begin   end        (left)   repeat            class/family       begin   end    (left)    ID
+
+ 1231   18.9  7.9  2.3  Chr3         7192    7483 (1992518) C TYPEU4            DNA                    (1)    401      94    1  
+ 1187   11.1  6.8  0.8  Chr3        11157   11392 (1988609) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (0)    250       1    2  
+ 2362    8.7  0.6  1.5  Chr3        11939   12275 (1987726) C OLO24             DNA/PIF-Harbinger      (6)    339       6    3  
+  364   15.6  0.0 13.9  Chr3        12888   12969 (1987032) + F770              DNA/PIF-Harbinger        1     72   (212)    4  
+ 1716    8.9  0.0  0.4  Chr3        13548   13794 (1986207) C STOWAWAY51_OS     DNA/TcMar-Stowaway     (0)    246       1    5  
+  936   11.7  0.0  0.0  Chr3        14120   14264 (1985737) + Gaijin            DNA/PIF-Harbinger        1    145     (2)    6  
+  344   12.1 10.3  0.0  Chr3        14291   14348 (1985653) + TYPEM             DNA/PIF-Harbinger        1     64   (163)    7  
+  598   23.4  0.5  6.2  Chr3        14378   14564 (1985437) + Explorer          DNA                     32    208     (2)    8  
+  601   12.2 15.9  0.0  Chr3        14565   14663 (1985338) + TYPEM             DNA/PIF-Harbinger      112    227     (0)    9  
+ 1084   15.4  0.0  3.2  Chr3        14964   15158 (1984843) C DITTO             DNA/PIF-Harbinger     (14)    230      42   10  
+  289   26.0  0.0 11.1  Chr3        16114   16243 (1983758) C Explorer          DNA                   (37)    173      57   11  
+  672   21.6  2.6  0.9  Chr3        20121   20315 (1979686) C WANDERER_OS       DNA/PIF-Harbinger     (42)    197       4   12  
+  245   24.2  5.2  5.2  Chr3        20696   20791 (1979210) + TOURIST-XIII      DNA/PIF-Harbinger      104    199   (146)   13 *
+  313   20.0  1.4  0.0  Chr3        20737   20806 (1979195) + OSTE27            DNA                    835    905    (64)   14  
+  272   20.0  0.0  0.0  Chr3        20976   21030 (1978971) + OSTE27            DNA                    885    939    (30)   15  
+  254   29.6  2.3  0.0  Chr3        27125   27212 (1972789) + MDR2              DNA/MULE-MuDR         6872   6961     (6)   16  
+ 1401    9.7  1.8  0.9  Chr3        33773   33990 (1966011) C STOWAWAY9_OS      DNA/TcMar-Stowaway    (15)    220       1   17  
+  710    9.8  0.0  0.0  Chr3        37286   37387 (1962614) C OSHOOTER          DNA/CMC-EnSpm      (10306)   1238    1137   18  
+ 1505    9.1  5.7  0.0  Chr3        38014   38243 (1961758) C STOWAWAY51_OS     DNA/TcMar-Stowaway     (0)    246       4   19  
+ 1687   10.5  6.0  0.0  Chr3        38278   38525 (1961476) C INDITTO           DNA/PIF-Harbinger      (0)    263       1   20  
+  540   13.6  8.0  0.0  Chr3        39992   40079 (1959922) + OSTE18            DNA/PIF-Harbinger        5     99    (30)   21  
+  371   11.1  1.9  0.0  Chr3        40098   40151 (1959850) + OSTE18            DNA/PIF-Harbinger        5     59    (70)   22  
+  604   14.3  4.7  8.0  Chr3        40188   40316 (1959685) + OSTE18            DNA/PIF-Harbinger        3    127     (2)   23  
+  839    8.9  0.8  8.0  Chr3        40318   40451 (1959550) + OSTE18            DNA/PIF-Harbinger        3    127     (2)   24  
+  662   15.0  0.8 32.6  Chr3        40452   40576 (1959425) + OSTE18            DNA/PIF-Harbinger       34    129     (0)   25  
+ 1309   13.8  8.4  0.0  Chr3        40712   40936 (1959065) C DITTO             DNA/PIF-Harbinger      (0)    244       1   26  
+  297   12.0  2.7  0.0  Chr3        41118   41192 (1958809) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (17)    157      81   27 *
+  383    6.1  0.0  0.0  Chr3        41141   41206 (1958795) + EnSpm-11_OS       DNA/CMC-EnSpm         4105   4170  (8956)   28  
+  371   12.4  0.0  6.2  Chr3        41207   41226 (1958775) + HELITRON7_OS      RC/Helitron           1623   1703  (8450)   29  
+  417   13.5 18.9  0.0  Chr3        42251   42361 (1957640) C UNIQUE            DNA/PIF-Harbinger      (0)    158      27   30  
+  775   12.6 20.6  0.5  Chr3        42370   42553 (1957448) C COWARD-3          DNA/PIF-Harbinger      (0)    221       1   31  
+  276   28.0  2.4  5.8  Chr3        42954   43078 (1956923) C OSTE33            DNA/MULE-MuDR        (891)    121       1   32  
+ 7988    4.7  1.1  0.3  Chr3        45048   46000 (1954001) C COPIA2-LTR_OS     LTR/Copia              (0)    962       3   33  
+  781   24.7 22.0  2.2  Chr3        46474   46932 (1953069) + MERMITEJ          DNA/MULE-MuDR            1    548   (950)   34  
+  462   26.0  5.9  4.9  Chr3        47597   47824 (1952177) + MERMITEJ          DNA/MULE-MuDR         1077   1498     (0)   35  
+ 1795    9.4  0.0  0.0  Chr3        48052   48295 (1951706) + DITTO             DNA/PIF-Harbinger        1    244     (0)   36  
+  276   19.6  7.2  5.0  Chr3        48299   48395 (1951606) + ID-2              DNA/PIF-Harbinger        1     99   (209)   37  
+ 1181   20.8  0.6 11.7  Chr3        49763   50105 (1949896) C TYPEH             DNA/PIF-Harbinger      (0)    309       1   38  
+ 1253   13.0  2.2  0.4  Chr3        52193   52416 (1947585) + STOWAWAY43_OS     DNA/TcMar-Stowaway       6    233     (0)   39  
+  558    8.2  5.9  0.0  Chr3        53510   53521 (1946480) + MIDWAY            DNA/hAT-Tip100         440    456   (529)   40  
+  838   15.4  0.0  0.7  Chr3        53522   53671 (1946330) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149       1   41  
+  477   15.3  0.0  2.4  Chr3        53599   53685 (1946316) C MIDWAY            DNA/hAT-Tip100       (456)    529     445   42 *
+  558   16.9  6.3  3.0  Chr3        56081   56239 (1943762) C STOWAWAY43_OS     DNA/TcMar-Stowaway     (0)    233      70   43  
+  288   13.4  1.2  6.6  Chr3        56176   56237 (1943764) + STOWAWAY16_OS     DNA/TcMar-Stowaway      50    107   (121)   44 *
+ 3054    4.1  1.5  0.8  Chr3        56238   56627 (1943374) C SC-3_LTR          LTR/Copia              (0)    393       1   45  
+  369   21.9  0.0  0.0  Chr3        56628   56700 (1943301) + STOWAWAY16_OS     DNA/TcMar-Stowaway     155    227     (1)   46  
+ 1375   14.7  1.9  0.4  Chr3        60017   60276 (1939725) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264       1   47  
+  468   18.8  1.2  0.0  Chr3        75886   75965 (1924036) + MU_OS             DNA/MULE-MuDR         1099   1179    (81)   48  
+ 1894    7.8  0.0  0.0  Chr3        87823   88066 (1911935) + DITTO             DNA/PIF-Harbinger        1    244     (0)   49  
+  302    0.0  0.0  0.0  Chr3        88338   88369 (1911632) + (CATG)n           Simple_repeat            3     34     (0)   50  
+ 1013   15.3 19.3  0.0  Chr3        94307   94508 (1905493) + TESS              DNA/hAT                  1    241     (3)   51  
+22165   16.4  0.1  1.0  Chr3        95445   99134 (1900867) + LINE-4_OS         LINE/L1                  3   3662     (0)   52  
+ 2303    6.5  0.0  0.0  Chr3       103402  103693 (1896308) + STOWAWAY11_OS     DNA/TcMar-Stowaway       1    292     (0)   53  
+  803   13.1  1.4  2.0  Chr3       108716  108863 (1891138) + Gaijin            DNA/PIF-Harbinger        1    147     (0)   54  
+ 1723    7.3  0.8  1.3  Chr3       108965  109200 (1890801) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235       1   55  
+  937   21.4  1.3  4.3  Chr3       113089  113327 (1886674) + WANDERER_OS       DNA/PIF-Harbinger        1    232     (0)   56  
+  243   20.2  5.8  3.4  Chr3       115144  115230 (1884771) C STOWAWAY14_OS     DNA/TcMar-Stowaway     (0)    258     170   57  
+  957   22.7  1.9  3.8  Chr3       115233  115498 (1884503) + STOWAWAY48_OS     DNA/TcMar-Stowaway       1    261     (0)   58  
+  352    8.2  0.0  6.1  Chr3       118952  119003 (1880998) C STOWAWAY46_OS     DNA/TcMar-Stowaway   (103)     51       3   59  
+  744   14.7  2.9  0.0  Chr3       124090  124225 (1875776) C Gaijin            DNA/PIF-Harbinger      (0)    147       8   60  
+  823   10.9  0.8  1.5  Chr3       124615  124745 (1875256) C OSHOOTER          DNA/CMC-EnSpm      (10281)   1263    1134   61  
+ 1013   10.4  0.0  0.0  Chr3       124748  124891 (1875110) + OSHOOTER          DNA/CMC-EnSpm         1095   1238 (10306)   62  
+ 1075   22.8  5.1  1.3  Chr3       125669  125962 (1874039) + STOLAB            DNA/PIF-Harbinger        2    306     (6)   63  
+  249   11.1  0.0  4.4  Chr3       126912  126958 (1873043) + (CTAAG)n          Simple_repeat            3     47     (0)   64  
+ 1166   17.4  0.4  8.8  Chr3       131328  131573 (1868428) C MERMITED          DNA/MULE-MuDR          (3)   1569    1343   65  
+ 2103    6.3  2.9  0.4  Chr3       131575  131846 (1868155) + SINE03_OS         SINE                     1    279    (81)   66  
+ 9219   17.1  3.9  1.9  Chr3       132165  135258 (1864743) C SZ-43_LTR         LTR/Gypsy              (0)   4039    1010   67  
+ 2807   19.4  9.4  6.7  Chr3       135397  136367 (1863634) C SZ-43_LTR         LTR/Gypsy           (3044)    995       1   67  
+ 2386   14.8  2.5  3.4  Chr3       136517  136991 (1863010) + MERMITEA          DNA/MULE-MuDR         1240   1710     (0)   68  
+ 1070   10.4  7.8  4.4  Chr3       141092  141333 (1858668) + STOWAWAY2_OS      DNA/TcMar-Stowaway       1    250     (0)   69  
+  835   17.4  0.0  0.7  Chr3       141547  141696 (1858305) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149       1   70  
+  663   14.9 10.4  0.0  Chr3       142561  142694 (1857307) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)   71  
+  392   10.7 18.7  4.1  Chr3       143282  143388 (1856613) + STOWAWAY42_OS     DNA/TcMar-Stowaway       2    123   (119)   72  
+ 1000    9.0  3.5  0.0  Chr3       144148  144292 (1855709) + TNR2A             DNA                      3    152     (0)   73  
+ 1486   11.4  3.0  0.0  Chr3       144704  144939 (1855062) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1    243     (0)   74  
+  855   16.1  1.2  1.8  Chr3       145932  146095 (1853906) C WANDERER_OS       DNA/PIF-Harbinger     (36)    196      34   75  
+  262   25.5  0.8  5.2  Chr3       146469  146588 (1853413) C Explorer          DNA                   (61)    149      35   76  
+ 1337    8.2  0.0  0.0  Chr3       151941  152122 (1847879) C Explorer          DNA                   (27)    183       2   77  
+ 1800    9.0  0.0  0.0  Chr3       159613  159856 (1840145) C DITTO             DNA/PIF-Harbinger      (0)    244       1   78  
+  703   20.3  2.4  7.1  Chr3       159860  160066 (1839935) C STOWAWAY13_OS     DNA/TcMar-Stowaway    (53)    198       1   79  
+  615   18.1  0.7  6.9  Chr3       160572  160725 (1839276) C CASINE            SINE/tRNA-L1          (22)    152       8   80  
+  846   13.6  0.7  0.7  Chr3       161397  161544 (1838457) + OSHOOTER          DNA/CMC-EnSpm         1097   1244 (10300)   81  
+  576   10.7  0.0  0.0  Chr3       162238  162321 (1837680) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (49)    125      42   82  
+  417    5.3  0.0  0.0  Chr3       162255  162329 (1837672) C EnSpm-12_OS       DNA/CMC-EnSpm       (6708)   5895    5821   83 *
+ 2499    6.4  0.0  0.0  Chr3       162929  163240 (1836761) C STOWAWAY12_OS     DNA/TcMar-Stowaway     (0)    312       1   84  
+  516   10.4  5.2  0.0  Chr3       164928  165004 (1834997) + STOWAWAY44_OS     DNA/TcMar-Stowaway       5     85   (155)   85 *
+  685   12.7  4.2  0.0  Chr3       164988  165105 (1834896) C STOWAWAY44_OS     DNA/TcMar-Stowaway   (117)    123       1   86  
+ 1217   13.7  0.5  0.5  Chr3       166817  167021 (1832980) C STOWAWAY44_OS     DNA/TcMar-Stowaway    (35)    205       1   87  
+  359   25.6  2.4  4.0  Chr3       168048  168173 (1831828) + CACTA-O           DNA/CMC-EnSpm           94    217  (1018)   88  
+ 1007   14.7  0.0  0.6  Chr3       168529  168692 (1831309) + DITTO             DNA/PIF-Harbinger       82    244     (0)   89  
+ 1347   15.8  0.4  4.7  Chr3       169144  169388 (1830613) C DITTO-2           DNA/PIF-Harbinger      (0)    235       1   90  
+ 1459   17.0  2.8  0.0  Chr3       170224  170476 (1829525) C DITTO3            DNA/PIF-Harbinger      (0)    260       1   91  
+ 1322   10.2 10.2  0.0  Chr3       171866  172070 (1827931) C TYPEM             DNA/PIF-Harbinger      (1)    226       1   92  
+  904   22.2  3.3  0.0  Chr3       172080  172259 (1827742) + TYPEM             DNA/PIF-Harbinger       27    212    (15)   93  
+ 1403   16.4  2.3  0.9  Chr3       183103  183360 (1816641) + MERMITE18B        DNA/MULE-MuDR            1    385  (1113)   94  
+ 6374    6.3  0.0  0.0  Chr3       184192  184980 (1815021) C ATLANTYS-LTR_OS   LTR/Gypsy              (0)   1508     720   95  
+21245   13.3  3.1  3.0  Chr3       184981  188827 (1811174) C SZ-35_LTR         LTR/Gypsy              (0)   3853       1   96  
+ 6021    5.5  0.0  0.4  Chr3       188828  189554 (1810447) C ATLANTYS-LTR_OS   LTR/Gypsy            (784)    724       1   95  
+ 1185   23.6  4.5 10.1  Chr3       189631  190101 (1809900) + MERMITE18B        DNA/MULE-MuDR          860   1306     (0)   97  
+  783   16.9  1.9  0.6  Chr3       190220  190380 (1809621) + WANDERER_OS       DNA/PIF-Harbinger       34    196    (36)   98  
+  890   14.9  0.6  1.2  Chr3       190468  190630 (1809371) C WANDERER_OS       DNA/PIF-Harbinger     (37)    195      34   99  
+  285   26.9  1.5  0.0  Chr3       194492  194607 (1805394) + (CGA)n            Simple_repeat            1    117     (0)  100  
+  229   18.9  0.0  0.0  Chr3       204971  205007 (1794994) + (CTG)n            Simple_repeat            2     38     (0)  101  
+  326   30.2  7.3  1.7  Chr3       205235  205399 (1794602) C RETROSAT5_LTR     LTR/Gypsy           (2483)   1473    1300  102  
+  881   11.5  0.0  3.4  Chr3       205887  206039 (1793962) + COWARD            DNA/PIF-Harbinger       53    200     (0)  103  
+  728   15.8 12.3  2.3  Chr3       206062  206256 (1793745) + COWARD-3          DNA/PIF-Harbinger        2    215     (6)  104  
+  239   23.9  5.3  0.0  Chr3       207404  207516 (1792485) C TOURIST-XV        DNA/PIF-Harbinger     (41)    198      80  105  
+ 1276   21.1  3.7 10.7  Chr3       207742  208149 (1791852) C EnSpm-16_OS       DNA/CMC-EnSpm       (6277)   7059    6678  106  
+ 1955   14.5  1.2  0.9  Chr3       208174  208506 (1791495) C SINE03_OS         SINE                  (14)    346      13  107  
+ 1610   11.5  0.4  0.4  Chr3       209330  209573 (1790428) C DITTO             DNA/PIF-Harbinger      (0)    244       1  108  
+  781   15.0  6.8  0.6  Chr3       209574  209720 (1790281) C DITTO-2           DNA/PIF-Harbinger      (6)    229      74  109  
+  807    5.9  2.0  0.0  Chr3       209721  209822 (1790179) + TREP219           DNA/TcMar-Stowaway       1    104     (0)  110  
+  390   18.6  1.4  0.0  Chr3       209823  209892 (1790109) C DITTO-2           DNA/PIF-Harbinger    (164)     71       1  109 *
+  428   22.4  7.7  3.4  Chr3       209823  209863 (1790138) C EnSpm-11_OS       DNA/CMC-EnSpm       (6823)   6303    6155  111  
+  749   19.1 13.4  0.0  Chr3       210499  210692 (1789309) C COWARD-3          DNA/PIF-Harbinger      (0)    221       2  112  
+ 1279   14.9  3.5  4.7  Chr3       211123  211404 (1788597) + NDNA1TNA_OS       DNA/PIF-Harbinger       56    334     (0)  113  
+  561    8.7  0.3  0.5  Chr3       213658  213738 (1786263) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1     80   (159)  114  
+  648   11.2  0.0  7.7  Chr3       213914  214039 (1785962) C OSTE23            DNA                   (71)    122       6  115  
+  899   16.3  2.0  6.7  Chr3       216620  216823 (1783178) + WANDERER_OS       DNA/PIF-Harbinger        1    195    (37)  116  
+ 1346    8.3  1.2  4.7  Chr3       218424  218664 (1781337) C STOWAWAY43_OS     DNA/TcMar-Stowaway     (0)    233       1  117  
+ 1141   13.6  0.0  0.0  Chr3       220215  220405 (1779596) + Explorer          DNA                      2    192    (18)  118  
+ 1903   13.1  5.9  1.4  Chr3       222624  222963 (1777038) C OLO24C            DNA/PIF-Harbinger      (1)    355       1  119  
+ 1422   12.9  1.8  0.0  Chr3       223956  224171 (1775830) C OLO24             DNA/PIF-Harbinger     (21)    324     105  120  
+ 1728    7.1  0.8  0.8  Chr3       224172  224414 (1775587) C STOWAWAY51_OS     DNA/TcMar-Stowaway     (0)    246       4  121  
+  702   11.8  0.0  0.0  Chr3       224415  224516 (1775485) C OLO24             DNA/PIF-Harbinger    (243)    102       1  120  
+ 3176   10.3  3.3  1.2  Chr3       225124  225603 (1774398) C JOUZHEN           DNA/hAT-Ac            (36)    560      71  122  
+  623   14.2 10.9  0.7  Chr3       225599  225726 (1774275) + OLO24C            DNA/PIF-Harbinger      216    356     (0)  123 *
+  487    8.4  1.4  0.0  Chr3       228018  228088 (1771913) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1     72    (77)  124  
+ 1299   14.9  0.0  0.0  Chr3       230960  231160 (1768841) + DITTO             DNA/PIF-Harbinger       44    244     (0)  125  
+ 1272   14.7  0.4 13.9  Chr3       231185  231461 (1768540) + DITTO             DNA/PIF-Harbinger        1    244     (0)  126  
+ 2061   10.8  7.4  1.1  Chr3       234774  235111 (1764890) C SINE03_OS         SINE                   (1)    359       1  127  
+  965   16.3  0.5  1.1  Chr3       235162  235353 (1764648) + Explorer          DNA                      2    192    (18)  128  
+  247   16.1  1.8  0.0  Chr3       235363  235418 (1764583) + Explorer          DNA                    136    192    (18)  129  
+  781   12.7  1.4  2.1  Chr3       236744  236888 (1763113) C Gaijin            DNA/PIF-Harbinger      (0)    147       4  130  
+  390   20.9 20.2  5.6  Chr3       238115  238302 (1761699) + DITTO3            DNA/PIF-Harbinger        2    215    (45)  131  
+  477   20.2 12.3  7.1  Chr3       238469  238655 (1761346) + DITTO             DNA/PIF-Harbinger        2    197    (47)  132  
+  559   21.6  2.0  0.0  Chr3       238718  238870 (1761131) C STOWAWAY40_OS     DNA/TcMar-Stowaway    (13)    251      96  133  
+25361    9.3  3.3  1.3  Chr3       238958  242824 (1757177) + RETROSAT4_LTR     LTR/Gypsy                1   3946     (0)  134  
+  670   23.7  3.4  5.2  Chr3       242889  243124 (1756877) C WANDERER_OS       DNA/PIF-Harbinger      (0)    232       1  135  
+ 1285   20.2  0.0  1.2  Chr3       243870  243907 (1756094) + EnSpm-11_OS       DNA/CMC-EnSpm         6838   7089  (6037)  136  
+ 1432   13.4  1.8  0.0  Chr3       243908  244124 (1755877) C OLO24C            DNA/PIF-Harbinger     (45)    311      91  137  
+ 2765    0.9  3.1  0.0  Chr3       245100  245423 (1754578) + NDNA1TNA_OS       DNA/PIF-Harbinger        1    334     (0)  138  
+ 1583   15.3  0.3  5.5  Chr3       245830  246175 (1753826) + OLO24B            DNA/PIF-Harbinger        6    334     (1)  139  
+ 1906   15.1  6.6  0.0  Chr3       246275  246606 (1753395) C OLO24C            DNA/PIF-Harbinger      (1)    355       2  140  
+ 1109   10.1  0.0  1.8  Chr3       246796  246963 (1753038) C DITAILA           DNA/PIF-Harbinger     (16)    241      77  141  
+ 2172    5.3  0.0  0.0  Chr3       246964  247225 (1752776) + INDITTO           DNA/PIF-Harbinger        2    263     (0)  142  
+ 2075    7.6  0.0  0.0  Chr3       248127  248388 (1751613) + INDITTO           DNA/PIF-Harbinger        2    263     (0)  143  
+  333   27.5  2.2  5.2  Chr3       249394  249531 (1750470) C LINE-3            LINE/L1              (321)  10654   10521  144  
+  830   21.8  4.8  0.0  Chr3       250679  250843 (1749158) C TYPEM             DNA/PIF-Harbinger     (54)    173       1  145  
+ 1815   19.6  1.4 10.7  Chr3       250884  251507 (1748494) C TNR11             DNA/TcMar-Stowaway    (72)    739     168  146  
+  225   11.8  0.0  0.0  Chr3       252001  252034 (1747967) + STOWAWAY27_OS     DNA/TcMar-Stowaway       1     34    (55)  147  
+  780   15.7  2.1  4.4  Chr3       252857  253042 (1746959) C STOWAWAY44_OS     DNA/TcMar-Stowaway    (58)    182       1  148  
+  993   12.0  0.8 20.0  Chr3       253234  253483 (1746518) C Explorer          DNA                    (0)    210       1  149  
+ 5505    1.3  0.0  0.0  Chr3       253506  254118 (1745883) + DS-RICE2N         DNA/hAT-Ac               1    613     (0)  150  
+  509   19.7  7.6  0.6  Chr3       254222  254379 (1745622) C WANDERER_OS       DNA/PIF-Harbinger      (6)    226      58  151  
+ 2693    5.9  0.6  0.9  Chr3       256010  256353 (1743648) C OLO24             DNA/PIF-Harbinger      (0)    345       3  152  
+ 1434   12.6  1.7  0.4  Chr3       256515  256746 (1743255) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  153  
+ 1592   14.5  0.7  1.4  Chr3       257165  257444 (1742557) C TEOS1             DNA                    (1)    475     198  154  
+  244   18.6  0.0  3.7  Chr3       257657  257712 (1742289) + STOWAWAY42_OS     DNA/TcMar-Stowaway       6     59   (183)  155  
+ 1327   11.8  1.7  0.9  Chr3       257714  257944 (1742057) C STOWAWAY43_OS     DNA/TcMar-Stowaway     (0)    233       1  156  
+  487   23.6  2.9  2.9  Chr3       257948  258117 (1741884) + STOWAWAY42_OS     DNA/TcMar-Stowaway      68    237     (5)  157  
+  695    8.4  7.8  7.8  Chr3       258121  258249 (1741752) C OSTE18            DNA/PIF-Harbinger      (0)    129       1  158  
+  399   12.2  2.4  2.4  Chr3       258791  258874 (1741127) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149      66  159  
+  263   26.0  1.9  1.9  Chr3       258875  258892 (1741109) + MIDWAY            DNA/hAT-Tip100         457    558   (427)  160  
+11731    1.5  4.5  0.0  Chr3       258918  260256 (1739745) C MuDR4_OS          DNA/MULE-MuDR          (1)   7609    6210  161  
+15689    8.7  1.4  3.0  Chr3       260257  263609 (1736392) + SZ-40_LTR         LTR/Gypsy                1   3367     (0)  162  
+55789    1.3  0.5  0.3  Chr3       263610  269901 (1730100) C MuDR4_OS          DNA/MULE-MuDR        (115)   7495       2  161  
+ 1682   11.5  0.4  0.0  Chr3       273286  273545 (1726456) C STOWAWAY32_OS     DNA/TcMar-Stowaway     (0)    261       1  163  
+  265   18.7  8.2  7.1  Chr3       278571  278766 (1721235) + TWIFB1            DNA/hAT-Ac            3540   3737     (0)  164  
+  256   15.0  1.2  2.5  Chr3       280730  280811 (1719190) + EnSpm-11_OS       DNA/CMC-EnSpm         4096   4176  (8950)  165  
+  378    0.0  0.0  0.0  Chr3       282293  282387 (1717614) + (TTA)n            Simple_repeat            3     97     (0)  166  
+  694   18.6  0.8  1.6  Chr3       283576  283701 (1716300) C SZ-21_LTR         LTR/Gypsy              (0)   1236    1112  167 *
+ 5459   18.1  5.0  2.5  Chr3       283637  284794 (1715207) C SZ-44_LTR         LTR/Gypsy              (8)   1500     209  168  
+ 2062    2.3  0.3  9.4  Chr3       284795  285084 (1714917) + STOWAWAY45_OS     DNA/TcMar-Stowaway       1    266     (0)  169  
+ 1051   22.6  0.0  0.5  Chr3       285085  285291 (1714710) C SZ-44_LTR         LTR/Gypsy           (1202)    206       1  168  
+  363   18.6  0.0 16.4  Chr3       285292  285426 (1714575) C SZ-21_LTR         LTR/Gypsy           (1142)    266     151  167 *
+ 1567   20.4 14.1  4.6  Chr3       285423  285863 (1714138) + SZ-29_LTR         LTR/Gypsy              913   1393     (0)  170  
+  349   22.1  6.2  5.4  Chr3       285864  285992 (1714009) + TWIFB1            DNA/hAT-Ac             105    234  (3503)  171  
+ 6521   17.4  6.5  0.4  Chr3       286018  287338 (1712663) + TWIFB1            DNA/hAT-Ac            1845   3245   (492)  172  
+  642   27.2  1.0  0.5  Chr3       288756  288975 (1711026) + OSMU5             DNA/MULE-MuDR         1975   2168  (2713)  173  
+  257   26.8  4.5  1.8  Chr3       289110  289219 (1710782) + OSMU5             DNA/MULE-MuDR         2221   2333  (2548)  174  
+  258   28.8  1.3  4.2  Chr3       289622  289759 (1710242) + OSMU6             DNA/MULE-MuDR         2767   2849  (2376)  175 *
+  299   25.0  3.0  1.0  Chr3       289751  289851 (1710150) + OSMU5             DNA/MULE-MuDR         2896   2998  (1883)  176  
+ 1363   18.7  0.4  0.0  Chr3       292393  292617 (1707384) C DELAY             DNA/hAT                (0)    226       1  177  
+  491   21.0 34.6  1.8  Chr3       293067  293332 (1706669) + SZ-48_LTR         LTR/Gypsy             2073   2425  (1207)  178  
+ 1407   22.2  2.5  2.0  Chr3       293471  293824 (1706177) + SZ-48_LTR         LTR/Gypsy             2556   2911   (721)  178  
+  484   26.6 14.7  3.5  Chr3       294033  294344 (1705657) + SZ-48_LTR         LTR/Gypsy             3038   3383   (249)  178  
+ 1197   20.6  0.8  0.8  Chr3       298769  299022 (1700979) C DITAILA           DNA/PIF-Harbinger      (2)    255       2  179  
+ 1859    4.6  2.5  0.0  Chr3       301055  301291 (1698710) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1    243     (0)  180  
+10005    4.0  1.2  0.3  Chr3       301585  302787 (1697214) + COPIA1-LTR_OS     LTR/Copia                1   1214     (0)  181  
+  318   20.1  2.4  0.0  Chr3       303600  303724 (1696277) + TOURIST-XV        DNA/PIF-Harbinger       53    179    (53)  182  
+ 2262   10.8  2.3  0.3  Chr3       304132  304476 (1695525) C OLO24C            DNA/PIF-Harbinger      (2)    354       3  183  
+ 1712   10.7 14.5  0.6  Chr3       307204  307513 (1692488) C OLO24C            DNA/PIF-Harbinger      (1)    355       3  184  
+  295    6.1  3.9  3.9  Chr3       308869  308919 (1691082) + STOWAWAY15-2_OS   DNA/TcMar-Stowaway      86    136     (9)  185  
+49288    0.0  0.0  0.0  Chr3       310009  315233 (1684768) C OSMU6             DNA/MULE-MuDR          (0)   5225       1  186  
+ 2802    9.5  2.8  0.2  Chr3       315255  315646 (1684355) + TYPEU4            DNA                      1    402     (0)  187  
+ 1950   15.1  1.4  1.1  Chr3       315860  316222 (1683779) + CASTAWAY          DNA/PIF-Harbinger        1    364     (0)  188  
+  883   18.4  2.4  2.8  Chr3       316307  316518 (1683483) C STOWAWAY42_OS     DNA/TcMar-Stowaway    (31)    211       1  189  
+ 1988   13.5  4.9  0.0  Chr3       316520  316832 (1683169) + CASTAWAY          DNA/PIF-Harbinger        1    329    (35)  190  
+ 1806   20.4  0.3  0.3  Chr3       316833  317195 (1682806) C CASTAWAY          DNA/PIF-Harbinger      (1)    363       1  191  
+  526   17.1 26.5  0.0  Chr3       322026  322142 (1677859) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)  192  
+  308    9.8  0.0  0.0  Chr3       325714  325754 (1674247) C TOURIST-XIII      DNA/PIF-Harbinger    (303)     42       2  193  
+ 1742    9.9  0.0 10.7  Chr3       326849  327209 (1672792) C MDM1              DNA/MULE-MuDR          (0)    326       1  194  
+  994    8.8  0.0  0.0  Chr3       331531  331677 (1668324) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  195  
+  617   22.8 13.8  2.7  Chr3       334523  334725 (1665276) C F569              DNA/PIF-Harbinger      (2)    226       2  196  
+ 2686   11.8  3.0  2.8  Chr3       335706  336165 (1663836) + TEOS1             DNA                      6    466    (10)  197  
+  593   23.1 17.5  3.1  Chr3       336631  336853 (1663148) C DITTO3            DNA/PIF-Harbinger      (0)    260       7  198  
+ 1433   12.8  0.4  0.9  Chr3       337092  337319 (1662682) + DITTO             DNA/PIF-Harbinger       18    244     (0)  199  
+  231   20.0  0.0  0.0  Chr3       337585  337624 (1662377) + TYPEU1            DNA                     11     50   (330)  200 *
+ 1525   13.3  2.5  1.8  Chr3       337614  337897 (1662104) + TYPEU1            DNA                     95    380     (0)  201  
+  695   23.2  0.9  2.2  Chr3       339553  339777 (1660224) + STOWAWAY10_OS     DNA/TcMar-Stowaway      35    256     (3)  202  
+  683    4.5  0.0  0.0  Chr3       342822  342999 (1657002) + (TAA)n            Simple_repeat            3    180     (0)  203  
+  352   29.3  2.6  3.3  Chr3       350026  350177 (1649824) C MERMITEH          DNA/MULE-MuDR          (0)   1307    1157  204  
+  321   31.9  7.7  3.5  Chr3       350178  350220 (1649781) + MERMITED          DNA/MULE-MuDR            4    206  (1366)  205  
+  494   26.8  0.0  1.6  Chr3       350427  350551 (1649450) C MERMITEJ          DNA/MULE-MuDR          (0)   1498    1376  206  
+  229   33.6  0.6  9.8  Chr3       350772  350949 (1649052) + MERMITE18B        DNA/MULE-MuDR          938   1100   (206)  207 *
+  868   19.0  5.5 10.4  Chr3       350802  351095 (1648906) C MERMITE           DNA/MULE-MuDR        (983)    403     142  208  
+ 1522   15.3  2.6  4.8  Chr3       351444  351785 (1648216) C OLO24B            DNA/PIF-Harbinger      (0)    335       1  209  
+ 1369   11.3  0.4  5.2  Chr3       356817  357058 (1642943) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235       5  210  
+ 2192   17.5  1.3  6.3  Chr3       360064  360526 (1639475) + RIRE2_LTR         LTR/Gypsy                1    441     (0)  211  
+  874   24.3  0.5  1.6  Chr3       360539  360729 (1639272) + RIRE2_I-int       LTR/Gypsy             2069   2257  (8167)  212  
+27547    7.7  2.1  2.1  Chr3       360730  364678 (1635323) C RETROSAT4_LTR     LTR/Gypsy              (0)   3946       1  213  
+40860   20.3  1.0  0.7  Chr3       364679  372190 (1627811) + RIRE2_I-int       LTR/Gypsy             2253   9785   (639)  212  
+10591   19.6  0.4  0.8  Chr3       372192  374119 (1625882) + RIRE2_I-int       LTR/Gypsy              486   2406  (8018)  214  
+ 3991   18.8  4.2  3.7  Chr3       374111  375014 (1624987) + RIRE2_I-int       LTR/Gypsy             9516  10423     (1)  215 *
+ 2204   18.5  1.8  1.1  Chr3       375017  375454 (1624547) + RIRE2_LTR         LTR/Gypsy                1    441     (0)  215  
+ 1411    8.6  6.2  1.3  Chr3       376031  376254 (1623747) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  216  
+ 1400   21.8  6.9  5.7  Chr3       376907  377325 (1622676) C Gypsy-B_LTR       LTR/Gypsy             (42)    660     237  217  
+ 1017   29.5  4.6  4.6  Chr3       377486  378025 (1621976) C LINE-3            LINE/L1             (9483)   1492     953  218  
+  451   23.7  9.3  3.4  Chr3       378881  379020 (1620981) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    148       1  219  
+ 1572   11.3  0.0  0.4  Chr3       380412  380651 (1619350) C TREP215           DNA/TcMar-Stowaway     (0)    239       1  220  
+ 3524    6.2  0.5  0.9  Chr3       380850  381292 (1618709) C RIRE2_LTR         LTR/Gypsy              (0)    441       1  221  
+ 3911    4.7  0.0  0.2  Chr3       381295  381765 (1618236) C RIRE2_I-int       LTR/Gypsy              (1)  10423    9954  221  
+ 3247    4.0  1.7  0.5  Chr3       381741  382144 (1617857) C RIREX_I-int       LTR/Gypsy            (523)   7423    7015  222 *
+85577    4.3  0.1  0.0  Chr3       382142  391968 (1608033) C RIRE2_I-int       LTR/Gypsy            (589)   9835       1  221  
+ 3473    6.2  0.7  0.9  Chr3       391969  392410 (1607591) C RIRE2_LTR         LTR/Gypsy              (0)    441       1  221  
+  934   21.0  3.3  4.4  Chr3       393216  393489 (1606512) C NDNA1TNA_OS       DNA/PIF-Harbinger      (5)    329      59  223  
+ 1375   16.9  1.1  4.6  Chr3       393564  393835 (1606166) C LINE-4_OS         LINE/L1                (0)   3662    3400  224  
+  262   19.6 15.9  0.8  Chr3       393806  393918 (1606083) C WANDERER_OS       DNA/PIF-Harbinger     (42)    190      61  225 *
+  693   19.4  1.9  0.0  Chr3       396822  396976 (1603025) C WANDERER_OS       DNA/PIF-Harbinger     (41)    191      34  226  
+  303    4.4  0.0  1.5  Chr3       397223  397291 (1602710) + EnSpm-11_OS       DNA/CMC-EnSpm         4087   4154  (8972)  227  
+  255   12.0  0.0  4.5  Chr3       397234  397303 (1602698) C HELITRON7_OS      RC/Helitron         (8627)   1526    1460  228 *
+  314   21.5 14.4  1.7  Chr3       397645  397748 (1602253) C MIDWAY            DNA/hAT-Tip100       (427)    558     442  229  
+ 1605   10.9  0.0  0.0  Chr3       398360  398598 (1601403) C TREP215           DNA/TcMar-Stowaway     (0)    239       1  230  
+ 1054   26.3  4.4  1.0  Chr3       400716  401011 (1598990) C STOWAWAY12_OS     DNA/TcMar-Stowaway     (1)    311       6  231  
+  399   25.0  0.7  1.3  Chr3       401339  401488 (1598513) + Explorer          DNA                     44    192    (18)  232  
+ 1120   14.1  6.8  0.0  Chr3       401768  402001 (1598000) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (0)    250       1  233  
+ 1107   17.0  9.6 10.5  Chr3       402118  402452 (1597549) C MUDRN4_OS         DNA/MULE-MuDR          (0)    332       1  234  
+  256   25.0  4.0  0.0  Chr3       405054  405065 (1594936) C MERMITEB          DNA/MULE-MuDR       (1527)     83       5  235  
+  425   12.5  0.0  0.0  Chr3       405066  405129 (1594872) + MERMITEH          DNA/MULE-MuDR         1242   1305     (2)  236  
+  436    6.1  4.4  2.9  Chr3       417257  417324 (1582677) C EnSpm-10_OS       DNA/CMC-EnSpm       (6839)   4426    4358  237  
+  255   22.4  3.1 12.8  Chr3       417274  417401 (1582600) C RPO_OS            RC/Helitron            (0)   1983    1867  238 *
+ 1299   20.8  7.5  8.4  Chr3       417466  418632 (1581369) C RPO_OS            RC/Helitron         (1059)    924      39  238  
+  343   13.2  1.1  4.3  Chr3       418633  418727 (1581274) C EnSpm-10_OS       DNA/CMC-EnSpm       (6893)   4372    4281  237  
+ 1151    6.0  0.0  0.7  Chr3       419442  419591 (1580410) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  239  
+ 1499   11.7  2.3  5.9  Chr3       422945  423207 (1576794) + OLO24C            DNA/PIF-Harbinger        2    255   (101)  240  
+  369   20.2 13.0  0.9  Chr3       423889  423988 (1576013) C NINIA             DNA                  (128)    768     657  241  
+  396   16.5 26.3  4.3  Chr3       424395  424508 (1575493) C NINIA             DNA                  (749)    147      10  242  
+  605   25.9 12.1  4.1  Chr3       425291  425629 (1574372) C MERMITE18F        DNA/MULE-MuDR        (133)   1042     690  243  
+  421   25.9  2.9  1.4  Chr3       426349  426485 (1573516) C MERMITE18F        DNA/MULE-MuDR        (972)    203      66  243 *
+  470   28.0  2.6  2.0  Chr3       426376  426537 (1573464) + MERMITEJ          DNA/MULE-MuDR         1146   1461    (37)  244  
+  807   16.9 16.5  2.3  Chr3       431222  431409 (1568592) + DITTO             DNA/PIF-Harbinger       21    234    (10)  245  
+  408   20.6  8.2  0.0  Chr3       431382  431478 (1568523) + DITTO             DNA/PIF-Harbinger      140    244     (0)  246 *
+ 1542   19.8  6.7  0.5  Chr3       437549  437924 (1562077) C TYPEU4            DNA                    (0)    402       4  247  
+ 1865   11.4  0.7  0.3  Chr3       439290  439580 (1560421) + NDNA2TNA_OS       DNA/PIF-Harbinger       55    346     (0)  248  
+  311   27.5  1.8  0.0  Chr3       439601  439709 (1560292) + STOWAWAY47_OS     DNA/TcMar-Stowaway      38    148     (0)  249  
+  355   20.8  7.3  8.3  Chr3       440805  440914 (1559087) + TESSBIG           DNA/hAT-Tag1          3948   4056     (1)  250  
+  688   20.6  4.8  0.5  Chr3       441552  441761 (1558240) + STOWAWAY21_OS     DNA/TcMar-Stowaway      25    243     (0)  251  
+  345   25.4  2.4  0.6  Chr3       441984  442093 (1557908) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    114       1  252  
+  820   19.6  0.6  1.1  Chr3       442821  443001 (1557000) + WANDERER_OS       DNA/PIF-Harbinger       34    213    (19)  253  
+ 1136   14.3  8.5  0.0  Chr3       443428  443651 (1556350) + STOWAWAY51_OS     DNA/TcMar-Stowaway       4    246     (0)  254  
+  510   15.5 14.4  3.4  Chr3       448779  448938 (1551063) C STOWAWAY48_OS     DNA/TcMar-Stowaway    (84)    177       1  255  
+  282   20.1 29.3  1.4  Chr3       452380  452495 (1547506) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)  256  
+  574   21.7 11.6  0.0  Chr3       452748  452885 (1547116) C STOWAWAY46_OS     DNA/TcMar-Stowaway     (0)    154       1  257  
+ 1719    6.8  0.4  2.5  Chr3       453270  453509 (1546492) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235       1  258  
+ 1243   12.9  1.0  0.0  Chr3       453510  453711 (1546290) C STOWAWAY44_OS     DNA/TcMar-Stowaway     (0)    240      37  259  
+ 2626    7.0  0.9  0.0  Chr3       455348  455689 (1544312) C OLO24             DNA/PIF-Harbinger      (0)    345       1  260  
+  932   13.9  2.2  2.2  Chr3       455730  455913 (1544088) C WANDERER_OS       DNA/PIF-Harbinger     (38)    194      11  261  
+  330   23.5 12.7  1.3  Chr3       456726  456867 (1543134) + Explorer          DNA                     35    192    (18)  262  
+  241   24.7  1.3  1.3  Chr3       457524  457601 (1542400) + MERMITE18B        DNA/MULE-MuDR          227    304  (1002)  263  
+ 1794    9.0  0.0  0.0  Chr3       464291  464534 (1535467) C DITTO             DNA/PIF-Harbinger      (0)    244       1  264  
+ 1152    6.9 18.1  0.5  Chr3       464627  464814 (1535187) + COWARD-3          DNA/PIF-Harbinger        1    221     (0)  265  
+  435   20.7  2.6 18.5  Chr3       467132  467362 (1532639) C OSLINE1-4         LINE/L1                (1)   4778    4579  266  
+  782   22.4  3.0  1.0  Chr3       468461  468658 (1531343) + ORMOSIA           SINE/L1                 34    235   (247)  267  
+  469   23.9  2.8  0.7  Chr3       469998  470140 (1529861) C STOWAWAY43_OS     DNA/TcMar-Stowaway     (9)    224      79  268  
+  336   20.2  1.2  1.2  Chr3       471895  471979 (1528022) C STOWAWAY43_OS     DNA/TcMar-Stowaway   (148)     85       1  269  
+ 1065   12.2  0.0  6.1  Chr3       474129  474302 (1525699) + DITTO             DNA/PIF-Harbinger        1    164    (80)  270  
+ 1767    9.5  0.8  0.0  Chr3       474304  474545 (1525456) + DITTO             DNA/PIF-Harbinger        1    244     (0)  271  
+ 1437   13.3  0.4  1.8  Chr3       474549  474777 (1525224) C DITTO-2           DNA/PIF-Harbinger      (0)    235      10  272  
+ 1402   16.6  2.8  0.0  Chr3       474778  475030 (1524971) C DITTO3            DNA/PIF-Harbinger      (0)    260       1  273  
+  429   15.0  1.2  0.0  Chr3       475043  475122 (1524879) + DITTO3            DNA/PIF-Harbinger      179    259     (1)  274  
+ 1231   14.6 15.8  2.9  Chr3       475921  476167 (1523834) + KIDDOD            DNA/PIF-Harbinger        2    279     (0)  275  
+ 1141   20.1  4.3  3.5  Chr3       480369  480713 (1519288) + OSTONOR1_I-int    LTR/Copia              360    707  (4763)  276  
+  550   21.6  9.2  0.6  Chr3       480823  480985 (1519016) + TRUNCATOR2_OS     LTR/Gypsy             2653   2829    (75)  277  
+  270    9.5  0.0  2.4  Chr3       481143  481185 (1518816) + SINE03_OS         SINE                   315    356     (4)  278  
+  885   17.0  6.3  0.8  Chr3       483809  484045 (1515956) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (0)    250       1  279  
+  837    7.9 11.0  0.0  Chr3       490769  490895 (1509106) C OSHOOTER          DNA/CMC-EnSpm      (10307)   1237    1097  280  
+ 1769    6.4  0.4  0.8  Chr3       490914  491149 (1508852) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  281  
+ 1800    8.8  1.7  0.0  Chr3       491867  492106 (1507895) + DITTO             DNA/PIF-Harbinger        1    244     (0)  282  
+  794   18.8  2.2  0.0  Chr3       492613  492793 (1507208) C STOWAWAY51_OS     DNA/TcMar-Stowaway    (19)    227      43  283  
+  616   15.6  8.2  4.3  Chr3       492971  493104 (1506897) C OSHOOTER          DNA/CMC-EnSpm      (10309)   1235    1097  284  
+  631   19.3  1.4  2.0  Chr3       493797  493944 (1506057) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  285  
+  244   21.2  3.0  0.0  Chr3       494042  494107 (1505894) + OSTE33            DNA/MULE-MuDR          930    997    (15)  286  
+  373   13.1  6.7  5.3  Chr3       497554  497628 (1502373) + STOWAWAY43_OS     DNA/TcMar-Stowaway       1     74   (158)  287  
+  290   20.3  1.5  1.5  Chr3       497741  497805 (1502196) + STOWAWAY29_OS     DNA/TcMar-Stowaway     167    231     (1)  288  
+  245   13.2  0.0  0.0  Chr3       497773  497810 (1502191) + STOWAWAY43_OS     DNA/TcMar-Stowaway     196    233     (0)  289 *
+  949   12.3  0.0  0.0  Chr3       499362  499507 (1500494) + Gaijin            DNA/PIF-Harbinger        2    147     (0)  290  
+  230   21.7  5.0  0.0  Chr3       505264  505323 (1494678) + (CGTG)n           Simple_repeat            1     63     (0)  291  
+ 2609   16.9  6.0  3.4  Chr3       507752  508460 (1491541) C MERMITEA          DNA/MULE-MuDR          (0)   1710     333  292  
+ 1972   16.6  7.3  6.5  Chr3       509040  509644 (1490357) + MERMITED          DNA/MULE-MuDR          706   1569     (3)  293  
+  885   15.3  7.3  0.6  Chr3       509835  509998 (1490003) C TESS              DNA/hAT               (56)    188      14  294  
+  461   20.3  9.0  0.5  Chr3       510152  510339 (1489662) C STOWAWAY2_OS      DNA/TcMar-Stowaway    (46)    204       1  295  
+  963   12.2  0.0  0.0  Chr3       510486  510632 (1489369) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  296  
+  887   10.3  0.0  7.5  Chr3       513872  514028 (1485973) + Gaijin            DNA/PIF-Harbinger        2    147     (0)  297  
+  315   17.4  1.4  1.4  Chr3       520617  520686 (1479315) + MERMITE18D        DNA/MULE-MuDR          241    310  (1181)  298  
+ 1913   11.0  0.0  0.0  Chr3       520838  521100 (1478901) C INDITTO           DNA/PIF-Harbinger      (0)    263       1  299  
+  718   23.0 19.6  2.4  Chr3       528335  528722 (1471279) + CACTA-I           DNA/CMC-EnSpm          672   1124     (0)  300  
+  643   18.4  1.5  0.0  Chr3       530039  530174 (1469827) + WANDERER_OS       DNA/PIF-Harbinger       54    191    (41)  301  
+  315   16.4 15.1  1.0  Chr3       530926  531011 (1468990) C CASINE            SINE/tRNA-L1          (13)    161      64  302  
+ 2602    9.4  0.0  0.3  Chr3       533509  533872 (1466129) + CASTAWAY          DNA/PIF-Harbinger        1    363     (1)  303  
+ 2140    8.3  0.0  0.0  Chr3       533877  534152 (1465849) C SUSU              DNA/PIF-Harbinger      (1)    278       3  304  
+ 1442   15.5 10.3  2.0  Chr3       535115  535443 (1464558) C TYPEU1            DNA                    (8)    372      17  305  
+  742   13.9 18.1  0.0  Chr3       545798  545963 (1454038) + DNAUN1_OS         DNA/PIF-Harbinger      213    408     (0)  306  
+ 1948   12.5  7.9  0.0  Chr3       546054  546382 (1453619) + OLO24C            DNA/PIF-Harbinger        1    355     (1)  307  
+ 1551   11.1  0.4  1.3  Chr3       546825  547061 (1452940) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  308  
+ 1641   15.9  0.3  0.0  Chr3       548093  548375 (1451626) C ID-4              DNA/PIF-Harbinger      (0)    284       1  309  
+ 1676   11.9  0.0  0.0  Chr3       576016  576259 (1423742) C DITTO             DNA/PIF-Harbinger      (0)    244       1  310  
+ 1423   11.1  2.3  0.5  Chr3       576373  576590 (1423411) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    222    (13)  311  
+  530   12.1 10.0  0.9  Chr3       577643  577742 (1422259) C MERMITEH          DNA/MULE-MuDR          (0)   1307    1199  312  
+  240   16.7  2.4  0.0  Chr3       577929  577970 (1422031) + MERMITED          DNA/MULE-MuDR         1526   1568     (4)  313  
+  276   20.1 14.8  6.9  Chr3       581294  581469 (1418532) + FOCUS             DNA/PIF-Harbinger        1    189    (68)  314  
+  316   27.7  3.9  4.7  Chr3       581946  582074 (1417927) C HELIA             DNA/PIF-Harbinger    (163)    130       3  315  
+  722   11.0  0.0  2.5  Chr3       591053  591173 (1408828) C TYPEG             DNA/MULE-MuDR          (0)    427     310  316  
+ 1191   10.6 15.7  0.8  Chr3       593280  593489 (1406512) + STOWAWAY42_OS     DNA/TcMar-Stowaway       1    241     (1)  317  
+ 1120   11.4  0.0  0.0  Chr3       602498  602664 (1397337) + CASTAWAY          DNA/PIF-Harbinger        1    167   (197)  318  
+  909   11.9 10.1  0.0  Chr3       602685  602842 (1397159) C CASTAWAY          DNA/PIF-Harbinger     (22)    342     169  319  
+ 1774   15.4  5.5  0.0  Chr3       602843  603154 (1396847) + CASTAWAY          DNA/PIF-Harbinger        1    329    (35)  320  
+ 2044   13.7  3.7  0.6  Chr3       603155  603507 (1396494) + CASTAWAY          DNA/PIF-Harbinger        1    364     (0)  321  
+ 1186   10.5  0.0  0.0  Chr3       603546  603716 (1396285) C CASTAWAY          DNA/PIF-Harbinger    (193)    171       1  319  
+  229   17.4 14.1  5.4  Chr3       603717  603754 (1396247) C CASTAWAY          DNA/PIF-Harbinger     (25)    339     295  322  
+ 1203    9.9  0.0  0.0  Chr3       603755  603925 (1396076) + CASTAWAY          DNA/PIF-Harbinger        1    171   (193)  323  
+ 2215   11.3  5.5  0.0  Chr3       603926  604270 (1395731) C CASTAWAY          DNA/PIF-Harbinger      (0)    364       1  324  
+  476   15.7  0.0  0.0  Chr3       604271  604352 (1395649) + CASTAWAY          DNA/PIF-Harbinger      169    250   (114)  325  
+ 2171   15.4  0.0  0.0  Chr3       604355  604718 (1395283) + CASTAWAY          DNA/PIF-Harbinger        1    364     (0)  326  
+  858    8.0  0.0  0.0  Chr3       604722  604833 (1395168) + CASTAWAY          DNA/PIF-Harbinger      253    364     (0)  327  
+ 1110   11.2  0.0  0.0  Chr3       604834  604993 (1395008) + CASTAWAY          DNA/PIF-Harbinger      204    363     (1)  328  
+  392   15.4  1.5  0.0  Chr3       611871  611935 (1388066) C TYPEM             DNA/PIF-Harbinger      (0)    227     162  329  
+ 1045    8.6 11.2  7.2  Chr3       611937  612123 (1387878) C TYPEM             DNA/PIF-Harbinger      (1)    226      33  330  
+  726   16.4 10.2  0.6  Chr3       612115  612261 (1387740) C TYPEM             DNA/PIF-Harbinger     (66)    161       1  329 *
+  370   19.1  0.0  0.0  Chr3       616589  616651 (1383350) + MERMITED          DNA/MULE-MuDR            1     63  (1509)  331  
+ 1181   18.1 13.0  1.7  Chr3       616658  616927 (1383074) + MERMITEJ          DNA/MULE-MuDR         1199   1498     (0)  332  
+  923    9.0  1.4  1.4  Chr3       618207  618353 (1381648) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  333  
+  621   14.5  7.6  0.0  Chr3       618354  618483 (1381518) + STOWAWAY41_OS     DNA/TcMar-Stowaway      68    207    (57)  334  
+  303   23.3  2.4  7.5  Chr3       618354  618372 (1381629) + OSHOOTER          DNA/CMC-EnSpm         1098   1255 (10289)  335 *
+  523   27.0  6.4  5.5  Chr3       618528  618778 (1381223) + CASTAWAY          DNA/PIF-Harbinger       91    343    (21)  336  
+  639   22.4  2.6  0.4  Chr3       618877  619071 (1380930) + WANDERER_OS       DNA/PIF-Harbinger       34    238     (1)  337  
+  316   20.0  0.0  1.5  Chr3       620320  620385 (1379616) + STOWAWAY10_OS     DNA/TcMar-Stowaway      21     85   (174)  338  
+ 2348    9.0  0.3  1.0  Chr3       620481  620793 (1379208) C MDM2              DNA/MULE-MuDR          (1)    311       1  339  
+  454   16.7  0.0  2.4  Chr3       621117  621202 (1378799) C MDM1              DNA/MULE-MuDR          (1)    325     242  340  
+  923   18.2  9.5  0.8  Chr3       621484  621726 (1378275) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264       1  341  
+  270   21.8 22.4  0.6  Chr3       621727  621852 (1378149) + WANDERER_OS       DNA/PIF-Harbinger       75    229     (3)  342  
+ 1583   11.9  1.6  0.4  Chr3       624593  624846 (1375155) C STOWAWAY8_OS      DNA/TcMar-Stowaway     (2)    257       1  343  
+  943   14.7  7.6  0.0  Chr3       629910  630133 (1369868) + STOWAWAY2_OS      DNA/TcMar-Stowaway       2    242     (8)  344  
+  795   15.0  0.6  1.2  Chr3       633113  633274 (1366727) C STOWAWAY41_OS     DNA/TcMar-Stowaway    (13)    251      91  345  
+  495   28.8  3.9  3.4  Chr3       633275  633508 (1366493) C XIKE              DNA/MULE-MuDR          (0)    594     360  346  
+  242   31.1 11.7  2.0  Chr3       633634  633856 (1366145) + XIKE              DNA/MULE-MuDR          351    594     (0)  347  
+  559   13.5  1.0  0.0  Chr3       633858  633953 (1366048) + STOWAWAY41_OS     DNA/TcMar-Stowaway     168    264     (0)  348  
+  658   22.8  1.7  1.7  Chr3       634093  634266 (1365735) + TOURIST-XV        DNA/PIF-Harbinger       31    204    (35)  349  
+ 1782    8.4  0.0  0.0  Chr3       635155  635393 (1364608) + TREP215           DNA/TcMar-Stowaway       1    239     (0)  350  
+ 1688    7.6  2.5  0.0  Chr3       638893  639129 (1360872) C STOWAWAY21_OS     DNA/TcMar-Stowaway     (0)    243       1  351  
+  469   28.6  2.9  2.3  Chr3       639689  639863 (1360138) C CLOUD-3           DNA/MULE-MuDR        (374)    176       1  352  
+  402   23.7  1.9  6.6  Chr3       641434  641591 (1358410) C F1275             DNA/PIF-Harbinger      (5)    152       2  353  
+  509   22.3  8.2  1.6  Chr3       649165  649396 (1350605) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (3)    247       1  354  
+ 1634    8.6  3.4  0.0  Chr3       649931  650164 (1349837) + STOWAWAY21_OS     DNA/TcMar-Stowaway       2    243     (0)  355  
+ 1629   12.1  0.0  0.0  Chr3       650636  650874 (1349127) C TREP215           DNA/TcMar-Stowaway     (0)    239       1  356  
+  910    6.6  0.0  0.0  Chr3       651118  651238 (1348763) + OSHOOTER          DNA/CMC-EnSpm         1097   1217 (10327)  357  
+ 1278   19.3 14.4  1.7  Chr3       651683  652051 (1347950) C RPO_OS            RC/Helitron            (0)   1983    1569  358  
+  338   33.1  0.7  0.0  Chr3       665708  665846 (1334155) + STOWAWAY15-2_OS   DNA/TcMar-Stowaway       6    145     (0)  359  
+  734   18.0 13.3  0.9  Chr3       666017  666212 (1333789) C COWARD-3          DNA/PIF-Harbinger      (0)    221       2  360  
+  262   19.7 11.8  2.3  Chr3       666494  666654 (1333347) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (9)    241      66  361  
+  243   16.7 17.7  0.0  Chr3       668827  668922 (1331079) C Explorer          DNA                   (44)    166      54  362  
+  567   17.6  2.7  2.7  Chr3       669552  669697 (1330304) + WANDERER_OS       DNA/PIF-Harbinger       11    156    (76)  363  
+ 2518   10.8  0.2  0.0  Chr3       669732  670128 (1329873) C Atlantys-2-I_OS   LTR/Gypsy           (2531)   8252    7855  364  
+  371   24.6  3.5  6.7  Chr3       674977  675176 (1324825) + COWARD-3          DNA/PIF-Harbinger       28    221     (0)  365  
+ 1620   14.8  1.0  3.6  Chr3       675387  675695 (1324306) + OLO24B            DNA/PIF-Harbinger        1    301    (34)  366  
+  642   28.9  1.6  2.9  Chr3       675474  675722 (1324279) C OLO24C            DNA/PIF-Harbinger     (96)    260      15  367 *
+  703   12.7  1.3  4.0  Chr3       675696  675851 (1324150) + UNIQUE            DNA/PIF-Harbinger        7    158     (0)  368  
+ 2923    1.2  0.3  0.0  Chr3       676201  676533 (1323468) C NDNA1TNA_OS       DNA/PIF-Harbinger      (0)    334       1  369  
+ 1510   16.1  0.4  0.0  Chr3       678744  678998 (1321003) C STOWAWAY34_OS     DNA/TcMar-Stowaway     (0)    256       1  370  
+  314   27.8 10.2  0.7  Chr3       679108  679234 (1320767) C CASLET            DNA/PIF-Harbinger    (213)    141       3  371  
+  296   22.2  5.0  7.0  Chr3       680328  680487 (1319514) C HELIA             DNA/PIF-Harbinger    (136)    157       1  372  
+ 1060   23.7  4.6  2.6  Chr3       681377  681679 (1318322) + BAJIE_LTR         LTR/Gypsy              423    731     (2)  373  
+  729   20.5  7.9  4.2  Chr3       683656  683884 (1316117) + STOWAWAY42_OS     DNA/TcMar-Stowaway       6    242     (0)  374  
+  241   26.8  1.4  7.5  Chr3       684538  684678 (1315323) + YOUREN            DNA/PIF-Harbinger       66    198    (88)  375  
+  249   25.5 13.4  3.4  Chr3       684723  684856 (1315145) C F569              DNA/PIF-Harbinger     (31)    197      51  376  
+ 1320   15.8  0.0  2.9  Chr3       684903  685149 (1314852) + STOWAWAY44_OS     DNA/TcMar-Stowaway       1    240     (0)  377  
+  255   13.4  0.0  6.7  Chr3       689846  689893 (1310108) C WANDERER_OS       DNA/PIF-Harbinger     (55)    177     133  378  
+  348   20.7  8.5  0.9  Chr3       690600  690729 (1309272) + EnSpm-11_OS       DNA/CMC-EnSpm         4061   4172  (8954)  379  
+  387   21.1 13.2  0.7  Chr3       693541  693669 (1306332) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    145     (3)  380  
+ 4223   14.9 14.0  5.9  Chr3       695556  696625 (1303376) C CACTA-H           DNA/CMC-EnSpm          (0)   1152       1  381  
+ 1379   17.9  6.0  0.0  Chr3       698785  699052 (1300949) + F770              DNA/PIF-Harbinger        1    284     (0)  382  
+  348   15.2  0.0  0.0  Chr3       701179  701237 (1298764) + STOWAWAY50_OS     DNA/TcMar-Stowaway       1     59   (115)  383  
+  246   17.5  3.1  3.1  Chr3       702428  702492 (1297509) + OSLINE1-4         LINE/L1               4715   4779     (0)  384  
+  915    9.7  0.8  0.0  Chr3       702578  702711 (1297290) C Gaijin            DNA/PIF-Harbinger     (12)    135       1  385  
+ 1118   18.1  1.5  1.1  Chr3       702737  702998 (1297003) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264       2  386  
+ 2283    9.8  5.0  0.6  Chr3       703017  703355 (1296646) C SINE03_OS         SINE                   (6)    354       1  387  
+  444   23.8  6.5  1.4  Chr3       705244  705443 (1294558) C STOWAWAY21_OS     DNA/TcMar-Stowaway     (0)    243      34  388  
+  287   26.7  5.8  3.7  Chr3       705444  705479 (1294522) + STOWAWAY51_OS     DNA/TcMar-Stowaway       6    246     (0)  389  
+  252   29.3  0.0  5.6  Chr3       706379  706454 (1293547) C EnSpm-11_OS       DNA/CMC-EnSpm       (6837)   6289    6218  390  
+ 2197    9.4  6.2  1.5  Chr3       711007  711329 (1288672) C MERMITEJ          DNA/MULE-MuDR          (0)   1498    1162  391  
+ 1026   13.2  7.4  0.8  Chr3       711739  711968 (1288033) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (5)    245       1  392  
+ 1001   14.8  4.8  0.0  Chr3       711972  712181 (1287820) + STOWAWAY2_OS      DNA/TcMar-Stowaway      31    250     (0)  393  
+ 2356   21.6  6.6  3.2  Chr3       712472  712626 (1287375) C MERMITEJ          DNA/MULE-MuDR        (822)    676       1  391  
+ 3008   12.1  6.0  2.3  Chr3       712627  713126 (1286875) + MERMITEA          DNA/MULE-MuDR         1193   1710     (0)  394  
+  317   17.6  2.5 12.8  Chr3       715224  715386 (1284615) + TREP215           DNA/TcMar-Stowaway      54    201    (38)  395  
+ 1026   10.2  0.0  0.0  Chr3       719862  720008 (1279993) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  396  
+ 2188   19.8  4.5  4.3  Chr3       724094  724600 (1275401) + CLOUD-6           DNA/MULE-MuDR            1    508     (0)  397  
+ 9112   14.3  2.6  5.7  Chr3       729642  731439 (1268562) C TRUNCATOR2_OS     LTR/Gypsy              (0)   2904    1160  398  
+  386    6.4  2.1  2.1  Chr3       731438  731533 (1268468) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (51)    123      28  399 *
+ 8509    8.2  0.7  1.1  Chr3       731508  732669 (1267332) C TRUNCATOR2_OS     LTR/Gypsy           (1747)   1157       1  398  
+  244   11.4  0.0  0.0  Chr3       732900  732934 (1267067) + STOWAWAY47_OS     DNA/TcMar-Stowaway      76    110    (38)  400  
+  341   19.8  8.1  4.3  Chr3       734590  734700 (1265301) C TYPEU2            DNA                    (0)    382     268  401  
+  657   23.2  7.8  2.8  Chr3       736972  737277 (1262724) + TYPEU2            DNA                      1    321    (61)  402  
+  920    9.0 18.6  0.0  Chr3       749885  750061 (1249940) C OSTE27            DNA                   (24)    945     736  403  
+  320   12.3  5.5  0.0  Chr3       750063  750135 (1249866) + OSTE27            DNA                    530    606   (363)  404  
+ 1110   14.8  2.9  1.6  Chr3       750200  750440 (1249561) C OSTE27            DNA                  (196)    773     530  403  
+  781   14.2 18.0  0.0  Chr3       750442  750624 (1249377) + OSTE27            DNA                    736    951    (18)  405  
+ 5079    3.5  0.5  0.3  Chr3       755197  755802 (1244199) C JOUZHENA          DNA/hAT-Ac             (0)    607       1  406  
+  228   24.5  6.0  8.1  Chr3       759502  759652 (1240349) + CASGRANDA         DNA/PIF-Harbinger        1    148   (317)  407  
+  279   12.9 11.1  1.4  Chr3       761334  761396 (1238605) + TYPEU4            DNA                    301    369    (33)  408  
+ 1671    8.6  0.4  2.1  Chr3       762308  762546 (1237455) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  409  
+ 1461   16.4  0.0  0.0  Chr3       764858  765101 (1234900) + DITTO             DNA/PIF-Harbinger        1    244     (0)  410  
+  373    5.5  5.4  1.7  Chr3       770659  770704 (1229297) C TREP215           DNA/TcMar-Stowaway     (0)    239     192  411  
+ 4319   10.2  0.7  0.0  Chr3       770705  771275 (1228726) C SZ-33_LTR         LTR/Gypsy              (0)    575       1  412  
+  241    4.9  4.8  2.3  Chr3       771276  771307 (1228694) C TNR11             DNA/TcMar-Stowaway    (43)    768     736  413 *
+ 1337    7.7  0.5  0.0  Chr3       771275  771469 (1228532) C TREP215           DNA/TcMar-Stowaway    (43)    196       1  414  
+ 2204   13.6  4.2 14.5  Chr3       772040  772562 (1227439) + JINHUA            DNA/hAT-Ac               4    479     (0)  415  
+  400   23.2  1.8  3.6  Chr3       774551  774662 (1225339) + MUDRN5_OS         DNA/MULE-MuDR           33    142   (232)  416  
+  757   24.4  0.0  0.6  Chr3       774978  775150 (1224851) C MUDRN5_OS         DNA/MULE-MuDR        (202)    172       1  417  
+  287   18.2 11.7  0.0  Chr3       776024  776100 (1223901) C COPIA3-LTR_OS     LTR/Copia             (58)    205     120  418  
+  936    6.3  0.0  0.0  Chr3       776218  776344 (1223657) C Gaijin            DNA/PIF-Harbinger      (0)    147      21  419  
+  623   23.8  1.4  0.7  Chr3       781805  781948 (1218053) + STOWAWAY15_OS     DNA/TcMar-Stowaway       1    145     (0)  420  
+ 2364    7.1  0.3  0.3  Chr3       784952  785263 (1214738) C STOWAWAY12_OS     DNA/TcMar-Stowaway     (0)    312       1  421  
+  828   11.6  1.7 15.0  Chr3       785275  785447 (1214554) + CASINE            SINE/tRNA-L1             1    153    (21)  422  
+  297   28.8  3.5  2.6  Chr3       786479  786592 (1213409) + MERMITEJ          DNA/MULE-MuDR            2    116  (1382)  423  
+  465   25.5  6.7  2.6  Chr3       787472  787489 (1212512) C MERMITED          DNA/MULE-MuDR       (1417)    155       4  424  
+  493   25.2  0.8  0.8  Chr3       787490  787617 (1212384) + MERMITEH          DNA/MULE-MuDR         1180   1307     (0)  425  
+ 1035   16.7  4.8  0.0  Chr3       788446  788697 (1211304) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264       1  426  
+ 1136   12.6  4.9  0.9  Chr3       794607  794830 (1205171) + STOWAWAY43_OS     DNA/TcMar-Stowaway       1    233     (0)  427  
+  268   27.6  0.0  2.3  Chr3       796676  796764 (1203237) + F569              DNA/PIF-Harbinger        1     87   (141)  428  
+  452   27.6  2.1  2.6  Chr3       797096  797329 (1202672) C TNR11             DNA/TcMar-Stowaway   (408)    403     171  429  
+ 1111   25.8  5.6  8.5  Chr3       797345  798019 (1201982) + SETARIA1          DNA/MULE-MuDR            1    657   (636)  430  
+  667   20.5  3.5  1.7  Chr3       798325  798493 (1201508) + SETARIA2          DNA/MULE-MuDR          948   1119    (23)  431  
+  501   23.9  8.9  0.7  Chr3       800651  800686 (1199315) + EnSpm-16_OS       DNA/CMC-EnSpm         8084   8202  (5134)  432  
+  648   12.9  0.0  0.0  Chr3       800687  800779 (1199222) + ZM13-2_OS         DNA/PIF-Harbinger       14    106     (2)  433  
+ 3244    3.1  0.3  0.0  Chr3       805954  806345 (1193656) + SC-3_LTR          LTR/Copia                1    393     (0)  434  
+40727    1.8  0.1  0.3  Chr3       806346  811319 (1188682) + SC-3_int-int      LTR/Copia                1   4961     (0)  434  
+ 3228    3.3  0.3  0.0  Chr3       811320  811711 (1188290) + SC-3_LTR          LTR/Copia                1    393     (0)  434  
+  419    3.7  0.0  0.0  Chr3       813488  813541 (1186460) + SZ-31_LTR         LTR/Gypsy                3     56  (1414)  435 *
+ 6419   10.0  0.0  0.9  Chr3       813529  814447 (1185554) + Atlantys-2-I_OS   LTR/Gypsy             9873  10783     (0)  436  
+  815    6.7  0.0  1.7  Chr3       814448  814569 (1185432) + SZ-24_LTR         LTR/Gypsy                1    120   (308)  436 *
+ 2052    6.8  1.4  0.0  Chr3       814566  814844 (1185157) + SZ-31_LTR         LTR/Gypsy             1188   1470     (0)  435  
+  409   24.8  0.7  1.4  Chr3       814858  814996 (1185005) C Explorer          DNA                   (41)    169      32  437  
+  323   27.9  4.7  6.2  Chr3       820209  820422 (1179579) C ORMOSIA           SINE/L1              (249)    233      23  438  
+  988   19.6  7.6  0.4  Chr3       821079  821314 (1178687) + DITAILA           DNA/PIF-Harbinger        5    257     (0)  439  
+  255    7.3  0.0  0.0  Chr3       822920  822960 (1177041) C EnSpm-14_OS       DNA/CMC-EnSpm       (6482)   4734    4694  440  
+ 1281    6.0  2.1  5.3  Chr3       824654  824847 (1175154) C SNAP-OL3          DNA                    (1)    188       1  441  
+  279   22.8  0.0  0.0  Chr3       826165  826221 (1173780) C LINE1-8_OS        LINE/L1               (11)   7090    7034  442  
+  261   15.7  0.0  0.0  Chr3       829592  829642 (1170359) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1     51    (98)  443  
+  422   14.8 34.3  0.0  Chr3       837498  837605 (1162396) C STOWAWAY15-2_OS   DNA/TcMar-Stowaway     (0)    145       1  444  
+  897   11.0  0.0  0.0  Chr3       840368  840494 (1159507) + p-SINE1_OS        SINE                    18    144    (11)  445  
+  442   12.4  0.0  0.0  Chr3       840663  840764 (1159237) C Gaijin            DNA/PIF-Harbinger      (0)    147       2  446  
+  402   18.7  3.1  7.1  Chr3       840847  840860 (1159141) + OSHOOTER          DNA/CMC-EnSpm         1087   1237 (10303)  447  
+  812   11.2  2.1  0.0  Chr3       840861  841003 (1158998) C Gaijin            DNA/PIF-Harbinger      (1)    146       1  448  
+  810   12.5  2.1  0.0  Chr3       841071  841214 (1158787) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  449  
+ 1848   12.6  2.6  0.0  Chr3       846704  847013 (1152988) + OLO24C            DNA/PIF-Harbinger       39    356     (0)  450  
+  227   13.2  5.1  7.3  Chr3       847048  847145 (1152856) C WANDERER_OS       DNA/PIF-Harbinger     (57)    175      80  451 *
+  309   23.1  3.6  2.4  Chr3       847126  847319 (1152682) C WANDERER_OS       DNA/PIF-Harbinger     (41)    198       4  452  
+  517   14.7  2.5  3.4  Chr3       850360  850479 (1149522) + CASINE            SINE/tRNA-L1            43    161    (13)  453  
+  251   25.9  0.5 15.9  Chr3       850817  851004 (1148997) C TOURIST-XV        DNA/PIF-Harbinger     (30)    209      47  454  
+  289   25.8  4.7  0.0  Chr3       851593  851720 (1148281) C Explorer          DNA                   (39)    171      38  455  
+ 1778   16.1  0.6  1.6  Chr3       855108  855422 (1144579) C MDM2              DNA/MULE-MuDR          (0)    312       1  456  
+  991    9.6  0.0  1.4  Chr3       857866  858013 (1141988) C Gaijin            DNA/PIF-Harbinger      (0)    147       2  457  
+  562   19.4  3.5  1.4  Chr3       858121  858261 (1141740) + Gaijin            DNA/PIF-Harbinger        1    144     (3)  458  
+  295   27.8  9.2  3.5  Chr3       858743  858906 (1141095) C ID-4              DNA/PIF-Harbinger    (111)    173       1  459  
+  460   27.0  0.7  0.7  Chr3       859071  859208 (1140793) C XIKE              DNA/MULE-MuDR          (0)    594     457  460  
+  454   25.8  0.8  0.8  Chr3       859504  859628 (1140373) + XIKE              DNA/MULE-MuDR          470    594     (0)  461  
+  906   13.2  0.0  0.7  Chr3       860077  860229 (1139772) C UNIQUE            DNA/PIF-Harbinger      (6)    152       1  462  
+ 2213   10.5  3.3  0.3  Chr3       866549  866882 (1133119) C OLO24C            DNA/PIF-Harbinger      (2)    354      11  463  
+  648   13.0 14.6  0.0  Chr3       866884  867006 (1132995) + Gaijin            DNA/PIF-Harbinger        2    142     (5)  464  
+ 1074   20.7  6.3  2.1  Chr3       867998  868362 (1131639) + TYPEU2            DNA                      2    381     (1)  465  
+  239   22.1 15.9  0.0  Chr3       868447  868559 (1131442) C Explorer          DNA                   (45)    165      35  466 *
+  326   23.1  3.9  0.0  Chr3       868546  868649 (1131352) + OSTE19            DNA/MULE-MuDR           55    162     (0)  467  
+  539   12.6  0.0  1.1  Chr3       870179  870274 (1129727) + OSHOOTER          DNA/CMC-EnSpm         1101   1195 (10349)  468  
+  473   16.9  7.1  2.3  Chr3       870275  870305 (1129696) C Gaijin            DNA/PIF-Harbinger      (3)    144      12  469  
+  534   18.2  4.4 10.2  Chr3       871548  871774 (1128227) + STOWAWAY21_OS     DNA/TcMar-Stowaway      10    224    (19)  470  
+  256    6.1  0.0  0.0  Chr3       876114  876146 (1123855) C TNR11             DNA/TcMar-Stowaway    (71)    740     708  471  
+  365   20.8  1.6  9.3  Chr3       876323  876449 (1123552) C TNR11             DNA/TcMar-Stowaway   (527)    284     167  471  
+ 1704   16.0  1.8  3.6  Chr3       879798  879839 (1120162) + EnSpm-11_OS       DNA/CMC-EnSpm         6835   6995  (6131)  472  
+ 1827   10.5  0.4  0.0  Chr3       879840  880097 (1119904) C OLO24C            DNA/PIF-Harbinger     (47)    309      51  473  
+ 1704   16.0  1.8  3.6  Chr3       880098  880140 (1119861) + EnSpm-11_OS       DNA/CMC-EnSpm         6996   7171  (5955)  472  
+  351   19.0  5.0  0.9  Chr3       881803  881903 (1118098) C STOWAWAY2_OS      DNA/TcMar-Stowaway    (91)    159      55  474  
+  614    7.7  4.7  0.5  Chr3       885376  885524 (1114477) C STOWAWAY51_OS     DNA/TcMar-Stowaway     (0)    246       2  475  
+  228   27.5  0.0  4.4  Chr3       885750  885844 (1114157) + MDM1              DNA/MULE-MuDR          235    325     (1)  476  
+  536   23.7  0.0  1.3  Chr3       889152  889305 (1110696) C F1275             DNA/PIF-Harbinger      (5)    152       1  477  
+  504    8.4  0.0  0.0  Chr3       889339  889409 (1110592) C LINE1-8_OS        LINE/L1               (10)   7091    7021  478  
+ 2220   10.6  0.6  0.0  Chr3       890141  890470 (1109531) + NDNA1TNA_OS       DNA/PIF-Harbinger        1    332     (2)  479  
+ 1524   13.1  6.1  1.4  Chr3       891274  891551 (1108450) C NDNA1TNA_OS       DNA/PIF-Harbinger     (43)    291       1  480  
+  336   18.1  0.0  1.2  Chr3       891781  891864 (1108137) + STOWAWAY44_OS     DNA/TcMar-Stowaway       8     90   (150)  481  
+  608   11.9  0.0  1.7  Chr3       891872  891991 (1108010) + STOWAWAY44_OS     DNA/TcMar-Stowaway      15    132   (108)  482  
+  398   14.0  4.9  1.6  Chr3       891990  892112 (1107889) + STOWAWAY44_OS     DNA/TcMar-Stowaway      73    199    (41)  483 *
+  503   22.0  0.9  0.9  Chr3       893433  893542 (1106459) C DEBOAT            DNA/hAT                (0)    110       1  484  
+  745   13.6 10.3  0.6  Chr3       898076  898230 (1101771) C OSHOOTER          DNA/CMC-EnSpm      (10278)   1266    1097  485  
+  428   30.3  1.3  1.3  Chr3       898254  898407 (1101594) C LINE-3            LINE/L1            (10415)    560     407  486  
+ 3577   30.6  2.8  4.5  Chr3       899388  901326 (1098675) C OSMU4             DNA/MULE-MuDR       (1093)   3638    1732  487  
+  458   27.8  1.9  1.9  Chr3       902691  902844 (1097157) + LINE-3            LINE/L1                407    560 (10415)  488  
+ 1107   15.3 12.5  0.0  Chr3       903054  903269 (1096732) C DITTO             DNA/PIF-Harbinger      (1)    243       1  489  
+  689   29.1  9.2  0.0  Chr3       903343  903548 (1096453) C TYPEM             DNA/PIF-Harbinger      (1)    226       2  490  
+  928   10.3  2.4  0.0  Chr3       903647  903811 (1096190) + TREP215           DNA/TcMar-Stowaway       1    169    (70)  491  
+ 1873   11.8  0.7  0.7  Chr3       904554  904825 (1095176) C Cassandra_OS-LTR  LTR/Cassandra          (9)    272       1  492  
+ 1004    5.2  9.6  0.0  Chr3       906012  906147 (1093854) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  493  
+  565   11.9 14.8  0.0  Chr3       906165  906265 (1093736) + p-SINE1_OS        SINE                    26    141    (14)  494  
+  233   20.9  2.0 11.9  Chr3       909186  909332 (1090669) C MERMITE18D        DNA/MULE-MuDR       (1129)    362     229  495  
+  368   20.5  8.0  5.9  Chr3       909998  910037 (1089964) C OSHOOTER          DNA/CMC-EnSpm      (10302)   1242    1121  496  
+  630   10.9  1.0  1.0  Chr3       910038  910139 (1089862) + Gaijin            DNA/PIF-Harbinger       46    147     (0)  497  
+ 1018   15.9 16.0  6.4  Chr3       910825  911181 (1088820) C SC-3_LTR          LTR/Copia              (0)    393       5  498  
+35934    2.3  0.1  0.4  Chr3       911187  916157 (1083844) C SC-3_int-int      LTR/Copia              (0)   4961       1  498  
+  961    7.6  0.8  0.0  Chr3       916158  916288 (1083713) C SC-3_LTR          LTR/Copia              (0)    393     262  498  
+  981   17.1  1.3  2.6  Chr3       923165  923398 (1076603) + STOWAWAY43_OS     DNA/TcMar-Stowaway       2    232     (1)  499  
+  375   18.9 16.1  2.1  Chr3       923742  923952 (1076049) + STOWAWAY2_OS      DNA/TcMar-Stowaway       1    240    (10)  500  
+ 1770    8.9  0.0  0.0  Chr3       924076  924322 (1075679) C INDITTO           DNA/PIF-Harbinger     (16)    247       1  501  
+  895   11.0  1.9 22.0  Chr3       924323  924584 (1075417) + DITAILA           DNA/PIF-Harbinger       38    255     (2)  502  
+ 1381   15.7  0.8  0.0  Chr3       925013  925254 (1074747) + DITTO             DNA/PIF-Harbinger        1    244     (0)  503  
+  291   11.3  3.8  0.0  Chr3       926149  926201 (1073800) C OSTE1             DNA/MULE-MuDR         (70)    731     677  504  
+  313    6.5  2.2  0.0  Chr3       926248  926293 (1073708) + OSTE1             DNA/MULE-MuDR          687    733    (68)  505  
+  314   22.3  4.8 15.8  Chr3       928423  928779 (1071222) C MERMITE18D        DNA/MULE-MuDR        (974)    517     195  506  
+  246   32.3  3.9  8.1  Chr3       928922  929177 (1070824) + MERMITE18C        DNA/MULE-MuDR          189    434  (1039)  507 *
+  306   23.6  1.1  0.8  Chr3       929127  929283 (1070718) + (CGA)n            Simple_repeat            1    157     (0)  508  
+ 2503    6.0  0.0  0.3  Chr3       931250  931584 (1068417) C NDNA1TNA_OS       DNA/PIF-Harbinger      (0)    334       1  509  
+ 1396   13.3  3.9  1.7  Chr3       931805  932117 (1067884) + NDNA1TNA_OS       DNA/PIF-Harbinger        1    346     (0)  510  
+ 1222   18.8  3.3  0.0  Chr3       933389  933628 (1066373) C DITTO3            DNA/PIF-Harbinger     (12)    248       1  511  
+  460   26.9  6.6  1.9  Chr3       933666  933862 (1066139) C TOURIST-XV        DNA/PIF-Harbinger     (33)    206       1  512  
+  601   21.9  6.8  1.5  Chr3       935531  935720 (1064281) C COWARD            DNA/PIF-Harbinger      (0)    200       1  513  
+ 1285   16.5  6.6  0.0  Chr3       940544  940786 (1059215) + DITTO3            DNA/PIF-Harbinger        2    260     (0)  514  
+17747   14.8  3.6  2.6  Chr3       942566  946350 (1053651) C RETROSAT4_LTR     LTR/Gypsy              (0)   3946       1  515  
+  276   24.1  8.9  3.2  Chr3       948022  948167 (1051834) + STOWAWAY46_OS     DNA/TcMar-Stowaway       1    154     (0)  516  
+ 1051   12.4  0.9  6.4  Chr3       950323  950537 (1049464) C Explorer          DNA                    (6)    204       1  517  
+ 1557   12.7  1.5  0.0  Chr3       950630  950897 (1049104) C TOURIST-XIII      DNA/PIF-Harbinger     (70)    275       4  518  
+  887   14.9 10.8  3.6  Chr3       956121  956416 (1043585) C NDNA1TNA_OS       DNA/PIF-Harbinger      (4)    342      31  519  
+ 1268   19.2  7.5  2.2  Chr3       960488  960842 (1039159) + MERMITE18B        DNA/MULE-MuDR            1    372  (1156)  520  
+  347   24.1  6.9  9.2  Chr3       961467  961598 (1038403) + MERMITE18E        DNA/MULE-MuDR         1021   1526     (2)  521  
+ 1307   10.4 27.8  0.5  Chr3       961599  961897 (1038104) C MERMITE18B        DNA/MULE-MuDR        (926)    380       1  522  
+ 1362   12.1  2.3  0.5  Chr3       961920  962135 (1037866) C MERMITE18B        DNA/MULE-MuDR          (0)   1306    1087  523  
+  280    9.3  0.0  0.0  Chr3       962474  962516 (1037485) + MUDRN4_OS         DNA/MULE-MuDR          247    289    (43)  524  
+  701    7.4  8.3  0.0  Chr3       962520  962627 (1037374) + MUDRN4_OS         DNA/MULE-MuDR          216    332     (0)  525  
+ 3116    4.5  4.5  0.0  Chr3       962704  963136 (1036865) C MUDR1_OS          DNA/MULE-MuDR          (0)   8052    7489  526  
+  849   23.1  4.4  0.7  Chr3       963137  963410 (1036591) + F770              DNA/PIF-Harbinger        1    284     (0)  527  
+12054    1.6  0.0  0.0  Chr3       964044  965452 (1034549) C MUDR1_OS          DNA/MULE-MuDR       (1028)   7024    5616  526 *
+19860    3.3  0.3  1.2  Chr3       965452  967936 (1032065) C MUDR1_OS          DNA/MULE-MuDR       (5381)   2671       1  528  
+  482    4.7  8.1  0.0  Chr3       969224  969309 (1030692) C Gaijin            DNA/PIF-Harbinger      (0)    147      55  529  
+ 2156    6.2  0.6  3.2  Chr3       969310  969625 (1030376) + COPI1_LTR         LTR/Copia                1    308     (0)  530  
+  352   11.7  0.0  0.0  Chr3       969626  969684 (1030317) C Gaijin            DNA/PIF-Harbinger     (88)     59       1  531  
+  366   23.9  8.6  5.8  Chr3       972570  972720 (1027281) + CASLET            DNA/PIF-Harbinger       62    216   (138)  532  
+  750    8.2 19.7  0.0  Chr3       973807  973928 (1026073) + OSHOOTER          DNA/CMC-EnSpm         1097   1242 (10302)  533  
+ 1750   15.3  0.6  3.3  Chr3       974025  974368 (1025633) C OLO24B            DNA/PIF-Harbinger      (0)    335       1  534  
+ 2630    6.9  0.0  0.6  Chr3       975138  975473 (1024528) + OLO24             DNA/PIF-Harbinger        6    339     (6)  535  
+  269   22.7  6.2  6.8  Chr3       979767  979974 (1020027) C STOWAWAY40_OS     DNA/TcMar-Stowaway     (7)    257      51  536  
+  416   25.0  4.2  5.6  Chr3       980951  981094 (1018907) C DS-RICE3N         DNA/hAT-Ac             (0)    525     384  537  
+  527    8.4  0.0  0.0  Chr3       982248  982318 (1017683) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1     71    (78)  538  
+  305    7.7  0.0  0.0  Chr3       982316  982354 (1017647) C STOWAWAY1_OS      DNA/TcMar-Stowaway    (13)    136      98  539 *
+  248   21.4  1.5 21.1  Chr3       982328  982374 (1017627) C MIDWAY            DNA/hAT-Tip100       (426)    556     451  540 *
+  434   11.8  2.5  0.0  Chr3       987706  987824 (1012177) C HELITRON7_OS      RC/Helitron         (8466)   1687    1566  541  
+ 1710   13.9  1.5  4.2  Chr3       988276  988614 (1011387) + OLO24B            DNA/PIF-Harbinger        1    330     (5)  542  
+  933   18.6  3.8  1.4  Chr3       991295  991507 (1008494) C F770              DNA/PIF-Harbinger      (1)    283      66  543  
+ 1451   24.6 15.0  2.6  Chr3       996085  996623 (1003378) C MERMITEJ          DNA/MULE-MuDR          (0)   1710     995  544  
+ 1874   19.2  4.7  4.0  Chr3       997716  998187 (1001814) + MERMITED          DNA/MULE-MuDR         1096   1570     (2)  545  
+  460   15.6  0.0  0.0  Chr3       998461  998556 (1001445) C EnSpm-12_OS       DNA/CMC-EnSpm       (6679)   5924    5829  546  
+  323   22.3  1.2  6.7  Chr3       998488  998660 (1001341) + HELITRON7_OS      RC/Helitron           1481   1644  (8509)  547 *
+ 2351   12.8  0.0  6.4  Chr3       998602  999052 (1000949) + MICROPON-LIKE-1   Unknown                  5    428     (0)  548  
+  726   10.0  0.0  0.0  Chr3       998978  999077 (1000924) C MICROPON-LIKE-2   Unknown                (0)    102       3  549 *
+  725   20.6  4.7  0.8  Chr3       999110  999363 (1000638) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264       1  550  
+  706   20.4  6.9  1.2  Chr3       999384  999616 (1000385) + STOWAWAY41_OS     DNA/TcMar-Stowaway      12    257     (7)  550  
+ 2122    9.1  7.0  0.0  Chr3       999622  999951 (1000050) C OLO24C            DNA/PIF-Harbinger      (1)    355       3  551  
+  275   15.1  3.8  0.0  Chr3       999970 1000022  (999979) C OSTE1             DNA/MULE-MuDR         (70)    731     677  552 *
+  285   14.9  0.0  0.0  Chr3      1000018 1000064  (999937) C TNR2A             DNA                   (50)    102      56  553  
+  236   16.7  2.1  0.0  Chr3      1000067 1000114  (999887) + OSTE1             DNA/MULE-MuDR          685    733    (68)  554  
+ 1644   10.9  0.0  0.0  Chr3      1000472 1000710  (999291) + TREP215           DNA/TcMar-Stowaway       1    239     (0)  555  
+ 2092   10.8  2.3  0.0  Chr3      1001210 1001514  (998487) C STOLAB            DNA/PIF-Harbinger      (0)    312       1  556  
+ 1140   19.1  5.1  0.0  Chr3      1001709 1001944  (998057) C DITTO3            DNA/PIF-Harbinger      (0)    260      13  557  
+ 1565   10.0  0.9  0.0  Chr3      1001998 1002217  (997784) + DITTO             DNA/PIF-Harbinger        1    222    (22)  558  
+ 1757   10.2  0.0  0.0  Chr3      1006653 1006896  (993105) C DITTO             DNA/PIF-Harbinger      (0)    244       1  559  
+  564   29.5  5.1  4.7  Chr3      1007927 1008182  (991819) C ENSPM4_OS         DNA/CMC-EnSpm          (1)  11609   11353  560  
+  274   27.0 11.1  5.7  Chr3      1008517 1008866  (991135) + MERMITE18F        DNA/MULE-MuDR          586    953   (222)  561 *
+  461   20.0  3.2 15.0  Chr3      1008625 1008877  (991124) + CACTA-P           DNA/CMC-EnSpm          616    842   (308)  562  
+  758   23.3  5.9  7.2  Chr3      1008910 1009162  (990839) C ENSPM4_OS         DNA/CMC-EnSpm      (11198)    412       2  563  
+ 1148   14.9  3.0  3.8  Chr3      1009400 1009636  (990365) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  564  
+  763   15.9  1.4  1.4  Chr3      1018530 1018676  (981325) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  565  
+  400   22.8  3.0  6.9  Chr3      1018677 1018691  (981310) + OSHOOTER          DNA/CMC-EnSpm         1098   1253 (10291)  566  
+ 3774   14.3  6.3  0.8  Chr3      1022203 1022872  (977129) C DS-RICE4N         DNA/hAT-Ac             (0)    715      10  567  
+27086    5.6  1.4  0.4  Chr3      1022873 1026198  (973803) C SZ-46LTR          LTR/Gypsy              (0)   3360       1  568  
+ 1673    7.6  0.8  1.3  Chr3      1034341 1034580  (965421) + TREP215           DNA/TcMar-Stowaway       1    239     (0)  569  
+ 8252    8.7  1.2  0.2  Chr3      1034596 1035742  (964259) + SZ-31_LTR         LTR/Gypsy                1   1470     (0)  570  
+ 5306   12.0  2.8  0.1  Chr3      1035743 1036837  (963164) + SZ-49_int-int     LTR/Gypsy                1   1451   (843)  570  
+ 1709   14.7  0.4  0.0  Chr3      1036834 1037091  (962910) + SZ-49_int-int     LTR/Gypsy             1698   1956   (338)  570 *
+ 4163   12.5  7.2  0.3  Chr3      1037089 1037737  (962264) + SZ-49_int-int     LTR/Gypsy             1601   2294     (0)  571  
+  868    6.5  0.0  0.8  Chr3      1037738 1037860  (962141) + SZ-31_LTR         LTR/Gypsy                1    122  (1348)  571 *
+ 1188    7.5  0.0  0.0  Chr3      1037858 1038018  (961983) + TREP215           DNA/TcMar-Stowaway      79    239     (0)  572  
+ 8066    8.6  3.1  0.2  Chr3      1038034 1039160  (960841) + SZ-31_LTR         LTR/Gypsy                1   1470     (0)  573  
+  231   13.6  1.8  9.4  Chr3      1041836 1041892  (958109) C MERMITE18C        DNA/MULE-MuDR       (1233)    240     188  574  
+  868   20.6  0.5  2.1  Chr3      1041917 1042105  (957896) C OSTE20            DNA/MULE-MuDR          (0)    496     311  575  
+ 1292   15.8  0.5  0.5  Chr3      1042558 1042780  (957221) C OSTE20            DNA/MULE-MuDR        (273)    223       1  575  
+ 1448   13.2  3.0  0.0  Chr3      1043829 1044063  (955938) + DITTO3            DNA/PIF-Harbinger        1    242    (18)  576  
+ 1514   14.8  0.0  0.4  Chr3      1044064 1044301  (955700) C DITTO             DNA/PIF-Harbinger      (1)    243       7  577  
+ 1375   17.3  0.0  1.2  Chr3      1045786 1046031  (953970) + DITTO             DNA/PIF-Harbinger        1    243     (1)  578  
+  336   25.6  1.7 14.3  Chr3      1047447 1047619  (952382) + STOWAWAY46_OS     DNA/TcMar-Stowaway       1    154     (0)  579  
+ 1252   14.0  0.0  0.0  Chr3      1048398 1048575  (951426) C F118              DNA/hAT                (0)    179       2  580  
+  446    9.5  7.0  2.2  Chr3      1049054 1049134  (950867) + TREP215           DNA/TcMar-Stowaway       1     85   (154)  581  
+ 1601    8.3  2.4  2.9  Chr3      1049135 1049381  (950620) + STOWAWAY51_OS     DNA/TcMar-Stowaway       1    246     (0)  582  
+ 1058    8.0  0.7  0.0  Chr3      1049382 1049529  (950472) + TREP215           DNA/TcMar-Stowaway      91    239     (0)  583  
+ 1020   14.4  1.1  0.0  Chr3      1049587 1049774  (950227) C STOWAWAY21_OS     DNA/TcMar-Stowaway    (53)    190       1  584  
+  401   22.0  1.7  0.8  Chr3      1049910 1050028  (949973) C TNR8-21           DNA/MULE-MuDR          (0)    428     309  585  
+  394   18.6  6.2  6.8  Chr3      1050029 1050071  (949930) + TYPEG             DNA/MULE-MuDR            1    161   (266)  586  
+ 3483   24.6  4.9  7.8  Chr3      1050094 1051598  (948403) + SZ-31_LTR         LTR/Gypsy                6   1470     (0)  587  
+  349   20.2  0.0  3.4  Chr3      1051626 1051636  (948365) + TNR8-21           DNA/MULE-MuDR          339    427     (1)  588  
+  410   17.3  0.0  0.0  Chr3      1051637 1051717  (948284) C TNR12             DNA/MULE-MuDR        (445)     83       3  589  
+  232   14.7  0.0  0.0  Chr3      1051976 1052009  (947992) + STOWAWAY51_OS     DNA/TcMar-Stowaway     213    246     (0)  590  
+  606   20.6  5.5  7.4  Chr3      1053082 1053301  (946700) + STOWAWAY18_OS     DNA/TcMar-Stowaway       1    216     (0)  591  
+ 1055    9.6  0.0  0.0  Chr3      1053376 1053521  (946480) + OSHOOTER          DNA/CMC-EnSpm         1096   1241 (10303)  592  
+  645   16.8  2.7  2.0  Chr3      1053793 1053938  (946063) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  593  
+  939    5.0 12.9  0.0  Chr3      1060681 1060820  (939181) C UNIQUE            DNA/PIF-Harbinger      (0)    158       1  594  
+  329   18.9  0.0  1.4  Chr3      1064634 1064708  (935293) C STOWAWAY43_OS     DNA/TcMar-Stowaway   (139)     94      21  595  
+  960    9.1  1.4  0.0  Chr3      1068276 1068418  (931583) + Gaijin            DNA/PIF-Harbinger        3    147     (0)  596  
+  430   22.8  3.6  4.9  Chr3      1068834 1068852  (931149) C OSHOOTER          DNA/CMC-EnSpm      (10286)   1258    1098  597  
+  979    9.7  1.4  0.0  Chr3      1068853 1068996  (931005) + Gaijin            DNA/PIF-Harbinger        1    146     (1)  598  
+ 1275   13.3  4.0  0.8  Chr3      1080810 1081037  (918964) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0)  599  
+  970   24.0  6.3  3.9  Chr3      1081814 1082164  (917837) C CASTAWAY          DNA/PIF-Harbinger      (4)    360       2  600  
+  526   19.4  3.5 16.3  Chr3      1082565 1082823  (917178) + DITTO             DNA/PIF-Harbinger       13    238    (22)  601  
+  768   20.6  6.8  6.4  Chr3      1083607 1083855  (916146) + STOWAWAY13_OS     DNA/TcMar-Stowaway       1    250     (1)  602  
+  689   20.0  0.7  0.7  Chr3      1086597 1086742  (913259) C Gaijin            DNA/PIF-Harbinger      (1)    146       1  603  
+  628   23.1  0.7  0.0  Chr3      1086908 1087054  (912947) C OSHOOTER          DNA/CMC-EnSpm      (10301)   1243    1096  604  
+  440   23.5  2.0  1.0  Chr3      1088061 1088159  (911842) + SZ-11LTRLIKE      LTR                     19    118   (176)  605  
+  801   18.3 12.1  1.5  Chr3      1095260 1095498  (904503) + STOWAWAY41_OS     DNA/TcMar-Stowaway       1    264     (0)  606  
+  413   36.4  1.5  3.4  Chr3      1096059 1096385  (903616) C LINE1-7_OS        LINE/L1              (133)   7173    6853  607  
+  251   26.9  1.6  5.0  Chr3      1096503 1096627  (903374) C STOWAWAY43_OS     DNA/TcMar-Stowaway   (105)    128       8  608  
+  319   18.3  2.8 15.5  Chr3      1102882 1103062  (896939) + TOURIST-XV        DNA/PIF-Harbinger       43    203    (36)  609  
+  490   15.1 11.0  0.7  Chr3      1103089 1103215  (896786) + OSTE19            DNA/MULE-MuDR           21    160     (2)  610  
+ 1881    6.8 13.3  0.0  Chr3      1112311 1112603  (887398) C MUDRN4_OS         DNA/MULE-MuDR          (0)    332       1  611  
+  237   28.9  4.1  1.6  Chr3      1112733 1112855  (887146) C RMU1A23           DNA/MULE-MuDR          (0)   4144    4019  612  
+  357   25.7  1.4  2.2  Chr3      1113223 1113361  (886640) C Explorer          DNA                   (44)    166      29  613  
+ 2021   15.0  1.5  0.9  Chr3      1113382 1113718  (886283) + OLO24             DNA/PIF-Harbinger        1    339     (6)  614  
+  534   29.4  9.8  5.8  Chr3      1117162 1117508  (882493) + MERMITEJ          DNA/MULE-MuDR            1    360  (1138)  615  
+ 1106    8.5  0.0  0.0  Chr3      1120213 1120353  (879648) C TELIA             DNA                    (0)    141       1  616  
+ 1001   12.4  2.8  0.0  Chr3      1129785 1129961  (870040) C Explorer          DNA                   (18)    192      11  617  
+  608    9.7 13.6  0.7  Chr3      1130562 1130686  (869315) C OSHOOTER          DNA/CMC-EnSpm      (10306)   1238    1098  618  
+  269   29.8  3.5  0.7  Chr3      1131265 1131406  (868595) + TOURIST-XV        DNA/PIF-Harbinger       42    187    (52)  619  
+  737   18.4  0.7  3.4  Chr3      1133849 1134000  (866001) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)  620  
+  249   21.4  6.8  0.0  Chr3      1134076 1134178  (865823) C STOWAWAY2_OS      DNA/TcMar-Stowaway    (26)    224     115  621  
+ 1001   10.8  0.0  2.0  Chr3      1135251 1135402  (864599) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  622  
+  324   24.4  1.2  0.0  Chr3      1135330 1135415  (864586) C MIDWAY            DNA/hAT-Tip100       (456)    529     443  623 *
+ 1711   12.9  5.3  1.6  Chr3      1135768 1136067  (863934) C STOLAB            DNA/PIF-Harbinger      (1)    311       1  624  
+  958    7.8  3.5  0.0  Chr3      1142080 1142221  (857780) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  625  
+  300   13.7  2.0  0.0  Chr3      1155852 1155902  (844099) + ZM13-1_OS         DNA/PIF-Harbinger       85    136     (3)  626  
+ 2978    4.1  6.7  0.2  Chr3      1156099 1156488  (843513) C RPO_OS            RC/Helitron            (0)   1983    1569  627  
+ 2019    9.4  1.8  3.4  Chr3      1156500 1156829  (843172) C RPO_OS            RC/Helitron            (1)   1982    1658  628  
+ 3517    9.5  3.9  1.2  Chr3      1156838 1157505  (842496) C RPO_OS            RC/Helitron         (1297)    686       1  628  
+ 1597    5.5  2.5  0.0  Chr3      1157552 1157752  (842249) + SZ-36_LTR         LTR                   5551   5756    (69)  629  
+  466   13.3 11.2  0.0  Chr3      1157766 1157863  (842138) + OLO24C            DNA/PIF-Harbinger      246    354     (2)  630  
+  695    9.0  0.0  3.0  Chr3      1158387 1158489  (841512) C RPO_OS            RC/Helitron         (1883)    100       1  631  
+  272    6.7  0.0  0.0  Chr3      1165645 1165704  (834297) C HELITRON7_OS      RC/Helitron         (8472)   1681    1622  632 *
+  352    6.0  0.0  1.5  Chr3      1165655 1165722  (834279) C EnSpm-11_OS       DNA/CMC-EnSpm       (8981)   4145    4079  633 *
+ 2570    8.6  0.0  0.3  Chr3      1165704 1166052  (833949) C SINE03_OS         SINE                  (12)    348       1  634  
+  419    6.8  1.7  0.0  Chr3      1166059 1166117  (833884) C SINE03_OS         SINE                  (12)    348     289  635  
+  361   10.3  1.7  1.7  Chr3      1166104 1166162  (833839) C SINE03_OS         SINE                   (0)    360     302  636 *
+  955   19.9  3.1  4.7  Chr3      1166408 1166729  (833272) C SZ-22_int-int     LTR/Gypsy           (1901)    966     650  637  
+ 2052    7.1  2.0  3.1  Chr3      1167215 1167506  (832495) C SINE03_OS         SINE                  (71)    289       1  638  
+  281   16.9  2.8  0.0  Chr3      1167512 1167582  (832419) C TYPEU2            DNA                  (105)    277     205  639  
+  228   31.3  1.5  3.0  Chr3      1167694 1167765  (832236) C SZ-11LTRLIKE      LTR                   (16)    278     147  640  
+  297   15.0  1.6  3.3  Chr3      1167766 1167827  (832174) C RIRE2_LTR         LTR/Gypsy             (67)    374     314  641  
+  757   24.9  0.9  5.6  Chr3      1168088 1168312  (831689) C BAJIE_LTR         LTR/Gypsy            (498)    235      21  642  
+  524   27.3  3.7  0.6  Chr3      1168479 1168640  (831361) C MERMITE18C        DNA/MULE-MuDR       (1305)    168       2  643  
+  438   17.6  0.0  0.0  Chr3      1168655 1168728  (831273) C STOWAWAY46_OS     DNA/TcMar-Stowaway     (0)    154      81  644  
+ 1838    8.8  1.1  1.1  Chr3      1168732 1168994  (831007) + SZ-5_LTR          LTR/Copia                1    263   (960)  645  
+ 4182    6.8  5.2  0.2  Chr3      1169009 1169600  (830401) C COPIA1-LTR_OS     LTR/Copia            (592)    622       1  646  
+  406   14.5  1.4  1.4  Chr3      1169606 1169675  (830326) C STOWAWAY46_OS     DNA/TcMar-Stowaway    (80)     74       3  644  
+ 1482   13.3  6.1  2.6  Chr3      1171914 1172176  (827825) C SINE03_OS         SINE                  (13)    347      76  647  
+  707   15.8  0.0 10.9  Chr3      1172153 1172315  (827686) C SINE03_OS         SINE                 (213)    147       1  648 *
+24421    9.3  3.9  3.1  Chr3      1173283 1177200  (822801) C RETROSAT4_LTR     LTR/Gypsy              (0)   3946       1  649  
+  680   17.5  0.0  4.2  Chr3      1180514 1180662  (819339) C MDM1              DNA/MULE-MuDR          (0)    326     184  650  
+ 2389    4.6  0.0  1.4  Chr3      1180673 1180957  (819044) + Cassandra_OS-LTR  LTR/Cassandra            1    281     (0)  651  
+  312    0.0  0.0  0.0  Chr3      1180958 1180990  (819011) + Cassandra_OS-I    LTR/Cassandra            1     33   (169)  651  
+  241    6.2  0.0  0.0  Chr3      1180995 1181026  (818975) + Cassandra_OS-LTR  LTR/Cassandra          250    281     (0)  652  
+  312    0.0  0.0  0.0  Chr3      1181027 1181059  (818942) + Cassandra_OS-I    LTR/Cassandra            1     33   (169)  652  
+  370    4.4  0.0  0.0  Chr3      1181063 1181107  (818894) + Cassandra_OS-I    LTR/Cassandra          158    202     (0)  652  
+  232    0.0  0.0  0.0  Chr3      1181127 1181152  (818849) + Cassandra_OS-LTR  LTR/Cassandra           61     86   (195)  653  
+  232    0.0  0.0  0.0  Chr3      1181209 1181234  (818767) + Cassandra_OS-LTR  LTR/Cassandra           61     86   (195)  653  
+  610   11.9  7.3  4.8  Chr3      1181272 1181394  (818607) + Cassandra_OS-LTR  LTR/Cassandra            1    126   (155)  654  
+ 1377   12.9 13.2  1.1  Chr3      1181765 1182015  (817986) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281       1  655  
+ 2217   32.2  2.7  2.2  Chr3      1182257 1183221  (816780) C LINE-4_OS         LINE/L1                (1)   3661    2692  656  
+ 2032   19.8  9.5  2.9  Chr3      1183303 1183907  (816094) + MERMITE           DNA/MULE-MuDR            1    611   (887)  657  
+  248    8.0  0.0  0.0  Chr3      1183959 1184008  (815993) + MERMITE           DNA/MULE-MuDR          328    377  (1009)  658  
+ 1892   11.7  7.6  1.6  Chr3      1184300 1184603  (815398) + MERMITE           DNA/MULE-MuDR         1065   1386     (0)  659  
+ 1565    8.2  0.9  0.0  Chr3      1186313 1186532  (813469) + STOWAWAY9_OS      DNA/TcMar-Stowaway      14    235     (0)  660  
+ 1487    8.1  0.5  0.0  Chr3      1186567 1186777  (813224) C STOWAWAY18_OS     DNA/TcMar-Stowaway     (0)    216       5  661  
+  256   26.6  2.3  3.9  Chr3      1186950 1187078  (812923) + Explorer          DNA                     83    209     (1)  662  
+  377   18.0  3.7  5.3  Chr3      1187170 1187304  (812697) C TOURIST-XV        DNA/PIF-Harbinger     (15)    224      92  663  
+  946   26.7  0.7  1.4  Chr3      1187305 1187589  (812412) C HARB-N1_OS        DNA/PIF-Harbinger      (0)   2589    2307  664  
+ 2300   10.8  0.3  0.3  Chr3      1187859 1188192  (811809) + OLO24             DNA/PIF-Harbinger        6    339     (6)  665  
+  572   28.3  2.9  5.9  Chr3      1188426 1188635  (811366) C HARB-N1_OS        DNA/PIF-Harbinger   (2385)    204       1  666  
+25180    9.2  2.7  2.8  Chr3      1191821 1195770  (804231) C RETROSAT4_LTR     LTR/Gypsy              (0)   3946       1  667  
+ 1394   22.3 10.1 10.2  Chr3      1195771 1196752  (803249) C CACTA-I           DNA/CMC-EnSpm         (28)   1124       1  668  
+  383   19.3 27.2  0.0  Chr3      1196759 1196872  (803129) + STOWAWAY15_OS     DNA/TcMar-Stowaway       1    145     (0)  669  
+ 1697    5.8  0.4  0.0  Chr3      1197541 1197765  (802236) C STOWAWAY17_OS     DNA/TcMar-Stowaway    (33)    226       1  670  
+  611   20.7  3.4  2.2  Chr3      1197912 1198089  (801912) + WANDERER_OS       DNA/PIF-Harbinger       53    232     (0)  671  
+  885   14.3  0.0  0.0  Chr3      1198140 1198286  (801715) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  672  
+  976   10.9  0.0  0.7  Chr3      1201660 1201807  (798194) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  673  
+  328   21.6  1.8  6.7  Chr3      1203786 1203825  (796176) C MIDWAY            DNA/hAT-Tip100       (427)    558     457  674  
+  470   10.4  0.0  0.0  Chr3      1203826 1203892  (796109) C STOWAWAY1_OS      DNA/TcMar-Stowaway    (82)     67       1  675  
+  698    8.7 10.7  0.4  Chr3      1204437 1204615  (795386) C OSTE7             DNA                    (0)    837     526  676  
+10831    4.4  0.0  0.7  Chr3      1204616 1205952  (794049) + SZ-31_LTR         LTR/Gypsy                1   1470     (0)  677  
+ 6375    7.3  0.0  0.1  Chr3      1205953 1207069  (792932) + SZ-49_int-int     LTR/Gypsy                1   1451   (843)  677  
+ 1653   15.5  0.4  0.0  Chr3      1207066 1207323  (792678) + SZ-49_int-int     LTR/Gypsy             1698   1956   (338)  677 *
+ 5494    8.7  0.0  0.0  Chr3      1207321 1208014  (791987) + SZ-49_int-int     LTR/Gypsy             1601   2294     (0)  678  
+10862    4.3  0.0  0.7  Chr3      1208015 1209350  (790651) + SZ-31_LTR         LTR/Gypsy                1   1470     (0)  678  
+ 1706    8.1 20.4  0.8  Chr3      1209351 1209672  (790329) C OSTE7             DNA                   (52)    785     401  676  
+  549   17.5  6.0  2.2  Chr3      1209678 1209811  (790190) + TNR2A             DNA                     12    150     (2)  679  
+ 2055    9.1 10.0  0.0  Chr3      1210447 1210777  (789224) C TYPEU1            DNA                    (8)    372       9  680  
+  229   15.2  4.3  0.0  Chr3      1214071 1214116  (785885) C EnSpm-10_OS       DNA/CMC-EnSpm       (6845)   4420    4373  681 *
+ 6449   10.2  1.6  3.2  Chr3      1214082 1215374  (784627) C RPO_OS            RC/Helitron            (0)   1983     830  682  
+ 1175   11.6  4.0  0.5  Chr3      1215621 1215819  (784182) C RPO_OS            RC/Helitron         (1777)    206       1  682  
+  348   18.4  0.8 10.3  Chr3      1215828 1215954  (784047) C TYPEU2            DNA                  (144)    238     123  683  
+  332   18.8  0.0  2.4  Chr3      1216470 1216556  (783445) C TYPEU2            DNA                  (257)    125      41  683  
+  773   22.9  3.6  0.0  Chr3      1216783 1216948  (783053) + TYPEM             DNA/PIF-Harbinger       51    222     (5)  684  
+ 2415   10.2  0.3  0.9  Chr3      1217135 1217481  (782520) C OLO24             DNA/PIF-Harbinger      (0)    345       1  685  
+  527   18.0  5.4  0.8  Chr3      1217795 1217906  (782095) C TNR2A             DNA                    (0)    152      36  686  
+  532   22.7  8.6  0.0  Chr3      1218268 1218395  (781606) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (9)    139       1  687  
+  554   14.7 14.5  1.3  Chr3      1219223 1219360  (780641) C STOWAWAY50_OS     DNA/TcMar-Stowaway     (0)    174      19  688  
+ 1376   13.1  0.0  0.4  Chr3      1219884 1220121  (779880) + TREP215           DNA/TcMar-Stowaway       3    239     (0)  689  
+ 1338   15.8  1.5  0.0  Chr3      1221879 1222138  (777863) + STOWAWAY41_OS     DNA/TcMar-Stowaway       1    264     (0)  690  
+  256   23.2  1.8  0.0  Chr3      1223743 1223798  (776203) C CACTA-J           DNA/CMC-EnSpm        (365)    794     738  691  
+  525   11.1  0.0 20.4  Chr3      1229435 1229558  (770443) C STOWAWAY25_OS     DNA/TcMar-Stowaway     (0)    103       1  692  
+  391   26.8  1.6  1.6  Chr3      1229686 1229810  (770191) + F804              DNA                     46    170     (0)  693  
+ 2157    5.7  0.0  0.0  Chr3      1230537 1230799  (769202) + INDITTO           DNA/PIF-Harbinger        1    263     (0)  694  
+ 1293   18.9  4.0  0.0  Chr3      1231648 1231896  (768105) C DITTO3            DNA/PIF-Harbinger      (0)    260       2  695  
+ 1665   15.4  0.9  3.4  Chr3      1232611 1232946  (767055) C OLO24B            DNA/PIF-Harbinger      (3)    332       5  696  
+ 3583    8.9  0.4  1.6  Chr3      1233773 1234287  (765714) C SZ-36_LTR         LTR                    (0)   5825    5317  697  
+20127   13.4  5.6  2.5  Chr3      1234288 1238026  (761975) + SZ-35_LTR         LTR/Gypsy                1   3853     (0)  698  
+  801   15.1  2.3  2.8  Chr3      1238027 1238201  (761800) C SZ-36_LTR         LTR                  (504)   5321    5148  697  
+ 3140   17.5  2.3  3.4  Chr3      1238395 1239050  (760951) C SZ-36_LTR         LTR                  (864)   4961    4313  697  
+10468   25.3  2.3  4.0  Chr3      1239338 1242785  (757216) C SZ-36_LTR         LTR                 (1783)   4042     650  697  
+  810   21.2  5.5  5.2  Chr3      1242918 1243206  (756795) C SZ-36_LTR         LTR                 (5535)    290       1  697  
+  479   22.1  8.7  0.0  Chr3      1246124 1246250  (753751) + MERMITEH          DNA/MULE-MuDR         1169   1306     (1)  699  
+ 1205   22.2  9.1  4.4  Chr3      1246439 1247329  (752672) + RPO_OS            RC/Helitron              1    834  (1149)  700  
+  394    9.4  0.0  0.0  Chr3      1247389 1247441  (752560) + EnSpm-10_OS       DNA/CMC-EnSpm         4358   4410  (6855)  701  
+  782   10.1 19.6  0.0  Chr3      1247967 1248134  (751867) C OSTE27            DNA                   (24)    945     745  702  
+  229   11.6  2.3  2.3  Chr3      1248183 1248226  (751775) C OSTE27            DNA                  (187)    782     739  702 *
+  850   11.3 18.6  0.0  Chr3      1248226 1248402  (751599) + OSTE27            DNA                    736    945    (24)  703  
+  715   24.4  0.8  4.8  Chr3      1252004 1252265  (747736) C NDNA1TNA_OS       DNA/PIF-Harbinger     (51)    283      32  704  
+ 3583    3.7  1.6  0.5  Chr3      1252292 1252727  (747274) + RIREX_LTR         LTR/Gypsy                1    441     (0)  705  
+  417   28.5  8.6  4.8  Chr3      1252728 1252970  (747031) + RIREX_I-int       LTR/Gypsy                1    252  (7694)  705  
+ 2537   19.8  1.3  0.8  Chr3      1253714 1254284  (745717) + RIREX_I-int       LTR/Gypsy              398    868  (7078)  705  
+ 8392    9.0  3.4  1.5  Chr3      1255030 1256242  (743759) + RIREX_I-int       LTR/Gypsy             4784   6018  (1928)  705  
+ 1196   13.1  0.4 12.4  Chr3      1256414 1256657  (743344) + RIREX_I-int       LTR/Gypsy             6076   6293  (1653)  705  
+12984    8.0  2.4  0.8  Chr3      1256750 1258524  (741477) + RIREX_I-int       LTR/Gypsy             6144   7946     (0)  706  
+ 3512    4.6  1.6  0.5  Chr3      1258525 1258960  (741041) + RIREX_LTR         LTR/Gypsy                1    441     (0)  706  
+ 2311    6.2  0.0  0.0  Chr3      1259490 1259781  (740220) + STOWAWAY11_OS     DNA/TcMar-Stowaway       1    292     (0)  707  
+ 2273    4.5  7.6  0.0  Chr3      1261234 1261522  (738479) C STOLAB            DNA/PIF-Harbinger      (1)    311       1  708  
+  228    3.2  0.0  0.0  Chr3      1261567 1261597  (738404) C OSTE18            DNA/PIF-Harbinger      (0)    129      99  709  
+  959   13.0  8.0  2.8  Chr3      1262538 1262774  (737227) + STOWAWAY2_OS      DNA/TcMar-Stowaway       1    249     (1)  710  
+  980   16.6  1.1  0.7  Chr3      1264173 1264391  (735610) C WANDERER_OS       DNA/PIF-Harbinger     (21)    211       1  711  
+ 1379   11.3  0.4  2.2  Chr3      1266921 1267146  (732855) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    222    (13)  712  
+  666   17.4  0.0  0.0  Chr3      1267428 1267565  (732436) + Gaijin            DNA/PIF-Harbinger        3    140     (7)  713  
+  777   20.6  0.0  0.0  Chr3      1267719 1267873  (732128) + TOUNJ-30          DNA/PIF-Harbinger        1    155   (222)  714  
+  856   20.0  6.9  0.9  Chr3      1271717 1271918  (728083) + TOUNJ-30          DNA/PIF-Harbinger      164    377     (0)  715  
+ 1970   18.4  4.9  1.4  Chr3      1277316 1277740  (722261) C RIRE2_LTR         LTR/Gypsy              (1)    440       1  716  
+56807   20.1  1.0  1.1  Chr3      1277743 1288166  (711835) C RIRE2_I-int       LTR/Gypsy              (1)  10423       1  716  
+  660    9.5  0.0  1.1  Chr3      1288167 1288262  (711739) C RIRE2_LTR         LTR/Gypsy              (0)    441     347  716  
+ 6412   15.2  3.1  5.7  Chr3      1288263 1290120  (709881) C RETROSAT4_LTR     LTR/Gypsy              (0)   3632    2163  717  
+  313   27.8  8.1  3.7  Chr3      1290788 1291532  (708469) C RETROSAT4_LTR     LTR/Gypsy           (1564)   2068    1293  717  
+ 1596   23.4  6.0 10.9  Chr3      1291629 1292697  (707304) C RETROSAT4_LTR     LTR/Gypsy           (2387)   1245     224  717  
+  555   17.6  0.0  0.8  Chr3      1292779 1292904  (707097) + (TAGA)n           Simple_repeat            4    128     (0)  718  
+  401   25.2  3.9 10.5  Chr3      1292913 1293094  (706907) C SZ-48_LTR         LTR/Gypsy           (3174)    458     288  719  
+  698   22.8  1.1  1.7  Chr3      1293593 1293766  (706235) C SZ-48_LTR         LTR/Gypsy           (3459)    173       1  719  
+ 1663   19.5  2.3  1.1  Chr3      1293767 1294113  (705888) C RIRE2_LTR         LTR/Gypsy             (90)    351       1  720  
+ 1221   14.3  7.5  7.6  Chr3      1294595 1295017  (704984) C OSTE7             DNA                    (0)    837     489  721  
+  585   24.5  2.7  0.0  Chr3      1299974 1300120  (699881) + MERMITEJ          DNA/MULE-MuDR         1348   1498     (0)  722  
+  358   22.4  9.4  7.4  Chr3      1300761 1301025  (698976) + EnSpm-12_OS       DNA/CMC-EnSpm          438    707 (11896)  723  
+  927   14.1  0.6  2.8  Chr3      1301410 1301591  (698410) + EnSpm-12_OS       DNA/CMC-EnSpm          692    869 (11734)  724  
+  720    6.1  3.1  0.0  Chr3      1301942 1302039  (697962) + MICROPON-LIKE-2   Unknown                  2    102     (0)  725 *
+ 2269    9.1  0.0  6.8  Chr3      1301966 1302355  (697646) C MICROPON-LIKE-1   Unknown                (1)    427      63  726  
+  651    8.0  0.0  0.0  Chr3      1302355 1302442  (697559) + MICROPON-LIKE-1   Unknown                340    427     (1)  727 *
+  795   11.3  2.5  0.7  Chr3      1302369 1302502  (697499) C MICROPON-LIKE-2   Unknown              (282)    146       1  728  
+  340    7.6  8.9  0.0  Chr3      1302425 1302503  (697498) C EnSpm-12_OS       DNA/CMC-EnSpm       (6697)   5906    5821  729 *
+  371    8.7  0.0  0.0  Chr3      1302443 1302511  (697490) + HELITRON7_OS      RC/Helitron           1619   1687  (8466)  730  
+  862   13.0  0.0  0.0  Chr3      1304392 1304537  (695464) C Gaijin            DNA/PIF-Harbinger      (0)    147       2  731  
+  699   15.8  3.7  0.0  Chr3      1304758 1304947  (695054) + STOWAWAY41_OS     DNA/TcMar-Stowaway       3    199    (65)  732  
+  869   24.2  1.5  3.0  Chr3      1305412 1305679  (694322) C TYPEU4            DNA                  (131)    271       8  733  
+  269   26.5  5.1  0.7  Chr3      1306968 1307093  (692908) + WANDERER_OS       DNA/PIF-Harbinger       21    152    (80)  734  
+ 1545   13.4  0.0  0.0  Chr3      1307094 1307354  (692647) C STOWAWAY48_OS     DNA/TcMar-Stowaway     (0)    261       1  735  
+  380   15.6  4.7  0.0  Chr3      1307502 1307565  (692436) + GYPSY1-I_OS       LTR/Gypsy             4106   4172  (3422)  736  
+  402    5.0  0.0  3.8  Chr3      1307611 1307693  (692308) + EnSpm-12_OS       DNA/CMC-EnSpm         5827   5906  (6697)  737 *
+  756    6.9  1.0  0.0  Chr3      1307648 1307748  (692253) + MICROPON-LIKE-2   Unknown                  1    102     (0)  738 *
+ 2413   10.0  1.3  6.3  Chr3      1307675 1308123  (691878) C MICROPON-LIKE-1   Unknown                (0)    428       1  739  
+  407    9.6  0.0  3.2  Chr3      1308052 1308148  (691853) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (39)    135      42  740 *
+  717   11.1  0.0  0.0  Chr3      1308063 1308224  (691777) + (TA)n             Simple_repeat            1    162     (0)  741  
+  310   16.1  0.0  7.5  Chr3      1308143 1308243  (691758) + EnSpm-12_OS       DNA/CMC-EnSpm         5829   5922  (6681)  742 *
+  595   10.5  0.0  0.0  Chr3      1308327 1308402  (691599) + OSTE30            DNA/hAT?                 2     77   (452)  743 *
+ 1162   20.0  9.8  0.3  Chr3      1308397 1308662  (691339) + GYPSY1-I_OS       LTR/Gypsy             4169   4459  (3135)  736  
+  315   15.9  4.5  4.5  Chr3      1308808 1308873  (691128) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1     66    (82)  744  
+  637   21.3  0.9  7.5  Chr3      1308960 1309172  (690829) + STOWAWAY12_OS     DNA/TcMar-Stowaway       1    200   (112)  745  
+  379   29.0  2.0  5.4  Chr3      1309224 1309376  (690625) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)  746  
+ 1564    7.8  3.4  2.1  Chr3      1309378 1309612  (690389) + OLO24C            DNA/PIF-Harbinger        6    243   (113)  747  
+ 1420   16.9  2.5  4.4  Chr3      1309732 1310052  (689949) + OLO24B            DNA/PIF-Harbinger        1    315    (20)  748  
+  311   23.7  2.0  1.0  Chr3      1310223 1310320  (689681) + STOWAWAY31_OS     DNA/TcMar-Stowaway       4    102     (0)  749  
+  724   19.1 10.7  0.4  Chr3      1310491 1310706  (689295) + STOWAWAY10_OS     DNA/TcMar-Stowaway      22    259     (0)  750  
+  550   15.8  2.7  6.2  Chr3      1312374 1312522  (687479) + OSTE23            DNA                      2    145    (48)  751  
+ 1780   15.2  3.5  1.2  Chr3      1312883 1313201  (686800) C SINE03_OS         SINE                  (17)    343      18  752  
+27447    7.9  2.0  2.1  Chr3      1314598 1318548  (681453) + RETROSAT4_LTR     LTR/Gypsy                1   3946     (0)  753  
+46884    3.5  0.0  0.1  Chr3      1319406 1324729  (675272) + RETROSAT4_I-int   LTR/Gypsy              291   5612     (0)  754  
+27491    7.8  2.0  2.2  Chr3      1324730 1328681  (671320) + RETROSAT4_LTR     LTR/Gypsy                1   3946     (0)  754  
+ 1356   13.0  0.0  1.7  Chr3      1330114 1330356  (669645) C TREP215           DNA/TcMar-Stowaway     (0)    239       1  755  
+ 1268   17.5  1.7  1.0  Chr3      1332365 1332658  (667343) C TYPEU2            DNA                   (12)    370      75  756  
+ 2020   14.7  2.5  0.0  Chr3      1332681 1333007  (666994) C OLO24             DNA/PIF-Harbinger      (8)    337       3  757  
+  304   32.6  4.5  4.0  Chr3      1333243 1333440  (666561) + LINE-4_OS         LINE/L1               3326   3524   (138)  758  
+  691   21.8 20.6  1.2  Chr3      1334076 1334284  (665717) + TAMI2             DNA                      5    253     (1)  759  
+  599   20.0  1.4  2.9  Chr3      1334388 1334526  (665475) C TAMI2             DNA                  (114)    140       4  760  
+  311   15.1  1.9  0.0  Chr3      1336129 1336181  (663820) C OSTE30            DNA/hAT?             (472)     57       4  761  
+ 4711    9.1  1.2  0.9  Chr3      1337289 1338020  (661981) C OSTE17            DNA/MULE-MuDR          (0)    734       1  762  
+  521   23.1  1.2  2.5  Chr3      1342358 1342531  (657470) + (CTG)n            Simple_repeat            1    171     (0)  763  
+ 2762    9.5  3.1  0.0  Chr3      1343445 1343834  (656167) + TYPEU4            DNA                      1    402     (0)  764  
+ 1558   17.7  5.3  0.0  Chr3      1344590 1344950  (655051) C TYPEU2            DNA                    (0)    382       3  765  
+ 1297   13.5  1.9  2.3  Chr3      1347454 1347718  (652283) + STOWAWAY41_OS     DNA/TcMar-Stowaway       1    264     (0)  766  
+  352   23.6  3.1  5.5  Chr3      1347862 1347991  (652010) + STOWAWAY43_OS     DNA/TcMar-Stowaway       1    127   (106)  767  
+ 1400   12.1  4.9  0.8  Chr3      1348150 1348375  (651626) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235       1  768  
+  498   13.6  0.0  0.0  Chr3      1349195 1349274  (650727) + TREP215           DNA/TcMar-Stowaway       1     80   (159)  769  
+ 1977   16.9  0.6  0.6  Chr3      1349275 1349638  (650363) C CASTAWAY          DNA/PIF-Harbinger      (0)    364       1  770  
+ 1101    7.4  0.0  0.6  Chr3      1349639 1349801  (650200) + TREP215           DNA/TcMar-Stowaway      78    239     (0)  771  
+  405   26.1  4.0  2.2  Chr3      1350075 1350250  (649751) C TOURIST-XV        DNA/PIF-Harbinger     (21)    218      40  772  
+  520   22.1  7.0  2.4  Chr3      1351859 1352016  (647985) + TOURIST-XV        DNA/PIF-Harbinger       33    197    (42)  773  
+  513   25.4  4.9  0.4  Chr3      1352664 1352888  (647113) + STOWAWAY41_OS     DNA/TcMar-Stowaway      30    264     (0)  774  
+  839   14.5  6.2  0.5  Chr3      1353648 1353855  (646146) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (0)    264      45  775  
+  777   21.5  1.3  0.0  Chr3      1353939 1354094  (645907) C DITTO3            DNA/PIF-Harbinger      (0)    260     103  776  
+  701   16.9 13.0  0.0  Chr3      1354095 1354248  (645753) C STOWAWAY50_OS     DNA/TcMar-Stowaway     (0)    174       1  777  
+  437   20.0  0.0  1.1  Chr3      1354174 1354264  (645737) C MIDWAY            DNA/hAT-Tip100       (456)    529     440  778 *
+  722   10.6  0.0 11.1  Chr3      1354284 1354443  (645558) C STOWAWAY50_OS     DNA/TcMar-Stowaway     (0)    174      31  779  
+ 3525    1.2  5.6  2.3  Chr3      1354444 1354870  (645131) + RIREX_LTR         LTR/Gypsy                1    441     (0)  780  
+10385    8.6  0.7  1.3  Chr3      1354871 1356358  (643643) + RIREX_I-int       LTR/Gypsy                1   1479  (6467)  780  
+18435    6.3  2.6  2.7  Chr3      1357150 1361458  (638543) + RIREX_I-int       LTR/Gypsy             3723   7946     (0)  780  
+ 3501    1.4  5.6  2.3  Chr3      1361459 1361885  (638116) + RIREX_LTR         LTR/Gypsy                1    441     (0)  780  
+  235   13.7 15.7  0.0  Chr3      1361919 1361969  (638032) C DITTO3            DNA/PIF-Harbinger    (201)     59       1  776  
+ 1041   10.6  5.9  1.4  Chr3      1362795 1362996  (637005) C TREP215           DNA/TcMar-Stowaway     (0)    239      29  781  
+  695   10.9  7.1  5.1  Chr3      1363084 1363238  (636763) C UNIQUE            DNA/PIF-Harbinger      (0)    158       1  782  
+ 1514   13.0  5.9  0.0  Chr3      1363281 1363533  (636468) C STOWAWAY36_OS     DNA/TcMar-Stowaway     (0)    268       1  783  
+ 2732    9.9  0.5  0.8  Chr3      1363556 1363931  (636070) C BUHUI             DNA/PIF-Harbinger      (0)    375       1  784  
+  401   16.9 11.2  2.2  Chr3      1363960 1364128  (635873) + STOWAWAY41_OS     DNA/TcMar-Stowaway      45    228    (36)  785  
+  308   14.6  9.1  0.0  Chr3      1366820 1366874  (633127) + DELAY             DNA/hAT                 94    153    (73)  786  
+  387   13.2  1.5  0.0  Chr3      1378516 1378583  (621418) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1     69    (80)  787  
+  396   22.3  3.0  9.5  Chr3      1378792 1378925  (621076) C MIDWAY            DNA/hAT-Tip100       (405)    580     455  788  
+  334   24.6 11.1  0.0  Chr3      1379024 1379149  (620852) + F569              DNA/PIF-Harbinger        6    145    (83)  789  
+ 1824   11.9  4.8  0.0  Chr3      1379639 1379931  (620070) C OLO24C            DNA/PIF-Harbinger     (48)    308       2  790  
+  906   10.1  0.7  2.7  Chr3      1381331 1381482  (618519) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  791  
+  928   13.2  0.7  0.0  Chr3      1384856 1384999  (615002) + MERMITEA          DNA/MULE-MuDR            5    149  (1561)  792  
+ 1734   15.7  2.4  1.6  Chr3      1387116 1387484  (612517) + TYPEU3            DNA                      2    373     (7)  793  
+ 1147   11.9  0.0  1.0  Chr3      1392639 1392841  (607160) C TREP215           DNA/TcMar-Stowaway    (37)    202       2  794  
+  559    8.8 31.9  0.0  Chr3      1395136 1395248  (604753) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  795  
+  410   23.1  5.6  0.0  Chr3      1395747 1395854  (604147) C STOWAWAY30-2_OS   DNA/TcMar-Stowaway     (5)    115       2  796  
+  594   18.7  5.8  0.5  Chr3      1406949 1407136  (592865) + STOWAWAY2_OS      DNA/TcMar-Stowaway      53    250     (0)  797  
+  257   18.0  0.0  2.0  Chr3      1408665 1408715  (591286) + CENTRE            DNA/PIF-Harbinger      186    235    (45)  798  
+ 1394   12.1  5.2  0.0  Chr3      1409045 1409276  (590725) + DITTO             DNA/PIF-Harbinger        1    244     (0)  799  
+  373   27.4  0.0  0.0  Chr3      1412528 1412633  (587368) + (CTG)n            Simple_repeat            1    106     (0)  800  
+  322   24.1  2.3  4.7  Chr3      1414882 1415055  (584946) C TOURIST-XV        DNA/PIF-Harbinger      (6)    233      64  801  
+ 1631    6.4  3.4  0.0  Chr3      1420625 1420859  (579142) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1    243     (0)  802  
+  284   20.3  0.0  0.0  Chr3      1421162 1421228  (578773) C Explorer          DNA                   (19)    191     125  803  
+ 3106    9.3  0.3  8.8  Chr3      1421229 1421794  (578207) + SZ_LTR            LTR/Gypsy                1    522   (727)  804  
+41078    8.9  0.9  0.7  Chr3      1421884 1428838  (571163) C RETRO2_I-int      LTR/Gypsy            (570)  10120    2961  805  
+ 2758   15.4  0.8  0.0  Chr3      1428842 1429328  (570673) C RETRO2_I-int      LTR/Gypsy          (10199)    491       1  805  
+ 1655   10.5  1.1  2.7  Chr3      1429329 1429592  (570409) C SZ_LTR            LTR/Gypsy              (0)   1249     990  805  
+  250   19.7  1.6  3.2  Chr3      1429633 1429695  (570306) C SZ-31_LTR         LTR/Gypsy            (269)   1201    1140  806  
+ 3678    8.8  0.2  1.5  Chr3      1429845 1430373  (569628) C SZ_LTR            LTR/Gypsy            (727)    522       1  807  
+ 1691   16.2  3.2  4.1  Chr3      1430408 1430779  (569222) + SZ_LTR            LTR/Gypsy              881   1249     (0)  808  
+  450   16.5  2.4  3.2  Chr3      1430780 1430904  (569097) C Explorer          DNA                   (81)    129       6  803  
+  296   26.2 10.0  0.9  Chr3      1435260 1435359  (564642) C EnSpm-11_OS       DNA/CMC-EnSpm       (6823)   6303    6195  809  
+  919   13.0  1.6  1.1  Chr3      1441995 1442180  (557821) C STOWAWAY43_OS     DNA/TcMar-Stowaway    (40)    193       7  810  
+  389   18.5  6.9  4.8  Chr3      1445899 1446000  (554001) C TREP219           DNA/TcMar-Stowaway     (0)    104       1  811  
+  516   19.7 17.3  3.5  Chr3      1446414 1446639  (553362) C STOWAWAY14_OS     DNA/TcMar-Stowaway     (0)    258       3  812  
+  346   21.2  4.8  4.8  Chr3      1458332 1458435  (541566) + TREP219           DNA/TcMar-Stowaway       1    104     (0)  813  
+ 1082   14.1  6.8  0.4  Chr3      1460521 1460755  (539246) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (0)    250       1  814  
+ 2285    9.7  4.1  0.0  Chr3      1462267 1462607  (537394) + OLO24C            DNA/PIF-Harbinger        1    355     (1)  815  
+  663   17.7  6.5  8.0  Chr3      1463053 1463267  (536734) + WANDERER_OS       DNA/PIF-Harbinger        1    212    (20)  816  
+  240   25.0  0.0  1.6  Chr3      1464720 1464784  (535217) + DELAY             DNA/hAT                 95    158    (68)  817  
+ 3724    6.2  1.0  7.3  Chr3      1464859 1465468  (534533) C TNR11             DNA/TcMar-Stowaway    (76)    735     162  818  
+  636   15.9  0.9  0.9  Chr3      1468770 1468877  (531124) + DEBOAT            DNA/hAT                  1    108     (2)  819  
+  881   22.4 11.3  0.3  Chr3      1469164 1469498  (530503) C TYPEU2            DNA                    (3)    379       8  820  
+ 1072   25.2  3.1  1.4  Chr3      1470307 1470664  (529337) + CASTAWAY          DNA/PIF-Harbinger        1    364     (0)  821  
+ 1224   19.0  2.7  2.7  Chr3      1470806 1471065  (528936) C DITTO3            DNA/PIF-Harbinger      (0)    260       1  822  
+  429   21.5 31.8  0.3  Chr3      1473023 1473311  (526690) + TYPEU2            DNA                      3    382     (0)  823  
+ 1023    8.9  3.4  0.0  Chr3      1473595 1473740  (526261) C TNR2A             DNA                    (0)    152       2  824  
+  276   11.1  2.2  0.0  Chr3      1473702 1473746  (526255) + LINE-3            LINE/L1                517    562 (10413)  825 *
+  495   11.1  0.0  0.0  Chr3      1473955 1474026  (525975) C MERMITE           DNA/MULE-MuDR          (0)   1386    1315  826 *
+  742   22.1 11.9  6.4  Chr3      1474022 1474571  (525430) C MERMITEJ          DNA/MULE-MuDR        (124)   1448     912  827  
+  975   23.5 13.9  3.4  Chr3      1474963 1475596  (524405) + MERMITEA          DNA/MULE-MuDR         1013   1710     (0)  828 *
+ 1678   20.9  7.2  4.2  Chr3      1475138 1475597  (524404) C MERMITE           DNA/MULE-MuDR        (913)    473       1  829  
+  957    8.4  0.0  4.9  Chr3      1475711 1475860  (524141) C SINE03_OS         SINE                   (2)    358     216  830 *
+ 1781    8.2  0.3  7.4  Chr3      1475846 1476135  (523866) C SINE03_OS         SINE                  (89)    271       1  831  
+19478   15.6  5.9  1.4  Chr3      1476699 1480477  (519524) C RETROSAT4_LTR     LTR/Gypsy              (0)   3946       1  832  
+  333   12.3  1.8  0.0  Chr3      1480506 1480562  (519439) C SINE03_OS         SINE                 (302)     58       1  830  
+  328   31.2  6.8  7.9  Chr3      1480981 1481185  (518816) C ORMOSIA           SINE/L1              (258)    224      22  833  
+  734   21.0 10.2 11.9  Chr3      1481509 1481978  (518023) C MERMITE18B        DNA/MULE-MuDR          (0)   1306     844  834  
+ 1278   16.6  5.9  2.6  Chr3      1483492 1483794  (516207) C MERMITE18B        DNA/MULE-MuDR        (993)    313       1  835  
+  815   23.8  0.0  9.5  Chr3      1486015 1486256  (513745) C STOWAWAY24_OS     DNA/TcMar-Stowaway     (3)    221       1  836  
+  343   10.0  0.0  0.0  Chr3      1490427 1490476  (509525) C OSTE28            DNA/MULE-MuDR        (248)     50       1  837  
+ 1043    8.8  0.0  0.0  Chr3      1491575 1491721  (508280) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  838  
+  434   29.0  7.4  1.6  Chr3      1491754 1491928  (508073) + MERMITE18B        DNA/MULE-MuDR           15    199  (1107)  839  
+  498   27.4  8.1  9.3  Chr3      1492805 1493022  (506979) C MERMITE18B        DNA/MULE-MuDR       (1124)    404       2  840  
+  649   21.1  2.7  0.7  Chr3      1493023 1493170  (506831) + MERMITEH          DNA/MULE-MuDR         1157   1307     (0)  841  
+  243    6.5  0.0  0.0  Chr3      1493553 1493583  (506418) C SINE03_OS         SINE                  (12)    348     318  842  
+  476   21.2  9.4  0.0  Chr3      1493690 1493859  (506142) C TRUNCATOR2_OS     LTR/Gypsy             (75)   2829    2644  843  
+  274   17.5  8.8  0.0  Chr3      1494108 1494164  (505837) + SC-1_int-int      LTR/Copia              765    826  (5257)  844  
+ 1668    5.4  0.5  0.5  Chr3      1499845 1500066  (499935) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235      14  845  
+ 1021   14.3  0.0  3.4  Chr3      1500619 1500799  (499202) + OSHOOTER          DNA/CMC-EnSpm         1097   1271 (10273)  846  
+  360    7.4  0.0  1.9  Chr3      1505273 1505327  (494674) + DNAUN1_OS         DNA/PIF-Harbinger      355    408     (0)  847  
+  821   13.2  0.0  0.0  Chr3      1508194 1508322  (491679) + TYPEH             DNA/PIF-Harbinger        1    129   (180)  848  
+ 1215   12.2  0.0  0.6  Chr3      1508409 1508590  (491411) + TYPEH             DNA/PIF-Harbinger      128    308     (1)  849  
+  852   14.8  0.0  0.7  Chr3      1511047 1511196  (488805) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  850  
+  362   27.7  7.9  1.4  Chr3      1526781 1526919  (473082) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    148       1  851  
+ 1092    6.8  0.7  0.7  Chr3      1527419 1527567  (472434) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  852  
+  242   27.8  0.0  6.2  Chr3      1528543 1528661  (471340) + MDM1              DNA/MULE-MuDR          215    326     (0)  853  
+  650   14.0  3.0  0.0  Chr3      1535779 1535878  (464123) C ZM13-2_OS         DNA/PIF-Harbinger      (5)    103       1  854  
+ 1777    6.7  2.1  0.0  Chr3      1536943 1537180  (462821) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1    243     (0)  855  
+  246   19.1  2.1  0.0  Chr3      1540075 1540121  (459880) + LINE-7_OS         LINE/L1               7042   7089     (1)  856  
+  280   23.4  6.9  2.9  Chr3      1546990 1547015  (452986) + EnSpm-11_OS       DNA/CMC-EnSpm         6198   6302  (6824)  857  
+  380   20.0  0.0  0.0  Chr3      1547016 1547090  (452911) C STOWAWAY47_OS     DNA/TcMar-Stowaway    (72)     76       2  858  
+ 1211   16.1  4.4  1.5  Chr3      1549852 1550103  (449898) + STOWAWAY8_OS      DNA/TcMar-Stowaway       1    259     (0)  859  
+  360   18.0  0.0  0.0  Chr3      1550186 1550246  (449755) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1     61    (87)  860  
+ 1772    8.6  0.0  2.9  Chr3      1556870 1557120  (442881) + DITTO             DNA/PIF-Harbinger        1    244     (0)  861  
+  972   19.2 13.8  1.8  Chr3      1561800 1562053  (437948) C F770              DNA/PIF-Harbinger      (0)    284       1  862  
+  971    7.0 10.7  3.7  Chr3      1565531 1565707  (434294) C STOWAWAY10_OS     DNA/TcMar-Stowaway     (0)    259      71  863  
+  837   13.2  0.0  2.0  Chr3      1565674 1565827  (434174) + EnSpm-10_OS       DNA/CMC-EnSpm         4219   4369  (6896)  864 *
+  371   13.4  0.0  3.7  Chr3      1565757 1565841  (434160) + RPO_OS            RC/Helitron            391    472  (1511)  865 *
+  481    9.5  0.0  0.0  Chr3      1565963 1566025  (433976) + EnSpm-10_OS       DNA/CMC-EnSpm         4358   4420  (6845)  866 *
+  646    9.7  0.0  0.0  Chr3      1566014 1566106  (433895) C STOWAWAY10_OS     DNA/TcMar-Stowaway   (166)     93       1  867  
+ 1240    9.5  0.7  1.0  Chr3      1567238 1567452  (432549) C DNAUN1_OS         DNA/PIF-Harbinger      (0)    408     234  868  
+  370   20.6  8.8  0.0  Chr3      1568244 1568421  (431580) + STOWAWAY2_OS      DNA/TcMar-Stowaway      50    243     (0)  869  
+ 1999   11.0  0.0  0.0  Chr3      1569543 1569833  (430168) + STOWAWAY11_OS     DNA/TcMar-Stowaway       2    292     (0)  870  
+ 1292   10.6  0.6  0.0  Chr3      1570353 1570532  (429469) C CLOUD-3           DNA/MULE-MuDR          (0)    550     370  871  
+  258   22.7  4.0  0.0  Chr3      1570508 1570582  (429419) + EnSpm-12_OS       DNA/CMC-EnSpm         5817   5894  (6709)  872 *
+  609   13.9  0.0  0.0  Chr3      1570524 1570631  (429370) + (CATA)n           Simple_repeat            4    111     (0)  873  
+  336   23.8  3.0  0.0  Chr3      1570549 1570649  (429352) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (41)    133      30  874 *
+ 2697    9.7  0.5  0.3  Chr3      1570615 1570998  (429003) C CLOUD-3           DNA/MULE-MuDR        (165)    385       1  875  
+  868   20.9 15.7  1.9  Chr3      1574375 1574750  (425251) C TYPEG             DNA/MULE-MuDR          (0)    427       1  876  
+ 1287    6.5  3.7  0.5  Chr3      1575877 1576092  (423909) C TWIFBIG           DNA/hAT-Ac             (2)   3565    3343  877  
+ 1333    5.7  0.0  0.5  Chr3      1576288 1576480  (423521) C TWIFBIG           DNA/hAT-Ac          (3375)    192       1  878  
+  759   10.1  0.0  0.0  Chr3      1583998 1584106  (415895) C Gaijin            DNA/PIF-Harbinger      (3)    144      36  879  
+ 1012   15.9  3.4  0.0  Chr3      1584265 1584471  (415530) + STOWAWAY21_OS     DNA/TcMar-Stowaway      30    243     (0)  880  
+  245   13.5  0.0  0.0  Chr3      1588254 1588290  (411711) + STOWAWAY46_OS     DNA/TcMar-Stowaway       1     37   (117)  881  
+ 1445    9.1  1.3  0.9  Chr3      1588923 1589154  (410847) C STOWAWAY43_OS     DNA/TcMar-Stowaway     (0)    233       1  882  
+ 1037    9.5  0.7  0.0  Chr3      1591062 1591209  (408792) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0)  883  
+  368   19.1  3.1  2.1  Chr3      1595023 1595118  (404883) + STOWAWAY14_OS     DNA/TcMar-Stowaway     162    258     (0)  884  
+  923   30.8  1.4  2.6  Chr3      1596217 1596639  (403362) C OSLINE1-5         LINE/L1                (0)   4688    4271  885  
+  486   18.1  0.0  0.0  Chr3      1604181 1604201  (395800) + MIDWAY            DNA/hAT-Tip100         436    456   (529)  886  
+  947   12.1  0.0  0.7  Chr3      1604202 1604351  (395650) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149       1  887  
+ 1540   12.7  3.0  0.0  Chr3      1605563 1605799  (394202) + DITTO             DNA/PIF-Harbinger        1    244     (0)  888  
+ 1224   10.2  6.0 13.6  Chr3      1605871 1606154  (393847) + OSTE33            DNA/MULE-MuDR            1    265   (747)  889  
+  462   15.9 18.7  2.8  Chr3      1606177 1606331  (393670) C OSTE33            DNA/MULE-MuDR        (166)    846     668  890  
+  847   10.7  0.7  0.7  Chr3      1606534 1606674  (393327) C OSTE33            DNA/MULE-MuDR        (250)    762     622  891  
+ 1486   18.6  3.1  4.7  Chr3      1606695 1607043  (392958) + CRM-I_OS          LTR/Gypsy              422    765  (5168)  892 *
+ 3066    7.9  5.4  7.1  Chr3      1606861 1607375  (392626) C OSTE33            DNA/MULE-MuDR        (505)    507       1  890  
+  734   13.2 13.2  0.0  Chr3      1609852 1609987  (390014) C OSTE19            DNA/MULE-MuDR          (5)    157       4  893  
+  484   14.9  8.0  4.3  Chr3      1610042 1610153  (389848) C STOWAWAY46_OS     DNA/TcMar-Stowaway     (0)    154      39  894  
+  368   22.4  6.8  5.4  Chr3      1610154 1610187  (389814) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0)  895  
+ 2791    8.1  4.4  0.0  Chr3      1612053 1612437  (387564) + TYPEU4            DNA                      1    402     (0)  896  
+  354   25.2 14.2  6.0  Chr3      1612733 1612901  (387100) + F569              DNA/PIF-Harbinger       46    227     (1)  897  
+  804   13.7  0.0  2.4  Chr3      1613193 1613319  (386682) C p-SINE1_OS        SINE                  (13)    142      19  898  
+ 3317    1.3  1.6  0.8  Chr3      1615600 1615983  (384018) C SZ-26_LTR         LTR/Gypsy              (0)    387       1  899  
+29239    0.0  0.0  0.0  Chr3      1615984 1619082  (380919) C SZ-26_int-int     LTR/Gypsy              (0)   4823    1725  899  
+  985   22.1  9.5  4.4  Chr3      1619083 1619470  (380531) + SZ-54A_LTR        LTR/Gypsy                1    407     (0)  900  
+13962   24.2  2.1  1.5  Chr3      1619581 1623923  (376078) + SZ-54B_I-int      LTR/Gypsy               42   4405     (0)  900  
+  989   22.1  9.5  4.4  Chr3      1623924 1624311  (375690) + SZ-54A_LTR        LTR/Gypsy                1    407     (0)  900  
+16336    0.0  0.0  0.0  Chr3      1624312 1626040  (373961) C SZ-26_int-int     LTR/Gypsy           (3094)   1729       1  901  
+ 3609    0.0  0.0  0.0  Chr3      1626041 1626427  (373574) C SZ-26_LTR         LTR/Gypsy              (0)    387       1  901  
+ 1078   27.3  1.3  1.6  Chr3      1627501 1627880  (372121) + SZ-36_LTR         LTR                   1640   2018  (3807)  902  
+  808   17.3 11.1  1.0  Chr3      1628830 1629010  (370991) C COWARD            DNA/PIF-Harbinger      (0)    200       2  903  
+  298   26.9  7.0  2.9  Chr3      1629182 1629411  (370590) + TNR11             DNA/TcMar-Stowaway     164    402   (409)  904  
+  715   20.0  2.0  6.7  Chr3      1629500 1629703  (370298) + WANDERER_OS       DNA/PIF-Harbinger        1    195    (37)  905  
+53353    2.0  0.5  0.6  Chr3      1630155 1637791  (362210) C MUDR1_OS          DNA/MULE-MuDR          (0)   8052     261  906  
+ 3614    2.4  0.0  0.0  Chr3      1637546 1637958  (362043) + MUDR1_OS          DNA/MULE-MuDR         7640   8052     (0)  907 *
+ 1399   17.5  5.1  9.6  Chr3      1638461 1638852  (361149) C TYPEU2            DNA                    (6)    376       1  908  
+ 8943   15.1  2.6  0.3  Chr3      1643489 1645013  (354988) + LINE1-8_OS        LINE/L1               5531   7090    (11)  909  
+ 3957   19.8  7.5  4.7  Chr3      1645069 1647418  (352583) C RPO_OS            RC/Helitron            (0)   1983     248  910  
+  636   11.1  0.0  0.0  Chr3      1647842 1647931  (352070) C RPO_OS            RC/Helitron         (1893)     90       1  910  
+20309   11.4  1.8  1.1  Chr3      1648300 1651429  (348572) + RIRE3_LTR         LTR/Gypsy                1   3151     (0)  911  
+  260    9.5  0.0  0.0  Chr3      1651591 1651632  (348369) C SEVERIN-2         RC/Helitron         (1910)     42       1  912  
+  233   21.7  0.0  0.0  Chr3      1655592 1655637  (344364) + STOWAWAY47_OS     DNA/TcMar-Stowaway      73    118    (30)  913  
+  319   22.8 11.5  1.8  Chr3      1656716 1656871  (343130) C Explorer          DNA                   (18)    192      22  914  
+ 1813   12.4  4.0  0.7  Chr3      1657159 1657457  (342544) C TYPEH             DNA/PIF-Harbinger      (0)    309       1  915  
+  310   20.1 21.6  0.0  Chr3      1660523 1660656  (339345) + TOURIST-XV        DNA/PIF-Harbinger       45    207    (32)  916  
+  333   21.1 21.1  0.0  Chr3      1660782 1660871  (339130) + TREP220           DNA/TcMar-Stowaway       1    109     (0)  917  
+  440   11.4 21.9  7.8  Chr3      1661198 1661311  (338690) C OSTE18            DNA/PIF-Harbinger      (0)    129       1  918  
+ 2178   12.8  1.2  1.2  Chr3      1662137 1662476  (337525) C OLO24             DNA/PIF-Harbinger      (0)    345       6  919  
+  975   33.4  1.7  2.8  Chr3      1663866 1664441  (335560) C OSLINE1-3         LINE/L1              (295)   5806    5237  920  
+ 6248   31.2  2.8  3.6  Chr3      1664669 1668169  (331832) C OSLINE1-3         LINE/L1             (1093)   5008    1537  920  
+  311   22.4  4.7  3.0  Chr3      1671090 1671218  (328783) C COWARD            DNA/PIF-Harbinger     (13)    187      57  921  
+  835   13.1  1.4  1.4  Chr3      1671621 1671767  (328234) + Gaijin            DNA/PIF-Harbinger        1    147     (0)  922  
+  535   15.8  2.9  1.0  Chr3      1671771 1671872  (328129) + OSLINE1-4         LINE/L1               4676   4779     (0)  923  
+ 2369    5.6  3.3  0.0  Chr3      1672484 1672785  (327216) + STOLAB            DNA/PIF-Harbinger        1    312     (0)  924  
+  249   25.4  3.6  2.2  Chr3      1672793 1672929  (327072) + Explorer          DNA                     34    172    (38)  925  
+  263    8.1  0.0  0.0  Chr3      1683937 1683973  (316028) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    148     112  926  
+  292   14.8  1.9  0.0  Chr3      1684133 1684186  (315815) C STOWAWAY43_OS     DNA/TcMar-Stowaway   (178)     55       1  927  
+  352    1.2  0.0  0.0  Chr3      1687485 1687567  (312434) + (TTA)n            Simple_repeat            3     85     (0)  928 *
+ 1273   18.6  6.6  0.3  Chr3      1687544 1687829  (312172) C SINE03_OS         SINE                  (50)    310       7  929  
+  837   12.5  0.0  0.8  Chr3      1688642 1688762  (311239) + F569              DNA/PIF-Harbinger        2    121   (107)  930  
+  742   14.1  2.7  2.7  Chr3      1688780 1688925  (311076) + COWARD-3          DNA/PIF-Harbinger       76    221     (0)  931  
+  725   12.7  0.0  1.8  Chr3      1688926 1689036  (310965) + F569              DNA/PIF-Harbinger      119    227     (1)  932  
+  981   12.4  0.0  1.3  Chr3      1689822 1689976  (310025) + OSHOOTER          DNA/CMC-EnSpm         1093   1245 (10299)  933  
+ 2388    7.3  8.8  1.0  Chr3      1690121 1690746  (309255) + OSTE7             DNA                    401    837     (0)  934  
+ 1190   12.0 13.3  2.1  Chr3      1690447 1690755  (309246) C OSTE7             DNA                  (508)    329      12  935 *
+ 2852   20.8  8.4  1.7  Chr3      1690866 1691545  (308456) + BAJIE_LTR         LTR/Gypsy                9    733     (0)  936  
+ 2646   21.6 10.2  1.5  Chr3      1691565 1692232  (307769) + BAJIE_LTR         LTR/Gypsy                9    733     (0)  937  
+ 1288   17.3  6.2  1.0  Chr3      1692243 1692534  (307467) C STOLAB            DNA/PIF-Harbinger      (5)    307       1  938  
+ 1054   14.8  0.0  0.0  Chr3      1692662 1692830  (307171) C SETARIA           DNA/MULE-MuDR          (0)   1402    1234  939  
+ 1593   22.4  8.8  6.9  Chr3      1692876 1693874  (306127) C SETARIA1          DNA/MULE-MuDR        (276)   1017       1  940  
+  379   19.7  4.7  3.9  Chr3      1694105 1694231  (305770) C OSTE27            DNA                   (20)    949     822  941  
+ 2475    6.1  0.0  0.0  Chr3      1694626 1694937  (305064) C STOWAWAY12_OS     DNA/TcMar-Stowaway     (0)    312       1  942  
+  733   14.3  0.0  0.0  Chr3      1695412 1695530  (304471) + OSHOOTER          DNA/CMC-EnSpm         1099   1217 (10327)  943  
+ 2357   13.3  0.0  0.0  Chr3      1696671 1697030  (302971) + CASTAWAY          DNA/PIF-Harbinger        1    360     (4)  944  
+  968   10.5  0.0  0.0  Chr3      1697555 1697697  (302304) + Gaijin            DNA/PIF-Harbinger        2    144     (3)  945  
+  866    9.2  1.4  1.4  Chr3      1697702 1697845  (302156) + Gaijin            DNA/PIF-Harbinger        4    147     (0)  946  
+  276   19.1  2.4 14.5  Chr3      1701837 1702167  (297834) C MERMITE18D        DNA/MULE-MuDR        (956)    535     240  947  
+  517   21.7  6.3  2.2  Chr3      1702235 1702408  (297593) C TYPEM             DNA/PIF-Harbinger     (45)    182       2  948  
+ 1364   16.1  3.4  0.0  Chr3      1702671 1702906  (297095) C DITTO             DNA/PIF-Harbinger      (0)    244       1  949  
+  804   20.7  6.6  0.0  Chr3      1703542 1703768  (296233) + STOWAWAY21_OS     DNA/TcMar-Stowaway       1    242     (1)  950  
+ 1197   28.3  1.5  8.8  Chr3      1704369 1704907  (295094) C Atlantys-2-LTR_OS LTR/Gypsy              (0)    984     482  951  
+ 2335    3.3  0.4  0.0  Chr3      1704950 1705219  (294782) + Cassandra_OS-LTR  LTR/Cassandra            1    271    (10)  952  
+ 2354    3.9  0.0  0.7  Chr3      1705239 1705521  (294480) + Cassandra_OS-LTR  LTR/Cassandra            1    281     (0)  953  
+  232   32.9  0.0  0.0  Chr3      1705730 1705805  (294196) + STOWAWAY15-2_OS   DNA/TcMar-Stowaway      36    111    (34)  954  
+  447   20.6  8.1  8.1  Chr3      1706141 1706288  (293713) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    148       1  955  
+ 2032    8.1  2.1  0.3  Chr3      1706320 1706603  (293398) + OLO24C            DNA/PIF-Harbinger        1    289    (67)  956  
+ 1053   17.6  3.5  0.8  Chr3      1711207 1711435  (288566) + STOWAWAY42_OS     DNA/TcMar-Stowaway       1    235     (7)  957  
+ 1010   22.2 13.2  1.8  Chr3      1716950 1717298  (282703) C TYPEG             DNA/MULE-MuDR         (39)    388       1  958  
+  369   29.2  1.4  1.4  Chr3      1718679 1718824  (281177) C OSTE19            DNA/MULE-MuDR         (16)    146       1  959  
+  605   17.1  1.9  3.9  Chr3      1722033 1722190  (277811) + STOWAWAY41_OS     DNA/TcMar-Stowaway      24    178    (86)  960  
+  394    6.3  5.8  8.3  Chr3      1722426 1722511  (277490) + STOWAWAY41_OS     DNA/TcMar-Stowaway     181    264     (0)  961  
+ 1005    9.5  0.0  0.7  Chr3      1724465 1724612  (275389) C Gaijin            DNA/PIF-Harbinger      (0)    147       1  962  
+ 1440   13.5  2.5  0.0  Chr3      1729389 1729625  (270376) + STOWAWAY51_OS     DNA/TcMar-Stowaway       4    246     (0)  963  
+ 1819    7.3  0.4  0.0  Chr3      1729671 1729904  (270097) C STOWAWAY9_OS      DNA/TcMar-Stowaway     (0)    235       1  964  
+ 1756   10.0  0.8  0.0  Chr3      1730047 1730287  (269714) C DITTO             DNA/PIF-Harbinger      (1)    243       1  965  
+ 1076   16.8  0.9  0.9  Chr3      1730896 1731111  (268890) C STOWAWAY18_OS     DNA/TcMar-Stowaway     (0)    216       1  966  
+  233   32.6  3.0  0.0  Chr3      1731112 1731243  (268758) + STOWAWAY10_OS     DNA/TcMar-Stowaway     124    259     (0)  967  
+ 7839   11.4  6.8  4.0  Chr3      1735487 1736917  (263084) + SZ-31_LTR         LTR/Gypsy                1   1470     (0)  968  
+  557   21.8  3.9  0.0  Chr3      1738097 1738252  (261749) + WANDERER_OS       DNA/PIF-Harbinger       53    214    (18)  969  
+  510   21.0  1.9  4.0  Chr3      1739030 1739183  (260818) C HELIA             DNA/PIF-Harbinger    (142)    151       1  970  
+  493    3.0  4.0  0.0  Chr3      1742105 1742203  (257798) + HELITRON7_OS      RC/Helitron           1587   1689  (8464)  971  
+  229   21.3  1.3  2.6  Chr3      1743012 1743088  (256913) C ENSPM6_OS         DNA/CMC-EnSpm       (5153)   4662    4587  972  
+ 1622    5.0 22.7  1.6  Chr3      1743162 1743486  (256515) C ECR               DNA/MULE-MuDR          (0)    394       1  973  
+  770   14.5  9.0  0.0  Chr3      1743664 1743808  (256193) C UNIQUE            DNA/PIF-Harbinger      (0)    158       1  974  
+  992   18.7  1.1  4.8  Chr3      1743936 1744264  (255737) C STOWAWAY36_OS     DNA/TcMar-Stowaway     (0)    268       1  975  
+  913   12.9  3.0  2.4  Chr3      1745176 1745342  (254659) + OLO24B            DNA/PIF-Harbinger        1    168   (167)  976  
+ 1744   13.7  2.2  1.9  Chr3      1745631 1745951  (254050) + OLO24B            DNA/PIF-Harbinger        6    327     (8)  977  
+  358   18.3  0.9 10.0  Chr3      1747302 1747410  (252591) + STOWAWAY25_OS     DNA/TcMar-Stowaway       4    103     (0)  978 *
+  438   17.6  0.0  0.0  Chr3      1747328 1747412  (252589) C STOWAWAY50_OS     DNA/TcMar-Stowaway    (89)     85       1  979  
+ 1055   21.3  3.4  8.6  Chr3      1749247 1749290  (250711) C EnSpm-11_OS       DNA/CMC-EnSpm       (5917)   7209    7183  980  
+ 1636   15.6  0.6  3.9  Chr3      1749291 1749631  (250370) + OLO24B            DNA/PIF-Harbinger        1    330     (5)  981  
+ 1551   12.4  5.6  0.4  Chr3      1749730 1749995  (250006) C Mudr5_OS          DNA/MULE-MuDR          (3)   5949    5670  982  
+ 1316   11.5 16.9  3.0  Chr3      1750002 1750262  (249739) C Mudr5_OS          DNA/MULE-MuDR       (5654)    298       3  983  
+  305   24.9 14.9  0.0  Chr3      1754021 1754221  (245780) + STOWAWAY2_OS      DNA/TcMar-Stowaway      18    248     (2)  984  
+  831   12.3 21.7  1.6  Chr3      1755291 1755447  (244554) + SNAP-OL3          DNA                      2    189     (0)  985  
+ 1920   17.0  0.8  0.6  Chr3      1755740 1756100  (243901) C CASTAWAY          DNA/PIF-Harbinger      (2)    362       1  986  
+  897    9.1  0.0 11.1  Chr3      1756607 1756766  (243235) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149       6  987  
+  519   22.5  1.5  0.8  Chr3      1757174 1757303  (242698) C STOWAWAY16_OS     DNA/TcMar-Stowaway    (93)    135       5  988  
+  277   18.8  0.0  0.0  Chr3      1764199 1764246  (235755) + ZM13-1_OS         DNA/PIF-Harbinger       89    136     (3)  989  
+  530   19.7  3.4  1.3  Chr3      1765098 1765246  (234755) C TOURIST-XV        DNA/PIF-Harbinger     (31)    208      57  990  
+  986   11.8  5.9  0.0  Chr3      1765330 1765481  (234520) C OSTE17            DNA/MULE-MuDR          (0)    734     574  991  
+  256    9.5  2.4  0.0  Chr3      1765483 1765524  (234477) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281     239  992  
+ 1450    7.5  0.5  0.0  Chr3      1765555 1765741  (234260) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281      94  993  
+ 1363    3.9 16.0  0.0  Chr3      1765748 1765928  (234073) + Cassandra_OS-LTR  LTR/Cassandra           13    222    (59)  994  
+ 1177    4.4 12.9  1.7  Chr3      1765919 1766081  (233920) + Cassandra_OS-LTR  LTR/Cassandra           72    252    (29)  995 *
+  524   10.1  0.0  0.0  Chr3      1766089 1766167  (233834) + OSTE17            DNA/MULE-MuDR          160    238   (496)  996  
+  285    5.0  0.0  2.5  Chr3      1766161 1766201  (233800) + MERMITE18F        DNA/MULE-MuDR            9     48  (1127)  997 *
+ 1884   20.7  8.9  6.0  Chr3      1766202 1766586  (233415) + MERMITE-17        DNA/MULE-MuDR         2338   2755     (4)  998  
+ 1502   20.6 10.0  3.8  Chr3      1766587 1767176  (232825) C MERMITE18D        DNA/MULE-MuDR        (860)    631       7  999  
+ 1385   11.1  0.5  0.5  Chr3      1767278 1767477  (232524) + COWARD            DNA/PIF-Harbinger        1    200     (0) 1000  
+ 2552    9.8  1.0  0.5  Chr3      1767478 1767866  (232135) + OSTE17            DNA/MULE-MuDR          344    734     (0) 1001  
+  362   29.9  2.6  4.0  Chr3      1767906 1768058  (231943) + CLOUD-4           DNA/MULE-MuDR           16    166   (354) 1002  
+  274   20.4 31.9  2.7  Chr3      1768502 1768617  (231384) C F569              DNA/PIF-Harbinger     (79)    149       1 1003  
+ 1725   10.4  2.2  2.5  Chr3      1769238 1769512  (230489) C TOURIST-XIII      DNA/PIF-Harbinger     (70)    275       2 1004  
+  586   14.4  1.8  0.0  Chr3      1769965 1770075  (229926) + OSTE27            DNA                    827    939    (30) 1005  
+  957   18.7  1.9  5.6  Chr3      1774020 1774279  (225722) + STOWAWAY13_OS     DNA/TcMar-Stowaway       1    251     (0) 1006  
+  943   24.6  1.8  2.6  Chr3      1780552 1780826  (219175) C LINE5A            LINE/L1               (18)    419     147 1007  
+ 1090   16.4  8.1  8.4  Chr3      1780831 1781399  (218602) + SZ-35_LTR         LTR/Gypsy                1    716  (3137) 1008 *
+11832   10.2  3.4  1.1  Chr3      1781395 1783232  (216769) + SZ-35_LTR         LTR/Gypsy             1974   3853     (0) 1008  
+  660   23.9  0.2  0.0  Chr3      1783239 1783385  (216616) C LINE5A            LINE/L1              (296)    141      11 1009  
+  311   22.3 22.3  0.0  Chr3      1783847 1783967  (216034) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0) 1010  
+  374   26.0  3.1 11.5  Chr3      1784144 1784369  (215632) + MDR3              DNA/MULE-MuDR            2    210  (6768) 1011  
+  305   24.0  7.2  5.2  Chr3      1785100 1785363  (214638) + TYPEU4            DNA                     80    348    (54) 1012  
+ 1056   23.5  2.6  0.4  Chr3      1785378 1785642  (214359) C SZ-31_LTR         LTR/Gypsy              (0)   1470    1200 1013  
+  799   29.4  1.9  4.5  Chr3      1785652 1786175  (213826) + SZ-31_LTR         LTR/Gypsy                1   1008   (462) 1014  
+15688   12.8  4.9  3.6  Chr3      1786176 1789893  (210108) C RETROSAT5_LTR     LTR/Gypsy              (0)   3956       1 1015  
+  317    4.4  0.0  0.0  Chr3      1789894 1789938  (210063) C RETROSAT5_I-int   LTR/Gypsy              (0)   5966    5922 1015  
+  555   23.7  0.9  0.0  Chr3      1789946 1790059  (209942) + SZ-16_LTR         LTR/Gypsy              278    392   (336) 1016  
+ 5688   13.9  1.9  0.2  Chr3      1790068 1791001  (209000) + SZ-44_LTR         LTR/Gypsy                1    950   (458) 1017  
+ 1054   15.6  2.3  6.8  Chr3      1791002 1791263  (208738) + STOWAWAY13_OS     DNA/TcMar-Stowaway       1    251     (0) 1018  
+ 2212   14.9  6.5  4.4  Chr3      1791264 1791711  (208290) + SZ-29_LTR         LTR/Gypsy              937   1393     (0) 1019  
+ 1115   25.2  1.1  6.7  Chr3      1791715 1792062  (207939) + SZ-16_LTR         LTR/Gypsy              399    728     (0) 1016  
+ 2576   22.3  3.7  1.1  Chr3      1792063 1792740  (207261) C SZ-31_LTR         LTR/Gypsy            (296)   1174       1 1020  
+  286   33.3 10.2  2.0  Chr3      1794333 1794568  (205433) + ORMOSIA           SINE/L1                 22    276   (206) 1021  
+  726   16.3  1.9  6.0  Chr3      1795421 1795577  (204424) C DITTO-2           DNA/PIF-Harbinger      (0)    235      85 1022  
+  538   15.1  0.0  0.0  Chr3      1795735 1795827  (204174) C DITTO-2           DNA/PIF-Harbinger    (142)     93       1 1023  
+  300   20.7  0.0  0.0  Chr3      1796848 1796905  (203096) + TYPEU2            DNA                      2     59   (323) 1024  
+ 2360   17.3  2.8  0.7  Chr3      1796925 1797488  (202513) + OSTE17            DNA/MULE-MuDR            1    576   (158) 1025  
+  284   20.0  1.7  0.0  Chr3      1797482 1797541  (202460) C EnSpm-11_OS       DNA/CMC-EnSpm       (6871)   6255    6195 1026 *
+  980   13.0  0.0  1.9  Chr3      1797536 1797700  (202301) + OSTE17            DNA/MULE-MuDR          573    734     (0) 1027  
+  915   19.6  7.1  9.2  Chr3      1797737 1798101  (201900) C TYPEU2            DNA                    (0)    382      25 1028  
+  304   25.5  1.9  0.9  Chr3      1798124 1798230  (201771) C STOWAWAY51_OS     DNA/TcMar-Stowaway     (0)    246     139 1029  
+ 3599   15.7  0.2  0.2  Chr3      1798232 1798806  (201195) C SZ-33_LTR         LTR/Gypsy              (0)    575       1 1030  
+  403   17.1  1.2  1.2  Chr3      1798807 1798922  (201079) + STOWAWAY21_OS     DNA/TcMar-Stowaway     113    221    (29) 1031 *
+  467   23.3 21.1  2.8  Chr3      1798903 1799176  (200825) + TYPEU2            DNA                     62    382     (0) 1032  
+  572   17.1 15.7  2.7  Chr3      1799539 1799767  (200234) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (6)    258       1 1033  
+ 1014   15.4  6.8  0.0  Chr3      1801281 1801514  (198487) + STOWAWAY2_OS      DNA/TcMar-Stowaway       1    250     (0) 1034  
+  981   14.7  7.8  0.0  Chr3      1801565 1801796  (198205) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (0)    250       1 1035  
+  515   25.4  5.8  4.4  Chr3      1802521 1802746  (197255) C MUJITOS1          DNA/MULE-MuDR          (0)   3987    3759 1036  
+  574   23.7  0.0  4.7  Chr3      1803850 1804026  (195975) + MUJITOS1          DNA/MULE-MuDR         3813   3981     (6) 1037  
+  405   18.1  4.9  0.1  Chr3      1806069 1806182  (193819) + TYPEU1            DNA                     13    130   (250) 1038  
+  427   30.4  2.5  2.5  Chr3      1806349 1806510  (193491) C MERMITEJ          DNA/MULE-MuDR       (1243)    255      94 1039  
+  568   23.7  1.9  0.0  Chr3      1806587 1806742  (193259) C WANDERER_OS       DNA/PIF-Harbinger     (40)    192      34 1040  
+  987   14.3  7.0  0.0  Chr3      1809883 1810112  (189889) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (4)    246       1 1041  
+  779    9.9  3.0  0.0  Chr3      1811355 1811485  (188516) + Gaijin            DNA/PIF-Harbinger        1    135    (12) 1042  
+  476   29.1  3.4  2.4  Chr3      1812973 1813308  (186693) + MDR2              DNA/MULE-MuDR            7    262  (6705) 1043  
+  730   16.4  4.7  1.0  Chr3      1818196 1818385  (181616) + STOWAWAY41_OS     DNA/TcMar-Stowaway      15    211    (53) 1044  
+  878   19.9  4.7  1.6  Chr3      1818386 1818598  (181403) + COWARD-2          DNA/PIF-Harbinger        1    220   (130) 1045  
+ 2286    5.1  0.0  0.0  Chr3      1818599 1818890  (181111) C STOWAWAY11_OS     DNA/TcMar-Stowaway     (0)    292       1 1046  
+  436   10.5 43.0  0.0  Chr3      1819081 1819194  (180807) C TEMPINDAS         DNA/hAT-Ac             (0)   4259    4097 1047  
+  441   17.8  0.0 10.1  Chr3      1819231 1819361  (180640) + CLOUD-5           DNA/MULE-MuDR          559    677   (934) 1048  
+  947    9.3  8.0  0.0  Chr3      1819856 1820006  (179995) C TEMPINDAS         DNA/hAT-Ac          (4096)    163       1 1049  
+  599   21.8  2.6  0.4  Chr3      1828302 1828531  (171470) + STOWAWAY41_OS     DNA/TcMar-Stowaway      30    264     (0) 1050  
+  336   14.6  4.2  7.4  Chr3      1828870 1829234  (170767) + POP-OL2           DNA                     10    105    (21) 1051  
+  624   21.9  0.0  1.3  Chr3      1829428 1829584  (170417) C F1275             DNA/PIF-Harbinger      (0)    157       3 1052  
+ 1100   14.8  0.0  1.5  Chr3      1830829 1831033  (168968) + Explorer          DNA                      5    206     (4) 1053  
+ 3565   10.3  0.2  0.4  Chr3      1831389 1831914  (168087) + SZ_LTR            LTR/Gypsy                1    525   (724) 1054  
+ 1728   14.2  7.2  1.1  Chr3      1832065 1832398  (167603) + SZ_LTR            LTR/Gypsy              896   1249     (0) 1054  
+ 1043   14.9  2.5  1.5  Chr3      1836419 1836615  (163386) C WANDERER_OS       DNA/PIF-Harbinger      (0)    232      34 1055  
+ 2421   10.6  1.5  0.3  Chr3      1842885 1843225  (156776) C OLO24             DNA/PIF-Harbinger      (0)    345       1 1056  
+  559   19.6  7.5  3.4  Chr3      1844913 1845165  (154836) C STOWAWAY41_OS     DNA/TcMar-Stowaway     (1)    263       1 1057  
+ 1649   15.4  1.8  0.3  Chr3      1849815 1850094  (149907) + F770              DNA/PIF-Harbinger        1    284     (0) 1058  
+ 1923    7.6  0.8  0.0  Chr3      1851647 1851910  (148091) + STOWAWAY45_OS     DNA/TcMar-Stowaway       1    266     (0) 1059  
+  808   18.9  7.5  1.0  Chr3      1860771 1860957  (139044) + COWARD            DNA/PIF-Harbinger        2    200     (0) 1060  
+  805   16.1 14.6  0.0  Chr3      1861251 1861442  (138559) + COWARD-3          DNA/PIF-Harbinger        2    221     (0) 1061  
+  801   12.1  2.1  1.4  Chr3      1862691 1862833  (137168) C Gaijin            DNA/PIF-Harbinger      (3)    144       1 1062  
+ 1462   19.1  2.9  0.9  Chr3      1863638 1863663  (136338) + EnSpm-11_OS       DNA/CMC-EnSpm         6845   6984  (6142) 1063  
+ 1586   15.3  0.8  0.0  Chr3      1863664 1863918  (136083) C OLO24C            DNA/PIF-Harbinger     (49)    307      51 1064  
+ 1462   19.1  2.9  0.9  Chr3      1863919 1863948  (136053) + EnSpm-11_OS       DNA/CMC-EnSpm         6985   7161  (5965) 1063  
+ 1775    7.5  0.0  0.0  Chr3      1864245 1864483  (135518) + TREP215           DNA/TcMar-Stowaway       1    239     (0) 1065  
+ 1090    7.1  0.0  0.0  Chr3      1864631 1864771  (135230) + OSHOOTER          DNA/CMC-EnSpm         1097   1237 (10307) 1066  
+  234    8.0  0.0  1.3  Chr3      1869497 1869572  (130429) + (TTA)n            Simple_repeat            1     75     (0) 1067  
+  415   20.4  0.0  0.0  Chr3      1873754 1873863  (126138) C MUDROS1           DNA/MULE-MuDR          (0)   4932    4867 1068  
+  326   31.3  0.0  0.0  Chr3      1874556 1874670  (125331) C CLOUD-2           DNA/MULE-MuDR        (596)    115       1 1068 *
+  452   22.1  0.0  0.0  Chr3      1874578 1874672  (125329) + Mudr5_OS          DNA/MULE-MuDR         5857   5951     (1) 1069  
+ 1550   15.2  0.0  0.0  Chr3      1875719 1875962  (124039) + DITTO             DNA/PIF-Harbinger        1    244     (0) 1070  
+  822   12.1  5.0  0.0  Chr3      1876736 1876875  (123126) C Gaijin            DNA/PIF-Harbinger      (0)    147       1 1071  
+  312   23.8  6.0  7.1  Chr3      1877000 1877198  (122803) C TWIF              DNA/hAT-Ac             (0)    586     390 1072  
+  358   34.4  2.6  2.6  Chr3      1877926 1878116  (121885) C ORMOSIA           SINE/L1              (284)    198       8 1073  
+  248   25.9 11.8  3.4  Chr3      1878408 1878543  (121458) C OSTE21            DNA/MULE-MuDR       (1124)    147       1 1074  
+  692   17.5  2.7 12.6  Chr3      1881809 1881991  (118010) C ID-2              DNA/PIF-Harbinger      (0)    308     142 1075  
+ 1492   11.6  5.2  0.0  Chr3      1882033 1882264  (117737) C DITTO             DNA/PIF-Harbinger      (0)    244       1 1076  
+  671   20.0  0.8  0.8  Chr3      1882265 1882386  (117615) C ID-2              DNA/PIF-Harbinger    (184)    124       3 1075  
+  238   16.4  0.0  4.1  Chr3      1882523 1882573  (117428) + WANDERER_OS       DNA/PIF-Harbinger       26     74   (158) 1077 *
+  512    9.0  6.5  3.2  Chr3      1882567 1882658  (117343) + WANDERER_OS       DNA/PIF-Harbinger      117    211    (21) 1078  
+ 1726   14.0  3.0  0.0  Chr3      1882662 1882961  (117040) C EnSpm-11_OS       DNA/CMC-EnSpm       (5958)   7168    6860 1079  
+  776    9.9  4.8 15.1  Chr3      1886242 1886408  (113593) C CASINE            SINE/tRNA-L1          (22)    152       1 1080  
+35180    1.5  0.3  0.4  Chr3      1887954 1891871  (108130) + MuDR4_OS          DNA/MULE-MuDR            2   3913  (3697) 1081  
+22662    1.4  0.0  0.1  Chr3      1891882 1894358  (105643) + MuDR4_OS          DNA/MULE-MuDR         5135   7609     (1) 1082  
+  502   20.8  1.0  0.0  Chr3      1895357 1895457  (104544) + WANDERER_OS       DNA/PIF-Harbinger      125    226     (6) 1083  
+  729   12.4 12.4  0.0  Chr3      1895662 1895790  (104211) C STOWAWAY1_OS      DNA/TcMar-Stowaway     (0)    149       5 1084  
+  977    9.0  1.4  0.0  Chr3      1895909 1896053  (103948) + Gaijin            DNA/PIF-Harbinger        1    147     (0) 1085  
+  414   16.9 23.5  0.0  Chr3      1896596 1896731  (103270) C Explorer          DNA                   (32)    178      11 1086  
+ 2079    3.5  0.0  9.0  Chr3      1897021 1897299  (102702) + FOCUS             DNA/PIF-Harbinger        1    256     (1) 1087  
+  473    5.2  0.0  0.0  Chr3      1899232 1899289  (100712) C STOWAWAY8_OS      DNA/TcMar-Stowaway     (0)    259     202 1088  
+  839   13.9  0.8  0.0  Chr3      1903407 1903528   (96473) + SINE1_OS          SINE                     1    123     (4) 1089  
+  302   23.2  4.2  5.1  Chr3      1906603 1906720   (93281) C ECR               DNA/MULE-MuDR          (0)    394     278 1090  
+  676   13.8 13.8  0.0  Chr3      1911553 1911682   (88319) + STOWAWAY47_OS     DNA/TcMar-Stowaway       1    148     (0) 1091  
+  418   23.2  7.6  5.0  Chr3      1912964 1913199   (86802) C STOWAWAY2_OS      DNA/TcMar-Stowaway     (3)    247       6 1092  
+  230    9.4  0.0  0.0  Chr3      1925689 1925720   (74281) + STOWAWAY46_OS     DNA/TcMar-Stowaway       1     32   (122) 1093  
+  465   19.0 10.7  1.8  Chr3      1925871 1926020   (73981) + STOWAWAY2_OS      DNA/TcMar-Stowaway      88    250     (0) 1094  
+ 1828   12.3  0.0  0.4  Chr3      1926415 1926683   (73318) C STOWAWAY36_OS     DNA/TcMar-Stowaway     (0)    268       1 1095  
+ 5864    0.4  0.0  1.6  Chr3      1931732 1932425   (67576) + OSTE24            DNA/MULE-MuDR            1    683     (0) 1096  
+  586   23.6  4.2 18.3  Chr3      1932426 1932656   (67345) + CLOUD-7           DNA/MULE-MuDR          292    491     (4) 1097  
+  857   10.8  3.6  0.0  Chr3      1932660 1932798   (67203) C Gaijin            DNA/PIF-Harbinger      (3)    144       1 1098  
+  436   23.6  3.5  4.8  Chr3      1932799 1932822   (67179) + OSHOOTER          DNA/CMC-EnSpm         1122   1261 (10283) 1099  
+ 2587    9.9  0.0  0.0  Chr3      1933310 1933654   (66347) + OLO24             DNA/PIF-Harbinger        1    345     (0) 1100  
+  518   23.1 11.9  4.7  Chr3      1934048 1934265   (65736) C TESSBIG           DNA/hAT-Tag1          (28)   4029    3797 1101  
+  396   20.0 11.2  5.1  Chr3      1934347 1934551   (65450) C TESSBIG           DNA/hAT-Tag1        (3790)    267      51 1102  
+ 1132   16.8  3.5  0.0  Chr3      1935256 1935481   (64520) + STOWAWAY48_OS     DNA/TcMar-Stowaway       1    234    (27) 1103  
+  282   25.0  6.2  8.5  Chr3      1935567 1935842   (64159) + TYPEU2            DNA                     25    294    (88) 1104  
+  995   23.4  6.8  1.1  Chr3      1936300 1936636   (63365) + TYPEU             DNA                      4    359     (3) 1105  
+  606   17.0  8.0  1.9  Chr3      1936665 1936814   (63187) + TYPEU2            DNA                      1    159   (223) 1106  
+ 1199    5.4  0.0  0.7  Chr3      1936815 1936964   (63037) + STOWAWAY1_OS      DNA/TcMar-Stowaway       1    149     (0) 1107  
+  230   19.7  3.9  2.5  Chr3      1936965 1937032   (62969) C TYPEU3            DNA                  (155)    225     157 1108 *
+  381   17.9  0.0  0.0  Chr3      1936965 1937042   (62959) + TYPEU             DNA                    136    213   (149) 1109  
+  810   20.3  9.7  7.8  Chr3      1937303 1937740   (62261) C SC-9_LTR          LTR/Copia             (17)    455      10 1110  
+19963   21.7  0.6  1.0  Chr3      1937741 1942091   (57910) C SC-9_int-int      LTR/Copia              (0)   4334       1 1110  
+  693   23.0  9.1  5.9  Chr3      1942115 1942543   (57458) C SC-9_LTR          LTR/Copia             (17)    455      14 1110  
+  856   18.8  2.2  3.5  Chr3      1943309 1943539   (56462) + RPO_OS            RC/Helitron           1631   1858   (125) 1111  
+  686   17.6  1.5  0.0  Chr3      1944095 1944230   (55771) + RPO_OS            RC/Helitron           1846   1983     (0) 1111  
+  681   17.1  9.3  0.0  Chr3      1944332 1944471   (55530) C STOWAWAY46_OS     DNA/TcMar-Stowaway     (0)    154       2 1112  
+  935    8.4  0.8  0.0  Chr3      1944578 1944708   (55293) C TNR10             DNA                  (397)    211      80 1113  
+ 2546    4.8  8.6  0.5  Chr3      1944713 1945071   (54930) + TNR10             DNA                    221    608     (0) 1114  
+  264   25.0  1.1  3.2  Chr3      1947315 1947409   (52592) + RMU2A1C           DNA/MULE-MuDR            1     93  (1076) 1115  
+  239   28.5  6.6  4.7  Chr3      1947410 1947542   (52459) C RMU1A23           DNA/MULE-MuDR          (0)   4144    3970 1116  
+ 1547   10.2  0.4  0.4  Chr3      1948452 1948686   (51315) + STOWAWAY9_OS      DNA/TcMar-Stowaway       1    235     (0) 1117  
+  572   23.6  1.4  0.7  Chr3      1948729 1948873   (51128) C STOWAWAY47_OS     DNA/TcMar-Stowaway     (0)    148       3 1118  
+ 1579   12.9  1.6  0.0  Chr3      1949147 1949401   (50600) C OLO24C            DNA/PIF-Harbinger     (47)    309      51 1119  
+  423    8.1 27.6  0.9  Chr3      1949623 1949709   (50292) C OSTE18            DNA/PIF-Harbinger     (17)    112       3 1120  
+  466   22.4 10.3  0.0  Chr3      1950047 1950202   (49799) C RPO_OS            RC/Helitron            (0)   1983    1812 1121  
+ 1098   13.8  1.0  2.5  Chr3      1950225 1950425   (49576) C COWARD            DNA/PIF-Harbinger      (2)    198       1 1122  
+ 1048   22.0  7.8  6.1  Chr3      1950430 1951059   (48942) C RPO_OS            RC/Helitron          (741)   1242     603 1121  
+  389   25.1  6.1  0.5  Chr3      1951055 1951234   (48767) C TYPEU2            DNA                  (113)    269      80 1123 *
+  380   23.8  1.6 12.0  Chr3      1953253 1953381   (46620) C SETARIA           DNA/MULE-MuDR        (661)    741     625 1124  
+  854   28.9 10.9  2.7  Chr3      1953557 1953968   (46033) C SETARIA1          DNA/MULE-MuDR        (847)    446       2 1125  
+  819   19.6  1.0  0.5  Chr3      1954001 1954205   (45796) + TYPEU1            DNA                      9    214   (166) 1126  
+ 1365   23.1  4.2  4.9  Chr3      1955246 1955525   (44476) C MERMITE           DNA/MULE-MuDR          (0)   1386     785 1127  
+  512   19.4  6.3  5.7  Chr3      1955526 1955716   (44285) + MERMITE18D        DNA/MULE-MuDR          201    392  (1099) 1128  
+ 1182   21.8  5.4  2.9  Chr3      1956357 1956723   (43278) + MERMITE           DNA/MULE-MuDR         1013   1686    (24) 1129  
+ 3156    9.0  1.1  3.9  Chr3      1956724 1957244   (42757) + OSTE33            DNA/MULE-MuDR            1    507   (505) 1130  
+ 1439   19.2  3.1  4.0  Chr3      1957060 1957411   (42590) C CRM-I_OS          LTR/Gypsy           (5163)    770     422 1131 *
+  832   12.3  0.7  2.0  Chr3      1957423 1957571   (42430) C OSTE33            DNA/MULE-MuDR        (495)    517     371 1132  
+ 1501   10.3  0.3 19.2  Chr3      1957772 1958130   (41871) C OSTE33            DNA/MULE-MuDR        (710)    302       1 1132  
+  832   17.1  2.2  0.0  Chr3      1961295 1961516   (38485) + STOWAWAY41_OS     DNA/TcMar-Stowaway      19    245    (19) 1133  
+ 1916    8.0  5.1  0.0  Chr3      1962255 1962529   (37472) + ID-3              DNA/PIF-Harbinger        1    289     (0) 1134  
+  895   11.2  1.4  0.0  Chr3      1962592 1962734   (37267) + Gaijin            DNA/PIF-Harbinger        1    145     (2) 1135  
+  284   15.2  0.0  0.0  Chr3      1967145 1967203   (32798) + RMU2A1C           DNA/MULE-MuDR          943   1001   (168) 1136  
+  347   20.2 17.5  3.3  Chr3      1968564 1968752   (31249) C SZ-52_int-int     LTR/Gypsy              (0)  11084   10870 1137  
+ 3029   20.2  6.8  5.3  Chr3      1969264 1970363   (29638) + Gypsy-A_LTR       LTR/Gypsy                1   1116  (2251) 1138  
+13558   12.9  2.9  2.8  Chr3      1970432 1972924   (27077) + Gypsy-A_LTR       LTR/Gypsy              871   3367     (0) 1139  
+ 1571   35.8  0.6  1.0  Chr3      1972947 1973838   (26163) C SZ-52_int-int     LTR/Gypsy            (663)  10421    9534 1137  
+  775   27.6  2.3  2.3  Chr3      1974403 1974662   (25339) C SZ-52_int-int     LTR/Gypsy           (2230)   8854    8595 1137 *
+13801   21.9  1.3  0.7  Chr3      1974658 1977815   (22186) C SZ-52_int-int     LTR/Gypsy           (6672)   4412    1236 1137  
+  249   28.5  8.9  5.4  Chr3      1977949 1978542   (21459) C SZ-52_int-int     LTR/Gypsy           (9993)   1091     478 1137  
+  988   23.8 10.6  3.2  Chr3      1978726 1979073   (20928) C SZ-52_int-int     LTR/Gypsy          (10711)    373       1 1137  
+  306   20.2  6.5  8.4  Chr3      1979845 1980038   (19963) + TWIFBIG           DNA/hAT-Ac              15    213  (3524) 1140  
+  385   23.2  9.5 12.3  Chr3      1983253 1984215   (15786) + OSTE26            Satellite                1    935    (67) 1141  
+ 1334   17.4 10.8  1.2  Chr3      1990342 1990713    (9288) + MERMITE18B        DNA/MULE-MuDR          900   1306     (0) 1142  
+  477   28.3  7.5  5.6  Chr3      1990779 1991111    (8890) + MERMITE18B        DNA/MULE-MuDR           49    387   (919) 1143  
+10763    5.6  0.4  1.4  Chr3      1991377 1992782    (7219) C SZ-29_LTR         LTR/Gypsy              (0)   1393       1 1144  
+  356   24.3 10.5  9.4  Chr3      1993365 1993564    (6437) C MERMITE18B        DNA/MULE-MuDR       (1056)    250      49 1145 *
+  481   25.5  2.0  2.0  Chr3      1993461 1993612    (6389) + MERMITEH          DNA/MULE-MuDR         1156   1307     (0) 1146  
+  555   23.0  2.5  4.0  Chr3      1993757 1993960    (6041) C COWARD-3          DNA/PIF-Harbinger     (20)    201       1 1147  
+  336   24.2 47.3  1.6  Chr3      1994177 1994371    (5630) C F770              DNA/PIF-Harbinger      (0)    284       1 1148  
+ 1952    2.7  8.8  1.1  Chr3      1996646 1996906    (3095) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281       1 1149  
+  676    1.2  0.0  0.0  Chr3      1996907 1996988    (3013) C Cassandra_OS-I    LTR/Cassandra          (0)    202     121 1149  
+  308    0.0  0.0  0.0  Chr3      1996999 1997037    (2964) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281     243 1150 *
+  690    2.5  0.0  0.0  Chr3      1997036 1997115    (2886) C Cassandra_OS-LTR  LTR/Cassandra        (164)    117      38 1150  
+  676    1.2  0.0  0.0  Chr3      1997117 1997198    (2803) C Cassandra_OS-I    LTR/Cassandra          (0)    202     121 1149  
+ 2389    2.5  0.0  0.0  Chr3      1997209 1997489    (2512) C Cassandra_OS-LTR  LTR/Cassandra          (0)    281       1 1151  
+ 1043   12.6  1.1  1.7  Chr3      1997590 1997767    (2234) + TYPEU4            DNA                      2    178   (224) 1152  

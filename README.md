@@ -1,4 +1,4 @@
-# RelocaTE2: a high resolution transposable element polymorphism mapping tool for population resequencing
+# RelocaTE2: a high resolution transposable element insertion sites mapping tool for population resequencing
 
 ## Introduction
 RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3journal.org/content/3/6/949.long)). RelocaTE2 is highly sensitive and accurate in mapping transposable elements (TE) polymorphisms at single base pair resolution. RelocaTE2 uses the reads associated with TEs as seeds to cluster the read pairs on chromosomes. It automatically detects the target site duplication (TSD) of a TE insertion from alignments in each cluster, which enable high resolution mapping of TE polymorphisms. Unlike parallel searching of multi-TE elements in RelocaTE, RelocaTE2 searches all TEs in one cycle, which enables us find polymorphisms of thousands of TEs in an individual genome or large population in a reasonable timeframe without losing sensitivity and specificity.
@@ -9,62 +9,67 @@ RelocaTE2 is an improved version of RelocaTE ([Robb et al., 2013](http://www.g3j
 + System requirements
   - Linux/Unix platform
   - Short read aligner: BLAT (v35+), bowtie2 (v2.2.6+), bwa (v0.6.2)
+  - samtools (v1.3.1)
+  - bedtools (v2.25.0)
   - Python (v2.7.5+) and pysam package (v0.8.5+)
   - Perl (v5.20.2+)
   - seqtk (v1.0+)
 
 + Install
 ```shell
+echo "Installation via github"
 git clone https://github.com/JinfengChen/RelocaTE2.git
 cd RelocaTE2
 bash install.sh
-uz test_data.tar.gz
+cd test_data
+bash run_test.sh > run_test.sh.log 2>&1 &
+
+echo "Installation via conda (Linux as example)"
+#download miniconda from http://conda.pydata.org/miniconda.html and install
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda2-latest-Linux-x86_64.sh
+source ~/.bashrc
+#install RelocaTE2 into miniconda isolated environment "RelocaTE2"
+conda create --name RelocaTE2 -c bioconda relocate2
+#run test data
+source activate RelocaTE2
+cd /PATH_TO_miniconda/env/RelocaTE2
 cd test_data
 bash run_test.sh > run_test.sh.log 2>&1 &
 ```
 
 + Troubleshooting
-  - Installation of RelocaTE2 using install.sh will install all the tools and packages required to run RelocaTE2. The script will install and link the executables of all tools to the RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, searches for executables in $PATH; however, the executables from RelocaTE2/CONFIG will supercede $PATH. Users can modify RelocaTE2/CONFIG with paths to tools installed on their specific system to avoid problems. 
-  - The Python module "pysam" is installed to RelocaTE2/pythonlib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/pythonlib/lib64/python2.7/site-packages, any other locally-installed versions of pysam are temporarily ignored and the supported version of pysam for RelocaTE2 is used instead.
-  - In RelocaTE2, we align trimmed reads to reference genome by bwa v0.6.2, which allows paired-end reads have different names in fastq files. We recommend using install.sh provided in RelocaTE2 to install these dependent tools including bwa v0.6.2.
+  - Installation of RelocaTE2 using install.sh or conda will install all the tools and packages required to run RelocaTE2. The executables of all tools are RelocaTE2/bin directory and record their paths in RelocaTE2/CONFIG. The main script of RelocaTE2, relocaTE2.py, searches for executables in $PATH; however, the executables from RelocaTE2/CONFIG will supercede $PATH. Users can modify RelocaTE2/CONFIG with paths to tools installed on their specific system to avoid problems. 
+  - The Python module "pysam" is installed to RelocaTE2/lib. By setting PYTHONPATH=PATH\_OF\_RelocaTE2/lib/python2.7/site-packages, any other locally-installed versions of pysam are temporarily ignored and the supported version of pysam for RelocaTE2 is used instead.
+  - In RelocaTE2, we align trimmed reads to reference genome by bwa v0.6.2, which allows paired-end reads have different names in fastq files. We recommend using install.sh or conda provided in RelocaTE2 to install these dependent tools including bwa v0.6.2.
 
 ## Quick Start Quide
-  - Download [test_data.tar.gz](http://de.iplantcollaborative.org/dl/d/8A553ABA-14F3-44F2-A4D4-7D69C8AE8D89/test_data.tar.gz) if the file is not in RelocaTE2
-
-  - set environment variables  
+  - set environment variables if failed to find executable PATH or pysam libary 
 ```shell
-cd test_data
-export PYTHONPATH=`pwd`/pythonlib/lib64/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=`pwd`/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=`pwd`/bin:$PATH 
-```
-  - index reference genome
-```shell
-#reference genome
-ref=test_data/MSU7.Chr3.fa
-bwa index $ref
-```
-  - index repeat sequence if using bowtie2 as search engine (default is to use BLAT as search engine)
-```shell
-#repeat elements
-repeat=test_data/RiceTE.fa
-bowtie2-build $repeat $repeat
 ```
   - run RelocaTE2 to find transposable element insertions
 ```shell
+cd test_data
+#repeat element
+repeat=RiceTE.fa
+#reference genome
+ref=MSU7.Chr3_2M.fa
 #repeatmasker results of TE annotation on reference genome
-ref_te=test_data/MSU7.Chr3.fa.RepeatMasker.out
+ref_te=MSU7.Chr3_2M.fa.RepeatMasker.out
 #directory where the input fastq format reads are located
-fq_dir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500/
+fq_dir=MSU7.Chr3_2M.ALL_reads/
 #output directory where RelocaTE2 write temperary and final output
-outdir=test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir
-python script/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te
+outdir=MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir
+python scripts/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_dir --outdir $outdir --reference_ins $ref_te --run
 ```
   - check results of TE insertions and compare with simulated TE insertions
 ```shell
-wc -l test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
-167
-bedtools window -w 10 -a test_data/MSU7.Chr3.ALL.rep1.gff -b test_data/MSU7.Chr3.ALL.rep1_reads_2X_100_500_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
-167
+wc -l MSU7.Chr3.ALL.rep1_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
+196
+bedtools window -w 10 -a MSU7.Chr3_2M.ALL.gff -b MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
+196
 ```
 
 ## RelocaTE2 Command Line Options

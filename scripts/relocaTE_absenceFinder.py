@@ -17,8 +17,9 @@ RelocaTE2: improved version of RelocaTE for calling transposable element inserti
     print message
 
 #Retro1  ACGTC   not.give        Chr4    14199..14203    -       T:7     R:4     L:3     ST:21   SR:9    SL:12
-def txt2gff(infile, outfile, ins_type):
+def txt2gff(infile, outfile):
     #print infile, outfile
+    ins_type = ''
     ofile = open(outfile, 'a')
     count = 0
     r_pos = re.compile(r'(\d+)\.\.(\d+)')
@@ -32,6 +33,7 @@ def txt2gff(infile, outfile, ins_type):
                 chro, start, end = ['', 0, 0]
                 chro = unit[3]
                 strand = unit[5]
+                ins_type = unit[1]
                 m = r_pos.search(unit[4])
                 if m:
                     start = m.groups(0)[0]
@@ -138,14 +140,27 @@ def insertion_family(reads, read_repeat):
         return ''
 
 #mPing   GAA     not.give        Chr4    3386246..3386248        -       T:3     R:1     L:2     ST:0    SR:0    SL:0
-def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_reads, required_left_reads, required_right_reads, teInsertions, teInsertions_reads, teSupportingReads, existingTE_inf, existingTE_found, teReadClusters, bedtools, lib_size):
+def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_reads, required_left_reads, required_right_reads, teInsertions, teInsertions_reads, teSupportingReads, existingTE_inf, existingTE_found, teReadClusters, bedtools, lib_size, existingTE_intact_id):
     ref     = '%s/%s.%s.all_ref_insert.txt' %(result, usr_target, TE)
     ref_gff = '%s/%s.%s.all_ref_insert.gff' %(result, usr_target, TE)
     REF     = open ('%s/%s.%s.all_ref_insert.txt' %(result, usr_target, TE), 'w')
     #REFGFF     = open ('%s/%s.%s.all_ref_insert.gff' %(result, usr_target, TE), 'w')
     #READS      = open ('%s/%s.%s.all_ref_reads.list' %(result, usr_target, TE), 'w')
     r = re.compile(r'(\w+):(\d+)-(\d+):(.*)')
-    for te_id in sorted(existingTE_found.keys()):
+    te_id_temp = []
+    for te_id in sorted(existingTE_intact_id.keys()): 
+        if existingTE_found.has_key(te_id):
+            te_id_temp.append(te_id)
+        else:
+            repeat_junction = existingTE_intact_id[te_id]
+            strand, chro, start, end = ['', '', '', '']
+            if r.search(te_id):
+                strand = r.search(te_id).groups(0)[3]
+                chro   = r.search(te_id).groups(0)[0]
+                start  = r.search(te_id).groups(0)[1]
+                end    = r.search(te_id).groups(0)[2]
+            print >> REF, '%s\t%s\t%s\t%s\t%s..%s\t%s\tT:0\tR:0\tL:0\tST:0\tSR:0\tSL:0' %(repeat_junction, 'Reference_Only', exper, chro, start, end, strand) 
+    for te_id in te_id_temp:
         #print 'Found: %s' %(te_id)
         ##junction reads
         strand, chro, start, end = ['', '', '', '']
@@ -197,9 +212,13 @@ def write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_r
         #print 'right: t:%s\tl:%s\tr:%s\tl:%s\tr:%s' %(total_supporting_r, left_supporting_r, right_supporting_r, left_reads_r, right_reads_r)
         ##output
         if l_count > 0 and r_count > 0:
-            print >> REF, '%s\t%s\t%s\t%s\t%s..%s\t%s\tT:%s\tR:%s\tL:%s\tST:%s\tSR:%s\tSL:%s' %(repeat_junction, 'TSD', exper, chro, start, end, strand, l_count+r_count, r_count, l_count, left_supporting_l+right_supporting_r, right_supporting_r, left_supporting_l)
+            print >> REF, '%s\t%s\t%s\t%s\t%s..%s\t%s\tT:%s\tR:%s\tL:%s\tST:%s\tSR:%s\tSL:%s' %(repeat_junction, 'Shared', exper, chro, start, end, strand, l_count+r_count, r_count, l_count, left_supporting_l+right_supporting_r, right_supporting_r, left_supporting_l)
+        elif l_count == 0 and r_count == 0:
+            print >> REF, '%s\t%s\t%s\t%s\t%s..%s\t%s\tT:%s\tR:%s\tL:%s\tST:%s\tSR:%s\tSL:%s' %(repeat_junction, 'Reference_Only', exper, chro, start, end, strand, l_count+r_count, r_count, l_count, left_supporting_l+right_supporting_r, right_supporting_r, left_supporting_l)
+        else:
+            print >> REF, '%s\t%s\t%s\t%s\t%s..%s\t%s\tT:%s\tR:%s\tL:%s\tST:%s\tSR:%s\tSL:%s' %(repeat_junction, 'insufficient_data', exper, chro, start, end, strand, l_count+r_count, r_count, l_count, left_supporting_l+right_supporting_r, right_supporting_r, left_supporting_l)
     REF.close()
-    txt2gff(ref, ref_gff, 'Shared, in ref and reads') 
+    txt2gff(ref, ref_gff)
  
 def read_direction(strands):
     plus  = 0
@@ -525,7 +544,7 @@ def align_process(bin_ins, read_repeat, record, r, r_tsd, count, seq, chro, star
 #existing_TE_bed_reader
 #Chr4    1072    1479    Simple_repeat:1072-1479 1       +
 #Chr4    1573    1779    Simple_repeat:1573-1779 0       +
-def existing_TE_bed_reader(infile, existingTE_intact, chro):
+def existing_TE_bed_reader(infile, existingTE_intact, chro, existingTE_intact_id):
     #print 'Reading existing TE bed'
     with open(infile, 'r') as filehd:
         for line in filehd:
@@ -538,6 +557,7 @@ def existing_TE_bed_reader(infile, existingTE_intact, chro):
                     te_id = '%s:%s-%s:%s' %(unit[0], unit[1], unit[2], unit[5])
                     existingTE_intact[unit[0]]['start'][int(unit[1])] = te_id
                     existingTE_intact[unit[0]]['end'][int(unit[2])] = te_id
+                    existingTE_intact_id[te_id] = re.split(r':', unit[3])[0]
                     #print '%s\t%s\t%s' %(unit[0], unit[1], 'start')
                     #print '%s\t%s\t%s' %(unit[0], unit[2], 'end')
                     #if unit[5] == '+':
@@ -895,14 +915,15 @@ def main():
     #read existing TE from file
     #existing_TE_intact = defaultdict(lambda : defaultdict(lambda : int()))
     existingTE_intact = defaultdict(lambda : defaultdict(lambda : defaultdict(lambda : str)))
+    existingTE_intact_id = defaultdict(lambda: str())
     existingTE_bed     = '%s/existingTE.bed' %('/'.join(top_dir))
     existingTE_bed_chr = '%s/existingTE.%s.bed' %('/'.join(top_dir), usr_target)
     #print existingTE_bed
     if os.path.isfile(existingTE_bed_chr) and os.path.getsize(existingTE_bed_chr) > 0:
-        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target)
+        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target, existingTE_intact_id)
     else:
         os.system('grep -P \"%s\\t\" %s > %s' %(usr_target, existingTE_bed, existingTE_bed_chr))
-        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target)
+        existing_TE_bed_reader(existingTE_bed_chr, existingTE_intact, usr_target, existingTE_intact_id)
         os.system('rm %s' %(existingTE_bed_chr))
         #print 'Existing TE file does not exists or zero size'
 
@@ -939,7 +960,7 @@ def main():
     find_insertion_cluster_bam(align_file, read_repeat, usr_target, TSD, teInsertions, teInsertions_reads, teReadClusters, teReadClusters_count, teReadClusters_depth, existingTE_intact, existingTE_found, teSupportingReads)
 
     ##output absence
-    write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_reads, required_left_reads, required_right_reads, teInsertions, teInsertions_reads, teSupportingReads, existingTE_intact, existingTE_found, teReadClusters, bedtools, lib_size)
+    write_output(top_dir, result, read_repeat, usr_target, exper, TE, required_reads, required_left_reads, required_right_reads, teInsertions, teInsertions_reads, teSupportingReads, existingTE_intact, existingTE_found, teReadClusters, bedtools, lib_size, existingTE_intact_id)
 
  
 if __name__ == '__main__':

@@ -8,8 +8,8 @@ log=`pwd`/install.log
 pythonlib=`pwd`/pythonlib
 bin=`pwd`/bin
 
-if [ ! -d './pythonlib' ]; then
-   mkdir pythonlib
+if [ ! -d './lib' ]; then
+   mkdir lib
 fi
 
 if [ ! -d './bin' ]; then
@@ -25,7 +25,7 @@ cd External_tools
 #echo "installing bwa-0.6.2"
 if [ ! -f './bwa-0.6.2/bwa' ]; then
     echo "installing bwa-0.6.2"
-    wget --output-document bwa-0.6.2.tar.bz2 'http://downloads.sourceforge.net/project/bio-bwa/bwa-0.6.2.tar.bz2?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fbio-bwa%2Ffiles%2F&ts=1471890846&use_mirror=superb-sea2' >> $log 2>&1
+    wget --output-document bwa-0.6.2.tar.bz2 'http://downloads.sourceforge.net/project/bio-bwa/bwa-0.6.2.tar.bz2' >> $log 2>&1
     tar -jxf bwa-0.6.2.tar.bz2 >> $log 2>&1
     cd bwa-0.6.2
     make >> $log 2>&1
@@ -56,7 +56,7 @@ fi
 #echo "installing bowtie2.2.9"
 if [ ! -f './bowtie2-2.2.9/bowtie2' ]; then
     echo "installing bowtie2.2.9"
-    wget --output-document bowtie2-2.2.9-linux-x86_64.zip 'http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.2.9/bowtie2-2.2.9-linux-x86_64.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fbowtie-bio%2Ffiles%2Fbowtie2%2F2.2.9%2F&ts=1471884842&use_mirror=pilotfiber' >> $log 2>&1
+    wget --output-document bowtie2-2.2.9-linux-x86_64.zip 'http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.2.9/bowtie2-2.2.9-linux-x86_64.zip' >> $log 2>&1
     unzip bowtie2-2.2.9-linux-x86_64.zip >> $log 2>&1
     cd bowtie2-2.2.9
     if test -e bowtie2; then
@@ -91,8 +91,8 @@ if [ ! -d $pythonlib/lib64/python2.7/site-packages/pysam-*.egg ] && [ ! -d $pyth
     git clone https://github.com/pysam-developers/pysam.git >> $log 2>&1
     cd pysam
     export PYTHONPATH=$pythonlib/lib64/python2.7/site-packages:$pythonlib/lib64/python2.7/site-packages:$PYTHONPATH
-    mkdir -p $pythonlib/lib64/python2.7/site-packages
     mkdir -p $pythonlib/lib/python2.7/site-packages
+    ln -s $pythonlib/lib $pythonlib/lib64
     python setup.py install --prefix $pythonlib >> $log 2>&1
     cd ../..
     (PYTHONPATH=$pythonlib/lib64/python2.7/site-packages:$pythonlib/lib/python2.7/site-packages python -c "import pysam;print pysam.__version__" && echo "pysam installed" ) || echo "pysam installation failed. Try to install manually."
@@ -118,7 +118,7 @@ fi
 #echo "installing samtools"
 if [ ! -f './samtools-1.3.1/samtools' ]; then
     echo "installing samtools"
-    wget --output-document samtools-1.3.1.tar.bz2 'http://downloads.sourceforge.net/project/samtools/samtools/1.3.1/samtools-1.3.1.tar.bz2?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsamtools%2Ffiles%2Fsamtools%2F1.3.1%2F&ts=1471888881&use_mirror=heanet' >> $log 2>&1
+    wget --output-document samtools-1.3.1.tar.bz2 'http://downloads.sourceforge.net/project/samtools/samtools/1.3.1/samtools-1.3.1.tar.bz2' >> $log 2>&1
     tar -jxf samtools-1.3.1.tar.bz2 >> $log 2>&1
     cd samtools-1.3.1
     ./configure --enable-plugins --enable-libcurl --prefix=`pwd` >> $log 2>&1
