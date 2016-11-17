@@ -4,7 +4,7 @@ use Data::Dumper;
 use Cwd;
 use Getopt::Long;
 
-if ( !defined @ARGV ) {
+if ( ! @ARGV ) {
   &getHelp;
 }
 
