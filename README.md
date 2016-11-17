@@ -21,7 +21,6 @@ echo "Installation via github"
 git clone https://github.com/JinfengChen/RelocaTE2.git
 cd RelocaTE2
 bash install.sh
-uz test_data.tar.gz
 cd test_data
 bash run_test.sh > run_test.sh.log 2>&1 &
 
@@ -35,7 +34,7 @@ conda create --name RelocaTE2 -c bioconda relocate2
 #run test data
 source activate RelocaTE2
 cd /PATH_TO_miniconda/env/RelocaTE2
-tar -zxf test_data.tar.gz
+cd test_data
 bash run_test.sh > run_test.sh.log 2>&1 &
 ```
 
