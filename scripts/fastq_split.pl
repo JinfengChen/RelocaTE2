@@ -11,7 +11,7 @@ my %uncompress = ('bz2' => 'bzcat',
 my $size = 1_000_000;
 my $outdir;
 
-if (!defined @ARGV){
+if (! @ARGV){
   print "Please Provide 
 -s int The number of sequences per file [1_000_000]
 -o dir The name of the directory to output the files
