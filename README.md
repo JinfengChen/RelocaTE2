@@ -221,4 +221,5 @@ Right\_support\_reads: number of reads not covering the junction of TE insertion
 Left\_support\_reads: number of reads not covering the junction of TE insertion, but supporting TE insertion by paired-end reads on left side/downstream.
 
 ## Publications
-1. [Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.](http://www.g3journal.org/content/3/6/949.long)
+1. [Chen, J., Wrightsman T, Wessler SR, Stajich JE. (2017) RelocaTE2: a high resolution transposable element insertion site mapping tool for population resequencing. PeerJ 5:e2942.](https://peerj.com/articles/2942/)
+2. [Robb S.M., Lu L., Valencia E., Burnette J.M. 3rd., Okumoto Y., Wessler S.R., Stajich J.E. (2013) The use of RelocaTE and unassembled short reads to produce high-resolution snapshots of transposable element generated diversity in rice. G3 2013;3:949-957.](http://www.g3journal.org/content/3/6/949.long)
