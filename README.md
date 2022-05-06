@@ -66,7 +66,7 @@ python scripts/relocaTE2.py --te_fasta $repeat --genome_fasta $ref --fq_dir $fq_
 ```
   - check results of TE insertions and compare with simulated TE insertions
 ```shell
-wc -l MSU7.Chr3.ALL.rep1_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
+wc -l MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff
 196
 bedtools window -w 10 -a MSU7.Chr3_2M.ALL.gff -b MSU7.Chr3_2M.ALL_reads_RelocaTE2_outdir/repeat/results/ALL.all_nonref_insert.gff | wc -l
 196
