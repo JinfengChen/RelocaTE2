@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 import re
@@ -32,7 +32,7 @@ python relocaTE2.py --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --o
 
 
     '''
-    print message
+    print(message)
 
 def parse_config(infile):
     data = defaultdict(lambda : str())
@@ -112,7 +112,7 @@ def mp_pool_function(function, parameters, cpu):
     imap_it = pool.map(function, tuple(parameters))
     collect_list = []
     for x in imap_it:
-        print 'status: %s' %(x)
+        print('status: %s' %(x))
         collect_list.append(x)
     return collect_list
 
@@ -130,7 +130,7 @@ def mp_pool(cmds, cpu):
     imap_it = pool.map(shell_runner, cmds)
     count= 0
     for x in imap_it:
-        print 'job: %s' %(cmds[count])
+        print('job: %s' %(cmds[count]))
         #print 'status: %s' %(x)
         count += 1
 
@@ -240,8 +240,8 @@ def main():
             fastq_dir = os.path.abspath(args.fq_dir)
 
 
-    if args.verbose > 0: print fastq_dir
-    if args.verbose > 0: print mode
+    if args.verbose > 0: print (fastq_dir)
+    if args.verbose > 0: print (mode)
 
     #
     if args.dry_run is False:
@@ -395,7 +395,7 @@ def main():
         test_fq = '%s/p00.%s' %(split_outdir, os.path.split(fastqs[0])[1])
         if os.path.splitext(fastqs[0])[1] == '.gz': 
             test_fq = '%s/p00.%s' %(split_outdir, os.path.splitext(os.path.split(fastqs[0])[1])[0])
-        print 'testing if sub fastq exist: %s' %(test_fq)
+        print ('testing if sub fastq exist: %s' %(test_fq))
         if os.path.isfile(test_fq):
             print 'sub fastq file exists: fill fastq_dict'
             subfqs = glob.glob('%s/*.f*q' %(split_outdir))
@@ -406,7 +406,7 @@ def main():
                 else:
                     fastq_dict[subfq] = '1'
         else:
-            print 'sub fastq does not exist: preceed with split and fill fastq_dict'
+            print('sub fastq does not exist: preceed with split and fill fastq_dict')
             for fq in fastqs:
                 parameters.append([fq, split_outdir, fa_convert, seqtk, fastq_split])
             ##split fastq to use multiprocess run jobs

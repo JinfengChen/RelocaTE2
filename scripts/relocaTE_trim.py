@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 import re
@@ -24,7 +24,7 @@ Parse blat or bam file. Write TE matched reads and their pairs into files.
 *.five_prime.fa/*.three_prime.fa: TE proportion of reads that matched to TE
 *.potential_tandemInserts_containing_reads.list.txt: reads have two or more matches on TE and on same strand. Tandem insertions and Highly false positive.
     '''
-    print message
+    print(message)
 
 def complement(seq):
     complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}

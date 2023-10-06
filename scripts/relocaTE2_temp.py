@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 import re
@@ -32,7 +32,7 @@ python relocaTE2.py --te_fasta $repeat --genome_fasta $genome --fq_dir $fq_d --o
 
 
     '''
-    print message
+    print(message)
 
 def parse_config(infile):
     data = defaultdict(lambda : str())

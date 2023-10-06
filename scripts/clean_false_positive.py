@@ -1,17 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 import re
 import os
 import argparse
+from Bio import SeqIO
 
 def usage():
     test="name"
     message='''
-python Python.py --input ALL.all_nonref_insert.gff --refte ~/BigData/00.RD/RelocaTE_i/Simulation/Reference/MSU7.Chr3.fa.RepeatMasker.out.bed
-
+         python Python.py --input ALL.all_nonref_insert.gff --refte ~/BigData/00.RD/RelocaTE_i/Simulation/Reference/MSU7.Chr3.fa.RepeatMasker.out.bed
     '''
-    print message
+    print(message)
 
 def fasta_id(fastafile):
     fastaid = defaultdict(str)
@@ -63,7 +63,7 @@ def Overlap_TE_boundary(prefix, refte, distance, bedtools):
     os.system('%s window -w %s -a %s -b %s > %s' %(bedtools, int(distance) + 10, final_gff, refte, infile))
     if not os.path.isfile(infile) or not os.path.getsize(infile) > 0:
         return 1
-    print 'filter existing TE: %s bp' %(distance) 
+    print('filter existing TE: %s bp' %(distance))
     ofile  = open(outfile, 'w') 
     with open (infile, 'r') as filehd:
         for line in filehd:
@@ -72,7 +72,7 @@ def Overlap_TE_boundary(prefix, refte, distance, bedtools):
                 unit = re.split(r'\t',line)
                 temp = defaultdict(str)
                 attrs = re.split(r';', unit[8])
-                print line
+                print(line)
                 for attr in attrs:
                     if not attr == '':
                         attr = re.sub(r':', '=', attr)
@@ -93,14 +93,15 @@ def Overlap_TE_boundary(prefix, refte, distance, bedtools):
     ofile.close()
     if not os.path.isfile(outfile) or not os.path.getsize(outfile) > 0:
         #nothing to remove
-        print 'nothing to remove'
+        print('nothing to remove')
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(raw_gff, all_gff))
         os.system('grep -v \"singleton\|insufficient_data\|supporting_reads\" %s > %s' %(raw_gff, final_gff))
         os.system('grep -v -e \"Right_junction_reads=1;Left_junction_reads=0\" -e \"Right_junction_reads=0;Left_junction_reads=1\" %s > %s' %(final_gff, high_gff)) 
         os.system('rm %s.overlap %s.remove.gff' %(prefix, prefix))
     else:
-        print 'remove by bedtool'
+        # future code - rewrite using bedtools library
+        print('remove by bedtool')
         os.system('%s intersect -v -a %s -b %s > %s' %(bedtools, final_gff, outfile, clean_gff))
         os.system('mv %s %s' %(final_gff, raw_gff))
         os.system('cp %s %s' %(clean_gff, all_gff))
