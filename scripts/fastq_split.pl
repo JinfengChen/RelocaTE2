@@ -1,4 +1,5 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
+use warnings;
 use strict;
 use Getopt::Long;
 use File::Spec;
