@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 import re
@@ -15,7 +15,7 @@ Takes pairs of fastq files, which is trimmed from repeat blat results seperately
 *.matched: contain reads that have mates in eigher trimmed fastq or in original fastq (whether includes these in TE_containing need to test).
 *.unPaired.fq: contains trimmed reads that do not have mates found and contain the mate pairs of reads that matched to middle of repeat only if the mate pair is not repeat, but not reads themselve as they are part of repeat (whether includes these mates in TE_containing need to test).
     '''
-    print message
+    print(message)
 
 #we only need these reads matched to TE but not used as flanking_fq
 #store only these reads not labeled with @read_500_403/1:middle or @read_500_403/1:end:5

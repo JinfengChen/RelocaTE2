@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 import sys
 from collections import defaultdict
 from collections import OrderedDict
@@ -14,7 +14,7 @@ def usage():
 RelocaTE2: improved version of RelocaTE for calling transposable element insertions
 
     '''
-    print message
+    print(message)
 
 #Retro1  ACGTC   not.give        Chr4    14199..14203    -       T:7     R:4     L:3     ST:21   SR:9    SL:12
 def txt2gff(infile, outfile):

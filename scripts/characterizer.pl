@@ -1,4 +1,5 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
+use warnings;
 use strict;
 use Data::Dumper;
 use Cwd;
@@ -15,8 +16,9 @@ my $genome_fasta;
 ## can be a single .bam file or a direcotory containing .bam files
 my @bam_files;    
 my $excision = 0;
-my $samtools;
-my $bedtools;
+my $samtools='samtools';
+my $bcftools='bcftools';
+my $vcfutils='vcfutils.pl';
 
 GetOptions(
   's|sites_file:s'   => \$sites_file,
@@ -24,7 +26,8 @@ GetOptions(
   'g|genome_fasta:s' => \$genome_fasta,
   'x|excision:i'     => \$excision,
   'samtools:s'       => \$samtools,
-  'bedtools:s'       => \$bedtools
+  'bcftools:s'       => \$bcftools,
+  'vcfutils:s'       => \$vcfutils
 );
 
 sub getHelp {
@@ -203,7 +206,7 @@ if ($excision) {
   foreach my $pos ( keys %matches ) {
     my ( $target, $loc ) = split /\./, $pos;
     next unless exists $toPrint{$target}{$loc};
-    my $range      = "$target:$pos";
+    my $range      = "$target:$loc";
     my $sam        = "$cwd/$pos.sam";
     my $bam        = "$cwd/$pos.bam";
     my $sorted_bam = "$cwd/$pos.sorted";
@@ -216,8 +219,8 @@ if ($excision) {
       `$samtools sort $bam $sorted_bam`;
       `$samtools index $sorted_bam.bam`;
 
-`$samtools mpileup -C50 -ugf $genome_fasta -r $range  $sorted_bam.bam | bcftools view -bvcg - > $cwd/$pos.var.raw.bcf`;
-`bcftools view $cwd/$pos.var.raw.bcf | vcfutils.pl varFilter -D 100 > $cwd/$pos.var.flt.vcf`;
+`$samtools mpileup -C50 -ugf $genome_fasta $sorted_bam.bam | $bcftools view -bvcg - > $cwd/$pos.var.raw.bcf`;
+`$bcftools view $cwd/$pos.var.raw.bcf | $vcfutils varFilter -D 100 > $cwd/$pos.var.flt.vcf`;
       push @vcfs, "$cwd/$pos.var.flt.vcf";
       push @unlink_files, $sam, $bam, "$sorted_bam.bam.bai", "$sorted_bam.bam",
         "$cwd/$pos.var.raw.bcf", "$cwd/$pos.var.flt.vcf";

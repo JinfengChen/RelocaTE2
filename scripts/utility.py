@@ -2,7 +2,10 @@
 #functions used in several scripts
 #jinfeng.chen@ucr.edu
 
-
+import os
+import re
+import multiprocessing as mp
+from Bio import SeqIO
 
 ##############################dirs and files##################
 ##create new directory
@@ -24,7 +27,7 @@ def mp_pool_function(function, parameters, cpu):
     imap_it = pool.map(function, tuple(parameters))
     collect_list = []
     for x in imap_it:
-        print 'status: %s' %(x)
+        print('status: %s' %(x))
         collect_list.append(x)
     return collect_list
 
@@ -43,16 +46,16 @@ def mp_pool(cmds, cpu):
     imap_it = pool.map(shell_runner, cmds)
     count= 0
     for x in imap_it:
-        print 'job: %s' %(cmds[count])
-        print 'status: %s' %(x)
+        print('job: %s' %(cmds[count]))
+        print('status: %s' %(x))
         count += 1
 
 ##run job by sequence
 def single_run(cmds):
     for cmd in cmds:
         status = shell_runner(cmd)
-        print 'job: %s' %(cmd)
-        print 'status: %s' %(status)
+        print('job: %s' %(cmd))
+        print('status: %s' %(status))
 
 
 
